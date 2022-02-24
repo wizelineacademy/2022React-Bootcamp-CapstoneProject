@@ -28,10 +28,10 @@ We don’t want to limit you or bias your implementation by providing some demo 
 We provide the delivery dates to plan accordingly. Please take this project seriously and try to make progress constantly. If you are struggling with something or get stuck at some point, please schedule a mentoring session to get help on time. Feel free to use the slack channel available.
 
 The following is the list deliverables:
-- [**Deliverable 1**](#deliverable-1)
-- [**Deliverable 2**](#deliverable-2)
-- [**Deliverable 3**](#deliverable-3)
-- [**Final Deliverable**](#deliverable-4)
+- [**Deliverable 1**](#deliverable-1)(Due date Monday, March 7th)
+- [**Deliverable 2**](#deliverable-2) (Due date Monday, March 14th)
+- [**Deliverable 3**](#deliverable-3) (Due date Monday, March 28th)
+- [**Final Deliverable**](#deliverable-4) (Due date Monday, April 4th)
 
 
 ### Submitting your Deliverables
