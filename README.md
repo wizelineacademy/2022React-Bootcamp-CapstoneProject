@@ -1,4 +1,4 @@
-# React Capstone Project 4
+# React Bootcamp Capstone Project
 
 ## Overview
 
@@ -31,8 +31,8 @@ The following is the list deliverables:
 - [**Deliverable 1**](#deliverable-1)
 - [**Deliverable 2**](#deliverable-2)
 - [**Deliverable 3**](#deliverable-3)
-- [**Deliverable 4**](#deliverable-4)
-- [**Final Deliverable**](#final-deliverable)
+- [**Final Deliverable**](#deliverable-4)
+
 
 ### Submitting your Deliverables
 
