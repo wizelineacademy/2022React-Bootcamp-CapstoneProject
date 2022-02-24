@@ -270,7 +270,7 @@ The bonus is a plus that helps us know you better and increments your final scor
 - PropTypes are implemented correctly for all your components: 10 points
 
 
-## Deliverable 4
+## Final Deliverable
 
 - **Goal**: In this assignment, you will continue working on your Ecommerce Store. It should contain the following:
   - Product Detail Page (with “Add to Cart” functionality)
@@ -342,7 +342,7 @@ The bonus is a plus that helps us know you better and increments your final scor
 - Error Boundaries are applied correctly at least for 1 component within the app (15 points)
 - useMemo and useCallback hooks are implemented correctly to improve performance if needed (20 points)
 
-## Final Deliverable
+## Optional Deliverable
 
 - **Goal**: In this final assignment, you will add automated tests to the current features that you already have for your E-commerce project.
 - **Related topics:** Static Analysis Code, Jest and React Testing Library
