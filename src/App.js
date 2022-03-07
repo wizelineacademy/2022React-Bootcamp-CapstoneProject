@@ -1,14 +1,14 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { useFeaturedBanners } from "./utils/hooks/useFeaturedBanners";
+import Header from "./components/Header/Header";
+import Home from "./pages/Home/Home";
+import Footer from "./components/Footer/Footer";
 
 function App() {
-  const { data, isLoading } = useFeaturedBanners();
-  console.log(data, isLoading);
-
   return (
-    <div className='App'>
-      <header className='App-header'>app</header>
+    <div>
+      <Header />
+      <Home />
+      <Footer />
     </div>
   );
 }
