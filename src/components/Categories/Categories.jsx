@@ -10,15 +10,14 @@ const ProductCategories = () => {
 
   return (
     <section>
-      <h4>Product Categories</h4>
+      <h4>Categories</h4>
       <div>
-        {data.results.map((product) => (
+        {data.results.map((category) => (
           <Card
-            key={product.id}
-            id={product.id}
-            name={product.data.name}
-            image={product.data.main_image.url}
-            buttonText='Go to category'
+            key={category.id}
+            id={category.id}
+            name={category.data.name}
+            image={category.data.main_image.url}
           />
         ))}
       </div>
