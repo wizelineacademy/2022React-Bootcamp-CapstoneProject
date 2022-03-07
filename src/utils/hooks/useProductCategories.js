@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { API_BASE_URL } from "../constants";
 import { useLatestAPI } from "./useLatestAPI";
 
-export function useProductCategories(cid) {
+export function useProductCategories() {
   const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
   const [productCategories, setProductCategories] = useState(() => ({
     data: {},
@@ -29,11 +29,7 @@ export function useProductCategories(cid) {
           }
         );
         const data = await response.json();
-        data.results = data.results.map((category) =>
-          category.id === cid
-            ? { ...category, active: true }
-            : { ...category, active: false }
-        );
+
         setProductCategories({ data, isLoading: false });
       } catch (err) {
         setProductCategories({ data: {}, isLoading: false });
@@ -46,7 +42,7 @@ export function useProductCategories(cid) {
     return () => {
       controller.abort();
     };
-  }, [apiRef, isApiMetadataLoading, cid]);
+  }, [apiRef, isApiMetadataLoading]);
 
   return productCategories;
 }
