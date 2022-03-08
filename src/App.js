@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './components/css/navbar.css';
+import './components/css/styles.css';
+import './components/css/grid.css';
 import './components/css/footer.css';
+
 import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
 import { NavBar } from './components/navbar';
 import { BodyDiv } from './components/body';
@@ -20,3 +23,4 @@ function App() {
 }
 
 export default App;
+
