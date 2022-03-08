@@ -9,7 +9,7 @@
     "eslint": "^7.32.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "^5.0.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -77,5 +77,17 @@
       "last 1 safari version"
     ]
   },
+  "description": "Here you will find all the instructions to complete your **Capstone Project**.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PilarPinto/react-bootcamp-capstone-4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PilarPinto/react-bootcamp-capstone-4/issues"
+  },
+  "homepage": "https://github.com/PilarPinto/react-bootcamp-capstone-4#readme",
   "devDependencies": {}
 }

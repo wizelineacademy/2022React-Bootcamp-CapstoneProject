@@ -1,6 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
-import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
+import Logo from "./oso1.png";
+import "./App.css";
+import { useFeaturedBanners } from "./utils/hooks/useFeaturedBanners";
 
 function App() {
   const { data, isLoading } = useFeaturedBanners();
@@ -8,20 +8,16 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App-header">
+        <img src={Logo} className="App-logo" alt="logo" />
+        <header className="Home-title">Bear Ecommerce</header>
+      </div>
+      <div className="App-body">
+        <p className="paragraph-title">Bienvenidos a Bear Ecommerce</p>
+      </div>
+      <div className="App-footer">
+        <p className="Footer-title">Este es el footer</p>
+      </div>
     </div>
   );
 }
