@@ -10,8 +10,8 @@ export const NavBar = () => {
       <div className="search-container">
         <form action="/">
           <input type="text" placeholder="Search.." name="search"/>
-          <button type="submit"><i className="fa fa-shopping-cart"></i></button>
-          <button type="submit"><i className="fa fa-search"></i></button>
+          <button type="submit"><i className="fa fa-shopping-cart"/></button>
+          <button type="submit"><i className="fa fa-search"/></button>
         </form>
       </div>
     </div>

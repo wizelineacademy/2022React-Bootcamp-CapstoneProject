@@ -13,7 +13,8 @@ export const Grid_f = () => {
           <div className="responsive">
             <div className="gallery">
               <a target="_blank" href={value.data.name}>
-                <img src={value.data.main_image.url} alt={value.data.name} width="600" height="400"/>
+                <img src={value.data.main_image.url} 
+                 alt={value.data.name} width="600" height="400"/>
               </a>
               <div className="desc" key={value.id}>{value.data.name}</div>
             </div>

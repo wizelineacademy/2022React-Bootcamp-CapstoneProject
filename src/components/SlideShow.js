@@ -4,7 +4,7 @@ import { Slide } from "react-slideshow-image";
 const slideImages = [
   "https://www.w3schools.com/howto/img_woods_wide.jpg",
   "https://react-slideshow.herokuapp.com/images/slide_3.jpg",
-  "https://react-slideshow.herokuapp.com/images/slide_4.jpg"
+  "https://react-slideshow.herokuapp.com/images/slide_4.jpg",
 ];
 
 const properties = {
@@ -23,9 +23,7 @@ const SlideShow = () => {
   return (
     <>
       <h2>SlideShow</h2>
-      <div className="slide-container">
-
-      </div>
+      <div className="slide-container"/>
     </>
   );
 };
