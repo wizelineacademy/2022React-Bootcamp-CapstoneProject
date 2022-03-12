@@ -12,7 +12,7 @@ export const Grid = () => {
         return (
           <div className="responsive">
             <div className="gallery">
-              <a target="_blank" href={value.sprite}>
+              <a target="_blank" href={value.sprite} rel="noreferrer">
                 <img src={value.data.mainimage.url} alt={value.data.name} width="600" height="400"/>
               </a>
               <div className="desc" key={value.id}>{value.data.name}</div>
