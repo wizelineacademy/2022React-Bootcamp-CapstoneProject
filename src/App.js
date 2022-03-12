@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './components/css/navbar.css';
 import './components/css/styles.css';
 import './components/css/grid.css';

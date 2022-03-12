@@ -5,14 +5,14 @@ import pc from "./mock/product-categories.json";
 export const pcat = pc.results;
 
 
-export const Grid_f = () => {
+export const Gridf = () => {
   return (
     <div>
         {pcat.map((value) => {
         return (
           <div className="responsive">
             <div className="gallery">
-              <a target="_blank" href={value.data.name}>
+              <a target="_blank" href={value.data.name} rel="noreferrer">
                 <img src={value.data.main_image.url} 
                  alt={value.data.name} width="600" height="400"/>
               </a>

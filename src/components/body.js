@@ -1,13 +1,13 @@
 import React from "react";
 import SlideShow from "./SlideShow";
-import { Grid_f } from "./grid_f";
+import { Gridf } from "./gridf";
 import { Grid } from "./grid";
 
 export const BodyDiv = () => {
   return (
     <body>
        <SlideShow/>
-      <Grid_f/>
+      <Gridf/>
       <Grid/>
     </body>
   );
