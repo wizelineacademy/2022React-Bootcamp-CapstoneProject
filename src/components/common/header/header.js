@@ -11,11 +11,20 @@ const HeaderStyled = styled.div`
     padding: 0 20px;
     box-sizing: border-box;
     border-bottom: 2px solid #3d1d0f;
-    `
-export const Header = () => {
+    .logoButton {
+        background: none;
+        border: none;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    `;
+
+export const Header = ({setActiveState}) => {
     return (
         <HeaderStyled>
-                <Logo/>
+                <button className="logoButton" 
+                onClick={() => setActiveState('HP')}><Logo /></button>
                 <SearchBar/>
                 <Cart/>
         </HeaderStyled>

@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import FeaturedProducts from './../../mocks/en-us/featured-products.json';
+import { Product } from "./product";
 
 const productList = FeaturedProducts.results;
 
@@ -39,21 +40,14 @@ const ProductStyled = styled.div`
         }
     }
 `
-export const Product = () => {
+
+export const Products= () => {
     return (
         <>
             {productList.map((product, i) => {
-                 const imageSource = productList[i].data.mainimage.url;
-                 const imageAlt = productList[i].data.mainimage.alt;
-                 const productName = productList[i].data.name;
-                 const productCategory = productList[i].data.category.slug;
-                 const productPrice = productList[i].data.price;
                 return (
                     <ProductStyled key={productList[i].id}>
-                        <p className="productName">{productName}</p>
-                        <p className="productCategory">{productCategory}</p>
-                        <img src={imageSource} alt={imageAlt}/>
-                        <p className="productPrice"><span>Price</span> ${productPrice}</p>
+                        <Product n={i}/>
                     </ProductStyled>
                 )
             })}

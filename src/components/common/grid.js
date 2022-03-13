@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Category } from "./categories";
-import { Product } from "./products";
+import { Products } from "./products";
 
 const GridStyled = styled.div`
     display: flex;
@@ -11,7 +11,7 @@ const GridStyled = styled.div`
 export const ProductGrid = () => {
     return (
         <GridStyled>
-            <Product/>
+            <Products/>
         </GridStyled>
     )
 }
