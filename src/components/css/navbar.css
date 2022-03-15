@@ -72,3 +72,11 @@ body {
     border: 1px solid #ccc;  
   }
 }
+
+.img{
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: -6px;
+}

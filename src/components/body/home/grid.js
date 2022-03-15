@@ -1,11 +1,10 @@
 import React from "react";
 
-import fp from "../components/mock/featured-products.json";
+import fp from "../../mock/featured-products.json";
 
 export const fprod = fp.results;
 
-
-export const Grid = () => {
+export const Grid = ({route, onchange}) => {
   return (
     <div>
         {fprod.map((value) => {
@@ -18,9 +17,14 @@ export const Grid = () => {
               <div className="desc" key={value.id}>{value.data.name}</div>
             </div>
           </div>
+          
         );
       })}
-
+      <div className="divbut">
+        <a className="button"
+          href="#products"
+          onClick={() => onchange('/products')}>View all products</a>
+      </div>
     </div>
   );
 };

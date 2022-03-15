@@ -1,6 +1,6 @@
 import React from "react";
 
-import pc from "./mock/product-categories.json";
+import pc from "../../mock/product-categories.json";
 
 export const pcat = pc.results;
 
