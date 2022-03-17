@@ -3,6 +3,7 @@ import {Test} from "./components/Test";
 import { Header } from './components/Header';
 import { Slidder } from './components/slidder/Slidder';
 import { Grid } from './components/grid/Grid'
+import { Footer } from './components/Footer';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <Test/>
         <Slidder/>
         <Grid/> 
+        <Footer/>
     </div>
   );
 }

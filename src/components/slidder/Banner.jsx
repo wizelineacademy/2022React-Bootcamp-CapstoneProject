@@ -8,7 +8,6 @@ import info from './featured-banners.json'
 export const Banner = () => {
 
     const newData = JSON.parse(JSON.stringify(info.results))
-    console.log(newData)
 
     return (
     

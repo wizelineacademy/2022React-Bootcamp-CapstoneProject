@@ -18,7 +18,13 @@ export const Card = () => {
                             <img  className='image-furniture'
                             key={i} src={ cards.data.images[0].image.url } 
                             alt='furniture'
-                            />    
+                            /> 
+                            <div className='product-info'>
+                                <p className='product-name'>{cards.data.name}</p>
+                                <p>{cards.data.category.type.toUpperCase()}</p>
+                                <p className='price'>${cards.data.price}</p>     
+                            </div>
+                            
                         </div>
                     )   
                     }

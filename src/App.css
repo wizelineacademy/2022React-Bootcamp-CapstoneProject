@@ -6,6 +6,7 @@
 body {
     background-color: #faf5e4;
     overflow-x: hidden;
+    height: 100vh;
 }
 
 .cart {
@@ -16,6 +17,8 @@ body {
 header {
     background: #004445;
     height: 410px;
+    width: 100%;
+    top: 0%;
 }
 
 .header-elements {
@@ -51,6 +54,7 @@ header {
 
 .logo {
     height: 80px;
+    width: 130px;
     margin-top: 2%;
     position: absolute;
     padding-left: 2%;
@@ -116,7 +120,7 @@ img {
 .grid-container {
     margin: 0 auto;
     padding: 50px;
-    width: 95%;
+    width: 99%;
     display: flex;
     flex-wrap: wrap;
     background: #004445;
@@ -124,17 +128,19 @@ img {
     align-content: center;
     justify-content: center;
     min-height: 100vh;
+    margin: 5px;
 }
 
 .single-furniture {
     flex: 1 1 15%;
-    background: #333;
+    text-align: center;
+    background: white;
     margin: 20px 20px 0 0;
     order: 5;
     box-shadow: 0 15px 15px rgba(51, 51, 51, 0.38);
     border-radius: 10px;
-    width: 70px;
-    height: 200px;
+    width: 250px;
+    height: 320px;
 }
 
 .single-furniture:first-child {
@@ -142,7 +148,7 @@ img {
 }
 
 .single-furniture:nth-child(n+3) {
-    background: #299;
+    background: white;
     align-self: flex-end;
 }
 
@@ -151,14 +157,36 @@ img {
     order: 1;
 }
 
-.image-furniture {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-}
-
 @media screen and (max-width: 800px) {
     .grid-container .image-furniture {
         flex: 100%;
     }
+}
+
+.footer {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #004445;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    min-height: calc(10vh - 10px);
+    color: #f8b400;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.image-furniture {
+    width: 180px;
+    height: 180px;
+    margin: 10px;
+}
+
+.product-info {
+    margin-top: 0px;
+    padding: 0px;
+    font-family: 'Ubuntu', sans-serif;
+    color: #004445;
+    display: block;
+    font-size: 15px;
 }
