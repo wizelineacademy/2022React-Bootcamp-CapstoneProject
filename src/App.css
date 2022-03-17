@@ -5,8 +5,8 @@ body {
 }
 
 .cart {
-    height: 28px;
     color: #f8b400;
+    height: 28px;
 }
 
 header {
@@ -25,41 +25,41 @@ header {
 
 .green-sofa {
     display: block;
+    height: 400px;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    height: 400px;
 }
 
 .lamp {
     height: 150px;
+    left: 60%;
     position: absolute;
     top: 0%;
-    left: 60%;
 }
 
 .lamp2 {
     height: 150px;
+    left: 66%;
     position: absolute;
     top: 0%;
-    left: 66%;
 }
 
 .logo {
     height: 80px;
-    position: absolute;
     margin-top: 2%;
+    position: absolute;
     padding-left: 2%;
 }
 
 .slogan {
+    color: #f8b400;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 50px;
+    left: 50%;
     position: absolute;
     top: 14%;
-    left: 50%;
     transform: translate(-70%, -30%);
-    font-family: 'Ubuntu', sans-serif;
-    color: #f8b400;
-    font-size: 50px;
     text-shadow: 3px 3px 6px black;
 }
 
@@ -83,4 +83,19 @@ header {
     background-color: #004445;
     color: #f8b400;
     height: 30px;
+}
+
+.slide-container {
+    display: flex;
+    align-items: center;
+    max-width: 90rem;
+    overflow-y: auto;
+}
+
+.single-item {
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    justify-content: center;
+    margin: 0px 4px 5px;
 }
