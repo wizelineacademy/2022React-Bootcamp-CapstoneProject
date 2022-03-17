@@ -1,8 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
- import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons'
-
 import info from './featured-products.json'
 
 
@@ -12,22 +8,22 @@ export const Card = () => {
     console.log(newData)
 
     return (
-
-        <div className = 'slide-container' >
-            <FontAwesomeIcon icon={ faArrowCircleLeft }  onClick={()  =>  {}}/>
+    
+        <div className = 'grid-container' >
             {
                 newData.map((cards,i )=> {
         
                     return   (
-                         <div className='single-item'>
-                            <img key={i} src={ cards.data.images[0].image.url } alt='furniture'
+                         <div className='single-furniture'>
+                            <img  className='image-furniture'
+                            key={i} src={ cards.data.images[0].image.url } 
+                            alt='furniture'
                             />    
                         </div>
                     )   
                     }
                ) }
-          
-              <FontAwesomeIcon icon={ faArrowCircleRight }  />
         </div>
              )
+             
          }

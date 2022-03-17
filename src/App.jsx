@@ -1,7 +1,8 @@
 import './App.css';
 import {Test} from "./components/Test";
 import { Header } from './components/Header';
-import { Grid } from './components/grid/Grid';
+import { Slidder } from './components/slidder/Slidder';
+import { Grid } from './components/grid/Grid'
 
 function App() {
 
@@ -10,7 +11,8 @@ function App() {
     <div className="App">
         <Header/>
         <Test/>
-        <Grid/>
+        <Slidder/>
+        <Grid/> 
     </div>
   );
 }
