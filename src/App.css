@@ -96,7 +96,7 @@ header {
 .slide-container {
     display: flex;
     align-items: center;
-    max-width: 90rem;
+    max-width: 300rem;
     overflow-y: auto;
 }
 
@@ -113,8 +113,8 @@ header {
 }
 
 img {
-    width: 100px;
-    height: 100px;
+    width: 410px;
+    height: 300px;
 }
 
 .grid-container {
@@ -188,5 +188,9 @@ img {
     font-family: 'Ubuntu', sans-serif;
     color: #004445;
     display: block;
-    font-size: 15px;
+    font-size: 10px;
+}
+
+.product-name {
+    font-size: 13px;
 }

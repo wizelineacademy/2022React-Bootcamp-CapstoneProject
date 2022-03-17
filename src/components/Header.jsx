@@ -12,7 +12,7 @@ export const  Header = () => {
         <header>
             <img  className='logo'src={logo} alt="Logo" />
             <div className="header-elements">
-                <p className="slogan">Find Better Furniture  For Better Living </p>
+                  <p className="slogan">Find Better Furniture  For Better Living </p>
                   <input className="search-main" type="search" name="Search" placeholder="Search" />
                   <FontAwesomeIcon className='search' icon={ faSearch } /> 
                   <FontAwesomeIcon className='cart' icon={ faShoppingCart } > </FontAwesomeIcon>

@@ -14,11 +14,11 @@ export const Banner = () => {
         <div className = 'slide-container' >
             <FontAwesomeIcon icon={ faArrowCircleLeft }  onClick={()  =>  {}}/>
             {
-                newData.map(( image, i  )=> {
+                newData.map(( {data: {main_image}}, i  )=> {
         
                     return   (
                          <div className='single-item'>
-                            <img key={ i } src={ image[0] } 
+                            <img key={ i } src={ main_image.url} 
                           
                             alt='furniture'
                             />    

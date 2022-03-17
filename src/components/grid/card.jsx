@@ -11,23 +11,19 @@ export const Card = () => {
     
         <div className = 'grid-container' >
             {
-                newData.map((cards,i )=> {
-        
-                    return   (
-                         <div className='single-furniture'>
-                            <img  className='image-furniture'
-                            key={i} src={ cards.data.images[0].image.url } 
-                            alt='furniture'
-                            /> 
-                            <div className='product-info'>
-                                <p className='product-name'>{cards.data.name}</p>
-                                <p>{cards.data.category.type.toUpperCase()}</p>
-                                <p className='price'>${cards.data.price}</p>     
-                            </div>
-                            
+                newData.map(( cards,cardIndex )=> (
+                    <div className='single-furniture'>
+                        <img className='image-furniture'
+                            key={cardIndex} src={cards.data.images[0].image.url}
+                            alt='furniture' />
+                        <div className='product-info'>
+                            < p className='product-name'>{cards.data.name}</p>
+                            <p>{cards.data.category.type.toUpperCase()}</p>
+                            <p className='price'>${cards.data.price}</p>
                         </div>
-                    )   
-                    }
+
+                    </div>
+                )
                ) }
         </div>
              )
