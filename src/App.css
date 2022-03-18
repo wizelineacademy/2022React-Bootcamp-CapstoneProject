@@ -10,7 +10,7 @@ body {
 }
 
 .cart {
-    color: #f8b400;
+    color: #ffcb9a;
     height: 28px;
 }
 
@@ -61,7 +61,7 @@ header {
 }
 
 .slogan {
-    color: #f8b400;
+    color: #ffcb9a;
     font-family: 'Ubuntu', sans-serif;
     font-size: 50px;
     left: 50%;
@@ -72,28 +72,36 @@ header {
 }
 
 ::placeholder {
-    color: #f8b400;
+    color: #ffcb9a;
     padding-left: 5px;
     font-family: 'Ubuntu', sans-serif;
 }
 
 .search {
     position: absolute;
-    color: #f8b400;
+    color: #ffcb9a;
     top: 6%;
     left: 90%;
 }
 
 .search-main {
-    border: 1px solid #f8b400;
+    border: 1px solid #ffcb9a;
     border-radius: 2%;
     outline: 0;
     background-color: #004445;
-    color: #f8b400;
+    color: #ffcb9a;
     height: 30px;
 }
 
 .slide-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    max-width: 300rem;
+    overflow-y: auto;
+}
+
+.items-container {
     display: flex;
     align-items: center;
     max-width: 300rem;
@@ -101,29 +109,30 @@ header {
 }
 
 .single-item {
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     cursor: pointer;
     justify-content: center;
     margin: 0px 4px 5px;
 }
 
-.slide-container::-webkit-scrollbar {
+.slide-container ::-webkit-scrollbar {
     display: none;
 }
 
-img {
-    width: 410px;
-    height: 300px;
+.banner-images {
+    width: 500px;
+    height: 350px;
 }
 
 .grid-container {
     margin: 0 auto;
+    margin-left: 10px;
     padding: 50px;
-    width: 99%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    background: #004445;
+    background: none;
     align-items: stretch;
     align-content: center;
     justify-content: center;
@@ -141,6 +150,7 @@ img {
     border-radius: 10px;
     width: 250px;
     height: 320px;
+    border: solid 1px #faf5e4;
 }
 
 .single-furniture:first-child {
@@ -172,8 +182,9 @@ img {
     width: 100%;
     height: 30px;
     min-height: calc(10vh - 10px);
-    color: #f8b400;
+    color: #ffcb9a;
     font-family: 'Ubuntu', sans-serif;
+    text-align: center;
 }
 
 .image-furniture {
@@ -193,4 +204,47 @@ img {
 
 .product-name {
     font-size: 13px;
+}
+
+.slidder-icon {
+    color: #004445;
+    font-size: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.categories-main {
+    margin: 0 auto;
+    padding: 16px;
+    width: 99%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.categories-container {
+    height: 250px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.categories-images {
+    height: 200px;
+    width: 200px;
+    position: relative;
+    border-radius: 100%;
+    border: 10px solid #004445;
+}
+
+.categories-name {
+    font-family: 'Ubuntu', sans-serif;
+    color: #ffcb9a;
+    position: absolute;
+    font-size: 18px;
+    text-shadow: 2px 2px 3px #004445;
 }
