@@ -31,11 +31,43 @@ div.gallery {
       width: 49.99999%;
       margin: 6px 0;
     }
+    .divbut{
+      position: relative;
+      height: 200px;
+    }
+    .button {
+      background-color: #2196F3;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
   }
   
   @media only screen and (max-width: 500px) {
     .responsive {
       width: 100%;
+    }
+    .divbut{
+      position: relative;
+      height: 200px;
+    }
+    .button {
+      background-color: #2196F3;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
     }
   }
   
@@ -43,4 +75,21 @@ div.gallery {
     content: "";
     display: table;
     clear: both;
+  }
+
+  .divbut{
+    position: relative;
+    height: 200px;
+  }
+  .button {
+    background-color: #2196F3;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
   }
