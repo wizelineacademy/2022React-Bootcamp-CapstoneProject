@@ -39,6 +39,7 @@ export const Banner = () => {
                   onClick={ scrollLeft } 
                 />
             <div className = 'items-container'  ref={ listRef }  >
+                <div>Hola</div>
              
             {
                 newData.map(( { data: { main_image } }, bannerIndex)=> {
