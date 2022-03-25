@@ -75,6 +75,7 @@ header {
     color: #ffcb9a;
     padding-left: 5px;
     font-family: 'Ubuntu', sans-serif;
+    font-weight: lighter;
 }
 
 .search-container {
@@ -97,6 +98,7 @@ header {
 }
 
 .slide-container {
+    display: flex;
     margin-top: 10px;
     align-items: center;
     max-width: 300rem;
