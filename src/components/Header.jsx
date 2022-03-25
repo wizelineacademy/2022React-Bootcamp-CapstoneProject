@@ -13,8 +13,15 @@ export const  Header = () => {
             <img  className='logo'src={logo} alt="Logo" />
             <div className="header-elements">
                   <p className="slogan">Find Better Furniture  For Better Living </p>
-                  <input className="search-main" type="search" name="Search" placeholder="Search" />
-                  <FontAwesomeIcon className='search' icon={ faSearch } /> 
+                  <div className="search-container">
+                      <input 
+                         className="search-main"
+                         type="search" 
+                         name="Search" 
+                         placeholder="Search" 
+                         />
+                      <FontAwesomeIcon className='search' icon={ faSearch } /> 
+                  </div>
                   <FontAwesomeIcon className='cart' icon={ faShoppingCart } > </FontAwesomeIcon>
             </div>
             <img  className='green-sofa'src={greenSofa} alt="Sofa Beige" />

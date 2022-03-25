@@ -77,11 +77,14 @@ header {
     font-family: 'Ubuntu', sans-serif;
 }
 
+.search-container {
+    display: flex;
+    flex-direction: row;
+}
+
 .search {
-    position: absolute;
     color: #ffcb9a;
-    top: 6%;
-    left: 90%;
+    padding: 7px;
 }
 
 .search-main {
@@ -95,7 +98,6 @@ header {
 
 .slide-container {
     margin-top: 10px;
-    display: flex;
     align-items: center;
     max-width: 300rem;
     overflow-y: auto;
