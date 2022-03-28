@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+  }
+  .container{
+    margin-left: 160px;
+    padding: 0px 10px;
+  }
+  /* Create three equal columns that floats next to each other */
+  .column {
+    float: left;
+   /* width: 33.33%;*/
+    /*padding: 10px;*/
+    padding: 0 6px 10px;
+    /*height: 300px; *//* Should be removed. Only for demonstration */
+    /*border: solid black 1px;*/
+  }
+  
+  /* Clear floats after the columns */
+  .row {
+    display: table;
+    clear: both;
+  }
+
+  img {
+    height: 420px; 
+    width: 327px;
+    object-fit: contain;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    /*width: 40%;*/
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .cont {
+    padding: 2px 16px;
+  }
+
+  .boton_comprar{
+    display: inline-block;
+    height: 50px;
+    width: 176px;
+    margin: 0 40px 0 16px;
+    box-sizing: border-box;
+    border: transparent;
+    border-radius: 60px;
+    font-family: "Raleway",sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: #fff;
+    background-color: #9cebd5;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .boton_agregar{
+    display: inline-block;
+    height: 50px;
+    width: 176px;
+    margin: 0 40px 0 16px;
+    box-sizing: border-box;
+    border: transparent;
+    border-radius: 60px;
+    font-family: "Raleway",sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: #fff;
+    background-color: #eb9ce7;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .product-text h1 {
+    margin: 0 0 0 38px;
+    padding-top: 52px;
+    font-size: 34px;
+    color: #474747;
+}

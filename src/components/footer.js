@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export const FootDiv = () => {
   return (
      <div className="footer">

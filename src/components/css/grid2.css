@@ -1,3 +1,17 @@
+.grid2_content{
+ /* display: block;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+  padding: 10px;
+  margin: auto;
+  width: 50%;
+  border: solid black 1px;*/
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  border: solid #2196F3 1px;
+}
+
 div.gallery {
     border: 1px solid #ccc;
   }
@@ -20,10 +34,10 @@ div.gallery {
     box-sizing: border-box;
   }
   
-  .responsive {
+  .responsive-2 {
     padding: 0 6px;
     float: left;
-    width: 24.99999%;
+    width: 19.99999%;
   }
   
   @media only screen and (max-width: 700px) {

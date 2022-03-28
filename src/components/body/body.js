@@ -1,29 +1,18 @@
 import React from "react";
-import SlideShow from "./home/SlideShow";
-import { Gridf } from "./home/gridf";
-import { Grid } from "./home/grid";
-import  Product from "./products/products"
+import { SlideShow } from "./home/SlideShow";
+import { Grid1 } from "./home/grid1";
+import { Grid2 } from "./home/grid2";
+
 
 
 export const BodyDiv = ({route,onchange}) => {
   return (
     <body>
-      {
-        route === '/' && (
           <>
             <SlideShow />
-            <Gridf />
-            <Grid route={route} onchange={onchange}/>
-          </>
-        )
-      }
-      {
-        route === '/products' && (
-          <>
-            <Product />
-          </>
-        )
-      }
+            <Grid1 />
+            <Grid2 />
+          </> 
     </body>
   );
 };

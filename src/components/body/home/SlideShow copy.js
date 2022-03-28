@@ -2,8 +2,6 @@
 import React from 'react';
 import { Slide } from 'react-slideshow-image';
 
-//import { useFeaturedBanners } from '../../../utils/hooks/useFeaturedBanners';
-
 import "../../css/slide.css";
 import 'react-slideshow-image/dist/styles.css'
 
@@ -14,30 +12,24 @@ const slideImages = [
   'https://images.prismic.io/wizeline-academy/edaf28da-2e46-4f75-8a69-a972119f40ed_banner-3-2.jpeg?auto=compress,format&rect=0,0,1429,700&w=1440&h=705'
 ];
 
-//export const slides = useFeaturedBanners;
-
-
 export const SlideShow = () => {
     return (
-    <>
-
       <div className='slide_content'>
-          <Slide easing="ease">
-            <div className="each-slide">
-              <div style={{ 'backgroundImage': `url(${slideImages[0]})` }}>
-              </div>
+        <Slide easing="ease">
+          <div className="each-slide">
+            <div style={{'backgroundImage': `url(${slideImages[0]})`}}>
             </div>
-            <div className="each-slide">
-              <div style={{ 'backgroundImage': `url(${slideImages[1]})` }}>
-              </div>
+          </div>
+          <div className="each-slide">
+            <div style={{'backgroundImage': `url(${slideImages[1]})`}}>
             </div>
-            <div className="each-slide">
-              <div style={{ 'backgroundImage': `url(${slideImages[2]})` }}>
-              </div>
+          </div>
+          <div className="each-slide">
+            <div style={{'backgroundImage': `url(${slideImages[2]})`}}>
             </div>
-          </Slide>
-    </div>
-      </>
+          </div>
+        </Slide>
+      </div>
     )
 };
 

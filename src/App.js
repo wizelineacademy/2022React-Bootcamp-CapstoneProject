@@ -1,32 +1,25 @@
-import React, { useState } from 'react';
-import './components/css/navbar.css';
-import './components/css/body.css';
-import './components/css/grid.css';
-import './components/css/footer.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import { Layout } from "./pages/Layout";
+import { Home } from './pages/Home';
+import { NoPage } from "./pages/NoPage";
+import { Product } from "./pages/products";
 
 
-import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
-import { NavBar } from './components/navbar';
-import { BodyDiv } from './components/body/body';
-import { FootDiv } from './components/footer';
 
 
 function App() {
-  const { data, isLoading } = useFeaturedBanners();
-  console.log(data, isLoading);
-
-  const [route, setRoute] = useState('/');
-  const onChangeRoute = (newRoute) =>{
-    console.log(newRoute);
-    setRoute(newRoute);
-  };
-
   return (
-    <div className="App">
-      <NavBar route={route} onchange={onChangeRoute}/>
-      <BodyDiv route={route} onchange={onChangeRoute}/>
-      <FootDiv /> 
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="products" element={<Product />} />
+        <Route path="*" element={<NoPage />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
   );
 }
 
