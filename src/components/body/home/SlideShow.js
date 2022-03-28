@@ -1,11 +1,9 @@
 
 import React from 'react';
-import { Slide } from 'react-slideshow-image';
-
-//import { useFeaturedBanners } from '../../../utils/hooks/useFeaturedBanners';
-
+import 'react-slideshow-image/dist/styles.css';
+import { Slide } from "react-slideshow-image";
 import "../../css/slide.css";
-import 'react-slideshow-image/dist/styles.css'
+
 
 
 const slideImages = [
@@ -13,9 +11,6 @@ const slideImages = [
   'https://images.prismic.io/wizeline-academy/d29a4958-97e1-4fe5-b1db-ee9be564a2dd_banner-2-2.jpeg?auto=compress,format&rect=85,0,1430,700&w=1440&h=705',
   'https://images.prismic.io/wizeline-academy/edaf28da-2e46-4f75-8a69-a972119f40ed_banner-3-2.jpeg?auto=compress,format&rect=0,0,1429,700&w=1440&h=705'
 ];
-
-//export const slides = useFeaturedBanners;
-
 
 export const SlideShow = () => {
     return (
