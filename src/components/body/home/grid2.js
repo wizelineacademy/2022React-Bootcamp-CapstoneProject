@@ -1,14 +1,20 @@
 import React from "react";
 import "../../css/grid2.css";
-import fp from "../../mock/featured-products.json";
 
-export const fprod = fp.results;
+import { useFeaturedProducts } from "../../../utils/hooks/useFeaturedProducts";
+
 
 export const Grid2 = ({route, onchange}) => {
+  const {data, isLoading} = useFeaturedProducts();
+  
+  if(isLoading){
+    return (<p>Cargando</p>);
+  }
+
   return (
    <> 
     <div className="grid2_content">
-        {fprod.map((value) => {
+        {data.results.map((value) => {
         return (
           <div className="responsive-2">
             <div className="gallery">

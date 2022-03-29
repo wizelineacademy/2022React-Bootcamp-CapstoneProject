@@ -12,9 +12,6 @@ import '../components/css/footer.css';
 const searchIcon = <FontAwesomeIcon icon={faSearch} />
 const shoppingCart = <FontAwesomeIcon icon={faCartShopping} />
 
-//const [route, setRoute] = useState('/');
-
-
 export const Layout = () => {
   return (
     <>
@@ -30,9 +27,6 @@ export const Layout = () => {
           </li>
           <li>
             <Link to="/products">Product List</Link>
-          </li>
-          <li>
-            <Link to="/productDetail">Product Detail</Link>
           </li>
           <li className="right">
             <Link to="#">{shoppingCart}</Link>

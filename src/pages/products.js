@@ -1,66 +1,57 @@
 import React from "react";
-import prod from "../components/mock/products.json";
-import prodCat from "../components/mock/product-categories.json";
 import '../components/css/card.css';
 import '../components/css/sidebar.css';
 import '../components/css/products.css';
+import { Link, useLocation } from "react-router-dom";
 
-export const categorias = prodCat.results;
-export const p = prod.results;
+import { useFeaturedCategories } from "../utils/hooks/useFeaturedCategory";
+import { useProducts } from "../utils/hooks/useProducts";
 
 export const Product = () => {
+  
+  const {search} = useLocation(); 
+
+  const {data:dataCategory, isLoading:isLoadingCategories} = useFeaturedCategories();
+  const {data:dataProduct, isLoading:isLoadingProducts} = useProducts();
+
+  if(isLoadingCategories || isLoadingProducts){
+    return (<p>Cargando</p>);
+  }
+  //Obtener query parameters
+  const queryParameter = new URLSearchParams(search);
+  const categoria = queryParameter.get('category');
+
+  let resultado;
+  if (categoria){
+    resultado = dataProduct.results.filter(prod => prod.data.category.slug === categoria.toLowerCase());
+  }else{
+    resultado = dataProduct.results;
+  }
+
+//  Prod(pro){
+//    if(pro.category.slug === categoria){
+//      return true;
+//    }
+//  }
+  
   return (
     <>
-
+    {/*Categorias*/}
     <div className="sidebar">
     {
-      categorias.map((value)=>{
+      dataCategory.results.map((value)=>{
         return(
-          <a href="#a">{value.data.name}</a>    
+          <Link to={`/products?category=${value.slugs[0]}`}>{value.data.name}</Link> 
         );
       })
     }
     </div>
-{/*    <div className="container">
-      <div className="row">
-        <h1>This is the Product List Page</h1>
-        {p.map((value) => {
-          return (
-            <div className="column">
-              <div className="card">
-                <img src={value.data.mainimage.url} alt={value.data.name} />
-                <div className="cont">
-                  <div className="product-text">
-                    <h1>{value.data.name}</h1> 
-                    <p>$ {value.data.price} </p> 
-                  </div>
-                  
-                  <button type="button" className="boton_comprar">Comprar Ahora</button>
-                  <button type="button" className="boton_agregar">Agregar al Carrito</button>
-                </div>
-              </div>
-              <div className="product-img">
-                <img src={value.data.mainimage.url} alt={value.data.name} height="420" width="327"/>
-              </div>
-              <div className="">
-                <div className="">
-                  <h1>{value.data.name}</h1>
-                  <p>{value.data.short_description}</p>
-                </div>
-                <div className="product-price-btn">
-                  <p><span>{value.data.price}</span>$</p>
-                  <button type="button">buy now</button>
-                </div>
-          </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>*/}
-
+  {/*Productos*/}
+    
     <div className="container"> 
       <h1>This is the Product List Page</h1>
-      {p.map((value) => {
+      
+      {resultado.map((value) => {
         return (
           <div className="wrapper">
             <div className="product-img">
@@ -68,7 +59,7 @@ export const Product = () => {
             </div>
             <div className="product-info">
               <div className="product-text">
-                <h1>{value.data.name}</h1>
+                <h1> <Link to={`/products/${value.id}`}>{value.data.name}</Link> </h1>
                 <h2>by Capstone Project Store</h2>
                 <p>{value.data.short_description}</p>
               </div>

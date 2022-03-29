@@ -5,6 +5,7 @@ import { Layout } from "./pages/Layout";
 import { Home } from './pages/Home';
 import { NoPage } from "./pages/NoPage";
 import { Product } from "./pages/products";
+import {ProductDetail} from "./pages/productDetail";
 
 
 
@@ -16,7 +17,9 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="products" element={<Product />} />
+        <Route path="products/:id" element={<ProductDetail />} />
         <Route path="*" element={<NoPage />} />
+        <Route path="home" element={<Home />} />
       </Route>
     </Routes>
   </BrowserRouter>
