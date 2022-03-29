@@ -13,12 +13,13 @@ export const Grid1 = () => {
 
   return (
 <>
+    <h1>Categorias</h1>
     <div className="grid1_content">
         {data.results.map((value) => {
         return (
           <div className="responsive">
             <div className="gallery">
-              <a target="" href={value.data.name} rel="noreferrer">
+              <a target="" href={`/products?category=${value.slugs[0]}`} rel="noreferrer">
                 <img src={value.data.main_image.url} 
                  alt={value.data.name} width="600" height="400"/>
               </a>

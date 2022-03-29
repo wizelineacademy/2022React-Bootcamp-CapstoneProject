@@ -7,13 +7,11 @@ import { Grid2 } from "./home/grid2";
 
 export const BodyDiv = ({route,onchange}) => {
   return (
-    <body>
-          <>
-            <SlideShow />
-            <Grid1 />
-            <Grid2 />
-          </> 
-    </body>
+    <> 
+      <SlideShow />
+      <Grid1 />
+      <Grid2 />
+    </>
   );
 };
 

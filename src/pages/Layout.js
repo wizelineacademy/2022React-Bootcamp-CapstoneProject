@@ -13,6 +13,10 @@ const searchIcon = <FontAwesomeIcon icon={faSearch} />
 const shoppingCart = <FontAwesomeIcon icon={faCartShopping} />
 
 export const Layout = () => {
+  //let {location}= useLocation(); 
+  const location = window.location.pathname;
+  console.log(location);
+
   return (
     <>
       <nav className=''>
@@ -20,25 +24,30 @@ export const Layout = () => {
           <li>
             <Link 
                 to="/"
-                className='active'
+                className={location === '/' || location === '/home' ? 'active' : ''} 
             >
                 Home
             </Link>
           </li>
           <li>
-            <Link to="/products">Product List</Link>
+            <Link 
+              to="/products"
+              className={location === '/products' ? 'active' : ''} 
+            >
+              Product List
+            </Link>
           </li>
           <li className="right">
             <Link to="#">{shoppingCart}</Link>
           </li>
-          <div className='search-container'>
+          <form className='search-container'>
             <li className="">
               <input type="text" placeholder="Search.." name="search"/>
             </li>
             <li className="">
-              <Link to="#">{searchIcon}</Link>
+              <button>{searchIcon}</button>
             </li>
-          </div>
+          </form>
         </ul>
       </nav>
 

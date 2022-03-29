@@ -6,6 +6,7 @@ import { Home } from './pages/Home';
 import { NoPage } from "./pages/NoPage";
 import { Product } from "./pages/products";
 import {ProductDetail} from "./pages/productDetail";
+import {BuscarTest} from "./pages/buscar";
 
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="products/:id" element={<ProductDetail />} />
         <Route path="*" element={<NoPage />} />
         <Route path="home" element={<Home />} />
+        <Route path="buscar" element={<BuscarTest />} />
       </Route>
     </Routes>
   </BrowserRouter>

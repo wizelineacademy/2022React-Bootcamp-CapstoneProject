@@ -20,7 +20,9 @@ export const SlideShow = () => {
             {data.results.map((value) => {
               return (
                 <div className="each-slide">
-                <div style={{ 'backgroundImage': `url(${value.data.main_image.url})` }}>
+                <div 
+                  key={value.id} 
+                  style={{ 'backgroundImage': `url(${value.data.main_image.url})` }}>
                 </div>
               </div>
               );

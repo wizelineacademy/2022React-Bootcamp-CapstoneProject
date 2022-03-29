@@ -27,7 +27,7 @@ export const Product = () => {
   }else{
     resultado = dataProduct.results;
   }
-
+  console.log(resultado);
 //  Prod(pro){
 //    if(pro.category.slug === categoria){
 //      return true;
@@ -47,7 +47,7 @@ export const Product = () => {
     }
     </div>
   {/*Productos*/}
-    
+    conso
     <div className="container"> 
       <h1>This is the Product List Page</h1>
       

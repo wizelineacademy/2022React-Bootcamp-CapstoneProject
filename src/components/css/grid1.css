@@ -2,11 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: solid #2196F3 1px;
+  border: 0px;
 }
 .responsive {
-  padding: 0 6px;
-  width: 14.99999%;
+  padding: 0 6px 10px;
+  width: 17.99999%;
   
 }
 
