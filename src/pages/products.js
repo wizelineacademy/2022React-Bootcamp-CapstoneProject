@@ -23,7 +23,9 @@ export const Product = () => {
 
   let resultado;
   if (categoria){
-    resultado = dataProduct.results.filter(prod => prod.data.category.slug === categoria.toLowerCase());
+    resultado = dataProduct.results.filter(
+        prod => prod.data.category.slug === categoria.toLowerCase()
+      );
   }else{
     resultado = dataProduct.results;
   }
