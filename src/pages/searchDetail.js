@@ -1,12 +1,16 @@
 import React from "react";
-import { useParams  } from "react-router-dom";
-import { useProductId } from "../utils/hooks/useProduct_id";
+import { useLocation  } from "react-router-dom";
+import { useSearch } from "../utils/hooks/useSearch";
 
  
-export const ProductDetail = () => {
+export const SearchDetail = () => {
     
-    let { id } = useParams();
-    const {data, isLoading} = useProductId(id);
+    const { search } = useLocation();
+    const query = new URLSearchParams(search);
+    const text = query.get('q');
+    const {data, isLoading} = useSearch(text);
+
+    console.log(data);
 
     if(isLoading){
         return (<p>Cargando</p>);
@@ -15,13 +19,13 @@ export const ProductDetail = () => {
     return (
       <>
         <h1> Detalle del Producto</h1>
-        <h3>ID: {id}</h3>
+        <h3>ID: {text}</h3>
 
         {data.results.map((value) => {
             return(
                 <div key={value.id}>
                     <h1>{value.data.name}</h1>
-                 {/*   <img src={value.data.images.image.url} />*/ }
+           
                     <img src={value.data.mainimage.url} 
                         alt={value.data.name} /> 
                     <p>{value.data.price}</p> 
@@ -30,7 +34,7 @@ export const ProductDetail = () => {
 
             );
         })
-        }
+     }
  
       </>
     )

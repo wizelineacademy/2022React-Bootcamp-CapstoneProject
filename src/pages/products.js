@@ -29,7 +29,6 @@ export const Product = () => {
   }else{
     resultado = dataProduct.results;
   }
-  console.log(resultado);
 //  Prod(pro){
 //    if(pro.category.slug === categoria){
 //      return true;
@@ -43,19 +42,18 @@ export const Product = () => {
     {
       dataCategory.results.map((value)=>{
         return(
-          <Link to={`/products?category=${value.slugs[0]}`}>{value.data.name}</Link> 
+          <Link key={value.id} to={`/products?category=${value.slugs[0]}`}>{value.data.name}</Link> 
         );
       })
     }
     </div>
   {/*Productos*/}
-    conso
     <div className="container"> 
       <h1>This is the Product List Page</h1>
       
       {resultado.map((value) => {
         return (
-          <div className="wrapper">
+          <div className="wrapper" key={value.id}>
             <div className="product-img">
               <img src={value.data.mainimage.url} alt={value.data.name} height="420" width="327"/>
             </div>

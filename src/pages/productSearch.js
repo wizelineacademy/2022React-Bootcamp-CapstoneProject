@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams  } from "react-router-dom";
-import { useProductId } from "../utils/hooks/useProduct_id";
+import {useSearch} from '../utils/hooks/useSearch'
 
  
 export const ProductDetail = () => {

@@ -1,21 +1,19 @@
 import React from 'react';
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useLocation } from "react-router-dom";
 import { FootDiv } from '../components/footer';
+import { SearchPage } from './search';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 
 import '../components/css/navbar1.css';
 import '../components/css/footer.css';
 
-const searchIcon = <FontAwesomeIcon icon={faSearch} />
 const shoppingCart = <FontAwesomeIcon icon={faCartShopping} />
 
 export const Layout = () => {
-  //let {location}= useLocation(); 
-  const location = window.location.pathname;
-  console.log(location);
+  let { pathname } = useLocation(); 
+  //const pathname = location.pathname;
 
   return (
     <>
@@ -24,7 +22,7 @@ export const Layout = () => {
           <li>
             <Link 
                 to="/"
-                className={location === '/' || location === '/home' ? 'active' : ''} 
+                className={pathname === '/' || pathname === '/home' ? 'active' : ''} 
             >
                 Home
             </Link>
@@ -32,7 +30,7 @@ export const Layout = () => {
           <li>
             <Link 
               to="/products"
-              className={location === '/products' ? 'active' : ''} 
+              className={pathname === '/products' ? 'active' : ''} 
             >
               Product List
             </Link>
@@ -40,14 +38,7 @@ export const Layout = () => {
           <li className="right">
             <Link to="#">{shoppingCart}</Link>
           </li>
-          <form className='search-container'>
-            <li className="">
-              <input type="text" placeholder="Search.." name="search"/>
-            </li>
-            <li className="">
-              <button>{searchIcon}</button>
-            </li>
-          </form>
+          <SearchPage/>
         </ul>
       </nav>
 

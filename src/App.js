@@ -7,6 +7,7 @@ import { NoPage } from "./pages/NoPage";
 import { Product } from "./pages/products";
 import {ProductDetail} from "./pages/productDetail";
 import {BuscarTest} from "./pages/buscar";
+import {SearchDetail} from "./pages/searchDetail"
 
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="*" element={<NoPage />} />
         <Route path="home" element={<Home />} />
         <Route path="buscar" element={<BuscarTest />} />
+        <Route path="searchDetail" element={<SearchDetail />} />
       </Route>
     </Routes>
   </BrowserRouter>
