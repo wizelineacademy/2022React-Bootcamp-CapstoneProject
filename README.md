@@ -4,9 +4,9 @@
 
 Here you will find all the instructions to complete your **Capstone Project**.
 
-**Goal**: The purpose of this project is for you to demonstrate your React skills. This is your chance to show off everything you have learned during this program!
+**Goal**: Ths project aims to demonstrate your React skills. This is your chance to show off everything you have learned during this program!
 
-You will build and deliver an entire React application on your own from scratch. The project is divided into weekly deliverables, in which you will apply the concepts learned in the assignments and live sessions. Each deliverable has its information on what and how we expect you to deliver throughout the Bootcamp.
+You will build and deliver an entire React application on your own from scratch. The project is divided into weekly deliverables, in which you will apply the concepts learned in the assignments and live sessions. Each deliverable has information on what and how we expect you to deliver throughout the Bootcamp.
 
 We hope you find this project challenging and engaging!
 
