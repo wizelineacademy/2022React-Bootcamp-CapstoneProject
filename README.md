@@ -42,7 +42,7 @@ Once you’ve covered all the requirements and completed all the bullets on the 
 1. Remember to add your mentor as a reviewer
 1. Deploy your app into a hosting service such as Netlify, Firebase, Heroku, GitHub Pages, among others.
 1. Share the links of both your PR and your application to your mentor
-1. Fill [the form]([https://forms.gle/aiKpFBHXrJv5QNFP7FsrSTUJmEU7](https://forms.gle/aiKpFBHXrJv5QNFP7)) to submit your project
+1. Fill [the form]([https://forms.gle/aiKpFBHXrJv5QNFP7]) to submit your project
 
 
 ## Deliverable 1
