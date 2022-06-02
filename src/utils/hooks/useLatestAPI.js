@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { API_BASE_URL } from '../constants';
+import { useState, useEffect } from "react";
+import { API_BASE_URL } from "../constants";
 
 const INITIAL_API_METADATA = { ref: null, isLoading: true };
 
