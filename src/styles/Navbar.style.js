@@ -4,6 +4,7 @@ import { ShoppingCart } from '@styled-icons/feather/ShoppingCart';
 export const NavbarContainer = styled.nav`
   width: 100%;
   height: 67px;
+  top: 0;
   position: fixed;
   box-shadow: inset -1px -1px 1px rgba(72, 83, 37, 0.2),
     1px 1px 3px rgba(72, 83, 37, 0.2);
