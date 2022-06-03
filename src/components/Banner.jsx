@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 
-const Banner = ({ data, cta_link, alt, url }) => {
+const Banner = ({ data }) => {
   return (
-    <a href={cta_link}>
+    <a href={data.cta_link}>
       <picture>
-        <img src={url} alt={alt} />
+        <img src={data.main_image.url} alt={data.main_image.alt} />
       </picture>
       <div>
         <h3>{data.title}</h3>

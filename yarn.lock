@@ -9204,6 +9204,11 @@
     "iconv-lite" "0.4.24"
     "unpipe" "1.0.0"
 
+"react-app-alias@^2.2.0":
+  "integrity" "sha512-LaDIn+mbhimcvatV1DiBjh+8Lg6f3shEWqwy6IywfT3J3IIiEOTncChEYWTrnIvV9R97bRQoL9a95uAOQipyTA=="
+  "resolved" "https://registry.npmjs.org/react-app-alias/-/react-app-alias-2.2.0.tgz"
+  "version" "2.2.0"
+
 "react-app-polyfill@^2.0.0":
   "integrity" "sha512-0sF4ny9v/B7s6aoehwze9vJNWcmCemAUYBVasscVr92+UYiEqDXOxfKjXN685mDaMRNF3WdhHQs76oTODMocFA=="
   "resolved" "https://registry.npmjs.org/react-app-polyfill/-/react-app-polyfill-2.0.0.tgz"
