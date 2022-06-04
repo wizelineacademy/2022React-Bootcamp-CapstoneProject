@@ -1,14 +1,19 @@
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
-const Banner = ({ data }) => {
+const Banner = ({ bannerInfo, index, activeBanner }) => {
+  const displayStyle =
+    index === activeBanner ? { display: "block" } : { display: "none" };
   return (
-    <a href={data.cta_link}>
+    <a href={bannerInfo.data.cta_link} style={displayStyle}>
       <picture>
-        <img src={data.main_image.url} alt={data.main_image.alt} />
+        <img
+          src={bannerInfo.data.main_image.url}
+          alt={bannerInfo.data.main_image.alt}
+        />
       </picture>
       <div>
-        <h3>{data.title}</h3>
-        <p>{data.description.text}</p>
+        <h3>{bannerInfo.data.title}</h3>
+        <p>{bannerInfo.data.description[0].text}</p>
       </div>
     </a>
   );

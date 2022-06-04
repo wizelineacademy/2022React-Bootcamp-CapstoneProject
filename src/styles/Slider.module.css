@@ -1,0 +1,42 @@
+.slider {
+  display: flex;
+  flex-direction: revert;
+  overflow: hidden;
+  margin: 0 15px;
+  height: 43rem;
+  width: 99%;
+  justify-content: center;
+}
+
+.slider a {
+  text-decoration: none;
+  width: 90%;
+}
+
+.slider img {
+  width: 100%;
+}
+
+.slider div {
+  position: relative;
+  bottom: 550px;
+  background-color: #e3d97bc4;
+  width: 35rem;
+  left: 62rem;
+  min-height: 15rem;
+  text-align: center;
+}
+
+.slider h3 {
+  font-family: inherit;
+  padding-top: 20px;
+  font-size: 27px;
+  color: firebrick;
+}
+
+.slider p {
+  font-size: 24px;
+  font-weight: 600;
+  color: darkcyan;
+  padding: 30px;
+}

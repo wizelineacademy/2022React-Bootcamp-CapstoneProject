@@ -1,6 +1,25 @@
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import Banner from "./Banner";
+import BtnSlider from "./BtnSlider";
+import styles from "../styles/Slider.module.css";
 
-const Slider = () => {};
+const Slider = ({ images, prevSlide, nextSlide, activeBanner }) => {
+  console.log(prevSlide, nextSlide, activeBanner);
+  const banners = images.map((image, index) => (
+    <Banner
+      key={image.id}
+      bannerInfo={image}
+      index={index}
+      activeBanner={activeBanner}
+    />
+  ));
+  return (
+    <div className={styles.slider}>
+      {banners}
+      <BtnSlider moveSlide={nextSlide} direction={"next"} />
+      <BtnSlider moveSlide={prevSlide} direction={"prev"} />
+    </div>
+  );
+};
 
 export default Slider;
