@@ -3,7 +3,11 @@ import styles from "../styles/CategoryGrid.module.css";
 
 const CategoryGrid = ({ categories }) => {
   const categoriesMap = categories.map((category) => (
-    <CategoryCard className={styles.card_style} categoryInfo={category} />
+    <CategoryCard
+      className={styles.card_style}
+      key={category.id}
+      categoryInfo={category}
+    />
   ));
   return (
     <div className={styles.category_grid}>

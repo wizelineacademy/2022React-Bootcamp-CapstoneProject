@@ -4,7 +4,7 @@
   border-radius: 50%;
   background: #f1f1f1;
   border: 1px solid rgba(34, 34, 34, 0.287);
-  position: absolute;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;

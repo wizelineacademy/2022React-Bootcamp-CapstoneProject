@@ -1,13 +1,18 @@
 import Slider from "../components/Slider";
+import FeaturedProducts from "../components/FeaturedProducts";
 import CategoryGrid from "../components/CategoryGrid";
 import { useState } from "react";
 const featuredBanners = require("../mocks/en-us/featured-banners.json");
 const productCategories = require("../mocks/en-us/product-categories.json");
+const featuredProducts = require("../mocks/en-us/featured-products.json");
 
 const Home = () => {
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [firstTileIdx, setFirstTileIdx] = useState(0);
+  let lastTileIdx = firstTileIdx + 4;
   const bannerResults = featuredBanners.results;
   const categoryResults = productCategories.results;
-  const [slideIndex, setSlideIndex] = useState(0);
+  const productResults = featuredProducts.results;
 
   const nextSlide = () => {
     if (slideIndex !== bannerResults.length - 1) {
@@ -25,8 +30,24 @@ const Home = () => {
     }
   };
 
+  const nextProductGrid = () => {
+    if (!(firstTileIdx + 4 >= productResults.length)) {
+      setFirstTileIdx(firstTileIdx + 4);
+      lastTileIdx = firstTileIdx + 4;
+    }
+  };
+
+  const prevProductGrid = () => {
+    if (firstTileIdx - 4 >= 0) {
+      setFirstTileIdx(firstTileIdx - 4);
+    } else {
+      setFirstTileIdx(0);
+    }
+    lastTileIdx = firstTileIdx + 4;
+  };
+
   return (
-    <div style={{ height: "100%" }}>
+    <div>
       <Slider
         images={bannerResults}
         prevSlide={prevSlide}
@@ -34,6 +55,13 @@ const Home = () => {
         activeBanner={slideIndex}
       />
       <CategoryGrid categories={categoryResults} />
+      <FeaturedProducts
+        products={productResults}
+        firstTileIdx={firstTileIdx}
+        lastTileIdx={lastTileIdx}
+        nextProductGrid={nextProductGrid}
+        prevProductGrid={prevProductGrid}
+      />
     </div>
   );
 };

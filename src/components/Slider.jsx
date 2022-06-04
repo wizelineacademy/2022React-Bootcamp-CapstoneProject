@@ -4,7 +4,6 @@ import BtnSlider from "./BtnSlider";
 import styles from "../styles/Slider.module.css";
 
 const Slider = ({ images, prevSlide, nextSlide, activeBanner }) => {
-  console.log(prevSlide, nextSlide, activeBanner);
   const banners = images.map((image, index) => (
     <Banner
       key={image.id}
@@ -15,9 +14,9 @@ const Slider = ({ images, prevSlide, nextSlide, activeBanner }) => {
   ));
   return (
     <div className={styles.slider}>
+      <BtnSlider moveSlide={prevSlide} direction={"prev"} />
       {banners}
       <BtnSlider moveSlide={nextSlide} direction={"next"} />
-      <BtnSlider moveSlide={prevSlide} direction={"prev"} />
     </div>
   );
 };
