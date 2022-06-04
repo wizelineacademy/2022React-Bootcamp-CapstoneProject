@@ -1,0 +1,21 @@
+.category_grid {
+  margin: 50px 10px;
+  display: flex;
+  flex-direction: column;
+  background-image: url("https://png.pngtree.com/thumb_back/fw800/back_our/20190625/ourmid/pngtree-yellow-geometric-flattened-taobao-e-commerce-coupon-background-image_262555.jpg");
+  background-repeat: repeat-y;
+  background-size: contain;
+  align-items: center;
+}
+
+.category_grid_header {
+  font-weight: 900;
+  font-size: 32px;
+}
+
+.categories_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}

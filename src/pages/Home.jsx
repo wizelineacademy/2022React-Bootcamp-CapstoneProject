@@ -1,14 +1,18 @@
 import Slider from "../components/Slider";
+import CategoryGrid from "../components/CategoryGrid";
 import { useState } from "react";
-const { results } = require("../mocks/en-us/featured-banners.json");
+const featuredBanners = require("../mocks/en-us/featured-banners.json");
+const productCategories = require("../mocks/en-us/product-categories.json");
 
 const Home = () => {
+  const bannerResults = featuredBanners.results;
+  const categoryResults = productCategories.results;
   const [slideIndex, setSlideIndex] = useState(0);
 
   const nextSlide = () => {
-    if (slideIndex !== results.length - 1) {
+    if (slideIndex !== bannerResults.length - 1) {
       setSlideIndex(slideIndex + 1);
-    } else if (slideIndex === results.length - 1) {
+    } else if (slideIndex === bannerResults.length - 1) {
       setSlideIndex(0);
     }
   };
@@ -17,18 +21,19 @@ const Home = () => {
     if (slideIndex !== 0) {
       setSlideIndex(slideIndex - 1);
     } else if (slideIndex === 0) {
-      setSlideIndex(results.length - 1);
+      setSlideIndex(bannerResults.length - 1);
     }
   };
 
   return (
-    <div>
+    <div style={{ height: "100%" }}>
       <Slider
-        images={results}
+        images={bannerResults}
         prevSlide={prevSlide}
         nextSlide={nextSlide}
         activeBanner={slideIndex}
       />
+      <CategoryGrid categories={categoryResults} />
     </div>
   );
 };
