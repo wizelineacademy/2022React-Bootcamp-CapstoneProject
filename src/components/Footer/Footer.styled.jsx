@@ -5,24 +5,30 @@ export const FooterWrap = styled.div`
     height:200px;  
     background-color: pink; 
     display:flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items:center;
+    
+    p {
+        color:gray;
+    }
 
     .links ul {
         display:flex;
         width:100%;
         justify-content: space-between;
+        
+        a {
+            text-decoration: none;
+            color:gray;
+        }
     }
     .social-media {
         display:flex;
         
-
         a img{
             height:40px;
             margin: 10px;
-
         }
     }
-    
     
 `;

@@ -1,4 +1,5 @@
 import Header from './components/Header/Header';
+import Slideshow from './components/Slideshow/Slideshow';
 import Footer from './components/Footer/Footer';
 import './App.css';
 import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
@@ -10,6 +11,7 @@ function App() {
   return (
     <div className="App">
       <Header/>
+      <Slideshow/>
       <Footer/>
     </div>
   );
