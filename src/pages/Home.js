@@ -1,10 +1,17 @@
 import React from 'react';
-import { Col, HomeContainer, Row } from '../styles/Home.style';
+import GridCategories from '../components/GridCategories';
+import GridProducts from '../components/GridProducts';
+import Slider from '../components/Slider';
+import { HomeContainer } from '../styles/Home.style';
 
 const Home = (props) => {
   return (
     <div>
-      <HomeContainer>Holaa</HomeContainer>
+      <HomeContainer>
+        <Slider />
+        <GridCategories />
+        <GridProducts />
+      </HomeContainer>
     </div>
   );
 };

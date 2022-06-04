@@ -6,6 +6,10 @@ export const NavbarContainer = styled.nav`
   height: 67px;
   top: 0;
   position: fixed;
+  clear: both;
+  z-index: 9999;
+  background-color: #fff;
+  min-width: 100%;
   box-shadow: inset -1px -1px 1px rgba(72, 83, 37, 0.2),
     1px 1px 3px rgba(72, 83, 37, 0.2);
   display: grid;
