@@ -25,3 +25,29 @@
   right: 20px;
   transform: translateY(-60%);
 }
+
+@media screen and (max-width: 800px) {
+  .prev {
+    transform: translateY(470%);
+  }
+
+  .next {
+    transform: translateY(470%);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .btn_slide {
+    border-radius: 0;
+    background: #f1f1f1;
+    position: relative;
+  }
+
+  .prev {
+    left: 4rem;
+  }
+
+  .next {
+    right: 4rem;
+  }
+}

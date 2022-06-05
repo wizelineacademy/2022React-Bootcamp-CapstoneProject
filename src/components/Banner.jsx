@@ -1,18 +1,20 @@
 import PropTypes from "prop-types";
+import styles from "../styles/Banner.module.css";
 
 const Banner = ({ bannerInfo, index, activeBanner }) => {
   const displayStyle =
-    index === activeBanner ? { display: "block" } : { display: "none" };
+    index === activeBanner ? styles.show_banner : styles.hide_banner;
 
   return (
-    <a href={bannerInfo.data.cta_link} style={displayStyle}>
-      <picture>
-        <img
-          src={bannerInfo.data.main_image.url}
-          alt={bannerInfo.data.main_image.alt}
-        />
-      </picture>
-      <div>
+    <a
+      className={`${styles.banner} ${displayStyle}`}
+      href={bannerInfo.data.cta_link}
+    >
+      <img
+        src={bannerInfo.data.main_image.url}
+        alt={bannerInfo.data.main_image.alt}
+      />
+      <div className={styles.fixed_message}>
         <h3>{bannerInfo.data.title}</h3>
         <p>{bannerInfo.data.description[0].text}</p>
       </div>

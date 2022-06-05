@@ -66,3 +66,20 @@ header h2 {
   height: 25px;
   color: gray;
 }
+
+@media screen and (max-width: 1230px) {
+  .buttons_container {
+    width: 35%;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .buttons_container {
+    width: 25%;
+    margin: 25px 0;
+  }
+
+  .buttons_container input {
+    display: none;
+  }
+}

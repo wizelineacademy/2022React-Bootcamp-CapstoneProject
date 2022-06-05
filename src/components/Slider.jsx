@@ -15,7 +15,7 @@ const Slider = ({ images, prevSlide, nextSlide, activeBanner }) => {
   return (
     <div className={styles.slider}>
       <BtnSlider moveSlide={prevSlide} direction={"prev"} />
-      {banners}
+      <div className={styles.banners_container}>{banners}</div>
       <BtnSlider moveSlide={nextSlide} direction={"next"} />
     </div>
   );
