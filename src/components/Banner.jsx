@@ -1,8 +1,9 @@
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 const Banner = ({ bannerInfo, index, activeBanner }) => {
   const displayStyle =
     index === activeBanner ? { display: "block" } : { display: "none" };
+
   return (
     <a href={bannerInfo.data.cta_link} style={displayStyle}>
       <picture>
@@ -17,6 +18,12 @@ const Banner = ({ bannerInfo, index, activeBanner }) => {
       </div>
     </a>
   );
+};
+
+Banner.propTypes = {
+  bannerInfo: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired,
+  activeBanner: PropTypes.number.isRequired,
 };
 
 export default Banner;

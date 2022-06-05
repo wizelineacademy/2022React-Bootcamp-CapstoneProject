@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import ProductTile from "./ProductTile";
 import BtnSlider from "./BtnSlider";
 import styles from "../styles/FeaturedProducts.module.css";
@@ -31,6 +32,14 @@ const FeaturedProducts = ({
       </div>
     </div>
   );
+};
+
+FeaturedProducts.propTypes = {
+  products: PropTypes.array.isRequired,
+  lastTileIdx: PropTypes.number.isRequired,
+  firstTileIdx: PropTypes.number.isRequired,
+  nextProductGrid: PropTypes.func.isRequired,
+  prevProductGrid: PropTypes.func.isRequired,
 };
 
 export default FeaturedProducts;

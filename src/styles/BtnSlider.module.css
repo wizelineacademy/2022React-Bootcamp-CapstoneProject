@@ -11,6 +11,10 @@
   cursor: pointer;
 }
 
+.btn_slide svg {
+  font-size: 24px;
+}
+
 .prev {
   top: 50%;
   left: 20px;

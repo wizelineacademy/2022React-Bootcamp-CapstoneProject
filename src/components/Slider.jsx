@@ -1,4 +1,4 @@
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import Banner from "./Banner";
 import BtnSlider from "./BtnSlider";
 import styles from "../styles/Slider.module.css";
@@ -19,6 +19,13 @@ const Slider = ({ images, prevSlide, nextSlide, activeBanner }) => {
       <BtnSlider moveSlide={nextSlide} direction={"next"} />
     </div>
   );
+};
+
+Slider.propTypes = {
+  images: PropTypes.array.isRequired,
+  prevSlide: PropTypes.func.isRequired,
+  nextSlide: PropTypes.func.isRequired,
+  activeBanner: PropTypes.number.isRequired,
 };
 
 export default Slider;

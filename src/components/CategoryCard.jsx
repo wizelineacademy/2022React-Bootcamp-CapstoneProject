@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styles from "../styles/CategoryCard.module.css";
 
 const CategoryCard = ({ categoryInfo }) => {
@@ -12,6 +13,10 @@ const CategoryCard = ({ categoryInfo }) => {
       </a>
     </div>
   );
+};
+
+CategoryCard.propTypes = {
+  categoryInfo: PropTypes.object.isRequired,
 };
 
 export default CategoryCard;
