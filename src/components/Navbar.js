@@ -20,8 +20,8 @@ const Navbar = (props) => {
       <NavbarContainer>
         <NavbarInnerContainer>
           <ContainerCol1>
-            <Logo src={LogoImg} />
-            <LogoResp src={LogoResponsive} />
+            <Logo src={LogoImg} alt="logoEccomerce" />
+            <LogoResp src={LogoResponsive} alt="logoResponsive" />
           </ContainerCol1>
           <ContainerCol2>
             <SearchInput placeholder="Buscar ..." disabled={true} />
