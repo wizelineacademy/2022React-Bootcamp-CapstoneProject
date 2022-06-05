@@ -3,7 +3,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   overflow: hidden;
-  max-width: 99%;
+  width: 99%;
 }
 
 .featured_products .products_container {
@@ -12,7 +12,7 @@
   flex-wrap: nowrap;
   justify-content: center;
   height: 35rem;
-  margin: 0 10rem;
+  margin: 0;
 }
 
 .featured_products .product_tile {
@@ -23,4 +23,20 @@
 .featured_products img {
   max-width: 20rem;
   max-height: 20rem;
+}
+
+.products {
+  display: flex;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 800px) {
+  .products_container button {
+    transform: translateY(10%) !important;
+  }
+
+  .featured_products img {
+    max-width: 7rem;
+    max-height: 7rem;
+  }
 }

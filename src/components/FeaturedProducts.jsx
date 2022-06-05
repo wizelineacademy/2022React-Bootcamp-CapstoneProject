@@ -27,7 +27,7 @@ const FeaturedProducts = ({
         className={`${styles.featured_products} ${styles.products_container}`}
       >
         <BtnSlider moveSlide={prevProductGrid} direction={"prev"} />
-        {productGrid}
+        <div className={styles.products}>{productGrid}</div>
         <BtnSlider moveSlide={nextProductGrid} direction={"next"} />
       </div>
     </div>
