@@ -8,14 +8,11 @@ export const CategoriesContainer = styled.div`
     display: grid;
     grid-template-rows: 1fr;
     gap: 10px;
-    @media (max-width: 768px) {
-        grid-template-rows: none;
-    }
 
 .card-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    gap: 1rem;
 }
     .card {
         border-radius: 10px;
@@ -27,9 +24,6 @@ export const CategoriesContainer = styled.div`
         background: pink;
         background-size: cover;
         background-position: center center;
-        @media (max-width: 768px) {
-            flex-direction: column;
-        }
     }
     .card-text {
 
