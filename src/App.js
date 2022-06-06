@@ -1,5 +1,8 @@
-import './App.css';
-import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
+import "./App.css";
+import { useFeaturedBanners } from "./utils/hooks/useFeaturedBanners";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./views/HomePage";
+import AboutUs from "./views/AboutUs";
 
 function App() {
   const { data, isLoading } = useFeaturedBanners();
@@ -7,7 +10,12 @@ function App() {
 
   return (
     <div className="App">
-      Esto es una prueba
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/info" element={<AboutUs />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
