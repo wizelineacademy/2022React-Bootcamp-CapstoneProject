@@ -2,10 +2,12 @@ import styled from 'styled-components';
 
 export const MainContainer = styled.div`
     position: relative;
+    
 `;
 export const SlideshowContainer = styled.div`
     display:flex;
     flex-wrap: nowrap;
+    
 `;
 
 export const Slide = styled.div`
@@ -55,6 +57,4 @@ export const BotonSlide = styled.button`
     }
 
     ${props => props.right ? 'right:0' : 'left:0'}
-
-
 `;

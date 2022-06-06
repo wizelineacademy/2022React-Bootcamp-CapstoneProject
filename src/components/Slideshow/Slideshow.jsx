@@ -3,7 +3,10 @@ import {MainContainer, SlideshowContainer, Slide, Controls, BotonSlide } from '.
 import img1 from '../../assets/sofa.jpg';
 import {ReactComponent as RightArrow} from '../../assets/right-arrow.svg';
 import {ReactComponent as LeftArrow} from '../../assets/left-arrow.svg';
+
+    
 export default function Slideshow() {
+
     return (
         <MainContainer>
             <SlideshowContainer>
@@ -26,4 +29,5 @@ export default function Slideshow() {
             </Controls>
         </MainContainer>
     )
-}
+};
+

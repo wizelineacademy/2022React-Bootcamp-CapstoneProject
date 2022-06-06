@@ -7,6 +7,9 @@ export const FooterWrap = styled.div`
     display:flex;
     justify-content: space-evenly;
     align-items:center;
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
     
     p {
         color:gray;
@@ -15,11 +18,12 @@ export const FooterWrap = styled.div`
     .links ul {
         display:flex;
         width:100%;
-        justify-content: space-between;
+        justify-content: space-evenly;
         
         a {
             text-decoration: none;
             color:gray;
+            padding: 10px;
         }
     }
     .social-media {

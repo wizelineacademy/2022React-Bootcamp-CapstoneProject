@@ -16,9 +16,9 @@ export default function Header() {
 
             <nav>
             <a href=".">
-                <img src={log} alt="cart-icon" className="log-icon"/>
+                <img src={log} alt="user-icon" className="user-icon"/>
             </a>
-            <span>Hola, Silvia</span>    
+            <span className="user-name">Silvia</span>    
             <a href=".">
                 <img src={icon} alt="cart-icon" className="img-icon"/>
             </a>

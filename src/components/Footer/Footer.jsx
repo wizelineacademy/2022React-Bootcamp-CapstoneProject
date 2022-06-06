@@ -9,7 +9,7 @@ export default function Footer() {
     return(
         <FooterWrap>
             <div className="links">
-                <ul >
+                <ul>
                     <a href=".">Quiénes somos</a>
                     <a href=".">Decoración</a>
                     <a href=".">FAQ</a>
