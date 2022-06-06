@@ -12,8 +12,7 @@ export const HeroMainContainer = styled.div`
 
 export const HeroMainWrapper = styled.div`
   height: auto;
-  width: 30%;
-  padding-left: 50px;
+  width: 100%;
 `;
 export const HeroMainTitle = styled.h1`
     text-align:center;
