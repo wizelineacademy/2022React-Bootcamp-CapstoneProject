@@ -17,6 +17,13 @@ export const Icon = styled.img`
   width: 48px;
 `;
 
+export const MobileContainer = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
 export const Title = styled.h2`
   color: ${colors.textPrimary};
   font-size: 1.75rem;

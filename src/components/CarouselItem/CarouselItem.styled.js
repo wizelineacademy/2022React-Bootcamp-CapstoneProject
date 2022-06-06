@@ -2,7 +2,7 @@ import styled from "styled-components";
 import colors from "styles/colors";
 
 export const BannerImage = styled.img`
-  max-height: 290px;
+  max-width: 360px;
 `;
 
 export const Container = styled.a`
