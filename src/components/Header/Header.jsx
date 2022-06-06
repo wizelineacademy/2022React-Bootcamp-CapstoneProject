@@ -16,7 +16,7 @@ export default function Header(){
 
 	return (
        <>
-       <Menu className="fixedFull fixedC z5">
+       <Menu className="fixedFull fixedC fixed z5">
        	<div className="content fullContent flxR ordC flxNoWrap">
        		<div className="logoHolder flxR ordS itmC">
        		   <h1 className="logo txtS2 txtS3Sm">Alex's <span>WorkShop</span></h1>
