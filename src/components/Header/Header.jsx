@@ -12,7 +12,7 @@ export default function Header() {
             <a href=".">
                 <img src={logo} alt="logo" className="img-logo"/>
             </a>
-            <input className="input-search" placeholder=" Buscar..."/>
+            <input className="input-search" placeholder=" Search..."/>
 
             <nav>
             <a href=".">

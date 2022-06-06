@@ -24,10 +24,12 @@ export const CategoriesContainer = styled.div`
         background: pink;
         background-size: cover;
         background-position: center center;
-    }
-    .card-text {
 
+        h3 {
+            text-align: center;
+        }
     }
+     
     .banner {
         width: 100%;
         height: 100%;

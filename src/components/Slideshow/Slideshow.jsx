@@ -25,7 +25,7 @@ export default function Slideshow({banners}) {
             <SlideshowContainer>
                 <Slide>
                     <a href=".">
-                        <img src={banners[currentImg]} alt=""/>
+                        <img src={banners[currentImg]} alt="furniture"/>
                     </a>
                 </Slide>    
             </SlideshowContainer>
