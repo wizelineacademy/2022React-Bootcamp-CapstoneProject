@@ -1,5 +1,6 @@
-// import './App.css';
+import { Footer, Header } from './components';
 import HomePage from './pages/home/HomePage';
+import { Container, GlobalStyle } from './styles';
 
 function App() {
     //   const { data, isLoading } = useFeaturedBanners();
@@ -7,7 +8,13 @@ function App() {
 
     return (
         <div className="App">
-            <HomePage />
+            <GlobalStyle />
+            <Container container>
+                <Header />
+                <HomePage />
+                <Footer />
+            </Container>
+
         </div>
     );
 }

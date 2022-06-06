@@ -24,20 +24,26 @@ const Card =  styled.div`
 
         h5{
             color: ${ colors.Gray[500] };
+            height: 25px;
+        }
+        .category{
+            color: ${ colors.Gray[400] };
         }
 
-        .price{
-            position: absolute;
-            right: 10px;
-            bottom: 10px;
-            
+        
+        .content{
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            bottom: 15px;
         }
     }
 
     @media (max-width: ${ max_widths.sm }) {
-        min-height: 450px;
+        max-height: 450px;
+        
         img{
-            max-height: 350px;
+            max-height: 280px;
         }
     }
 `;

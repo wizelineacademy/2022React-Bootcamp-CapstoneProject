@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, max_widths } from "../../styles/_variables";
+import { max_widths } from "../../styles/_variables";
 
 
 const CarruselStyle = styled.div`
@@ -20,11 +20,15 @@ const CarruselStyle = styled.div`
 
     label{
         position: absolute;
-        left: 20px;
-        bottom: 10px;
+        left: 0%;
+        bottom: 1px;
         font-weight: bold;
         font-size: 20px;
-        color: ${ colors.Green[900] };
+        backdrop-filter: blur(20px);
+        padding: 1em;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
     }
 
     .slider :first-child {
