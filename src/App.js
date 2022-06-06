@@ -1,28 +1,72 @@
-import logo from './logo.svg';
-import './App.css';
 import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
+import styled, {ThemeProvider} from 'styled-components';
+import theme from './themes';
 
-function App() {
-  const { data, isLoading } = useFeaturedBanners();
-  console.log(data, isLoading);
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './components/Home';
+
+const LoadingView = styled.div`
+  min-width: 100%;
+  min-height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyledApp = styled.div`
+    height: 100%;
+    min-height: 100%;
+    min-width: 350px;
+    
+	  display: flex;
+	  flex-direction: column;
+    flex-wrap: nowrap;
+  `;
+
+const MainContainer = styled.div`
+  width: 100%;
+`;
+
+const HeaderContainer = styled(MainContainer)`
+  min-height: 40px;
+`;
+
+const ContentContainer = styled(MainContainer)`
+  flex: 1;
+`;
+
+const FooterContainer = styled(MainContainer)`
+  min-height: 10px;
+`;
+
+const App = () => {
+  // const { data, isLoading } = useFeaturedBanners();
+  const {isLoading} = useFeaturedBanners();
+
+  if (isLoading) {
+    return (
+      <LoadingView>
+        <span>Loading...</span>
+      </LoadingView>
+    );
+  }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <StyledApp>
+        <HeaderContainer>
+          <Header/>
+        </HeaderContainer>
+        <ContentContainer>
+          <Home/>
+        </ContentContainer>
+        <FooterContainer>
+          <Footer/>
+        </FooterContainer>
+      </StyledApp>
+    </ThemeProvider>
   );
 }
 

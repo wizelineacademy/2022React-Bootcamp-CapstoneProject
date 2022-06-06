@@ -1,0 +1,31 @@
+const lightTheme = {
+    colorPrimary: '#006782',
+	colorOnPrimary: '#ffffff',
+	colorPrimaryContainer: '#bbe9ff',
+	colorOnPrimaryContainer: '#001f29',
+	colorSecondary: '#4c616b',
+	colorOnSecondary: '#ffffff',
+	colorSecondaryContainer: '#cfe6f1',
+	colorOnSecondaryContainer: '#071e26',
+	colorTertiary: '#5c5b7e',
+	colorOnTertiary: '#ffffff',
+	colorTertiaryContainer: '#e2dfff',
+	colorOnTertiaryContainer: '#181837',
+	colorError: '#ba1a1a',
+	colorOnError: '#ffffff',
+	colorErrorContainer: '#ffdad6',
+	colorOnErrorContainer: '#410002',
+	colorOutline: '#70787d',
+	colorBackground: '#fbfcfe',
+	colorOnBackground: '#191c1e',
+	colorSurface: '#fbfcfe',
+	colorOnSurface: '#191c1e',
+	colorSurfaceVariant: '#dce4e8',
+	colorOnSurfaceVariant: '#40484c',
+	colorInverseSurface: '#2e3132',
+    colorInverseOnSurface: '#eff1f3',
+
+    coreSpace: 4,
+}
+
+export default lightTheme;
