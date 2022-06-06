@@ -1,31 +1,25 @@
 import styled from "@emotion/styled";
-import { keyframes } from "@emotion/react";
-import { Cross } from "../../icons";
+import { Cross, Home } from "../../icons";
 import { SearchForm } from "./../../ui";
-
-const rotate = keyframes`
-  from {
-  opacity: 0;
-  transform: scaleY(0);
-  }
-
-  to {
-    opacity: 1
-    transform: scaleY(1);
-  }
-`;
 
 const MenuMovil = styled.div`
   position: absolute;
+  z-index: 7;
   background-color: #a1c5cce6;
   color: white;
   left: 0;
   top: 0;
   width: 100vw;
+  opacity: 0;
   height: 100%;
+  transform: scaleY(0);
   transform-origin: top;
-  animation: ${rotate} 0.3s linear 1;
-  transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.4s;
+
+  &.menu-active {
+    opacity: 1;
+    transform: scaleY(1);
+  }
 
   svg {
     cursor: pointer;
@@ -39,7 +33,6 @@ const MenuMovil = styled.div`
 
 const NavMobile = styled.div`
   display: flex;
-  text-align: center;
   padding: 20px 50px;
   flex-direction: column;
   align-items: center;
@@ -54,18 +47,29 @@ const LinkNav = styled.a`
   font-weight: 400;
   color: white;
   border-bottom: 3px solid transparent;
+  display: flex;
+  font-size: 22px;
+  justify-content: center;
+  align-items: center;
   transition: all ease-in-out 0.3s;
   &:hover {
     border-bottom: 3px solid black;
   }
 `;
 
-const NavbarSmallScreen = ({ handleMenuActive }) => {
+const NavbarSmallScreen = ({ handleMenuActive, menuActive }) => {
+  const handleActiveClass = () => {
+    handleMenuActive();
+  };
+
   return (
-    <MenuMovil>
-      <Cross width="50px" height="50px" onClick={handleMenuActive} />
+    <MenuMovil className={`${menuActive ? "menu-active" : ""}`}>
+      <Cross width="50px" height="50px" onClick={handleActiveClass} />
       <NavMobile>
-        <LinkNav href="/">Home</LinkNav>
+        <LinkNav href="/">
+          <Home fill="#FFF" />
+          Home
+        </LinkNav>
         <SearchForm />
       </NavMobile>
     </MenuMovil>

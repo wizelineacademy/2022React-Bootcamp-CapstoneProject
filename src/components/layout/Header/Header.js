@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { Logo } from "../../ui";
-import { MenuButton, CartSidebarView, SearchForm } from "./../../ui";
+import { NavbarDesktop } from "../../common/NavbarDesktop";
+import { Logo, MenuButton, CartSidebarView, SearchForm } from "../../ui";
 
 const Heading = styled.header`
   display: flex;
@@ -8,6 +8,7 @@ const Heading = styled.header`
   align-items: center;
   padding: 15px 30px;
   transition: all ease-in-out 0.3s;
+  border-bottom: 1px solid var(--extralight-gray);
 
   @media (min-width: 768px) {
     padding: 20px 50px;
@@ -26,7 +27,9 @@ const NavDeskContainer = styled.div`
 
   @media (min-width: 768px) {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
   }
 `;
 
@@ -36,6 +39,7 @@ const Header = () => {
       <Logo />
       <ActionsContainer>
         <NavDeskContainer>
+          <NavbarDesktop />
           <SearchForm />
         </NavDeskContainer>
         <MenuButton />

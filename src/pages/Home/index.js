@@ -1,9 +1,10 @@
+import { Slider } from "../../components/ui";
 import PageTemplate from "../../templates/PageTemplate";
 
 const Home = () => {
   return (
     <PageTemplate>
-      <div>Desde home</div>
+      <Slider autoScroll={true} intervalTime={5000} />
     </PageTemplate>
   );
 };

@@ -25,7 +25,10 @@ const MenuButton = () => {
           <Menu fill="#FFF" />
         </Button>
       </ButonContainer>
-      {menuActive && <NavbarSmallScreen handleMenuActive={handleMenuActive} />}
+      <NavbarSmallScreen
+        menuActive={menuActive}
+        handleMenuActive={setMenuActive}
+      />
     </>
   );
 };
