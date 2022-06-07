@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+*, ::before, ::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Roboto";
+}

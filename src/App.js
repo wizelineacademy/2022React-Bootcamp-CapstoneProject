@@ -1,15 +1,15 @@
 // import logo from './logo.svg';
 import './App.css';
-import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
-import Home from './pages/Home';
+import CartWidget from './components/CartWidget';
+import Footer from './layouts/Footer/Footer';
+import MainLayout from './layouts/MainLayout';
 
 function App() {
-  const { data, isLoading } = useFeaturedBanners();
-  console.log(data, isLoading);
-
   return (
     <div className="App">
-      <Home />
+      <CartWidget />
+      <MainLayout />
+      <Footer />
     </div>
   );
 }

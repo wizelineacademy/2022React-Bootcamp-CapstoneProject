@@ -1,12 +1,16 @@
 import React from "react";
-import Content from "./Content";
+import Categories from "./Categories";
+import ContentTop from "./ContentTop";
 import Header from "./Header";
+import ProductsGrid from "./ProductsGrid";
 
 const Home = () => {
   return (
     <>
       <Header />
-      <Content />
+      <ContentTop />
+      <Categories />
+      <ProductsGrid />
     </>
   );
 };

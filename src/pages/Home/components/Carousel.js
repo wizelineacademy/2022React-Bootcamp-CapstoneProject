@@ -7,14 +7,21 @@ import {
     Indicators,
     ButtonPaginator,
 } from "../styled-components/carousel.styled.component";
+import PropTypes from 'prop-types';
 
-export const CarouselItem = ({ children, width }) => {
+export const CarouselItem = ({ children, width, image }) => {
     return (
-        <Item width={width}>
+        <Item width={width} image={image}>
             {children}
         </Item>
     );
 };
+
+CarouselItem.propTypes = {
+    children: PropTypes.node,
+    width: PropTypes.string,
+    image: PropTypes.string,
+}
 
 const Carousel = ({ children }) => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -85,5 +92,9 @@ const Carousel = ({ children }) => {
         </CarouselContainer>
     );
 };
+
+Carousel.propTypes = {
+    children: PropTypes.node,
+}
 
 export default Carousel;

@@ -52,7 +52,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const Logo = styled.a`
+export const LogoLink = styled.a`
   display: flex;
   -moz-box-align: center;
   align-items: center;
@@ -72,7 +72,6 @@ export const RightBox = styled.div`
     display: flex;
     -moz-box-align: center;
     align-items: center;
-}
 `;
 
 export const Icon = styled.svg`
