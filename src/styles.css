@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;900&family=Poppins:wght@400;700&family=Tangerine:wght@700&display=swap');
+
+html {
+  background: hsla(190, 44%, 25%, 0.2);
+  /* background: #fff; */
+}
+
+body {
+  font-size: 10px;
+  margin: 0;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.main-page-box {
+  display: flex;
+  flex-flow: column;
+  margin: 50px auto 0;
+  width: 135em;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 1400px){
+  html {
+    font-size: 13px;
+  }
+  .main-page-box {
+    width: 90%;
+  }
+}
