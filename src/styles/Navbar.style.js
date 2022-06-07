@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ShoppingCart } from '@styled-icons/feather/ShoppingCart';
+import * as colors from './Colors.style';
 
 export const NavbarContainer = styled.nav`
   width: 100%;
@@ -8,7 +9,7 @@ export const NavbarContainer = styled.nav`
   position: fixed;
   clear: both;
   z-index: 9999;
-  background-color: #fff;
+  background-color: ${colors.colors.white};
   min-width: 100%;
   box-shadow: inset -1px -1px 1px rgba(72, 83, 37, 0.2),
     1px 1px 3px rgba(72, 83, 37, 0.2);
@@ -82,14 +83,14 @@ export const LogoResp = styled.img`
 export const SearchInput = styled.input`
   width: 80%;
   display: flex;
-  border: 1px solid #dbe0e2;
+  border: 1px solid ${colors.colors.hoverInput};
   cursor: not-allowed !important;
-  color: #777;
+  color: ${colors.colors.inputGray};
   border-radius: 20px;
   padding: 10px 40px 10px 20px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  background-color: #fff;
+  background-color: ${colors.colors.white};
   opacity: 0.5;
 
   &:hover {

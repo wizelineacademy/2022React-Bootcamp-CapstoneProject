@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Col, Row, TopSpace, TitleSection } from '../styles/Home.style';
+import { Col, Row, TopSpace, SectionTitle } from '../styles/Home.style';
 
 import CategoriasMock from '../mocks/en-us/product-categories.json';
 import { Img, Text } from '../styles/Grid.style';
@@ -11,12 +11,12 @@ const GridCategorias = (props) => {
       <TopSpace />
       <TopSpace />
 
-      <TitleSection>Categories</TitleSection>
+      <SectionTitle>Categories</SectionTitle>
       <Row centered>
-        {CategoriasMock.results.map((item) => (
+        {CategoriasMock.results.map(({ data: { main_image, url, name } }) => (
           <Col lg="2" md="3" sm="4" xs="11" spaced>
-            <Img src={item.data.main_image.url} alt={item.data.url} />
-            <Text>{item.data.name}</Text>
+            <Img src={main_image.url} alt={url} />
+            <Text>{name}</Text>
           </Col>
         ))}
       </Row>

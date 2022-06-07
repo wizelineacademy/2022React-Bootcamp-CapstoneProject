@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import * as colors from './Colors.style';
 
 export const Card = styled.div`
   background-color: white;
@@ -20,12 +21,12 @@ export const Text = styled.p`
   margin-top: 0;
   text-align: center;
   font-weight: 300;
-  color: #485461;
+  color: ${colors.colors.titleBlue};
 `;
 
 export const TextImage = styled.p`
   position: absolute;
-  background-color: #659fc0;
+  background-color: ${colors.colors.subBlue};
   padding: 5px;
   color: white;
   top: 8px;

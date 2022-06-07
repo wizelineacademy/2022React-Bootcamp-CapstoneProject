@@ -1,20 +1,20 @@
 import React from 'react';
 import {
   FooterContainer,
-  TitleFooter,
-  WrapperFooter,
+  FooterTitle,
+  FooterWrapper,
 } from '../styles/Footer.style';
 
 const Footer = (props) => {
   return (
     <div>
-      <WrapperFooter>
+      <FooterWrapper>
         <FooterContainer>
-          <TitleFooter>
+          <FooterTitle>
             Ecommerce created during Wizeline’s Academy React Bootcamp
-          </TitleFooter>
+          </FooterTitle>
         </FooterContainer>
-      </WrapperFooter>
+      </FooterWrapper>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import * as colors from './Colors.style';
 
 export const HomeContainer = styled.div`
   padding-top: 80px;
@@ -80,8 +81,23 @@ export const ContainerCenter = styled.div`
   align-items: center;
 `;
 
-export const TitleSection = styled.h1`
+export const SectionTitle = styled.h1`
   text-align: center;
   font-weight: 200;
-  color: #485461;
+  color: ${colors.colors.titleBlue};
+`;
+
+export const Button = styled.button`
+  border-radius: 10px;
+  background-color: ${colors.colors.subBlue};
+  border-color: ${colors.colors.subBlue};
+  color: white;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  padding: 10px;
+
+  &:hover {
+    background-color: ${colors.colors.hoverSubBlue};
+    border-color: ${colors.colors.hoverSubBlue};
+  }
 `;

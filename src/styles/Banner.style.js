@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { ArrowLeftCircle } from '@styled-icons/bootstrap/ArrowLeftCircle';
 import { ArrowRightCircle } from '@styled-icons/bootstrap/ArrowRightCircle';
+import * as colors from './Colors.style';
 
 export const SlideImage = styled.img`
   width: 100%;
@@ -17,23 +18,23 @@ export const StyledSlider = styled.div`
 export const IconLeftArrow = styled(ArrowLeftCircle)`
   width: 25px;
   height: 25px;
-  color: #555555;
+  color: ${colors.colors.lightGray};
   margin-right: 0.3em;
   cursor: pointer;
   &:hover {
-    color: #5554559b;
+    color: ${colors.colors.hoverLightGray};
   }
 `;
 
 export const IconRightArrow = styled(ArrowRightCircle)`
   width: 25px;
   height: 25px;
-  color: #555555;
+  color: ${colors.colors.lightGray};
   margin-left: 0.3em;
   cursor: pointer;
 
   &:hover {
-    color: #5554559b;
+    color: ${colors.colors.hoverLightGray};
   }
 `;
 
@@ -43,7 +44,7 @@ export const CenteredTextTitle = styled.div`
   left: 50%;
   font-size: 27px;
   font-weight: 500;
-  color: #f7f0ea;
+  color: white;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.3);
   @media (max-width: 480px) {

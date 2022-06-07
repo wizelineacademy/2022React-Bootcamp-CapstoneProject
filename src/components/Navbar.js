@@ -14,13 +14,17 @@ import {
 import LogoImg from '../assets/logoHorizontal.png';
 import LogoResponsive from '../assets/logo-responsive.png';
 
+import { Link } from 'react-router-dom';
+
 const Navbar = (props) => {
   return (
     <div>
       <NavbarContainer>
         <NavbarInnerContainer>
           <ContainerCol1>
-            <Logo src={LogoImg} alt="logoEccomerce" />
+            <Link to="/">
+              <Logo src={LogoImg} alt="logoEccomerce" />
+            </Link>
             <LogoResp src={LogoResponsive} alt="logoResponsive" />
           </ContainerCol1>
           <ContainerCol2>
