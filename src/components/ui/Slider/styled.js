@@ -7,7 +7,7 @@ export const SliderContainer = styled.div`
   overflow: hidden;
   margin: 0 auto;
   width: 100%;
-  height: 300px;
+  height: 240px;
 
   @media (min-width: 588px) {
     height: 400px;
@@ -102,8 +102,11 @@ export const Arrow = styled(ChevronRight)`
   z-index: 10;
 
   &:hover {
-    border: 1px solid #fff;
     background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  &:active {
+    background-color: rgba(255, 255, 255, 0.5);
   }
 `;
 

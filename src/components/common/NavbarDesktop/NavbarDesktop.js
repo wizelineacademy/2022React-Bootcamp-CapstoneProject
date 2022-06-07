@@ -9,7 +9,7 @@ const NavContainer = styled.nav`
 
 const LinkNav = styled.a`
   position: relative;
-  font-size: 20px;
+  font-size: 18px;
   text-transform: uppercase;
   font-weight: 400;
   cursor: pointer;

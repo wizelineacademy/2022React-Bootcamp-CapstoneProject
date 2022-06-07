@@ -47,7 +47,7 @@ const Slider = ({ autoScroll, intervalTime }) => {
       {mock.map((slide, index) => (
         <div
           className={`${index === currentSlide ? "slide current" : "slide"}`}
-          key={`${slide.title}`}
+          key={`${slide.id}`}
         >
           {index === currentSlide && (
             <>

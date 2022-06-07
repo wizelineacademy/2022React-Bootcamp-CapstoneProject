@@ -5,6 +5,7 @@ import { Logo, MenuButton, CartSidebarView, SearchForm } from "../../ui";
 const Heading = styled.header`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   padding: 15px 30px;
   transition: all ease-in-out 0.3s;

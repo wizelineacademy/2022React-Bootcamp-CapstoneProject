@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 const Logo = () => {
   const LogoContainer = styled.img`
-    width: 170px;
+    width: 150px;
 
     @media (min-width: 768px) {
       width: 200px;

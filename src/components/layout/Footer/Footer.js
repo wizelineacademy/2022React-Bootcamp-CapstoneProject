@@ -5,7 +5,7 @@ const FooterContainer = styled.footer`
   margin-top: auto;
   display: flex;
   justify-content: center;
-  background-color: var(--primary-green);
+  background-color: #171717;
   color: white;
   align-items: center;
 `;
