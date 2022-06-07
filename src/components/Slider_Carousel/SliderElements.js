@@ -19,7 +19,6 @@ export const SliderWrapper = styled.div`
   flex-direction:column;
   overflow: hidden;
   position: relative;
-  
 `;
 
 export const SlideContainer = styled.div`
@@ -31,9 +30,7 @@ export const SlideContainer = styled.div`
   align-items:center;
 `;
 export const SlideWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
+  
   widht: 100vw;
   height: 100%;
   display: flex;
@@ -62,16 +59,14 @@ export const SlideWrapper = styled.div`
 `;
 
 export const SliderImage = styled.img`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
+
+  width: 500px;
   height: 60vh;
   object-fit: cover;
 `;
 
 export const SlideContent = styled.div`
-  position: relative;
+  position: absolute;
   z-index: 10;
   display: flex;
   justify-content:center;
@@ -113,7 +108,9 @@ export const Button = styled.button`
 export const SliderButtons = styled.div`
   margin-bottom:20px;
   display: flex;
-  z-index: 10;
+  z-index: 100;
+  position:absolute;
+  bottom:8px;
 `;
 
 export const PreviousArrow = styled(FaArrowAltCircleLeft)`

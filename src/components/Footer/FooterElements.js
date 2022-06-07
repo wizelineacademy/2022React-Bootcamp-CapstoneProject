@@ -43,3 +43,11 @@ export const Title = styled.p`
   margin-bottom: 40px;
   font-weight: bold;
 `;
+
+export const FooterTitle = styled.p`
+  font-size: 24px;
+  color: #E4E4EF;
+  margin-bottom: 40px;
+  font-weight: bold;
+  text-align:center;
+`;

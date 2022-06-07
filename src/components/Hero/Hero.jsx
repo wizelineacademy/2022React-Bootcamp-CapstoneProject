@@ -9,27 +9,27 @@ import {
 
 const Hero = ({ slides }) => {
 
-  // const [current, setCurrent] = useState(0);
-  // const length = slides.length;
-  // const timeout = useRef(null);
+  const [current, setCurrent] = useState(0);
+  const length = slides.length;
+  const timeout = useRef(null);
 
-  // useEffect(() => {
-  //   const nextSlide = () => {
-  //     setCurrent((current) => (current === length - 1 ? 0 : current + 1));
-  //   };
+  useEffect(() => {
+    const nextSlide = () => {
+      setCurrent((current) => (current === length - 1 ? 0 : current + 1));
+    };
 
-  //   timeout.current = setTimeout(nextSlide, 2500);
-  //   return function () {
-  //     if (timeout.current) {
-  //       clearTimeout(timeout.current);
-  //     }
-  //   };
-  // }, [current, length]);
+    timeout.current = setTimeout(nextSlide, 4000);
+    return function () {
+      if (timeout.current) {
+        clearTimeout(timeout.current);
+      }
+    };
+  }, [current, length]);
 
   return (
     <HeroMainContainer>
       <HeroMainWrapper>
-        {/* {slides.map((slide, index) => {
+        {slides.map((slide, index) => {
           return (
             <HeroContentContainer key={new Date() + index}>
               {index === current && (
@@ -43,10 +43,8 @@ const Hero = ({ slides }) => {
               )}
             </HeroContentContainer>
           );
-        })} */}
-        <HeroMainTitle>
-          uShop
-        </HeroMainTitle>
+        })}
+       
       </HeroMainWrapper>
     </HeroMainContainer>
   );
