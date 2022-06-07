@@ -1,0 +1,14 @@
+.group {
+  margin-bottom: 80px;
+
+  & > * ~ * {
+    margin-top: 50px;
+  }
+
+  .title {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,16 @@
+footer {
+  font-size: 1.1rem;
+  background-color: $main-color;
+  padding: 45px 0;
+  box-shadow: $box-shadow;
+  width: 100%;
+  bottom: 0;
+
+  .container {
+    p {
+      text-align: center;
+      color: $txt-white;
+      font-weight: bold;
+    }
+  }
+}
