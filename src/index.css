@@ -2,11 +2,12 @@
 
 :root {
   --primary-green: #a1c5cc;
+  --dark-green: #709198;
   --primary-green-hover: #b7d8df;
   --opacity--green: #a1c5cce6;
   --mask-gray: #e4e4e4;
   --light-gray: #9999a6;
-  --gray: #636364;
+  --gray: #5c5c5c;
   --extralight-gray: #ebebeb;
 }
 

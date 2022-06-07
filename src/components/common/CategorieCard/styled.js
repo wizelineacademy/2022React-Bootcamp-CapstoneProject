@@ -1,10 +1,21 @@
 import styled from "@emotion/styled";
+import { keyframes } from "@emotion/react";
+
+export const FadeEffect = keyframes`
+from{
+opacity: 0;
+}
+to{
+opacity: 1;
+}
+`;
 
 export const CardContainer = styled.div`
   position: relative;
   overflow: hidden;
   cursor: pointer;
   transition: 0.3s;
+  animation: ${FadeEffect} ease 2s;
 
   & * {
     transition: all ease-in-out 0.3s;
@@ -25,7 +36,11 @@ export const CardContainer = styled.div`
   }
 
   &:hover img {
-    transform: scale(1.1) translate(20px, 15px);
+    transform: scale(1.2) translate(20px, 15px);
+
+    @media (min-width: 470px) {
+      transform: scale(1.1) translate(20px, 15px);
+    }
   }
 
   &:hover:before {

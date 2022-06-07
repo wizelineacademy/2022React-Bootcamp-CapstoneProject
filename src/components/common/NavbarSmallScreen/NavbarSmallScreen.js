@@ -3,7 +3,7 @@ import { Cross, Home } from "../../icons";
 import { SearchForm } from "./../../ui";
 
 const MenuMovil = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 30;
   background-color: #a1c5cce6;
   color: white;

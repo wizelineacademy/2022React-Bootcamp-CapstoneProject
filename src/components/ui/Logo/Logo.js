@@ -1,14 +1,6 @@
-import styled from "@emotion/styled";
+import { LogoContainer } from "./styled";
 
 const Logo = () => {
-  const LogoContainer = styled.img`
-    width: 150px;
-
-    @media (min-width: 768px) {
-      width: 200px;
-    }
-  `;
-
   return (
     <a href="/">
       <LogoContainer src="/assets/logo.webp" alt="logo" />
