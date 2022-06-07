@@ -1,0 +1,16 @@
+.footer-container{
+    height: 17.8%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    background-color: #15133C;
+}
+.footer{
+    width: 100%;
+    height: 100%;
+    max-width: 1920px;
+}
+.footer h3{
+    color: #EC994B;
+}
