@@ -45,28 +45,37 @@ const StyledSliderBannerTitle = styled.h4`
 const SliderBanner = ({items}) => {
     const [bannerIdx, setBannerIdx] = useState(1);
     const [isPlaybackActive, setIsPlaybackActive] = useState(true);
-    let playbackInterval = null;
 
     const resumePlayback = () => {
-        playbackInterval = setInterval(() => {
-            handleNextBanner();
-        }, PLAYBACK_SPEED_MS);
+        setIsPlaybackActive(true);
     };
 
     const stopPlayback = () => {
-        clearInterval(playbackInterval);
-        playbackInterval = null;
+        setIsPlaybackActive(false);
+    };
+
+    const handleNextBanner = () => {
+        const nextBannerIdx = (bannerIdx + 1) % bannersDataLength;
+        setBannerIdx(nextBannerIdx);
     };
 
     useEffect(() => {
+        let interval = null;
+
         if (isPlaybackActive) {
-            resumePlayback();
+            interval = setInterval(() => {
+                const bannersDataLength = items.length;
+                const nextBannerIdx = (bannerIdx + 1) % bannersDataLength;
+                setBannerIdx(nextBannerIdx);
+            }, PLAYBACK_SPEED_MS);
+        } else {
+            clearInterval(interval);
         }
 
         return () => {
-            stopPlayback();
+            clearInterval(interval);
         };
-    }, [bannerIdx, isPlaybackActive]);
+    }, [bannerIdx, isPlaybackActive, items]);
     
 
     const bannersDataLength = items.length;
@@ -90,10 +99,6 @@ const SliderBanner = ({items}) => {
         } else {
             resumePlayback();
         }
-    };
-    const handleNextBanner = () => {
-        const nextBannerIdx = (bannerIdx + 1) % bannersDataLength;
-        setBannerIdx(nextBannerIdx);
     };
 
     const bannerDetails = items[bannerIdx];
