@@ -1,4 +1,5 @@
-{
+/* eslint-disable max-len */
+export const featuredBanners = {
   "page": 1,
   "results_per_page": 5,
   "results_size": 3,
@@ -23,8 +24,8 @@
         {
           "id": "YWYpFRIAAC8A3RWi",
           "type": "banner",
-          "lang": "es-mx"
-        }
+          "lang": "es-mx",
+        },
       ],
       "data": {
         "title": "AMAZING FINISHES - BEDROOM",
@@ -32,21 +33,21 @@
           {
             "type": "paragraph",
             "text": "Provides great stability",
-            "spans": []
-          }
+            "spans": [],
+          },
         ],
         "cta_link": "#",
         "cta_target": "_parent",
         "main_image": {
           "dimensions": {
             "width": 1440,
-            "height": 705
+            "height": 705,
           },
           "alt": "AMAZING FINISHES - BEDROOM",
           "copyright": null,
-          "url": "https://images.prismic.io/wizeline-academy/edaf28da-2e46-4f75-8a69-a972119f40ed_banner-3-2.jpeg?auto=compress,format&rect=0,0,1429,700&w=1440&h=705"
-        }
-      }
+          "url": "https://images.prismic.io/wizeline-academy/edaf28da-2e46-4f75-8a69-a972119f40ed_banner-3-2.jpeg?auto=compress,format&rect=0,0,1429,700&w=1440&h=705",
+        },
+      },
     },
     {
       "id": "YWYmORIAAC4A3Qio",
@@ -64,8 +65,8 @@
         {
           "id": "YWYn5xIAACkA3RA3",
           "type": "banner",
-          "lang": "es-mx"
-        }
+          "lang": "es-mx",
+        },
       ],
       "data": {
         "title": "A GREAT STYLE - LIVING ROOM",
@@ -73,21 +74,21 @@
           {
             "type": "paragraph",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "spans": []
-          }
+            "spans": [],
+          },
         ],
         "cta_link": "#",
         "cta_target": "_parent",
         "main_image": {
           "dimensions": {
             "width": 1440,
-            "height": 705
+            "height": 705,
           },
           "alt": "A GREAT STYLE - LIVING ROOM",
           "copyright": null,
-          "url": "https://images.prismic.io/wizeline-academy/305e2781-5f25-4c00-bef7-1041b49def37_banner-1-2.jpeg?auto=compress,format&rect=103,0,1226,600&w=1440&h=705"
-        }
-      }
+          "url": "https://images.prismic.io/wizeline-academy/305e2781-5f25-4c00-bef7-1041b49def37_banner-1-2.jpeg?auto=compress,format&rect=103,0,1226,600&w=1440&h=705",
+        },
+      },
     },
     {
       "id": "YWYoshIAACkA3RPe",
@@ -100,7 +101,7 @@
       "last_publication_date": "2021-10-13T00:30:45+0000",
       "slugs": [
         "great-versatility---dining-room",
-        "gran-versatilidad---comedor"
+        "gran-versatilidad---comedor",
       ],
       "linked_documents": [],
       "lang": "en-us",
@@ -108,8 +109,8 @@
         {
           "id": "YWYojhIAACoA3RM2",
           "type": "banner",
-          "lang": "es-mx"
-        }
+          "lang": "es-mx",
+        },
       ],
       "data": {
         "title": "GREAT VERSATILITY - DINING ROOM",
@@ -117,23 +118,23 @@
           {
             "type": "paragraph",
             "text": "Elegance in every detail",
-            "spans": []
-          }
+            "spans": [],
+          },
         ],
         "cta_link": "#",
         "cta_target": "_parent",
         "main_image": {
           "dimensions": {
             "width": 1440,
-            "height": 705
+            "height": 705,
           },
           "alt": "GREAT VERSATILITY - DINING ROOM",
           "copyright": null,
-          "url": "https://images.prismic.io/wizeline-academy/d29a4958-97e1-4fe5-b1db-ee9be564a2dd_banner-2-2.jpeg?auto=compress,format&rect=85,0,1430,700&w=1440&h=705"
-        }
-      }
-    }
+          "url": "https://images.prismic.io/wizeline-academy/d29a4958-97e1-4fe5-b1db-ee9be564a2dd_banner-2-2.jpeg?auto=compress,format&rect=85,0,1430,700&w=1440&h=705",
+        },
+      },
+    },
   ],
   "version": "31acd9d",
-  "license": "This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/."
+  "license": "This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.",
 }

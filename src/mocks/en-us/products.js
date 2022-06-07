@@ -1,4 +1,4 @@
-{
+export const products = {
   "page": 1,
   "results_per_page": 50,
   "results_size": 29,

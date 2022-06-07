@@ -1,4 +1,5 @@
-{
+/* eslint-disable max-len */
+export const productCategories = {
   "page": 1,
   "results_per_page": 20,
   "results_size": 5,
@@ -23,21 +24,21 @@
         {
           "id": "YWHxkhIAAC4Ayj0J",
           "type": "category",
-          "lang": "en-us"
-        }
+          "lang": "en-us",
+        },
       ],
       "data": {
         "name": "Cocina",
         "main_image": {
           "dimensions": {
             "width": 621,
-            "height": 398
+            "height": 398,
           },
           "alt": "Cocina",
           "copyright": null,
-          "url": "https://images.prismic.io/wizeline-academy/650366df-0405-4712-bd3b-2703d87e7a61_watermark-designs-XL6gfkLmkOw-unsplash-web+%281%29.jpg?auto=compress,format&rect=0,26,1920,1231&w=621&h=398"
-        }
-      }
+          "url": "https://images.prismic.io/wizeline-academy/650366df-0405-4712-bd3b-2703d87e7a61_watermark-designs-XL6gfkLmkOw-unsplash-web+%281%29.jpg?auto=compress,format&rect=0,26,1920,1231&w=621&h=398",
+        },
+      },
     },
     {
       "id": "YWHv7xIAACwAyjW6",
@@ -55,21 +56,21 @@
         {
           "id": "YWHviRIAACsAyjP3",
           "type": "category",
-          "lang": "en-us"
-        }
+          "lang": "en-us",
+        },
       ],
       "data": {
         "name": "Muebles",
         "main_image": {
           "dimensions": {
             "width": 621,
-            "height": 398
+            "height": 398,
           },
           "alt": "Muebles",
           "copyright": null,
-          "url": "https://images.prismic.io/wizeline-academy/5266b923-b89f-4b80-9a4a-ddb98b81c53f_nathan-fertig-FBXuXp57eM0-unsplash-web+%281%29.jpg?auto=compress,format&rect=0,24,1920,1231&w=621&h=398"
-        }
-      }
+          "url": "https://images.prismic.io/wizeline-academy/5266b923-b89f-4b80-9a4a-ddb98b81c53f_nathan-fertig-FBXuXp57eM0-unsplash-web+%281%29.jpg?auto=compress,format&rect=0,24,1920,1231&w=621&h=398",
+        },
+      },
     },
     {
       "id": "YWHx7xIAACsAyj6p",
@@ -87,21 +88,21 @@
         {
           "id": "YWHx-xIAAC0Ayj7i",
           "type": "category",
-          "lang": "en-us"
-        }
+          "lang": "en-us",
+        },
       ],
       "data": {
         "name": "Ropa de Cama y Baño",
         "main_image": {
           "dimensions": {
             "width": 621,
-            "height": 398
+            "height": 398,
           },
           "alt": "Baño",
           "copyright": null,
-          "url": "https://images.prismic.io/wizeline-academy/5df875b5-3e43-4cf0-97b9-06ed73ed6d9b_sanibell-bv-530lZQXMKGw-unsplash-web+%281%29.jpg?auto=compress,format&rect=0,24,1920,1231&w=621&h=398"
-        }
-      }
+          "url": "https://images.prismic.io/wizeline-academy/5df875b5-3e43-4cf0-97b9-06ed73ed6d9b_sanibell-bv-530lZQXMKGw-unsplash-web+%281%29.jpg?auto=compress,format&rect=0,24,1920,1231&w=621&h=398",
+        },
+      },
     },
     {
       "id": "YWHytRIAACoAykIk",
@@ -119,21 +120,21 @@
         {
           "id": "YWHy0xIAACoAykKm",
           "type": "category",
-          "lang": "en-us"
-        }
+          "lang": "en-us",
+        },
       ],
       "data": {
         "name": "Iluminación",
         "main_image": {
           "dimensions": {
             "width": 621,
-            "height": 398
+            "height": 398,
           },
           "alt": "Iluminación",
           "copyright": null,
-          "url": "https://images.prismic.io/wizeline-academy/fdc4897a-c224-450f-9378-a39d2afaa7f6_zero-take-uLcBn2TsavU-unsplash-web+%281%29.jpg?auto=compress,format&rect=1,0,1919,1230&w=621&h=398"
-        }
-      }
+          "url": "https://images.prismic.io/wizeline-academy/fdc4897a-c224-450f-9378-a39d2afaa7f6_zero-take-uLcBn2TsavU-unsplash-web+%281%29.jpg?auto=compress,format&rect=1,0,1919,1230&w=621&h=398",
+        },
+      },
     },
     {
       "id": "YWHybRIAAC8AykDh",
@@ -151,23 +152,23 @@
         {
           "id": "YWHyYRIAACgAykCq",
           "type": "category",
-          "lang": "en-us"
-        }
+          "lang": "en-us",
+        },
       ],
       "data": {
         "name": "Decoración y Organización",
         "main_image": {
           "dimensions": {
             "width": 621,
-            "height": 398
+            "height": 398,
           },
           "alt": "Decoración y Organización",
           "copyright": null,
-          "url": "https://images.prismic.io/wizeline-academy/7213f592-3304-4521-9765-830792751780_angela-bailey-tuJtzghMuEw-unsplash-web+%281%29.jpg?auto=compress,format&rect=0,24,1920,1231&w=621&h=398"
-        }
-      }
-    }
+          "url": "https://images.prismic.io/wizeline-academy/7213f592-3304-4521-9765-830792751780_angela-bailey-tuJtzghMuEw-unsplash-web+%281%29.jpg?auto=compress,format&rect=0,24,1920,1231&w=621&h=398",
+        },
+      },
+    },
   ],
   "version": "31acd9d",
-  "license": "This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/."
+  "license": "This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.",
 }
