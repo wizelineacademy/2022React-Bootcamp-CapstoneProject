@@ -31,6 +31,7 @@ const Slider = ({ categories }) => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
 
+
   if (!Array.isArray(categories) || categories.length <= 0) {
     return null;
   }
