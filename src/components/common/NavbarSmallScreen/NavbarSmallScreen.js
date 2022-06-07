@@ -4,7 +4,7 @@ import { SearchForm } from "./../../ui";
 
 const MenuMovil = styled.div`
   position: absolute;
-  z-index: 10;
+  z-index: 30;
   background-color: #a1c5cce6;
   color: white;
   left: 0;

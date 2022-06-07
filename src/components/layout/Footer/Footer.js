@@ -11,8 +11,12 @@ const FooterContainer = styled.footer`
 `;
 
 const FooterContent = styled.div`
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 400;
+
+  @media (min-width: 588px) {
+    font-size: 18px;
+  }
 `;
 
 const Footer = () => {

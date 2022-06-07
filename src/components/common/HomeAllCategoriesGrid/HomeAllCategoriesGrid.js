@@ -1,12 +1,8 @@
 import styled from "@emotion/styled";
 import ProductCategories from "../../../mocks/en-us/product-categories.json";
 import { createCategoriesAdapter } from "./../../../adapters/product-categories";
-import { SectionHeading } from "./../../../styled-components";
+import { SectionHeading, SectionContainer } from "./../../../styled-components";
 import { CategorieCard } from "../";
-
-const SectionContainer = styled.section`
-  margin-top: 40px;
-`;
 
 const GridContainer = styled.div`
   margin: 25px auto;
