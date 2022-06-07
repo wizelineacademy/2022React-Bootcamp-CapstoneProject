@@ -14,9 +14,17 @@ export const HeroMainWrapper = styled.div`
   height: auto;
   width: 100%;
 `;
+
+export const HeroContentContainer = styled.div`
+
+`
+
+export const HeroImageSlider = styled.img`
+
+`
 export const HeroMainTitle = styled.h1`
     text-align:center;
-  font-size: 60px;
-  color: #201E45;
-  font-family:Sans-serif;
+    font-size: 60px;
+    color: #201E45;
+    font-family:Sans-serif;
 `;
