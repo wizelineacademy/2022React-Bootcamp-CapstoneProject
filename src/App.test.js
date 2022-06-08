@@ -16,7 +16,7 @@ test('is logo visible after loading applicaiton', () => {
     await new Promise((timeout) => setTimeout(timeout, 1000));
   };
   wait().then(() => {
-    const logoImage = screen.getByAltText('Test-store');
+    const logoImage = screen.getByAltText('RBCP');
     expect(logoImage).toBeInTheDocument();
   });
 });

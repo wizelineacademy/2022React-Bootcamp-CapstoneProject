@@ -1,9 +1,7 @@
 import styled from 'styled-components';
-import {Cart} from '@styled-icons/bootstrap/Cart';
-import SearchInput from './SearchInput';
-import Button from './Button';
 
 import Logo from './Logo';
+import MainToolbar from './MainToolbar';
 
 const StyledHeader = styled.div`
     display: flex;
@@ -20,12 +18,7 @@ const Header = () => {
     return (
         <StyledHeader>
             <Logo/>
-            <SearchInput/>
-            <Button
-                disabled
-            >
-                <Cart size="18" title="Cart"/>
-            </Button>
+            <MainToolbar/>
         </StyledHeader>
     );
 }

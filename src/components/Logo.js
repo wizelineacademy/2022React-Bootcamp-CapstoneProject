@@ -9,15 +9,16 @@ const StyledLogo = styled.div`
 const StyledLogoImg = styled.img`
     max-height: 40px;
 `;
-const StyledLogoTitle = styled.h3`
+const StyledLogoTitle = styled.h1`
     margin: 0;
+    white-space: nowrap;
 `;
 
 const Logo = () => {
     return (
         <StyledLogo>
-            <StyledLogoImg src={logo} alt="Test-store"/>
-            <StyledLogoTitle>Test-store</StyledLogoTitle>
+            <StyledLogoImg src={logo} alt="RBCP"/>
+            <StyledLogoTitle>RBCP</StyledLogoTitle>
         </StyledLogo>
     );
 }

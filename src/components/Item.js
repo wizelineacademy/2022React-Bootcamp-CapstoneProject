@@ -2,34 +2,29 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const width = 200;
-const height = 200;
 const StyledItem = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
 
     width: ${width}px;
-    height: ${height}px;
     margin: ${({theme}) => theme.coreSpace * 2}px;
-
-    background-image: ${({image}) => `url(${image})`};
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
 `;
-const StyledItemTextContainer = styled.div`
-    text-shadow: 2px 2px 12px white;
-    width: 100%;
-`;
-const StyledItemTitleContainer = styled(StyledItemTextContainer)`
-    text-align: center;
-    text-decoration: underline;
-`;
-const StyledItemDetailContainer = styled(StyledItemTextContainer)`
+const StyledItemDescription = styled.div`
     display: flex;
-    justify-content: space-between;
-    width: 100%;
+    flex-direction: column;
     align-items: center;
+`;
+const StyledItemImg = styled.img`
+    width: ${width - 20}px;
+`;
+const StyledItemPriceContainer = styled.span`
+    font-weight: bolder;
+`;
+const StyledItemTitleContainer = styled.div`
+    text-decoration: underline;
+    width: 100;
+    text-align: center;
 `;
 const StyledItemCategoryContainer = styled.span`
     font-size: 10px;
@@ -44,24 +39,21 @@ const Item = ({detail}) => {
     } = detail;
 
     return (
-        <StyledItem image={image}>
-            <StyledItemTitleContainer>
-                <span>
-                    <b>
+        <StyledItem>
+            <StyledItemImg
+                src={image}
+            />
+            <StyledItemDescription>
+                <StyledItemCategoryContainer>{category}</StyledItemCategoryContainer>
+                <StyledItemTitleContainer>
+                    <span>
                         {name}
-                    </b>
-                </span>
-            </StyledItemTitleContainer>
-            <StyledItemDetailContainer>
-                <StyledItemCategoryContainer>
-                    {category}
-                </StyledItemCategoryContainer>
-                <span>
-                    <b>
-                        {'$ ' + price}
-                    </b>
-                </span>
-            </StyledItemDetailContainer>
+                    </span>
+                </StyledItemTitleContainer>
+                <StyledItemPriceContainer>
+                    {'$ ' + price}
+                </StyledItemPriceContainer>
+            </StyledItemDescription>
         </StyledItem>
     );
 };

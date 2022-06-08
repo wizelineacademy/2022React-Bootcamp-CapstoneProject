@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const StyledFooter = styled.div`
     text-align: right;
     padding: 4px;
+    font-size: 12px;
 
     border-top: 1px solid ${({theme}) => theme.colorPrimaryContainer};
 `;
