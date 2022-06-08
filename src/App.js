@@ -14,13 +14,13 @@ function App() {
   console.log(data, isLoading);
   const banners = mock1.results.map(result => result.data.main_image.url);
   const categories = mock2.results;
-  const products = mock3.results;
+  const products = mock3.results; 
   return (
     <div className="App">
       <Header/>
       <Slideshow banners={banners}/>
       <Categories categories={categories}/>
-      <Products products={products}/>
+      <Products products={products}/> 
       <Footer/>
     </div>
   );
