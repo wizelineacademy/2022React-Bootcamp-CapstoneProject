@@ -10,7 +10,7 @@ export default function Products({products}) {
                         key={index}  
                         style={{ backgroundImage:`url(${product.data.mainimage.url})` }}>
                         <CardText>
-                            <h5>{product.data.name}</h5>
+                            <h4 className="prod-name">{product.data.name}</h4>
                             <p className="price" >${product.data.price}</p>
                             <p><small>{product.data.category.slug.toUpperCase()}</small></p> 
                         </CardText>
