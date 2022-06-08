@@ -1,0 +1,85 @@
+header {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+header a {
+  margin: 25px 20px;
+  display: flex;
+  text-decoration: none;
+}
+
+header img {
+  border-radius: 30%;
+  width: 4rem;
+  margin-right: 10px;
+  height: 4rem;
+}
+header h2 {
+  margin: 10px 0;
+}
+
+.buttons_container {
+  margin: 25px 0;
+  margin-right: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 25%;
+  line-height: 76px;
+}
+
+.search_input {
+  font-size: 15px;
+  padding: 6px 12px 6px 15px;
+  background-color: white;
+  border-bottom: 2px solid gray;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  width: 13rem;
+  font-style: italic;
+}
+
+.search_button {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  background-color: white;
+}
+
+.search_button svg {
+  width: 25px;
+  height: 25px;
+}
+
+.cart_button {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background-color: #fff;
+}
+
+.cart_button svg {
+  width: 25px;
+  height: 25px;
+  color: gray;
+}
+
+@media screen and (max-width: 1230px) {
+  .buttons_container {
+    width: 35%;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .buttons_container {
+    width: 25%;
+    margin: 25px 0;
+  }
+
+  .buttons_container input {
+    display: none;
+  }
+}

@@ -1,0 +1,19 @@
+.card_style {
+  margin: 13px 15px;
+  background-color: white;
+  width: 30rem;
+}
+
+.card_style a {
+  text-decoration: none;
+}
+
+.card_style img {
+  max-width: 30rem;
+}
+
+@media screen and (max-width: 900px) {
+  .card_style img {
+    width: 100%;
+  }
+}
