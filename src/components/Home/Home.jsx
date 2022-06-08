@@ -8,7 +8,7 @@ import Slogan from './Slogan';
 function Home() {
   return(
     <HomeMain>
-      <Slogan/>
+      <Slogan text='Make your stylish' />
       <Slider />
       <ProductCategories />
       <FeaturedProducts />

@@ -10,7 +10,7 @@ function App() {
     <>
       <Header />
       <Home />
-      <Footer />
+      <Footer text='Ecommerce created during Wizeline’s Academy React Bootcamp' />
     </>
   );
 }

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slogan Component Test should render the Slogan Component correctly 1`] = `ReactWrapper {}`;
