@@ -1,6 +1,6 @@
 import styles from "../styles/Footer.module.css";
 
-const Footer = () => {
+const FooterComponent = () => {
   return (
     <div className={styles.footer}>
       <p>Ecommerce created during Wizeline’s Academy React Bootcamp</p>
@@ -8,4 +8,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterComponent;

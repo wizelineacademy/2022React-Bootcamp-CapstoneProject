@@ -1,7 +1,7 @@
 import "./App.css";
 import { useFeaturedBanners } from "./utils/hooks/useFeaturedBanners";
-import Header from "./pages/Header";
-import Footer from "./pages/Footer";
+import HeaderComponent from "./components/HeaderComponent";
+import FooterComponent from "./components/FooterComponent";
 import Home from "./pages/Home";
 
 function App() {
@@ -10,9 +10,9 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <HeaderComponent />
       <Home />
-      <Footer />
+      <FooterComponent />
     </div>
   );
 }

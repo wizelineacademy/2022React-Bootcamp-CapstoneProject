@@ -1,7 +1,7 @@
 import styles from "../styles/Header.module.css";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 
-const Header = () => {
+const HeaderComponent = () => {
   const server = "https://d3jmn01ri1fzgl.cloudfront.net";
   const path =
     "/photoadking/webp_thumbnail/5f9294c203d69_template_image_1603441858.webp";
@@ -32,4 +32,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderComponent;
