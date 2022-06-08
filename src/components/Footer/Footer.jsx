@@ -1,5 +1,5 @@
 import React from 'react';
-import {FooterWrap} from './Footer.styled';
+import {FooterWrap, Links, SocialMedia} from './Footer.styled';
 import iconf from './icons/facebook.png';
 import icont from './icons/twitter.png';
 import iconI from './icons/instagram.png';
@@ -8,15 +8,15 @@ import iconI from './icons/instagram.png';
 export default function Footer() {
     return(
         <FooterWrap>
-            <div className="links">
+            <Links>
                 <ul>
                     <a href=".">Home Tours</a>
                     <a href=".">Payment</a>
                     <a href=".">FAQ</a>
                 </ul>
-            </div>
+            </Links>
             <p><small>Ecommerce created during Wizeline’s Academy React Bootcamp</small></p>
-            <div className="social-media">
+            <SocialMedia>
                 <a href=".">
                     <img src={iconf} alt="facebook-icon"/>
                 </a>
@@ -26,9 +26,7 @@ export default function Footer() {
                 <a href=".">
                     <img src={iconI} alt="twitter-icon"/>
                 </a>
-            </div>
-            
-            
+            </SocialMedia>
         </FooterWrap>
     )
 }; 

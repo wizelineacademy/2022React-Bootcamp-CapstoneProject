@@ -10,29 +10,27 @@ export const FooterWrap = styled.div`
     @media (max-width: 768px) {
         flex-direction: column;
     }
-    
     p {
         color:gray;
-    }
-
-    .links ul {
+    }    
+`;
+export const Links = styled.div`
+    ul {
         display:flex;
         width:100%;
         justify-content: space-evenly;
-        
-        a {
-            text-decoration: none;
-            color:gray;
-            padding: 10px;
-        }
     }
-    .social-media {
-        display:flex;
-        
-        a img{
-            height:40px;
-            margin: 10px;
-        }
+    a {
+        text-decoration: none;
+        color:gray;
+        padding: 10px;
     }
-    
 `;
+ export const SocialMedia = styled.div`
+ display:flex;
+
+ a img{
+    height:40px;
+    margin: 10px;
+}
+ `;

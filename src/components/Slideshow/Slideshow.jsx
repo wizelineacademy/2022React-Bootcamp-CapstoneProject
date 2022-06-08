@@ -3,7 +3,6 @@ import {MainContainer, SlideshowContainer, Slide, Controls, BotonSlide } from '.
 import {ReactComponent as RightArrow} from '../../assets/right-arrow.svg';
 import {ReactComponent as LeftArrow} from '../../assets/left-arrow.svg';
 
-    
 export default function Slideshow({banners}) {
     const [ currentImg, setNextImage] = useState(0);
 
@@ -19,7 +18,6 @@ export default function Slideshow({banners}) {
             setNextImage(banners.length -1);
         }
     };
-    
     return (
         <MainContainer>
             <SlideshowContainer>
