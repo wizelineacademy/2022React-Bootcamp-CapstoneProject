@@ -10,6 +10,7 @@ grid-template-rows: 1fr;
 gap: 10px;
 color: slateblue;
 
+
 `;
 export const CardContainer = styled.div`
     display: grid;
@@ -17,28 +18,32 @@ export const CardContainer = styled.div`
     gap: 1rem;
 `;
 export const Card = styled.div`
-height: 224px;
-width: 224px;
+height: 225px;
+width: 225px;
 border-radius: 10px;
 min-height: 300px;
-padding: 25px;
+padding: 10px;
 position: relative;
 overflow: hidden;
 background-size: cover;
 background-position: center center;
+
 `;
 
 export const CardText = styled.div`
-background: white;
+display: flex;
 flex-direction: column;
-align-items: center;
-margin-top: 190px;
+
 
 .prod-name {
-min-height: 40px;
+   
+    margin-bottom: 220px;
+    max-height: 20px;
     font-size: small;
+    
 }
 .price {
     font-weight: bold;
+    position: sticky;
 }
 `;
