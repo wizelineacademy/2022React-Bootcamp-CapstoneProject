@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
-import CategoryCard from "./CategoryCard";
+import CategoryCardComponent from "./CategoryCardComponent";
 import styles from "../styles/CategoryGrid.module.css";
 
-const CategoryGrid = ({ categories }) => {
+const CategoryGridComponent = ({ categories }) => {
   const categoriesMap = categories.map((category) => (
-    <CategoryCard
+    <CategoryCardComponent
       className={styles.card_style}
       key={category.id}
       categoryInfo={category}
@@ -19,8 +19,8 @@ const CategoryGrid = ({ categories }) => {
   );
 };
 
-CategoryGrid.propTypes = {
+CategoryGridComponent.propTypes = {
   categories: PropTypes.array.isRequired,
 };
 
-export default CategoryGrid;
+export default CategoryGridComponent;

@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
-import ProductTile from "./ProductTile";
-import BtnSlider from "./BtnSlider";
+import ProductTileComponent from "./ProductTileComponent";
+import BtnSliderComponent from "./BtnSliderComponent";
 import styles from "../styles/FeaturedProducts.module.css";
 
-const FeaturedProducts = ({
+const FeaturedProductsComponent = ({
   products,
   lastTileIdx,
   firstTileIdx,
@@ -11,7 +11,7 @@ const FeaturedProducts = ({
   prevProductGrid,
 }) => {
   const productGrid = products.map((product, index) => (
-    <ProductTile
+    <ProductTileComponent
       productInfo={product}
       key={product.id}
       index={index}
@@ -26,15 +26,15 @@ const FeaturedProducts = ({
       <div
         className={`${styles.featured_products} ${styles.products_container}`}
       >
-        <BtnSlider moveSlide={prevProductGrid} direction={"prev"} />
+        <BtnSliderComponent moveSlide={prevProductGrid} direction={"prev"} />
         <div className={styles.products}>{productGrid}</div>
-        <BtnSlider moveSlide={nextProductGrid} direction={"next"} />
+        <BtnSliderComponent moveSlide={nextProductGrid} direction={"next"} />
       </div>
     </div>
   );
 };
 
-FeaturedProducts.propTypes = {
+FeaturedProductsComponent.propTypes = {
   products: PropTypes.array.isRequired,
   lastTileIdx: PropTypes.number.isRequired,
   firstTileIdx: PropTypes.number.isRequired,
@@ -42,4 +42,4 @@ FeaturedProducts.propTypes = {
   prevProductGrid: PropTypes.func.isRequired,
 };
 
-export default FeaturedProducts;
+export default FeaturedProductsComponent;

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import styles from "../styles/Banner.module.css";
 
-const Banner = ({ bannerInfo, index, activeBanner }) => {
+const BannerComponent = ({ bannerInfo, index, activeBanner }) => {
   const displayStyle =
     index === activeBanner ? styles.show_banner : styles.hide_banner;
 
@@ -22,10 +22,10 @@ const Banner = ({ bannerInfo, index, activeBanner }) => {
   );
 };
 
-Banner.propTypes = {
+BannerComponent.propTypes = {
   bannerInfo: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired,
   activeBanner: PropTypes.number.isRequired,
 };
 
-export default Banner;
+export default BannerComponent;

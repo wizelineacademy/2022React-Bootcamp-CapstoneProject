@@ -2,7 +2,7 @@ import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 import PropTypes from "prop-types";
 import styles from "../styles/BtnSlider.module.css";
 
-const BtnSlider = ({ direction, moveSlide }) => {
+const BtnSliderComponent = ({ direction, moveSlide }) => {
   return (
     <button
       onClick={moveSlide}
@@ -21,9 +21,9 @@ const BtnSlider = ({ direction, moveSlide }) => {
   );
 };
 
-BtnSlider.propTypes = {
+BtnSliderComponent.propTypes = {
   direction: PropTypes.string.isRequired,
   moveSlide: PropTypes.func.isRequired,
 };
 
-export default BtnSlider;
+export default BtnSliderComponent;

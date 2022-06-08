@@ -1,6 +1,11 @@
 import PropTypes from "prop-types";
 
-const ProductTile = ({ productInfo, index, firstTileIdx, lastTileIdx }) => {
+const ProductTileComponent = ({
+  productInfo,
+  index,
+  firstTileIdx,
+  lastTileIdx,
+}) => {
   const displayStyle =
     index >= firstTileIdx && index <= lastTileIdx
       ? { display: "block" }
@@ -21,11 +26,11 @@ const ProductTile = ({ productInfo, index, firstTileIdx, lastTileIdx }) => {
   );
 };
 
-ProductTile.propTypes = {
+ProductTileComponent.propTypes = {
   productInfo: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired,
   firstTileIdx: PropTypes.number.isRequired,
   lastTileIdx: PropTypes.number.isRequired,
 };
 
-export default ProductTile;
+export default ProductTileComponent;

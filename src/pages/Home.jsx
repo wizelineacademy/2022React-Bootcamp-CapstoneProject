@@ -1,6 +1,6 @@
-import Slider from "../components/Slider";
-import FeaturedProducts from "../components/FeaturedProducts";
-import CategoryGrid from "../components/CategoryGrid";
+import SliderComponent from "../components/SliderComponent";
+import FeaturedProductsComponent from "../components/FeaturedProductsComponent";
+import CategoryGridComponent from "../components/CategoryGridComponent";
 import { useState } from "react";
 const featuredBanners = require("../mocks/en-us/featured-banners.json");
 const productCategories = require("../mocks/en-us/product-categories.json");
@@ -48,14 +48,14 @@ const Home = () => {
 
   return (
     <div>
-      <Slider
+      <SliderComponent
         images={bannerResults}
         prevSlide={prevSlide}
         nextSlide={nextSlide}
         activeBanner={slideIndex}
       />
-      <CategoryGrid categories={categoryResults} />
-      <FeaturedProducts
+      <CategoryGridComponent categories={categoryResults} />
+      <FeaturedProductsComponent
         products={productResults}
         firstTileIdx={firstTileIdx}
         lastTileIdx={lastTileIdx}
