@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Row, TextCentered, TopSpace } from '../styles/Home.style';
+import {
+  Col,
+  Row,
+  TextCentered,
+  TopSpace,
+  Spinner,
+  ContainerSpinner,
+} from '../styles/Home.style';
 
 import ProductosMock from '../mocks/en-us/featured-products.json';
 import noResults from '../assets/no-results.png';
 import { Img, Text, TextImage, ContainerImage } from '../styles/Grid.style';
 
-export const Products = (selectedCategory) => {
+export const Products = (infoProps) => {
   const [productList, setProductList] = useState(ProductosMock.results);
+  const [loading, setLoading] = useState(infoProps.loadingProp);
 
   function getFilteredList() {
     let listNewProductList = [];
@@ -14,7 +22,7 @@ export const Products = (selectedCategory) => {
       if (
         ProductosMock.results[i].data.category.slug
           .toLowerCase()
-          .includes(selectedCategory.category.toLowerCase()) === true
+          .includes(infoProps.category.toLowerCase()) === true
       ) {
         listNewProductList.push(ProductosMock.results[i]);
       }
@@ -22,13 +30,27 @@ export const Products = (selectedCategory) => {
     setProductList(listNewProductList);
   }
 
+  function triggerLoading() {
+    setLoading(true);
+    let timerId;
+    timerId = setTimeout(() => {
+      setLoading(infoProps.loadingProp);
+    }, 1000);
+
+    return () => clearTimeout(timerId);
+  }
+
+  console.log('loading', infoProps.loadingProp);
+
   useEffect(() => {
+    triggerLoading();
     getFilteredList();
-  }, [selectedCategory]);
+  }, [infoProps]);
 
   return (
-    <div>
-      {/* <Spinner viewBox="0 0 50 50">
+    <ContainerSpinner active={loading}>
+      <TopSpace />
+      <Spinner active={loading} viewBox="0 0 50 50">
         <circle
           className="path"
           cx="25"
@@ -38,7 +60,7 @@ export const Products = (selectedCategory) => {
           strokeWidth="4"
         />
         <p>Loading...</p>
-      </Spinner> */}
+      </Spinner>
       {productList[0] ? (
         <Row centered>
           {productList.map(
@@ -51,7 +73,7 @@ export const Products = (selectedCategory) => {
                 <Text>{name}</Text>
                 <Text>${price}</Text>
               </Col>
-            )
+            ),
           )}
         </Row>
       ) : (
@@ -67,13 +89,13 @@ export const Products = (selectedCategory) => {
             <Col lg="6" md="6" sm="6" xs="11" spaced>
               <TextCentered>
                 Sorry, we couldn't find any matches for the category
-                <strong> "{selectedCategory.category}"</strong>
+                <strong> "{infoProps.category}"</strong>
               </TextCentered>
             </Col>
           </Row>
         </>
       )}
-    </div>
+    </ContainerSpinner>
   );
 };
 

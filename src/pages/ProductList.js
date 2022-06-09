@@ -22,14 +22,29 @@ import { Col, Row } from '../styles/Home.style';
 const ProductList = (props) => {
   const searchRef = useRef(null);
   const [selectedCategory, setSelectedCategory] = useState('Furniture');
-
+  const [loading, setLoading] = useState(false);
   const searchClickHandler = () => {
     console.log('searchRef', searchRef.current.value);
   };
+
+  function triggerLoading() {
+    let timerId;
+    timerId = setTimeout(() => {
+      setLoading(false);
+      console.log('loading en list en funcion', loading);
+    }, 1000);
+
+    return () => clearTimeout(timerId);
+  }
+
   const changeCategory = (name) => {
-    console.log('category name', name);
+    setLoading(true);
     setSelectedCategory(name);
+    triggerLoading();
   };
+
+  console.log('loading en list', loading);
+
   return (
     <div>
       <Row>
@@ -108,7 +123,7 @@ const ProductList = (props) => {
           </SSidebar>
         </Col>
         <Col lg="9" md="9" sm="6" xs="5">
-          <Products category={selectedCategory} />
+          <Products category={selectedCategory} loadingProp={loading} />
         </Col>
       </Row>
     </div>

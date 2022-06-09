@@ -24,7 +24,7 @@ const GridProductos = () => {
               <Text>{name}</Text>
               <Text>${price}</Text>
             </Col>
-          )
+          ),
         )}
       </Row>
       <Row centered>

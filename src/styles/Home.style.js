@@ -104,14 +104,26 @@ export const Button = styled.button`
   }
 `;
 
+export const ContainerSpinner = styled.div`
+  position: relative;
+  ${({ active }) =>
+    active &&
+    `
+    background-color: '0xFF0E3311';
+  opacity: 0.5;
+  `}
+`;
+
 export const Spinner = styled.svg`
+  position: absolute;
+  top: 15%;
+  left: 40%;
   animation: rotate 2s linear infinite;
-  margin: -25px 0 0 -25px;
   width: 50px;
   height: 50px;
 
   & .path {
-    stroke: #5652bf;
+    stroke: ${colors.colors.subBlue};
     stroke-linecap: round;
     animation: dash 1.5s ease-in-out infinite;
   }
@@ -135,6 +147,11 @@ export const Spinner = styled.svg`
       stroke-dashoffset: -124;
     }
   }
+  ${({ active }) =>
+    !active &&
+    `
+    display: none;
+  `}
 `;
 
 export const TextCentered = styled.p`
