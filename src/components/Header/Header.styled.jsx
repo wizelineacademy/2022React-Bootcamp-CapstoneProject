@@ -14,6 +14,7 @@ export const HeaderWrapper = styled.div`
     height: 80px;
     border-radius:50px;
     display:block;
+    cursor:pointer;
     }
 `;
 export const InputSearcher = styled.input`

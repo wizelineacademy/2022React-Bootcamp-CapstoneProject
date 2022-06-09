@@ -1,5 +1,5 @@
 import React from 'react'
-import {ProductsWrapper, CardContainer,Card, CardText, Button } from './Products.styled';
+import {ProductsWrapper, CardContainer,Card, CardText } from './Products.styled';
 
 export default function Products({products}) {
     return (
@@ -17,7 +17,7 @@ export default function Products({products}) {
                     </Card>
                 ))}
                 </CardContainer>
-                <Button>View all products</Button>
+                
             </ProductsWrapper>
     )
 };
