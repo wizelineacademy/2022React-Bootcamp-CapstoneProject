@@ -23,7 +23,14 @@ const BannerComponent = ({ bannerInfo, index, activeBanner }) => {
 };
 
 BannerComponent.propTypes = {
-  bannerInfo: PropTypes.object.isRequired,
+  bannerInfo: PropTypes.shape({
+    data: PropTypes.shape({
+      main_image: PropTypes.object.isRequired,
+      title: PropTypes.string.isRequired,
+      description: PropTypes.array.isRequired,
+    }).isRequired,
+    id: PropTypes.string.isRequired,
+  }).isRequired,
   index: PropTypes.number.isRequired,
   activeBanner: PropTypes.number.isRequired,
 };

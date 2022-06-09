@@ -22,7 +22,7 @@ const SliderComponent = ({ images, prevSlide, nextSlide, activeBanner }) => {
 };
 
 SliderComponent.propTypes = {
-  images: PropTypes.array.isRequired,
+  images: PropTypes.arrayOf(PropTypes.object).isRequired,
   prevSlide: PropTypes.func.isRequired,
   nextSlide: PropTypes.func.isRequired,
   activeBanner: PropTypes.number.isRequired,

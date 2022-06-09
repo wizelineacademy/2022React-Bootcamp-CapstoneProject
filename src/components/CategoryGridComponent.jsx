@@ -20,7 +20,7 @@ const CategoryGridComponent = ({ categories }) => {
 };
 
 CategoryGridComponent.propTypes = {
-  categories: PropTypes.array.isRequired,
+  categories: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default CategoryGridComponent;

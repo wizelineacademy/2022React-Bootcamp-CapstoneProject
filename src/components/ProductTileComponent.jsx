@@ -27,7 +27,16 @@ const ProductTileComponent = ({
 };
 
 ProductTileComponent.propTypes = {
-  productInfo: PropTypes.object.isRequired,
+  productInfo: PropTypes.shape({
+    data: PropTypes.shape({
+      main_image: PropTypes.object.isRequired,
+      name: PropTypes.string.isRequired,
+      category: PropTypes.object.isRequired,
+      price: PropTypes.number.isRequired,
+    }).isRequired,
+    id: PropTypes.string.isRequired,
+    href: PropTypes.string.isRequired,
+  }).isRequired,
   index: PropTypes.number.isRequired,
   firstTileIdx: PropTypes.number.isRequired,
   lastTileIdx: PropTypes.number.isRequired,

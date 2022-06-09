@@ -35,7 +35,7 @@ const FeaturedProductsComponent = ({
 };
 
 FeaturedProductsComponent.propTypes = {
-  products: PropTypes.array.isRequired,
+  products: PropTypes.arrayOf(PropTypes.object).isRequired,
   lastTileIdx: PropTypes.number.isRequired,
   firstTileIdx: PropTypes.number.isRequired,
   nextProductGrid: PropTypes.func.isRequired,

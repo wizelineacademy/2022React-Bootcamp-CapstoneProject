@@ -16,7 +16,14 @@ const CategoryCardComponent = ({ categoryInfo }) => {
 };
 
 CategoryCardComponent.propTypes = {
-  categoryInfo: PropTypes.object.isRequired,
+  categoryInfo: PropTypes.shape({
+    data: PropTypes.shape({
+      main_image: PropTypes.object.isRequired,
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+    id: PropTypes.string.isRequired,
+    href: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default CategoryCardComponent;
