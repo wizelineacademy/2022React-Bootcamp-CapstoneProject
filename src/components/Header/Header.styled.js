@@ -50,7 +50,7 @@ export const Name = styled.h1`
   }
 `;
 
-export const Search = styled.input`
+export const InputSearch = styled.input`
   width: 20rem;
   height: 2.3rem;
   text-indent: .5rem;

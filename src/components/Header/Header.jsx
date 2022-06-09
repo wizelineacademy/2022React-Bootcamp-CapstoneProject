@@ -3,7 +3,7 @@ import { ReactComponent as ShoppingCartIcon } from '../../images/shopping-cart.s
 import logo from '../../images/logo.png';
 
 import {
-  HeaderMain, Image, Name, Search, ButtonCart,
+  HeaderMain, Image, Name, InputSearch, ButtonCart,
 } from './Header.styled';
 
 function Header() {
@@ -13,7 +13,7 @@ function Header() {
       <Name>
         Furny
       </Name>
-      <Search type="text" placeholder="Search" />
+      <InputSearch type="text" placeholder="Search" />
       <ButtonCart>
         <ShoppingCartIcon />
       </ButtonCart>

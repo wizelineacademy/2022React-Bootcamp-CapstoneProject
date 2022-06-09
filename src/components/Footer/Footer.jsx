@@ -10,12 +10,8 @@ function Footer({ text }) {
   );
 }
 
-export default Footer;
-
-// Footer.defaultProps = {
-//   text: 'default text',
-// }
-
 Footer.propTypes = {
   text: PropTypes.string.isRequired,
 };
+
+export default Footer;
