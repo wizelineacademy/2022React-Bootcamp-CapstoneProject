@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import CategoryCardComponent from "./CategoryCardComponent";
-import styles from "../styles/CategoryGrid.module.css";
+import CategoryCardComponent from "../CategoryCard/CategoryCardComponent";
+import styles from "./CategoryGrid.module.css";
 
 const CategoryGridComponent = ({ categories }) => {
   const categoriesMap = categories.map((category) => (

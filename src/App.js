@@ -1,7 +1,7 @@
 import "./App.css";
 import { useFeaturedBanners } from "./utils/hooks/useFeaturedBanners";
-import HeaderComponent from "./components/HeaderComponent";
-import FooterComponent from "./components/FooterComponent";
+import HeaderComponent from "./components/Header/HeaderComponent";
+import FooterComponent from "./components/Footer/FooterComponent";
 import Home from "./pages/Home";
 
 function App() {

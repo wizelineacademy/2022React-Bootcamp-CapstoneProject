@@ -1,6 +1,6 @@
-import SliderComponent from "../components/SliderComponent";
-import FeaturedProductsComponent from "../components/FeaturedProductsComponent";
-import CategoryGridComponent from "../components/CategoryGridComponent";
+import SliderComponent from "../components/Slider/SliderComponent";
+import FeaturedProductsComponent from "../components/FeaturedProducts/FeaturedProductsComponent";
+import CategoryGridComponent from "../components/CategoryGrid/CategoryGridComponent";
 import { useState } from "react";
 const featuredBanners = require("../mocks/en-us/featured-banners.json");
 const productCategories = require("../mocks/en-us/product-categories.json");

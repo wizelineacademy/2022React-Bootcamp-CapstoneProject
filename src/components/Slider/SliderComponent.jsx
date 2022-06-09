@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
-import BannerComponent from "./BannerComponent";
-import BtnSliderComponent from "./BtnSliderComponent";
-import styles from "../styles/Slider.module.css";
+import BannerComponent from "../Banner/BannerComponent";
+import BtnSliderComponent from "../ButtonSlider/BtnSliderComponent";
+import styles from "./Slider.module.css";
 
 const SliderComponent = ({ images, prevSlide, nextSlide, activeBanner }) => {
   const banners = images.map((image, index) => (

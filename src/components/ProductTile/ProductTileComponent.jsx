@@ -20,7 +20,7 @@ const ProductTileComponent = ({
       <div>
         <h3>{productInfo.data.name}</h3>
         <p>{productInfo.data.category.slug}</p>
-        <p>{productInfo.data.price}</p>
+        <p>$ {productInfo.data.price}</p>
       </div>
     </div>
   );

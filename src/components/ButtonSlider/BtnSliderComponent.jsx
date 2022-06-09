@@ -1,6 +1,6 @@
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 import PropTypes from "prop-types";
-import styles from "../styles/BtnSlider.module.css";
+import styles from "./BtnSlider.module.css";
 
 const BtnSliderComponent = ({ direction, moveSlide }) => {
   return (

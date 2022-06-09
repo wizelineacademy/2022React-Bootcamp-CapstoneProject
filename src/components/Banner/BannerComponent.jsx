@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import styles from "../styles/Banner.module.css";
+import styles from "./Banner.module.css";
 
 const BannerComponent = ({ bannerInfo, index, activeBanner }) => {
   const displayStyle =

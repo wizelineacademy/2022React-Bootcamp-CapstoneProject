@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import styles from "../styles/CategoryCard.module.css";
+import styles from "./CategoryCard.module.css";
 
 const CategoryCardComponent = ({ categoryInfo }) => {
   return (

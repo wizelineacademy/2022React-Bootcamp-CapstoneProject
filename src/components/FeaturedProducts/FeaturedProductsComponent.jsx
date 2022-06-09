@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
-import ProductTileComponent from "./ProductTileComponent";
-import BtnSliderComponent from "./BtnSliderComponent";
-import styles from "../styles/FeaturedProducts.module.css";
+import ProductTileComponent from "../ProductTile/ProductTileComponent";
+import BtnSliderComponent from "../ButtonSlider/BtnSliderComponent";
+import styles from "./FeaturedProducts.module.css";
 
 const FeaturedProductsComponent = ({
   products,
