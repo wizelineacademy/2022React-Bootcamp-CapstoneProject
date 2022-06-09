@@ -1,11 +1,8 @@
 import React from 'react';
-import {HeaderWrapper, InputSearcher, IconWrapper} from './Header.styled';
+import { HeaderWrapper, InputSearcher, ProfileWrapper, CartWrapper } from './Header.styled';
 import logo from '../../logo-fur.jpg';
 import icon from '../../shopping-cart.png';
 import log from '../../user.png';
-
-
-
 
 export default function Header() {
     return (
@@ -18,15 +15,18 @@ export default function Header() {
                 id ="search-box" 
                 className="input-search" 
                 placeholder=" Search..."/>
-            <IconWrapper>
+            
+            <ProfileWrapper>
                 <a href=".">
                     <img src={log} alt="user-icon" className="user-icon"/>
                 </a>
-                <span className="user-name">Silvia</span>    
+                <span className="user-name">Silvia</span> 
+            </ProfileWrapper>   
+            <CartWrapper>
                 <a href=".">
                     <img src={icon} alt="cart-icon" className="img-icon"/>
                 </a>
-            </IconWrapper>
+            </CartWrapper>
         </HeaderWrapper>
     )
 };

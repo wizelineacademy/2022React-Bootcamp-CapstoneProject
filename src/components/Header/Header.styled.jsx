@@ -24,27 +24,30 @@ border-radius: 2px;
 margin-left: 10px;
 `;
 
-export const IconWrapper = styled.nav`
-width:200px;
-display:flex;
-align-items: center;
-justify-content: space-evenly;
+ export const ProfileWrapper = styled.div`
+ width:200px;
+ display:flex;
+ align-items: center;
+ justify-content: space-evenly;
 
+ .user-icon {
+    padding:10px;
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
 .user-name {
-    margin-right: 20px;
+    margin-right: 80px;
     @media (max-width: 768px) {
         display: none;
     }
-}
-.user-icon {
-    margin-left: 20px;
-    @media (max-width: 768px) {
-        display: none;
-    }
-}
-.img-icon {
-    max-width: 20px;
-    height: 20px;
-    margin-right: 40px;
 }
 `;
+
+ export const CartWrapper = styled.div`
+ .img-icon {
+    max-width: 20px;
+    height: 20px;
+    margin-right: 70px;
+}
+ `;
