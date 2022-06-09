@@ -3,7 +3,7 @@ import CategoriesMock from '../mocks/en-us/product-categories.json';
 import { ChevronLeft } from '@styled-icons/entypo/ChevronLeft';
 import logoSideBar from '../assets/logo-responsive.png';
 import { Link } from 'react-router-dom';
-import { Row } from '../styles/Home.style';
+import { Col, Row } from '../styles/Home.style';
 import {
   SSidebar,
   LogoSBar,
@@ -21,25 +21,16 @@ import {
 
 const Sidebar = () => {
   const searchRef = useRef(null);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const searchClickHandler = () => {
-    if (!sidebarOpen) {
-      setSidebarOpen(true);
-      searchRef.current.focus();
-    } else {
-      console.log('searchRef', searchRef.current.value);
-    }
+    console.log('searchRef', searchRef.current.value);
+  };
+  const changeCategory = (name) => {
+    console.log('category name', name);
   };
 
   return (
-    <SSidebar isOpen={sidebarOpen}>
-      <SidebarButton
-        isOpen={sidebarOpen}
-        onClick={() => setSidebarOpen((p) => !p)}
-      >
-        <ChevronLeft />
-      </SidebarButton>
+    <SSidebar isOpen={true}>
       <Row centered>
         <LogoSBar>
           <Link to="/">
@@ -47,27 +38,17 @@ const Sidebar = () => {
           </Link>
         </LogoSBar>
       </Row>
-      <Row centered>
-        <SSearch
-          onClick={searchClickHandler}
-          style={!sidebarOpen ? { width: `fit-content` } : {}}
-        >
-          <SSearchIcon>
-            <img src="https://img.icons8.com/ios-glyphs/30/undefined/search--v1.png" />
-
-            <input
-              ref={searchRef}
-              placeholder="Search"
-              style={!sidebarOpen ? { width: 0, padding: 0 } : {}}
-            />
-          </SSearchIcon>
-        </SSearch>
-      </Row>
+      <SSearch onClick={searchClickHandler}>
+        <SSearchIcon>
+          <img src="https://img.icons8.com/ios-glyphs/30/undefined/search--v1.png" />
+          <input ref={searchRef} placeholder="Search" />
+        </SSearchIcon>
+      </SSearch>
       <Divider />
 
       {CategoriesMock.results.map(({ data: { main_image, name } }) => (
-        <SLinkContainer>
-          <SLink style={!sidebarOpen ? { width: `fit-content` } : {}}>
+        <SLinkContainer onClick={() => changeCategory(name)}>
+          <SLink>
             <SLinkIcon>
               {main_image.alt === 'Bath' && (
                 <img
@@ -103,13 +84,13 @@ const Sidebar = () => {
                 />
               )}
 
-              {sidebarOpen && <SLinkLabel>{name}</SLinkLabel>}
+              <SLinkLabel>{name}</SLinkLabel>
             </SLinkIcon>
           </SLink>
         </SLinkContainer>
       ))}
       <Divider />
-      <SFooter style={!sidebarOpen ? { display: `none` } : {}}>
+      <SFooter>
         <p>Ecommerce created during Wizeline’s Academy React Bootcamp</p>
       </SFooter>
     </SSidebar>

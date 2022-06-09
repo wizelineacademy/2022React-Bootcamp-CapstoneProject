@@ -2,11 +2,9 @@ import styled from 'styled-components';
 import * as colors from './Colors.style';
 
 export const SSidebar = styled.div`
-  width: ${({ isOpen }) => (!isOpen ? `80px` : `300px`)};
-  height: 100vh;
+  height: 100%;
   padding: 24px;
-  border: 1px solid ${colors.colors.lightGray};
-
+  border-right: 1px solid ${colors.colors.lightGray};
   position: relative;
 `;
 
@@ -26,7 +24,7 @@ export const Divider = styled.div`
 `;
 
 export const LogoSBar = styled.div`
-  width: 52px;
+  width: 60px;
 
   img {
     max-width: 100%;
@@ -49,21 +47,21 @@ export const SLinkContainer = styled.div`
 
 export const SSearch = styled.div`
   border: 1px solid white;
+  width: 100%;
+
   input {
-    padding: 7px 16px;
+    padding: 7px 8px;
     font-family: inherit;
     letter-spacing: inherit;
-    font-size: 16px;
+    font-size: 13px;
     width: 100%;
     outline: none;
     border: none;
     color: inherit;
-    background: transparent;
   }
-  display: flex;
 `;
 
-export const SSearchIcon = styled.button`
+export const SSearchIcon = styled.i`
   padding: 14px 16px;
   border: 1px solid ${colors.colors.lightGray};
   border-radius: 10px;

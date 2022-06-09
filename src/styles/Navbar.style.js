@@ -4,7 +4,6 @@ import * as colors from './Colors.style';
 
 export const NavbarContainer = styled.nav`
   width: 100%;
-  height: 67px;
   top: 0;
   position: fixed;
   clear: both;
@@ -60,8 +59,7 @@ export const ContainerCol3 = styled.div`
 `;
 
 export const Logo = styled.img`
-  width: 60%;
-  margin-left: 1em;
+  width: 80%;
   @media (max-width: 480px) {
     display: none;
   }
@@ -77,11 +75,11 @@ export const LogoResp = styled.img`
   @media (min-width: 480px) {
     display: none;
   }
-  width: 60%;
+  width: 100%;
 `;
 
 export const SearchInput = styled.input`
-  width: 80%;
+  width: 100%;
   display: flex;
   border: 1px solid ${colors.colors.hoverInput};
   cursor: not-allowed !important;
@@ -100,19 +98,15 @@ export const SearchInput = styled.input`
   &:focus {
     visibility: hidden;
   }
-  @media (min-width: 480px) and (max-width: 768px) {
-    margin-left: 2em;
-  }
-  @media (min-width: 768px) and (max-width: 1024px) {
-    width: 100%;
-    margin-left: 2em;
-  }
 `;
 
 export const IconCart = styled(ShoppingCart)`
   width: 25px;
   height: 25px;
   opacity: 0.5;
+  float: right;
+  margin-right: 5px;
+
   &:focus {
     visibility: hidden;
   }
