@@ -23,28 +23,23 @@ const Slider = (props) => {
   return (
     <div>
       <TopSpace />
-      <Row>
-        <StyledSlider>
-          <ContainerCenter>
-            <IconLeftArrow onClick={prevSlide} />
-            <Col lg="11">
-              {SliderMock.results.map((item, index) => (
-                <div key={item.data.id}>
-                  {index === current && (
-                    <>
-                      <SlideImage
-                        src={item.data.main_image.url}
-                        alt={item.data.main_image.alt}
-                      />
-                      <CenteredTextTitle>{item.data.title}</CenteredTextTitle>
-                    </>
-                  )}
-                </div>
-              ))}
-            </Col>
-            <IconRightArrow onClick={nextSlide} />
-          </ContainerCenter>
-        </StyledSlider>
+      <Row centered>
+        <IconLeftArrow onClick={prevSlide} />
+        <Col lg="11" xs="9" md="11">
+          {SliderMock.results.map(
+            ({ data: { main_image, title, id } }, index) => (
+              <div key={id}>
+                {index === current && (
+                  <>
+                    <SlideImage src={main_image.url} alt={main_image.alt} />
+                    <CenteredTextTitle>{title}</CenteredTextTitle>
+                  </>
+                )}
+              </div>
+            ),
+          )}
+        </Col>
+        <IconRightArrow onClick={nextSlide} />
       </Row>
     </div>
   );
