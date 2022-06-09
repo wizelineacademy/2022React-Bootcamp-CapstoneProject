@@ -30,6 +30,7 @@ const Sidebar = () => {
   };
 
   return (
+    /* This page is not used yet. I am wating for implementing redux in delivery 3 */
     <SSidebar isOpen={true}>
       <Row centered>
         <LogoSBar>

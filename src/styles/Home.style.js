@@ -161,3 +161,34 @@ export const TextCentered = styled.p`
 export const Img = styled.img`
   width: 100%;
 `;
+
+export const PaginationContainer = styled.div`
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #000000d9;
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  font-feature-settings: 'tnum';
+  img {
+    height: 24px;
+    line-height: 24px;
+    vertical-align: top;
+  }
+  p {
+    box-sizing: border-box;
+    height: 100%;
+    margin-right: 8px;
+    padding: 0 6px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    outline: none;
+  }
+  span {
+    margin: 0 10px 0 5px;
+  }
+`;
