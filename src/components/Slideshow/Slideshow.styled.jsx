@@ -4,7 +4,7 @@ export const MainContainer = styled.div`
     position: relative;
     
 `;
-export const SlideshowContainer = styled.div`
+export const SlidesContainer = styled.div`
     display:flex;
     flex-wrap: nowrap;
     

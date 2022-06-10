@@ -1,8 +1,9 @@
 import React from 'react'
 import {CardContainer, CategoriesWrapper, Card} from './Categories.styled';
+import mock2 from '../../assets/mocks/en-us/product-categories.json';
 
-export default function Categories({categories}) {
-
+export default function Categories() {
+    const categories = mock2.results;
     return (
         <CategoriesWrapper>
             <CardContainer>
