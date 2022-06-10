@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders an image with src attribute', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const image = screen.getByAltText('logo');//to find the image in the screen
+  expect(image.src).toContain('http://localhost/logo-fur.jpg');
+  expect(image.className).toContain('img-logo');
 });
