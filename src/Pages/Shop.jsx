@@ -1,4 +1,6 @@
-import Header from '../Componentes/Header';
+import Header from '../Components/Header';
+import Footer from '../Components/Footer';
+
 
 const Shop = () => {
 
@@ -6,7 +8,7 @@ const Shop = () => {
     <>
         <Header />
         <p>Soy body</p>
-        <p>soy footer</p>
+        <Footer />
     </>
     );
 }
