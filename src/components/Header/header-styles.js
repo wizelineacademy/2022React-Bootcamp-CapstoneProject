@@ -1,36 +1,48 @@
-header {
+import styled from "styled-components";
+
+export const StyledHeader = styled.header`
   display: flex;
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
-}
+`;
 
-header a {
+export const BrandButton = styled.a`
   margin: 25px 20px;
   display: flex;
   text-decoration: none;
-}
+`;
 
-header img {
+export const BrandImage = styled.img`
   border-radius: 30%;
   width: 4rem;
   margin-right: 10px;
   height: 4rem;
-}
-header h2 {
-  margin: 10px 0;
-}
+`;
 
-.buttons_container {
+export const BrandName = styled.h2`
+  margin: 10px 0;
+`;
+
+export const ButtonsContainer = styled.div`
   margin: 25px 0;
   margin-right: 50px;
   display: flex;
   justify-content: space-evenly;
   width: 25%;
   line-height: 76px;
-}
 
-.search_input {
+  @media screen and (max-width: 1230px) {
+    width: 35%;
+  }
+
+  @media screen and (max-width: 880px) {
+    width: 25%;
+    margin: 25px 0;
+  }
+`;
+
+export const SearchInput = styled.input`
   font-size: 15px;
   padding: 6px 12px 6px 15px;
   background-color: white;
@@ -40,46 +52,33 @@ header h2 {
   border-left: 0;
   width: 13rem;
   font-style: italic;
-}
 
-.search_button {
+  @media screen and (max-width: 880px) {
+    display: none;
+  }
+`;
+
+export const SearchButton = styled.button`
   width: 30px;
   height: 30px;
   border: 0;
   background-color: white;
-}
+`;
 
-.search_button svg {
+export const SearchButtonIcon = styled.svg`
   width: 25px;
   height: 25px;
-}
+`;
 
-.cart_button {
+export const CartButton = styled.button`
   width: 40px;
   height: 40px;
   border: 0;
   background-color: #fff;
-}
+`;
 
-.cart_button svg {
+export const CartButtonIcon = styled.svg`
   width: 25px;
   height: 25px;
   color: gray;
-}
-
-@media screen and (max-width: 1230px) {
-  .buttons_container {
-    width: 35%;
-  }
-}
-
-@media screen and (max-width: 880px) {
-  .buttons_container {
-    width: 25%;
-    margin: 25px 0;
-  }
-
-  .buttons_container input {
-    display: none;
-  }
-}
+`;

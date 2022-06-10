@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import ProductTileComponent from "../ProductTile/ProductTileComponent";
 import BtnSliderComponent from "../ButtonSlider/BtnSliderComponent";
-import styles from "./FeaturedProducts.module.css";
+import * as Styles from "./featured-products-styles";
 
 const FeaturedProductsComponent = ({
   products,
@@ -21,16 +21,14 @@ const FeaturedProductsComponent = ({
   ));
 
   return (
-    <div className={styles.featured_products}>
+    <Styles.StyledFeaturedProducts>
       <h2>FEATURED PRODUCTS</h2>
-      <div
-        className={`${styles.featured_products} ${styles.products_container}`}
-      >
+      <div className="products_container">
         <BtnSliderComponent moveSlide={prevProductGrid} direction={"prev"} />
-        <div className={styles.products}>{productGrid}</div>
+        <Styles.Products>{productGrid}</Styles.Products>
         <BtnSliderComponent moveSlide={nextProductGrid} direction={"next"} />
       </div>
-    </div>
+    </Styles.StyledFeaturedProducts>
   );
 };
 

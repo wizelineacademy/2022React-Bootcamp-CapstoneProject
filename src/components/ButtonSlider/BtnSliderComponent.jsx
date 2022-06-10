@@ -1,23 +1,19 @@
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 import PropTypes from "prop-types";
-import styles from "./BtnSlider.module.css";
+import * as Styles from "./button-slider-styles";
 
 const BtnSliderComponent = ({ direction, moveSlide }) => {
   return (
-    <button
+    <Styles.ButtonSlider
       onClick={moveSlide}
-      className={
-        direction === "next"
-          ? `${styles.btn_slide} ${styles.next}`
-          : `${styles.btn_slide} ${styles.prev}`
-      }
+      className={direction === "next" ? "next" : "prev"}
     >
       {direction === "next" ? (
         <FaArrowAltCircleRight />
       ) : (
         <FaArrowAltCircleLeft />
       )}
-    </button>
+    </Styles.ButtonSlider>
   );
 };
 

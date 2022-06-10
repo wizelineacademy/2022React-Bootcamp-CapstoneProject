@@ -1,10 +1,12 @@
-import styles from "./Footer.module.css";
+import * as Styles from "./footer-styles";
 
 const FooterComponent = () => {
   return (
-    <div className={styles.footer}>
-      <p>Ecommerce created during Wizeline’s Academy React Bootcamp</p>
-    </div>
+    <Styles.StyledFooter>
+      <Styles.Paragraph>
+        Ecommerce created during Wizeline’s Academy React Bootcamp
+      </Styles.Paragraph>
+    </Styles.StyledFooter>
   );
 };
 

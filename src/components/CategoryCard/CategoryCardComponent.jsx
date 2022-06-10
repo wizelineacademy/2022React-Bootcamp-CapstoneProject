@@ -1,17 +1,17 @@
 import PropTypes from "prop-types";
-import styles from "./CategoryCard.module.css";
+import * as Styles from "./category-card-styles";
 
 const CategoryCardComponent = ({ categoryInfo }) => {
   return (
-    <div className={styles.card_style}>
+    <Styles.StyledCard>
       <a href={categoryInfo.href}>
-        <img
+        <Styles.CardImage
           src={categoryInfo.data.main_image.url}
           alt={categoryInfo.data.main_image.alt}
         />
         <h3>{categoryInfo.data.name}</h3>
       </a>
-    </div>
+    </Styles.StyledCard>
   );
 };
 
