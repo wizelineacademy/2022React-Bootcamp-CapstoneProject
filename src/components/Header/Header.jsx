@@ -6,10 +6,10 @@ import {
   HeaderMain, Image, Name, InputSearch, ButtonCart,
 } from './Header.styled';
 
-function Header() {
+function Header({ handleClick }) {
   return (
     <HeaderMain isYellow>
-      <Image src={logo} alt="logo" />
+      <Image src={logo} alt="logo" onClick={handleClick} />
       <Name>
         Furny
       </Name>

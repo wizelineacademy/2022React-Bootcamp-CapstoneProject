@@ -95,6 +95,7 @@ export const ButtonCart = styled.button`
 `;
 
 export const Image = styled.img`
+  cursor: pointer;
   border-top-left-radius: .5rem;
   margin-left: 0;
   width: 10rem;
