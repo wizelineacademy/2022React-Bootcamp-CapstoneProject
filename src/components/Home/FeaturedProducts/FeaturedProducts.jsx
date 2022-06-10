@@ -1,5 +1,9 @@
 import React from 'react';
-import { ProductImage, ProductGrid, ImageWrap, InfoImage } from './FeaturedProducts.styled';
+import { 
+  ProductImage,
+  ProductGrid,
+  ImageWrap,
+  InfoImage } from './FeaturedProducts.styled';
 import FeaturedItems from '../../../mocks/en-us/featured-products.json';
 
 const allItems = FeaturedItems.results.map((item,i) => {
@@ -17,9 +21,12 @@ const allItems = FeaturedItems.results.map((item,i) => {
 
 function FeaturedProducts() {
   return (
-    <ProductGrid>
-      {allItems}
-    </ProductGrid>
+    <>
+      <ProductGrid>
+        {allItems}
+      </ProductGrid>
+      
+    </>
   )
 }
 

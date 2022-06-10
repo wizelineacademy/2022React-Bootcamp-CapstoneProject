@@ -1,5 +1,8 @@
 import styled from "styled-components";
-import { appleGreenBlackground, bluePrince } from "../../../utils/constant.styles";
+import { 
+  appleGreenBackground,
+  bluePrince,
+  whiteApple } from "../../../utils/constant.styles";
 
 export const ProductGrid = styled.div`
   background: none;
@@ -22,8 +25,8 @@ export const ImageWrap = styled.div`
   border-radius: .5rem;
   width: 25rem;
   max-height: fit-content;
-  box-shadow:  0 5px 20px ${appleGreenBlackground};  
-  background: rgba(250,250,250,.4);
+  box-shadow:  0 5px 20px ${appleGreenBackground};  
+  background: ${whiteApple};
 
   @media screen and (max-width: 1201px){
     width: 30rem;
