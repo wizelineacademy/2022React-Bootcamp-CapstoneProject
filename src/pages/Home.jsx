@@ -6,7 +6,7 @@ const featuredBanners = require("../mocks/en-us/featured-banners.json");
 const productCategories = require("../mocks/en-us/product-categories.json");
 const featuredProducts = require("../mocks/en-us/featured-products.json");
 
-const Home = () => {
+const Home = ({ selectComponent }) => {
   const [slideIndex, setSlideIndex] = useState(0);
   const [firstTileIdx, setFirstTileIdx] = useState(0);
   let lastTileIdx = firstTileIdx + 4;
@@ -54,7 +54,10 @@ const Home = () => {
         nextSlide={nextSlide}
         activeBanner={slideIndex}
       />
-      <CategoryGridComponent categories={categoryResults} />
+      <CategoryGridComponent
+        categories={categoryResults}
+        selectComponent={selectComponent}
+      />
       <FeaturedProductsComponent
         products={productResults}
         firstTileIdx={firstTileIdx}

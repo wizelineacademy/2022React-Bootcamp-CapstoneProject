@@ -29,7 +29,7 @@ const ProductTileComponent = ({
 ProductTileComponent.propTypes = {
   productInfo: PropTypes.shape({
     data: PropTypes.shape({
-      main_image: PropTypes.object.isRequired,
+      mainimage: PropTypes.object.isRequired,
       name: PropTypes.string.isRequired,
       category: PropTypes.object.isRequired,
       price: PropTypes.number.isRequired,

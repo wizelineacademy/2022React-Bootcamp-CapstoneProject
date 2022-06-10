@@ -7,7 +7,7 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
 `;
 
-export const BrandButton = styled.a`
+export const BrandButton = styled.button`
   margin: 25px 20px;
   display: flex;
   text-decoration: none;
