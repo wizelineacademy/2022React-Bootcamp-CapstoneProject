@@ -1,10 +1,16 @@
 import React from 'react'
+import {SidebarWrapper, CategoriesLinks} from './ProductList.styled';
+import mockProducts from '../../assets/mocks/en-us/product-categories.json';
 
 export default function ProductList() {
+    const categories = mockProducts.results;
     return (
-        <div>
-            <h1>This is the Product List
-            </h1>
-        </div>
+        <SidebarWrapper>
+            {categories.map((category,index) =>(
+            <CategoriesLinks>
+                <ol>{category.data.name}</ol>
+            </CategoriesLinks>
+                ))}    
+        </SidebarWrapper>
     )
-}
+};
