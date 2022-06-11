@@ -26,6 +26,7 @@ const lightTheme = {
     colorInverseOnSurface: '#eff1f3',
 
     coreSpace: 4,
+	headerHeight: 4 * 12,
 }
 
 export default lightTheme;

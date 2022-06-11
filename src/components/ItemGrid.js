@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledItemGrid = styled.div`
@@ -10,12 +11,25 @@ const StyledItemGrid = styled.div`
     height: 100%;
 `;
 
-const ItemGrid = ({children}) => {
+const ItemGrid = ({loading, children}) => {
+    const content = (!loading)
+        ? 
+            (
+                <div>
+                    <span>Loading...</span>
+                </div>
+            )
+        : children;
+
     return (
         <StyledItemGrid>
-            {children}
+            {content}
         </StyledItemGrid>
     );
 };
+
+ItemGrid.propTypes = {
+    loading: PropTypes.bool.isRequired,
+}
 
 export default ItemGrid;

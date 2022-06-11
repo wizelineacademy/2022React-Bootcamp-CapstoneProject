@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import bannerData from '../mocks/featured-banners.json';
 import categories from '../mocks/product-categories.json';
@@ -7,12 +8,21 @@ import SliderBanner from './SliderBanner';
 import Carousel from './Carousel';
 import Item from './Item';
 import ItemGrid from './ItemGrid';
+import Button from './Button';
 
-const StyledHome = styled.div``;
+const StyledMoreProductsContainer = styled.div`
+    width: 100%;
+    margin-top: ${({theme}) => 2 * theme.coreSpace}px;
+    margin-bottom: ${({theme}) => 2 * theme.coreSpace}px;
 
-const Home = () => {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+const Home = ({navigateProducts}) => {    
     return(
-        <StyledHome>
+        <div>
             <SliderBanner
                 items={bannerData.results}
             />
@@ -29,8 +39,19 @@ const Home = () => {
                     )
                 }
             </ItemGrid>
-        </StyledHome>
+            <StyledMoreProductsContainer>
+                <Button
+                    onClick={navigateProducts}
+                >
+                    View all products
+                </Button>
+            </StyledMoreProductsContainer>
+        </div>
     );
 };
+
+Home.propTypes = {
+    navigateProducts: PropTypes.func.isRequired,
+}
 
 export default Home;

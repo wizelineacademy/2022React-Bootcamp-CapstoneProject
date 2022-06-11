@@ -5,6 +5,8 @@ const StyledLogo = styled.div`
     display: flex;
     align-items: center;
     min-width: 80px;
+    
+    cursor: pointer;
 `;
 const StyledLogoImg = styled.img`
     max-height: 40px;
@@ -14,11 +16,18 @@ const StyledLogoTitle = styled.h1`
     white-space: nowrap;
 `;
 
-const Logo = () => {
+const Logo = ({onClick}) => {
     return (
-        <StyledLogo>
-            <StyledLogoImg src={logo} alt="RBCP"/>
-            <StyledLogoTitle>RBCP</StyledLogoTitle>
+        <StyledLogo
+            onClick={onClick}
+        >
+            <StyledLogoImg 
+                src={logo} 
+                alt="RBCP"
+            />
+            <StyledLogoTitle>
+                RBCP
+            </StyledLogoTitle>
         </StyledLogo>
     );
 }

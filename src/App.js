@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
 import styled, {ThemeProvider} from 'styled-components';
 import theme from './themes';
@@ -5,6 +6,7 @@ import theme from './themes';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
+import Products from './components/Products';
 
 const LoadingView = styled.div`
   min-width: 100%;
@@ -29,21 +31,14 @@ const MainContainer = styled.div`
   width: 100%;
 `;
 
-const HeaderContainer = styled(MainContainer)`
-  min-height: 40px;
-`;
-
 const ContentContainer = styled(MainContainer)`
   flex: 1;
-`;
-
-const FooterContainer = styled(MainContainer)`
-  min-height: 10px;
 `;
 
 const App = () => {
   // const { data, isLoading } = useFeaturedBanners();
   const {isLoading} = useFeaturedBanners();
+  const [isHomeDisplayed, setIsHomeDisplayed] = useState(false)
 
   if (isLoading) {
     return (
@@ -53,18 +48,34 @@ const App = () => {
     );
   }
 
+  const navigateHome = () => {
+    setIsHomeDisplayed(true);
+  };
+  const navigateProducts = () => {
+    setIsHomeDisplayed(false);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <StyledApp>
-        <HeaderContainer>
-          <Header/>
-        </HeaderContainer>
+        <MainContainer>
+          <Header 
+            navigateHome={navigateHome}
+          />
+        </MainContainer>
         <ContentContainer>
-          <Home/>
+          {
+            isHomeDisplayed 
+            ? 
+              <Home 
+                navigateProducts={navigateProducts}
+              />
+            : <Products/>
+          }
         </ContentContainer>
-        <FooterContainer>
+        <MainContainer>
           <Footer/>
-        </FooterContainer>
+        </MainContainer>
       </StyledApp>
     </ThemeProvider>
   );
