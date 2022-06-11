@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 const FooterDiv = styled.footer`
-  height: 3rem;
+  height: 2rem;
   background-color: black;
   color: white;
-  position: relative;
+  position: fixed;
   width: 100%;
   bottom: 0;
   color: white;
