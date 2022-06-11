@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import * as Styles from "./product-tile-styles";
 
 const ProductTileComponent = ({
   productInfo,
@@ -12,17 +13,17 @@ const ProductTileComponent = ({
       : { display: "none" };
 
   return (
-    <div style={displayStyle}>
-      <img
+    <Styles.StyledTile style={displayStyle}>
+      <Styles.Image
         src={productInfo.data.mainimage.url}
         alt={productInfo.data.mainimage.alt}
       />
-      <div>
-        <h3>{productInfo.data.name}</h3>
+      <Styles.InformationContainer>
+        <Styles.TileHeader>{productInfo.data.name}</Styles.TileHeader>
         <p>{productInfo.data.category.slug}</p>
         <p>$ {productInfo.data.price}</p>
-      </div>
-    </div>
+      </Styles.InformationContainer>
+    </Styles.StyledTile>
   );
 };
 

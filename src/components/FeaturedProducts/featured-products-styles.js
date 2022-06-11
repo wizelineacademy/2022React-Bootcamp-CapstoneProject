@@ -21,19 +21,9 @@ export const StyledFeaturedProducts = styled.div`
     max-height: 20rem;
   }
 
-  & img {
-    max-width: 20rem;
-    max-height: 20rem;
-  }
-
   @media screen and (max-width: 800px) {
     & .products_container button {
       transform: translateY(10%) !important;
-    }
-
-    & img {
-      max-width: 7rem;
-      max-height: 7rem;
     }
   }
 `;
@@ -41,4 +31,5 @@ export const StyledFeaturedProducts = styled.div`
 export const Products = styled.div`
   display: flex;
   overflow: hidden;
+  height: 100%;
 `;

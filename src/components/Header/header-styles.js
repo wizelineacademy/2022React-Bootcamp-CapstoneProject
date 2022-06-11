@@ -7,10 +7,11 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
 `;
 
-export const BrandButton = styled.button`
+export const BrandButton = styled.a`
   margin: 25px 20px;
   display: flex;
   text-decoration: none;
+  cursor: pointer;
 `;
 
 export const BrandImage = styled.img`
@@ -63,11 +64,11 @@ export const SearchButton = styled.button`
   height: 30px;
   border: 0;
   background-color: white;
-`;
 
-export const SearchButtonIcon = styled.svg`
-  width: 25px;
-  height: 25px;
+  & svg {
+    width: 25px;
+    height: 25px;
+  }
 `;
 
 export const CartButton = styled.button`
@@ -75,10 +76,10 @@ export const CartButton = styled.button`
   height: 40px;
   border: 0;
   background-color: #fff;
-`;
 
-export const CartButtonIcon = styled.svg`
-  width: 25px;
-  height: 25px;
-  color: gray;
+  & svg {
+    width: 25px;
+    height: 25px;
+    color: gray;
+  }
 `;

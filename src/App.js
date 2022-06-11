@@ -3,7 +3,7 @@ import { useFeaturedBanners } from "./utils/hooks/useFeaturedBanners";
 import HeaderComponent from "./components/Header/HeaderComponent";
 import FooterComponent from "./components/Footer/FooterComponent";
 import Home from "./pages/Home";
-import ProductList from "./pages/ProductList";
+import ProductList from "./pages/ProductList/ProductList";
 import { useState } from "react";
 
 function App() {
