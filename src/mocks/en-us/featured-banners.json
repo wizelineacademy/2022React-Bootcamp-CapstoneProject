@@ -6,8 +6,7 @@
   "total_pages": 1,
   "next_page": null,
   "prev_page": null,
-  "results": [
-    {
+  "results": [{
       "id": "YWYpQRIAACkA3RZr",
       "uid": null,
       "url": null,
@@ -19,22 +18,18 @@
       "slugs": ["amazing-finishes---bedroom", "acabados-increibles---recamara"],
       "linked_documents": [],
       "lang": "en-us",
-      "alternate_languages": [
-        {
-          "id": "YWYpFRIAAC8A3RWi",
-          "type": "banner",
-          "lang": "es-mx"
-        }
-      ],
+      "alternate_languages": [{
+        "id": "YWYpFRIAAC8A3RWi",
+        "type": "banner",
+        "lang": "es-mx"
+      }],
       "data": {
         "title": "AMAZING FINISHES - BEDROOM",
-        "description": [
-          {
-            "type": "paragraph",
-            "text": "Provides great stability",
-            "spans": []
-          }
-        ],
+        "description": [{
+          "type": "paragraph",
+          "text": "Provides great stability",
+          "spans": []
+        }],
         "cta_link": "#",
         "cta_target": "_parent",
         "main_image": {
@@ -60,22 +55,18 @@
       "slugs": ["a-great-style---living-room", "un-gran-estilo---sala"],
       "linked_documents": [],
       "lang": "en-us",
-      "alternate_languages": [
-        {
-          "id": "YWYn5xIAACkA3RA3",
-          "type": "banner",
-          "lang": "es-mx"
-        }
-      ],
+      "alternate_languages": [{
+        "id": "YWYn5xIAACkA3RA3",
+        "type": "banner",
+        "lang": "es-mx"
+      }],
       "data": {
         "title": "A GREAT STYLE - LIVING ROOM",
-        "description": [
-          {
-            "type": "paragraph",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "spans": []
-          }
-        ],
+        "description": [{
+          "type": "paragraph",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "spans": []
+        }],
         "cta_link": "#",
         "cta_target": "_parent",
         "main_image": {
@@ -104,22 +95,18 @@
       ],
       "linked_documents": [],
       "lang": "en-us",
-      "alternate_languages": [
-        {
-          "id": "YWYojhIAACoA3RM2",
-          "type": "banner",
-          "lang": "es-mx"
-        }
-      ],
+      "alternate_languages": [{
+        "id": "YWYojhIAACoA3RM2",
+        "type": "banner",
+        "lang": "es-mx"
+      }],
       "data": {
         "title": "GREAT VERSATILITY - DINING ROOM",
-        "description": [
-          {
-            "type": "paragraph",
-            "text": "Elegance in every detail",
-            "spans": []
-          }
-        ],
+        "description": [{
+          "type": "paragraph",
+          "text": "Elegance in every detail",
+          "spans": []
+        }],
         "cta_link": "#",
         "cta_target": "_parent",
         "main_image": {
