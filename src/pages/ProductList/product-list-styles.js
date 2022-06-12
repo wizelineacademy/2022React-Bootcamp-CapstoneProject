@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ProductListPage = styled.div`
   width: 100%;
-  height: 100%;
+  -min-height: 50rem;
   margin: 0 0 15rem 0;
 `;
 
@@ -13,9 +13,9 @@ export const ContentContainer = styled.div`
 `;
 
 export const Sidebar = styled.div`
-  max-width: 20%;
+  min-width: 25%;
 `;
 
 export const Products = styled.div`
-  max-width: 80%;
+  min-width: 75%;
 `;
