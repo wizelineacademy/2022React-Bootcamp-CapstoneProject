@@ -28,7 +28,7 @@ export default function SidebarComponent({ categories, setFilters }) {
       <Styles.Label name={category.data.name} htmlFor={category.data.name}>
         {category.data.name}
       </Styles.Label>
-      <input
+      <Styles.StyledInput
         type="checkbox"
         id={category.data.name}
         name={category.data.name}
