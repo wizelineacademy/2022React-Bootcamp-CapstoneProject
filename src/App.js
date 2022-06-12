@@ -8,7 +8,7 @@ import ProductList from "./components/ProductList/ProductList";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
 
-function App() {
+export default function App() {
   const [activeProductList, setActiveProductList] = useState(false);
 
   return (

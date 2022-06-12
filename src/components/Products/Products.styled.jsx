@@ -8,8 +8,6 @@ padding: 40px 0;
 display: grid;
 grid-template-rows: 1fr;
 gap: 10px;
-color: slateblue;
-
 
 `;
 export const CardContainer = styled.div`
