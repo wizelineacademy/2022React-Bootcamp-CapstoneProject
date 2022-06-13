@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-import { Wrapper } from "./_slides";
+import { Wrapper } from "./slides.styled.js";
 
 const Slides = ({ slide }) => {
 
+	/* SLIDE DESTRUCTURING */
 	const {
 		data:{
 			title,
@@ -28,6 +29,7 @@ const Slides = ({ slide }) => {
 	)
 }
 
+/* SLIDE PROPTYPES */
 Slides.propTypes = {
   slide: PropTypes.object.isRequired,
 };

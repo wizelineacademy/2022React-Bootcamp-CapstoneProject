@@ -1,5 +1,5 @@
 import { FaShoppingCart } from 'react-icons/fa';
-import { Wrapper } from './_cartbuttons';
+import { Wrapper } from './cartbuttons.styled';
 
 const CartButtons = () => {
   return (

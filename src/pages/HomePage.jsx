@@ -1,22 +1,21 @@
-import { Header, Footer, Slider, Banners, GridProducts } from '../components'
-import { GlobalStyles } from '../styles/global';
+import { Slider, Banners, GridProducts } from '../components'
 
-const Home = () => {
+const Home = ({ switchNavigation }) => {
 
 	return (
-		<>
-			<GlobalStyles />
-			<Header/>
-			<section>
-				<Slider/>
-				<hr />
-				<Banners />
-				<hr />
-				<GridProducts />
-				<hr />
-			</section>
-			<Footer/>
-		</>
+		<section>
+			<Slider/>
+			<hr />
+			<Banners />
+			<hr />
+			<GridProducts />
+			<hr />
+			<button onClick={
+				() => switchNavigation("PLP")
+				}
+				className="btn"
+			>View all products</button>
+		</section>
 	 );
 }
 

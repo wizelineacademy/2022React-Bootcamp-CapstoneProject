@@ -33,6 +33,9 @@ export const Wrapper = styled.header`
       align-items: center;
     }
 		.nav-header {
+      a {
+        cursor: pointer;
+      }
 			img {
 				width: 175px;
 			}

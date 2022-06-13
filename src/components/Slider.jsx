@@ -1,9 +1,10 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Wrapper } from "./_slider";
+import { Wrapper } from "./slider.styled.js";
 import featuredBanners from '../utils/mocks/featured-banners.json';
-import Slides from "./Slides";
+import { Slides } from "./";
 
+/* CAROUSEL OPTIONS */
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -24,8 +25,10 @@ const responsive = {
 
 const Slider = () => {
 
+	/* RESULTS DESTRUCTURING */
 	const { results } = featuredBanners;
 
+	/* SLIDES MAPPING */
 	const itemsSlider = results.map((slide, index) => (
 		<Slides slide={ slide } key={ slide.id } />
 	));

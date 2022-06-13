@@ -1,14 +1,19 @@
 import logo from '../assets/logo.svg';
-import { Wrapper } from "./_header";
+import { Wrapper } from "./header.styled";
 
 import CartButtons from './CartButtons';
 
-const Header = () => {
+const Header = ({ switchNavigation }) => {
 	return (
 		<Wrapper>
 			<div className='nav-center'>
         <div className='nav-header'>
-					<img src={logo} alt="Company Brand" />
+					<a
+						href='#/'
+						onClick={ ev => {ev.preventDefault(); switchNavigation("HOME");} }
+					>
+						<img src={logo} alt="Company Brand" />
+					</a>
         </div>
 				<CartButtons />
       </div>

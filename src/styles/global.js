@@ -29,10 +29,6 @@ export const GlobalStyles = createGlobalStyle`
 		--clr-grey-9: hsl(212, 33%, 89%);
 		--clr-grey-10: hsl(210, 36%, 96%);
 		--clr-white: #fff;
-		--clr-red-dark: hsl(360, 67%, 44%);
-		--clr-red-light: hsl(360, 71%, 66%);
-		--clr-green-dark: hsl(125, 67%, 44%);
-		--clr-green-light: hsl(125, 71%, 66%);
 		--clr-black: #222;
 		--transition: all 0.3s linear;
 		--spacing: 0.1rem;
@@ -64,8 +60,8 @@ export const GlobalStyles = createGlobalStyle`
 	body {
 		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
 			Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-		background: var(--clr-white);
-		color: var(--clr-grey-1);
+		background: var(--clr-grey-1);
+		color: var(--white);
 		line-height: 1.5;
 		font-size: 0.875rem;
 	}
@@ -111,6 +107,9 @@ export const GlobalStyles = createGlobalStyle`
 		margin-bottom: 1.25rem;
 		color: var(--clr-grey-3);
 	}
+	iframe {
+		display: none;
+	}
 	@media only screen and ${device.laptop} {
 		h1 {
 			font-size: 2rem;
@@ -138,6 +137,48 @@ export const GlobalStyles = createGlobalStyle`
 		}
 	}
 	/*  global classes */
+
+	button {
+		&.btn {
+			display: block;
+			width: 148px;
+			margin: 2rem auto;
+			text-align: center;
+			text-transform: uppercase;
+			background: var(--clr-primary-5);
+			color: var(--clr-primary-10);
+			padding: 0.375rem 0.75rem;
+			letter-spacing: var(--spacing);
+			font-weight: 400;
+			transition: var(--transition);
+			font-size: 0.875rem;
+			cursor: pointer;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+			border-radius: var(--radius);
+			border-color: transparent;
+			cursor: pointer;
+		}
+	}
+
+	h1 {
+		.inside & {
+			background-color: var(--clr-grey-1);
+			color: var(--clr-white);
+			padding: 2rem 1rem 1rem 1rem;
+			margin: 0 auto;
+			text-align: left;
+			font-weight: normal;
+			font-size: 1.5rem;
+			max-width: var(--max-width);
+			width: 100%;
+
+			@media only screen and ${device.laptop} {
+				padding: 3rem 1rem 4rem;
+				font-size: 2.5rem;
+				text-align: right;
+			}
+		}
+	}
 
 	/* section */
 `

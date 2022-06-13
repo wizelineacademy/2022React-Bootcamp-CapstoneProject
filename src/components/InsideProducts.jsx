@@ -2,14 +2,18 @@ import featuredProducts from '../utils/mocks/featured-products.json';
 import { Wrapper } from './grid.styled';
 import { Product } from './';
 
-const GridProducts = () => {
+const InsideProducts = ({ activecat }) => {
 
 	/* RESULTS DESTRUCTURING */
 	const { results } = featuredProducts;
 
 	/* PRODUCTS MAPPING */
 	const gridProducts = results.map((product, index) => (
-		<Product product={ product } key={ product.id } />
+		<Product
+			product={ product }
+			key={ product.id }
+			activecat={ activecat }
+		/>
 	));
 
 	return (
@@ -21,4 +25,4 @@ const GridProducts = () => {
 	 );
 }
 
-export default GridProducts;
+export default InsideProducts;

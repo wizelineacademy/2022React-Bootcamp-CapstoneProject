@@ -1,17 +1,24 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.article`
+export const Wrapper = styled.div`
 	background: var(--clr-grey-10);
 	max-width: var(--max-width);
   grid-template-columns: repeat(4, minmax(25vw, auto));
   gap: 0;
 	border-radius: var(--radius);
+  transition: var(--transition);
 
 	.container {
     position: relative;
-    background: var(--clr-black);
     border-radius: var(--radius);
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.active{
+    background: var(--clr-grey-9);
   }
 
 	img {
@@ -31,6 +38,7 @@ export const Wrapper = styled.article`
     justify-content: space-between;
     align-items: center;
 		padding: .5rem;
+    text-transform: capitalize;
   }
 
 	.counter {
@@ -50,6 +58,7 @@ export const Wrapper = styled.article`
   .details p, .counter p {
     color: var(--clr-primary-5);
     letter-spacing: var(--spacing);
+    font-weight: bold;
   }
   .counter p {
     color: var(--clr-black);
