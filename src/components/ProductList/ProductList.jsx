@@ -5,26 +5,31 @@ import {Card, CardText} from '../../components/Products/Products.styled';
 import mock3 from '../../assets/mocks/en-us/featured-products.json';
 
 export default function ProductList() {
-    const [selectedCategory, setSelectedCategory]= useState([]);
+    const [selectedCategories, setSelectedCategories]= useState([]);
     const [products, setProducts] = useState([]);
     
     const clickHandler = (categoryName) => {
-        setSelectedCategory(prevValue => [...prevValue, categoryName])
-        
+        const indexToRemove= (selectedCategories.indexOf(categoryName))
+        if(indexToRemove !== -1) {
+            setSelectedCategories(prevValue => prevValue.splice(indexToRemove, 1))
+        } else {
+            setSelectedCategories(prevValue => [...prevValue, categoryName])
+        }
     }
+
     useEffect(() => {
         setProducts(mock3.results.filter(
             product => {
                 let result = false;
-                for(let i = 0; i < selectedCategory.length; i++) {
-                    if(selectedCategory[i]=== product.data.category.slug){
+                for(let i = 0; i < selectedCategories.length; i++) {
+                    if(selectedCategories[i]=== product.data.category.slug){
                         result = true;
                         break;
                     }
                 }
                 return result;
             }))
-    }, [selectedCategory])
+    }, [selectedCategories])
 
     return (
         <ProductListContainer>
@@ -33,7 +38,7 @@ export default function ProductList() {
                     return <ol 
                     key={category.data.name}
                     className={
-                        selectedCategory.some((element)=> element === category.slugs[0])  
+                        selectedCategories.some((element)=> element === category.slugs[0])  
                         ? "is-active": ""} 
                     onClick={e => clickHandler(category.slugs[0])}>{category.data.name}</ol>
                 })}; 
