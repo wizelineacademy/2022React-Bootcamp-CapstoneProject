@@ -8,7 +8,6 @@ padding: 40px 0;
 display: grid;
 grid-template-rows: 1fr;
 gap: 10px;
-
 `;
 export const CardContainer = styled.div`
     display: grid;
@@ -25,7 +24,6 @@ position: relative;
 overflow: hidden;
 background-size: cover;
 background-position: center center;
-
 `;
 
 export const CardText = styled.div`
@@ -45,7 +43,6 @@ flex-direction: column;
 `;
  export const Button = styled.button`
  display: grid;
- justify-self:center;
  align-items: center;
  justify-content: center;
  max-width: 260px;
@@ -56,9 +53,9 @@ flex-direction: column;
  font-size: 16px;
  border:none;
  cursor: pointer;
- transition: .3s ease all;
+ transition: .2s ease all;
  border-radius: 5px;
-margin-top: 10px;
+ margin-bottom: 10px;
 :hover{
     box-shadow:0 0 40px 40px slateblue inset;
 }

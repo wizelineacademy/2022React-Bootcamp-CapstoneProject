@@ -4,6 +4,7 @@ export const ProductListContainer= styled.div`
 display:flex;
 min-height:100vh;
 
+
 ol {
     display: block;
     padding: 16px;
@@ -17,19 +18,32 @@ ol {
     }
 }
 
+.is-active {
+    color: pink;
+    border-left: 5px solid pink;
+}
 `;
 export const SidebarWrapper = styled.div`
 flex: 1 1 0;
 max-width: 300px;
+min-width: 235px;
 padding: 2rem 1rem;
 background: gray;
 `;
 
 export const ProductCard = styled.div`
 width: 80%;
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 1rem;
-    padding: 1rem;
-    margin: 0px 10px 0px 10px;
+display: grid;
+grid-template-columns: repeat(1, 1fr);
+gap: 1rem;
+padding: 1rem;
+margin: 0px 5px 0px 5px;
+
+@media screen and (min-width: 768px){
+    grid-template-columns: repeat(3, 1fr);    
+}
+@media screen and (min-width: 1100px){
+    grid-template-columns: repeat(4, 1fr);    
+}
 `;
+

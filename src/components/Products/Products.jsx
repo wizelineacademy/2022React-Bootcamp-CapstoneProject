@@ -20,7 +20,6 @@ export default function Products() {
                     </Card>
                 })}
                 </CardContainer>
-                
             </ProductsWrapper>
     )
 };
