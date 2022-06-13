@@ -28,9 +28,33 @@ export const GridContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 5rem;
 
   @media screen and (max-width: 700px) {
     width: 95%;
     justify-content: center;
+  }
+`;
+
+export const StyledButton = styled.button`
+  font-size: 25px;
+  margin-bottom: 3rem;
+  width: 17rem;
+  height: 5rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 15px;
+  border: 1px solid lightgray;
+  cursor: pointer;
+
+  & svg {
+    display: none;
+  }
+
+  &:hover {
+    & svg {
+      display: block;
+    }
   }
 `;

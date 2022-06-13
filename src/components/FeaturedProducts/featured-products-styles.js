@@ -12,8 +12,8 @@ export const StyledFeaturedProducts = styled.div`
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-    height: 35rem;
-    margin: 0;
+    height: 28rem;
+    margin-bottom: 7rem;
   }
 
   & .product_tile {

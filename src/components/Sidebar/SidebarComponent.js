@@ -9,21 +9,25 @@ export default function SidebarComponent({ categories, setFilters }) {
           ...oldFilters,
           e.target.name.toLowerCase(),
         ]);
+        e.target.parentElement.setAttribute(
+          "style",
+          "background-color: #ffaa07d9; color: white"
+        );
       } else {
-        setFilters((oldFilters) => {
-          const idx = oldFilters.indexOf(e.target.name.toLowerCase());
-          return [...oldFilters.splice(idx, 1)];
-        });
+        setFilters((oldFilters) =>
+          oldFilters.filter((filter) => filter !== e.target.name.toLowerCase())
+        );
+        e.target.parentElement.setAttribute("style", "");
       }
     }
   };
 
   const categoriesMap = categories.map((category) => (
     <Styles.ListItem
-      key={category.id}
       name={category.data.name}
       onClick={(e) => handleFilter(e)}
       htmlFor={category.data.name}
+      key={category.id}
     >
       <Styles.Label name={category.data.name} htmlFor={category.data.name}>
         {category.data.name}

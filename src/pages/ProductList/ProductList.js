@@ -10,13 +10,12 @@ export default function ProductList() {
   const [filters, setFilters] = useState([]);
   const [component, setComponent] = useState("loading");
 
-  const productsFilteredByCategories = products.results.filter((product) => {
-    if (filters.length > 0) {
-      return filters.includes(product.data.category.slug);
-    } else {
-      return product;
-    }
-  });
+  let results = products.results;
+  if (filters.length > 0) {
+    results = products.results.filter((product) =>
+      filters.includes(product.data.category.slug)
+    );
+  }
 
   const renderPage = {
     loading: <LoadingComponent />,
@@ -29,10 +28,7 @@ export default function ProductList() {
           />
         </Styles.Sidebar>
         <Styles.Products>
-          <ProductGridComponent
-            className="products"
-            products={productsFilteredByCategories}
-          />
+          <ProductGridComponent className="products" products={results} />
         </Styles.Products>
       </Styles.ContentContainer>
     ),
