@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import { useState } from "react";
 import { NavbarSmallScreen } from "../../common";
 
-const ButonContainer = styled.div`
+const ButtonContainer = styled.div`
   display: block;
   @media (min-width: 768px) {
     display: none;
@@ -20,11 +20,11 @@ const MenuButton = () => {
 
   return (
     <>
-      <ButonContainer>
+      <ButtonContainer>
         <Button onClick={handleMenuActive}>
           <Menu fill="#FFF" />
         </Button>
-      </ButonContainer>
+      </ButtonContainer>
       <NavbarSmallScreen
         menuActive={menuActive}
         handleMenuActive={setMenuActive}

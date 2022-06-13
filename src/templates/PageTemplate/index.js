@@ -7,10 +7,10 @@ const MainLayout = styled.div`
   flex-direction: column;
 `;
 
-const PageTemplate = ({ children }) => {
+const PageTemplate = ({ children, handleNavigate }) => {
   return (
     <MainLayout>
-      <Header />
+      <Header handleNavigate={handleNavigate} />
       {children}
       <Footer />
     </MainLayout>

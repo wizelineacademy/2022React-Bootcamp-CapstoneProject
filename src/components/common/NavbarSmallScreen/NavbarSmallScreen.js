@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Cross, Home } from "../../icons";
 import { SearchForm } from "./../../ui";
+import ProductSidebarFilter from "./../../product/ProductsSideBarFilter/ProductSidebarFilter";
 
 const MenuMovil = styled.div`
   position: fixed;
@@ -71,6 +72,7 @@ const NavbarSmallScreen = ({ handleMenuActive, menuActive }) => {
           Home
         </LinkNav>
         <SearchForm />
+        <ProductSidebarFilter />
       </NavMobile>
     </MenuMovil>
   );

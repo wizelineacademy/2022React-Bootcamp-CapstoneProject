@@ -1,23 +1,4 @@
-import styled from "@emotion/styled";
-
-const FooterContainer = styled.footer`
-  padding: 20px 12px;
-  margin-top: auto;
-  display: flex;
-  justify-content: center;
-  background-color: #171717;
-  color: white;
-  align-items: center;
-`;
-
-const FooterContent = styled.div`
-  font-size: 15px;
-  font-weight: 400;
-
-  @media (min-width: 588px) {
-    font-size: 18px;
-  }
-`;
+import { FooterContainer, FooterContent } from "./styled";
 
 const Footer = () => {
   return (

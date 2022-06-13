@@ -11,6 +11,7 @@ export const blurEffect = keyframes`
 `;
 
 export const LogoContainer = styled.img`
+  cursor: pointer;
   width: 150px;
   animation: ${blurEffect} 1.2s ease;
 

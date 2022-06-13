@@ -72,6 +72,11 @@ export const CardBody = styled.div`
 `;
 
 export const CardName = styled.h3`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
   color: var(--dark-green);
   font-weight: 400;
   font-size: 22px;
