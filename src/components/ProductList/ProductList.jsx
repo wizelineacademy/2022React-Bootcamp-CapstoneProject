@@ -1,5 +1,5 @@
 import {React, useState}  from 'react'
-import {ProductListContainer, SidebarWrapper, ProductCard} from './ProductList.styled';
+import {ProductListContainer,SidebarWrapper,ProductCard,PaginationList} from './ProductList.styled';
 import mockProducts from '../../assets/mocks/en-us/product-categories.json';
 import {Card, CardText} from '../../components/Products/Products.styled';
 import mock3 from '../../assets/mocks/en-us/featured-products.json';
@@ -36,7 +36,15 @@ export default function ProductList() {
                     </CardText>
                 </Card>
                 })}
+                <PaginationList>
+                <a href=".">0</a>
+                <a href=".">1</a>
+                <a href=".">2</a>
+                <a href=".">3</a>
+                <a href=".">4</a>
+                </PaginationList>
             </ProductCard>
+            
         </ProductListContainer>
     )
 };

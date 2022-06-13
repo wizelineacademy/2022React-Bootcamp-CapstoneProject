@@ -6,7 +6,7 @@ min-height:100vh;
 
 
 ol {
-    display: block;
+    display: flex;
     padding: 16px;
     color: white;
     transition: 0.2s linear;
@@ -47,3 +47,17 @@ margin: 0px 5px 0px 5px;
 }
 `;
 
+export const PaginationList = styled.div`
+margin-top: 350px;
+padding: 10px;
+display:flex;
+width:100%;
+height: 50px;
+align-items; center;
+justify-content: center;
+
+a {
+    width:40px;
+    cursor: pointer;
+}
+`;
