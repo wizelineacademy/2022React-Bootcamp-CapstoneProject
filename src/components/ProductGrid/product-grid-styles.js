@@ -11,6 +11,7 @@ export const ProductsContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   min-height: 30rem;
+  justify-content: center;
 
   & img {
     width: 100%;

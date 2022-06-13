@@ -5,9 +5,11 @@ export const FiltersWrapper = styled.div`
   min-height: 270px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   & h3 {
     font-size: 30px;
+    margin: 0;
   }
 `;
 
@@ -15,6 +17,17 @@ export const FiltersContainer = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: row;
+    width: 100%;
+    height: 11rem;
+    align-items: center;
+    overflow: hidden;
+    margin: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 `;
 
 export const ListItem = styled.li`
@@ -31,6 +44,11 @@ export const ListItem = styled.li`
     background-color: #ffaa07d9;
     color: white;
   }
+
+  @media screen and (max-width: 1024px) {
+    height: 6rem;
+    margin-right: 6px;
+  }
 `;
 
 export const Label = styled.label`
@@ -38,6 +56,14 @@ export const Label = styled.label`
   text-align: start;
   font-size: 24px;
   cursor: pointer;
+
+  @media screen and (max-width: 1024px) {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 620px) {
+    font-size: 17px;
+  }
 `;
 
 export const StyledInput = styled.input`

@@ -57,4 +57,10 @@ export const StyledButton = styled.button`
       display: block;
     }
   }
+
+  @media screen and (max-width: 1024px) {
+    & svg {
+      display: block;
+    }
+  }
 `;

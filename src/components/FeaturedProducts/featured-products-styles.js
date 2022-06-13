@@ -4,8 +4,12 @@ export const StyledFeaturedProducts = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  overflow: hidden;
+  overflow: scroll;
   width: 99%;
+
+  & h2 {
+    width: 100%;
+  }
 
   & .products_container {
     display: flex;
@@ -21,9 +25,9 @@ export const StyledFeaturedProducts = styled.div`
     max-height: 20rem;
   }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1024px) {
     & .products_container button {
-      transform: translateY(10%) !important;
+      display: none;
     }
   }
 `;
