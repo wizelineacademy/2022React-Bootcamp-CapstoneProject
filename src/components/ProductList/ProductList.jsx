@@ -11,7 +11,11 @@ export default function ProductList() {
     const clickHandler = (categoryName) => {
         const indexToRemove= (selectedCategories.indexOf(categoryName))
         if(indexToRemove !== -1) {
-            setSelectedCategories(prevValue => prevValue.splice(indexToRemove, 1))
+            setSelectedCategories(prevValue => {
+                const newArr =[...prevValue]
+                newArr.splice(indexToRemove, 1);
+                return newArr;
+            })
         } else {
             setSelectedCategories(prevValue => [...prevValue, categoryName])
         }
@@ -34,7 +38,7 @@ export default function ProductList() {
     return (
         <ProductListContainer>
             <SidebarWrapper>
-                {mockProducts.results.map((category,index) => {
+                {mockProducts.results.map((category) => {
                     return <ol 
                     key={category.data.name}
                     className={
