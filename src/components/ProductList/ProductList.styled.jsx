@@ -61,3 +61,26 @@ a {
     cursor: pointer;
 }
 `;
+
+export const Loader = styled.div`
+position: absolute;
+left: 60%;
+bottom: 60%;
+z-index: 1000;
+border: 16px solid pink;
+border-top: 16px solid slateblue;
+border-radius: 50%;
+height: 10px;
+width: 10px;
+animation: spin 2s linear infinite;
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+`;
