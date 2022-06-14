@@ -1,17 +1,51 @@
 import styled from "styled-components";
-import { bluePrince } from "../../utils/constant.styles";
+import {  
+  bluePrince,
+  white,
+  whiteApple,
+  yellowMain } from "../../utils/constant.styles";
+
+export const ProductListMain = styled.div`
+  margin: 2.5rem auto;
+  display: flex;
+  flex-flow: row;
+  width: 135em;
+  height: fit-content;
+
+  @media screen and (max-width: 1400px){
+    width: 90%;
+  }
+  
+  @media screen and (max-width: 660px){
+    flex-flow: column;
+    justify-content: center;
+  }
+`;
 
 export const AsideBar = styled.aside`
-  width: 135em;
-  margin: 2.5rem auto ;
-  padding: 0.5rem;
+  display: flex;
+  flex-flow: column;
+  width: 8.5rem;
+  @media screen and (max-width: 660px){
+    flex-flow: row;
+    margin: auto;
+    width: fit-content;
+  
+  }
+
+  @media screen and (max-width: 450px){
+    flex-flow: column wrap;
+    width: fit-content;
+  
+  }
 `;
 
 export const AsideItem = styled.div`
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 10%;
+  width: 100%;
   height: 2.5rem;
   color: ${bluePrince};
   text-align: center;
@@ -21,5 +55,58 @@ export const AsideItem = styled.div`
   &:not(:last-child) {
     border-bottom: none;
   }
-  
+  background-color: ${({isActive}) => isActive ? yellowMain : whiteApple};
+
+  @media screen and (max-width: 660px) {
+    font-size: 1rem;
+
+    &:not(:last-child) {
+    border-right: none;
+    border-bottom: 1px solid white;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    width: 15rem;
+    &:not(:last-child) {
+      border-right: 1px solid white;
+      border-bottom: none;
+    }
+  }
+`;
+
+export const ImageGrid = styled.div`
+  margin-left: 3.5rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  flex: 2 1 auto;
+
+  @media screen and (max-width: 660px){
+    margin-left: 0;  
+  }
+`;
+
+export const ImageResult = styled.img`
+  margin: .5rem;
+  border-radius: .5rem;
+  max-height: 15rem;
+`;
+
+export const Spiner = styled.div`
+  margin: auto;
+  border: .5rem solid ${white};
+  border-top: .5rem solid ${bluePrince};
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  animation: spin .8s linear infinite;
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    } 
+  }
 `;
