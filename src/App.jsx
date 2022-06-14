@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
-// import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
 import { Header, Home, Footer } from './components';
 import { Button, ButtonWrapper } from './App.style'
 import ProductList from './components/ProductList';
 
 function App() {
-//   const { data, isLoading } = useFeaturedBanners();
-//   console.log(data, isLoading);
-
   const [pageShowed, setPageShowed] = useState('Home');
   
   return (
@@ -28,7 +24,5 @@ function App() {
     </>
   );
 }
-
-
 
 export default App;
