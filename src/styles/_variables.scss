@@ -6,11 +6,11 @@ $header-shrink-height: 70px;
 $main-bg: #fff;
 $black-bg: #000;
 $main-color: #1cad48;
-$light-color : #666;
-
+$light-color: #666;
 
 $txt-main-color: #000;
 $txt-second-color: #8d8d8d;
+$txt-filter-color: #370358;
 $txt-offer-color: #fa0e0e;
 $txt-white: #fff;
 $txt-black: #000;
@@ -26,11 +26,11 @@ $tablet-width: 1024px;
 $numbers: (0, 1, 2, 3, 4, 5, 6, 7, 8);
 
 $colors: (
-    "blue": #4267b2,
-    "orange": #fbb96b,
-    "pink": #fe7e73,
-    "white": #fff,
-    "black": #000,
-    "main": $main-color,
-    "red": #ff0000,
+  "blue": #4267b2,
+  "orange": #fbb96b,
+  "pink": #fe7e73,
+  "white": #fff,
+  "black": #000,
+  "main": $main-color,
+  "red": #ff0000,
 );

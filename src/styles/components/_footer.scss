@@ -8,9 +8,12 @@ footer {
 
   .container {
     p {
-      text-align: center;
+      text-align: right;
       color: $txt-white;
       font-weight: bold;
+    }
+    &-date {
+      text-align: right;
     }
   }
 }

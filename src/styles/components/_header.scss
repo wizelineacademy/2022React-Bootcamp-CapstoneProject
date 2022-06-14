@@ -4,7 +4,8 @@
   right: 0;
   z-index: 1000;
   background: $main-color;
-  padding: 1rem 9%;
+  padding: 1rem 15%;
+  height: 150px;
 
   @include tablet-up {
     display: flex;
@@ -15,6 +16,7 @@
   .logo {
     font-size: 2.5rem;
     color: $txt-white;
+    padding-right: 200px;
     font-weight: bold;
     text-transform: capitalize;
     text-align: center;
@@ -25,16 +27,19 @@
       flex-direction: column;
       width: 182px;
       margin-left: -50px;
+      padding-right: 0px;
     }
 
     @include tablet {
       flex-direction: column;
       width: 205px;
+      padding-right: 0px;
     }
 
     @include tablet-only {
       flex-direction: column;
       width: 140px;
+      padding-right: 0px;
     }
 
     img {
