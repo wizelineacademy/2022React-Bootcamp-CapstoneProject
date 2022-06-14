@@ -9,15 +9,19 @@ import {
   Input,
   RightBox,
   Icon,
-} from "./styled-components/header.styled.component";
+} from "../styled-components/header.styled.component";
 
-const Header = () => {
+const MainNavbar = ({ setNavigation }) => {
+  const handleClickNav = () => {
+    setNavigation(0);
+  };
+
   return (
     <MainHeader>
       <LayoutNavbar>
         <Toolbar>
           <Wrapper>
-            <LogoLink href="/">
+            <LogoLink onClick={handleClickNav}>
               {/* <img src="/static/logo.svg" width="40" height="40" alt="logo/name" /> */}
               <Logo image="/static/logo.svg" />
             </LogoLink>
@@ -32,4 +36,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default MainNavbar;

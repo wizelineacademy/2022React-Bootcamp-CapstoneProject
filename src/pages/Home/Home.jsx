@@ -1,16 +1,27 @@
 import React from "react";
 import Categories from "./Categories";
 import ContentTop from "./ContentTop";
-import Header from "./Header";
 import ProductsGrid from "./ProductsGrid";
+import {
+  ButtonViewAll,
+  ContainerButtons,
+} from "./styled-components/product.styled.component";
 
-const Home = () => {
+const Home = ({ setNavigation }) => {
+  const handleClickNav = () => {
+    setNavigation(1);
+  };
+
   return (
     <>
-      <Header />
       <ContentTop />
       <Categories />
       <ProductsGrid />
+      <ContainerButtons>
+        <ButtonViewAll onClick={handleClickNav}>
+          View all products
+        </ButtonViewAll>
+      </ContainerButtons>
     </>
   );
 };

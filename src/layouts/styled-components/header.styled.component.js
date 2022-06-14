@@ -58,6 +58,7 @@ export const LogoLink = styled.a`
   align-items: center;
   text-decoration: none;
   margin-right: 2rem;
+  cursor: pointer;
 `;
 
 export const Input = styled.input`

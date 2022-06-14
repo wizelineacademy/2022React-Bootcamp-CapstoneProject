@@ -44,7 +44,7 @@ export const Product = styled.div`
         { 600: 50 },
         { 450: 100 },
     ])};
-        ${breakpoints("max-width", "%", [
+    ${breakpoints("max-width", "%", [
         { 1200: 25 },
         { 800: 33.3333 },
         { 600: 50 },
@@ -161,6 +161,25 @@ export const PriceProductBox = styled.div`
     -moz-box-align: center;
     align-items: center;
     margin: 16px 0px 0px;
+    flex-direction: column;
+    align-items: flex-start;
+`;
+
+export const CategoryProduct = styled.span`
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0px 0px 6px 4px;
+    font-weight: 800;
+    font-size: 0.75rem;
+    overflow: hidden;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    background-color: #3A5BA0;
+    border-radius: 6px;
+    padding: 1px 8px;
+    color: #fff;
+    white-space: nowrap;
 `;
 
 export const PriceProduct = styled.div`
@@ -221,53 +240,5 @@ export const ProductButton = styled.button`
         box-shadow: rgba(145, 158, 171, 0.2) 0px 5px 5px -3px, 
             rgba(145, 158, 171, 0.14) 0px 8px 10px 1px, 
             rgba(145, 158, 171, 0.12) 0px 3px 14px 2px;
-    }
-`;
-
-export const ContainerButtons = styled.div`
-    margin: 16px 0px 0px;
-    position: relative;
-    padding-left: 24px;
-    padding-top: 24px;
-    max-width: 15%;
-    flex-basis: 15%;
-    flex-grow: 0;
-`;
-
-export const ButtonViewAll = styled.button`
-    margin: 0px 0px 0px 12px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    box-sizing: border-box;
-    outline: currentcolor none 0px;
-    border: 0px none;
-    margin: 0px;
-    cursor: pointer;
-    user-select: none;
-    vertical-align: middle;
-    appearance: none;
-    text-decoration: none;
-    font-weight: 700;
-    line-height: 1.71429;
-    font-size: 0.875rem;
-    text-transform: capitalize;
-    font-family: Public Sans, sans-serif;
-    min-width: 64px;
-    padding: 6px 16px;
-    border-radius: 8px;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, 
-        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, 
-        border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, 
-        color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 171, 85);
-    width: 100%;
-    box-shadow: rgba(0, 171, 85, 0.24) 0px 8px 16px 0px;
-    &:hover {
-        box-shadow: none;
-        text-decoration: none;
-        background-color: rgb(0, 123, 85);
     }
 `;

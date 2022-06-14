@@ -16,7 +16,7 @@ export const Item = styled.div`
     align-items: center;
     justify-content: center;
     min-height: 350px;
-    background-color: #7afc49;
+    background-color: #f2f2f2;
     color: #fff;
     width: ${props => props.width || "100%"};
     background-image: url(${props => props.image});
