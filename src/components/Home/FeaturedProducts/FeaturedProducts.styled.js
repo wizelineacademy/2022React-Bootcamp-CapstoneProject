@@ -23,17 +23,17 @@ export const ImageWrap = styled.div`
   justify-content: space-between;
   margin: 1.2rem;
   border-radius: .5rem;
-  width: 25rem;
-  max-height: fit-content;
+  width: ${(listPageCard) => listPageCard ? '21.5rem' : '25rem'};
+  max-height: ${(listPageCard) => listPageCard ? '15rem' : 'fit-content'};
   box-shadow:  0 5px 20px ${appleGreenBackground};  
   background: ${whiteApple};
 
-  @media screen and (max-width: 1201px){
+  @media screen and (max-width: 1250px){
     width: 30rem;
   }
 
   @media screen and (max-width: 950px){
-    width: 25rem;
+    width: ${listPageCard => listPageCard ? '30rem' : '25rem'};
   }
 
   @media screen and (max-width: 806px){
