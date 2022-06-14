@@ -1,13 +1,11 @@
 import React from 'react'
 
-import ProductsData from '../../mocks/en-us/featured-products.json';
-
 import '../../stylesheets/homepage/content.scss';
 
-function Products() {
+function Products({ProductsData}) {
     return (
         <div className='products-container'>
-            {ProductsData.results.map((product, i) =>
+            {ProductsData.results.map((product) =>
                 <div key={product.id} className='product'>
                     <img alt="product-img" src={product.data.mainimage.url} />
                     <div className="top-left">{product.tags[1]}</div>

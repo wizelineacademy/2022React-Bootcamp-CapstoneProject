@@ -1,5 +1,7 @@
 import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
 import HomepageContainer from './containers/HomepageContainer.js';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import './stylesheets/homepage/header.scss';
 
 function App() {
@@ -8,7 +10,9 @@ function App() {
 
   return (
     <>
-      <HomepageContainer data={data} isLoading={isLoading}/>
+      <Header />
+      <HomepageContainer data={data} isLoading={isLoading} />
+      <Footer />
     </>
   );
 }

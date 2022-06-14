@@ -1,15 +1,20 @@
 import React from 'react'
-import Header from '../components/Header.js'
-import ContentContainer from './ContentContainer.js'
-import Footer from '../components/Footer.js'
 
-function HomepageContainer({data}) {
+import Categories from '../components/homepage/Categories.js'
+import Products from '../components/homepage/Products.js'
+import Slider from '../components/homepage/Slider.js'
+
+import ProductsData from '../mocks/en-us/featured-products.json'
+
+import '../stylesheets/homepage/content.scss'
+
+function HomepageContainer({ data }) {
 
     return (
-        <div>
-            <Header />
-            <ContentContainer />
-            <Footer />
+        <div className='content-container'>
+            <Slider />
+            <Categories />
+            <Products ProductsData={ProductsData} />
         </div>
     )
 }
