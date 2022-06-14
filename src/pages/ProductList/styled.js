@@ -7,8 +7,9 @@ export const HeadingPage = styled(SectionHeading)`
 `;
 
 export const WrapperContent = styled.div`
+  position: relative;
   display: flex;
-  margin-top: 40px;
+  margin-top: 5px;
 `;
 
 export const Content = styled.div`

@@ -1,13 +1,26 @@
 import styled from "@emotion/styled";
 
 export const Sidebar = styled.div`
-  display: none;
+  position: absolute;
+  z-index: 20;
   width: 250px;
-  border-bottom: 1px solid var(--extralight-gray);
-  border-top: 1px solid var(--extralight-gray);
+  padding: 10px;
+  left: 50%;
+  transition: 0.2s;
+  background-color: white;
+  transform: ${(props) =>
+    props.display ? "translateX(-50%) scale(1)" : "translateX(-50%) scale(0)"};
+
+  box-shadow: 10px 10px 15px -6px rgba(0, 0, 0, 0.46);
   @media (min-width: 768px) {
+    position: static;
+    transform: translateX(-20px) scale(1);
+    background-color: none;
+    box-shadow: none;
     display: flex;
     flex-direction: column;
+    border-bottom: 1px solid var(--extralight-gray);
+    border-top: 1px solid var(--extralight-gray);
     gap: 20px;
   }
 `;
@@ -15,6 +28,13 @@ export const Sidebar = styled.div`
 export const Heading = styled.div`
   font-size: 20px;
   font-weight: 400;
+`;
+
+export const CloseAction = styled.div`
+  display: block;
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 
 export const ImageContainer = styled.span`

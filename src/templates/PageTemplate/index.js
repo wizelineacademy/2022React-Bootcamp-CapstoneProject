@@ -5,6 +5,7 @@ const MainLayout = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: 0.4s;
 `;
 
 const PageTemplate = ({ children, handleNavigate }) => {

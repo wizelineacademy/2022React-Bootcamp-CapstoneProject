@@ -1,37 +1,23 @@
-import { Container } from "./../../styled-components";
+import { Container, ProductsGrid } from "./../../styled-components";
 import { useState, useEffect } from "react";
 import { createProductAdapter } from "./../../adapters/featured-products";
 import Products from "../../mocks/en-us/products.json";
-import { ProductSidebarFilter } from "./../../components/product";
+import {
+  ProductSidebarFilter,
+  ProductCard,
+  PageControlls,
+} from "./../../components/product";
 import { HeadingPage, WrapperContent, Content } from "./styled";
 import { getFilterProducts } from "./../../utils/getFilterProducts";
-import styled from "@emotion/styled";
-import { ProductCard } from "./../../components/product";
 import Spinner from "../../components/ui/Spinner/Spinner";
-
-export const ProductsGrid = styled.div`
-  margin-top: 40px;
-  margin-bottom: 40px;
-  display: grid;
-  grid-gap: 20px;
-
-  @media (min-width: 600px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-`;
+import { FilterButton } from "./../../components/common";
 
 const ProductList = () => {
   const [filters, setFilter] = useState([]);
   const [productList, setProductList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [showFilter, setShowFilter] = useState(false);
+
   let loadingInterval;
 
   useEffect(() => {
@@ -49,23 +35,21 @@ const ProductList = () => {
     }, 2000);
   };
 
-  const handleToggle = (e) => {
-    const target = e.target;
-    const value = target.value.toLowerCase().replace(/ /g, "");
-    const checked = target.checked;
-
-    if (checked) {
-      setFilter((filters) => [...filters, value]);
-    } else {
-      setFilter((filters) => filters.filter((filter) => filter !== value));
-    }
+  const toggleFilter = () => {
+    setShowFilter((showFilter) => !showFilter);
   };
 
   return (
     <Container>
       <HeadingPage>This is the Product List Page</HeadingPage>
+
+      <FilterButton toggleFilter={toggleFilter} />
       <WrapperContent>
-        <ProductSidebarFilter handleToggle={handleToggle} />
+        <ProductSidebarFilter
+          setFilter={setFilter}
+          display={showFilter}
+          toggleFilter={toggleFilter}
+        />
         <Content>
           {isLoading ? (
             <Spinner />
@@ -78,6 +62,7 @@ const ProductList = () => {
           )}
         </Content>
       </WrapperContent>
+      <PageControlls />
     </Container>
   );
 };

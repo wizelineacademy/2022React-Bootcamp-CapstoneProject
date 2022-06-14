@@ -8,6 +8,7 @@ export const FooterContainer = styled.footer`
   background-color: #171717;
   color: white;
   align-items: center;
+  transition: 0.4s;
 `;
 
 export const FooterContent = styled.div`
