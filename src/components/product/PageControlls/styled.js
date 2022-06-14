@@ -14,5 +14,5 @@ export const PageLabel = styled.div`
 `;
 
 export const ControllButton = styled(Button)`
-  color: white;
+  color: #fff;
 `;
