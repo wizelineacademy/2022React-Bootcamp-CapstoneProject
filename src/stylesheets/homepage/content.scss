@@ -1,14 +1,15 @@
 .content-container {
     min-height: 100vh;
     padding-top: 85px;
+    width: 100%;
 }
 
 .slider-container {
-    width: 100%;
+    width: 95%;
     max-width: 1000px;
-    min-width: 320px;
+    min-width: 300px;
     position: relative;
-    margin: auto;
+    margin: 0px auto;
 
     .show {
         display: block;
@@ -74,41 +75,85 @@
 
     //row
     display: flex;
+    width: 95%;
     flex-direction: column;
     text-align: center;
+    margin: 0px auto;
 
     .category {
         //col
         flex: 100%;
-        max-width: 100%;
+
+        margin-top: 10px;
+        width: 100%;
+
+        position: relative;
 
         img {
+            display: block;
             width: 100%;
         }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgb(0, 0, 0);
+            background: rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            width: 100%;
+            height: 0;
+            transition: .5s ease;
+        }
+
+        .text {
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+    }
+
+    .category:hover .overlay {
+        height: 100%;
     }
 }
 
 .products-container {
     padding-top: 10px;
 
+    //row
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+    width: 95%;
+    margin: 0px auto;
 
     .product {
+        //col
+        flex: 100%;
+
+        width: 100%;
+        padding-top: 10px;
+        align-self: center;
         position: relative;
         text-align: center;
         color: black;
-        padding: 10px;
 
-        flex: 100%;
+        min-width: 320px;
+        max-width: 400px;
 
         img {
-            width: 95%;
+            width: 90%;
         }
-
 
         .top-left {
             position: absolute;
@@ -125,8 +170,8 @@
         .content {
             position: absolute;
             bottom: 0;
-            left: 10px;
-            right: 10px;
+            left: 15px;
+            right: 15px;
             background: rgb(0, 0, 0);
             background: rgba(0, 0, 0, 0.5);
             color: #f1f1f1;
@@ -142,8 +187,8 @@
 
         .category {
             //col
-            padding: 0 10px;
             flex: 50%;
+            padding: 10px;
         }
     }
 
