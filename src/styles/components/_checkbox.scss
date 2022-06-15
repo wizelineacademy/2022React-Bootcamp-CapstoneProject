@@ -1,0 +1,44 @@
+.checkbox {
+  @include flex(center, flex-start);
+
+  cursor: pointer;
+
+  &.-active {
+    font-weight: 600;
+  }
+
+  &:hover {
+    color: $main-color;
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  &-checkmark {
+    margin-right: 10px;
+    height: 15;
+    width: 15;
+    border: 1px solid $txt-second-color;
+
+    i {
+      transform: scale(0);
+      transition: tranform 0.3s ease;
+    }
+  }
+
+  input:checked ~ &-checkmark {
+    background-color: $main-color;
+    border: 1px solid $main-color;
+    color: $txt-white;
+    font-weight: 600;
+  }
+
+  input:checked ~ &-checkmark > i {
+    transform: scale(1);
+  }
+}

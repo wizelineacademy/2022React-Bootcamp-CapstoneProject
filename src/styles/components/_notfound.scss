@@ -1,0 +1,11 @@
+.not-found {
+  height: calc(77.6vh);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+}
