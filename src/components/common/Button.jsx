@@ -9,7 +9,7 @@ const Button = (props) => {
   return (
     <button
       className={`btn ${bg} ${size} `}
-      onClick={props.onClick ? () => props.onClick() : null}
+      onClick={props.handler ? () => props.handler() : null}
     >
       <span className="txt">{props.children}</span>
     </button>
@@ -20,7 +20,7 @@ Button.propTypes = {
   backgroundColor: PropTypes.string,
   size: PropTypes.string,
   icon: PropTypes.string,
-  onclick: PropTypes.func,
+  handler: PropTypes.func,
 };
 
 export default Button;

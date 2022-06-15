@@ -4,7 +4,8 @@ const Footer = () => {
   return (
     <footer>
       <div className="container">
-        <p>Ecommerce created during Wizeline’s Academy React Bootcamp</p>
+        <p>E-commerce created during Wizeline’s Academy React Bootcamp</p>
+        <div className="container-date">June 2022</div>
       </div>
     </footer>
   );
