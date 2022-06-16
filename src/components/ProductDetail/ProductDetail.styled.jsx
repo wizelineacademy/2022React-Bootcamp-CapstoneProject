@@ -5,9 +5,10 @@ export const SingleProduct = styled.div`
     justify-content: center;
     width: 90%;
     height: 90%;
-    margin: 20px 60px;
-    position:fixed;
-    
+    margin: 20px 20px;
+    flex-wrap: wrap;
+    align-items:center;
+
     .row {
         display: flex;
         width: 550px;
@@ -26,24 +27,16 @@ export const SingleProduct = styled.div`
 
 export const Details = styled.div`
 display:flex;
-position:relative;
-flex-direction: column;
-width: 35%;
-height: 90vh;
-text-align:flex-start;
-justify-content: center;
-margin-top: 10px;
-@media (max-width: 300px){
-    justify-content: flex-start;
-}
-
+flex-wrap: wrap;
+width: 500px;
+text-align:center;
 
 
 .product-card > * {
     display: flex;
-    padding: 10px 2px 2px;
+    padding: 2px 2px 2px;
 }
-.product-card > h1{
+.product-card > h1 {
     font-size: 20px;
     font-weight: 700;
 }
@@ -57,6 +50,9 @@ margin-top: 10px;
 .product-card .slug{
     color: slateblue;
 } 
+.product-card > p{
+    color:slateblue;
+}
 .product-card .add-cart {
     display: flex;
     align-items: center;
@@ -75,6 +71,5 @@ margin-top: 10px;
     &:hover{
     box-shadow:0 0 40px 40px slateblue inset;
 }
-@media (mxin-width: 360px){
-    flex-direction: column;
+
 `;
