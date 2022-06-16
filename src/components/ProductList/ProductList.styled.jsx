@@ -4,7 +4,6 @@ export const ProductListContainer= styled.div`
 display:flex;
 min-height:100vh;
 
-
 ol {
     display: flex;
     padding: 16px;
