@@ -8,13 +8,16 @@ import mock3 from '../../assets/mocks/en-us/featured-products.json';
 export default function ProductList() {
     const [selectedCategories, setSelectedCategories]= useState([]); //Para seleccionar los filtros
     const [products, setProducts] = useState(mock3.results); //Para traer los productos
-    const [loading, setLoading] = useState(false); //Para el loader
+    const [loading, setLoading] = useState(false); //Para el loader 
 
     useEffect(() => {
         setLoading(true)
-        setTimeout(() => {
+        let timeOutId = setTimeout(() => {
             setLoading(false)
-        }, 3000)
+        }, 2000)
+        return () => {
+            clearTimeout(timeOutId)
+        }
     }, [])
     
     const clickHandler = (categoryName) => {
@@ -29,32 +32,38 @@ export default function ProductList() {
             setSelectedCategories(prevValue => [...prevValue, categoryName])
         }
     }
+    
+    
+    
     useEffect(() => {
-        if(selectedCategories.length) {
-        setProducts(mock3.results.filter(
-            product => {
-                let result = false;
-                for(let i = 0; i < selectedCategories.length; i++) {
-                    if(selectedCategories[i]=== product.data.category.slug){
-                        result = true;
+        const filterProductsByCategory = product => {
+            let result = false;
+            for(let i = 0; i < selectedCategories.length; i++) {
+                if(selectedCategories[i]=== product.data.category.slug){
+                    result = true;
                         break;
                     }
                 }
                 return result;
-            }))
+            }
+        if(selectedCategories.length) {
+        setProducts(mock3.results.filter(filterProductsByCategory))
         }    
     }, [selectedCategories])
-
+    const sidebarWrapperStyle = (category) => {
+        return selectedCategories.some((element)=> element === category.slugs[0])  
+            ? "is-active"
+            : "";
+    }
     return (
         <ProductListContainer>
             <SidebarWrapper>
                 {mockProducts.results.map((category) => {
                     return <ol 
                     key={category.data.name}
-                    className={
-                        selectedCategories.some((element)=> element === category.slugs[0])  
-                        ? "is-active": ""} 
-                    onClick={e => clickHandler(category.slugs[0])}>{category.data.name}</ol>
+                    className={sidebarWrapperStyle(category)} 
+                    onClick={() => clickHandler(category.slugs[0])}>
+                        {category.data.name}</ol>
                 })}; 
             </SidebarWrapper>
             {loading ? (

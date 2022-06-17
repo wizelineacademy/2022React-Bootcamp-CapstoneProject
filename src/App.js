@@ -25,7 +25,7 @@ export default function App() {
       )}
       <Button 
       className="btn-container" 
-      onClick={e => setActiveProductList(!activeProductList)} >View all products</Button>
+      onClick={() => setActiveProductList(!activeProductList)} >View all products</Button>
       <Footer />
 </div>
 

@@ -12,8 +12,7 @@ export default function Header({setActiveProductList}) {
                     src={logo} 
                     alt="logo" 
                     className="img-logo"
-                    onClick={e => setActiveProductList(false)}/>
-            
+                    onClick={() => setActiveProductList(false)}/>
             <InputSearcher 
                 type="text" 
                 id ="search-box" 
