@@ -4,6 +4,7 @@ import { HeaderWrapper, InputSearcher, ProfileWrapper, CartWrapper } from './Hea
 import logo from '../../logo-fur.jpg';
 import icon from '../../shopping-cart.png';
 import log from '../../user.png';
+import lupa from '../../lupa.png';
 
 
 export default function Header() {
@@ -30,8 +31,10 @@ export default function Header() {
                 className="input-search" 
                 placeholder=" Search..."
                 onChange={inputSearch}/>
-
-                <input type="submit" value="search"onClick={clickHandler}/>
+                
+                <button className="lupa-button"onClick={clickHandler}>
+                    <img src={lupa} alt="lupa-icon" className="lupa-icon" />
+                </button>
             
             <ProfileWrapper>
                 <a href=".">
