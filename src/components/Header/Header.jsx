@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import {React, useState} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { HeaderWrapper, InputSearcher, ProfileWrapper, CartWrapper } from './Header.styled';
 import logo from '../../logo-fur.jpg';
 import icon from '../../shopping-cart.png';
@@ -7,6 +7,15 @@ import log from '../../user.png';
 
 
 export default function Header() {
+    const [userInput, setUserInput ] = useState();
+    let navigate = useNavigate();
+    
+    const clickHandler = () => {
+        navigate(`search-results/${userInput}`)
+    }
+    const inputSearch = (e) => {
+        setUserInput(()=> e.target.value)
+     }
     return (
         <HeaderWrapper>
                 <Link to="/">
@@ -16,10 +25,13 @@ export default function Header() {
                     className="img-logo"/>
                 </Link>
             <InputSearcher 
-                type="text" 
+                type="search" 
                 id ="search-box" 
                 className="input-search" 
-                placeholder=" Search..."/>
+                placeholder=" Search..."
+                onChange={inputSearch}/>
+
+                <input type="submit" value="search"onClick={clickHandler}/>
             
             <ProfileWrapper>
                 <a href=".">
