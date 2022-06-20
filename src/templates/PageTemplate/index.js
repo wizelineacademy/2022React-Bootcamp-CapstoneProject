@@ -5,12 +5,13 @@ const MainLayout = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: 0.4s;
 `;
 
-const PageTemplate = ({ children }) => {
+const PageTemplate = ({ children, handleNavigate }) => {
   return (
     <MainLayout>
-      <Header />
+      <Header handleNavigate={handleNavigate} />
       {children}
       <Footer />
     </MainLayout>

@@ -1,11 +1,7 @@
 import { LogoContainer } from "./styled";
 
-const Logo = () => {
-  return (
-    <a href="/">
-      <LogoContainer src="/assets/logo.webp" alt="logo" />
-    </a>
-  );
+const Logo = (props) => {
+  return <LogoContainer src="/assets/logo.webp" alt="logo" {...props} />;
 };
 
 export default Logo;
