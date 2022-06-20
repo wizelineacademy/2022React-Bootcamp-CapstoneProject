@@ -20,26 +20,27 @@ export const ProductList = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    setTimeout(() => {
+    const loadingTimeout = setTimeout(() => {
       const allItems = createCards(FeaturedProducts.results);
       setResults(allItems);
       setIsLoading(false);
     }, 2000);
+
+    clearTimeout(loadingTimeout);
+
   }, []);
 
 
   function handleClick(categoryName) {
     filtersSet = manageCategories(categoryName, filters);
     setFilters(filtersSet);
-    let cards = []
-    
-    if (!filtersSet.length) {
-      cards = createCards(FeaturedProducts.results);
-    } else {
-      const filteredCategories = filterProducts(filtersSet);
-      cards = createCards(filteredCategories);
-    }
 
+    const cardsToFilter = !filtersSet.length 
+      ? FeaturedProducts.results
+      : filterProducts(filtersSet);
+
+    const cards = createCards(cardsToFilter);
+    
     setResults(cards);
   }
 
