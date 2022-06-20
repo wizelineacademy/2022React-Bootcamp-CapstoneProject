@@ -4,12 +4,15 @@ import logo from '../../logo-fur.jpg';
 import icon from '../../shopping-cart.png';
 import log from '../../user.png';
 
-export default function Header() {
+
+export default function Header({setActiveProductList}) {
     return (
         <HeaderWrapper>
-            <a href=".">
-                <img src={logo} alt="logo" className="img-logo"/>
-            </a>
+                <img 
+                    src={logo} 
+                    alt="logo" 
+                    className="img-logo"
+                    onClick={() => setActiveProductList(false)}/>
             <InputSearcher 
                 type="text" 
                 id ="search-box" 

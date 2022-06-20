@@ -8,9 +8,6 @@ padding: 40px 0;
 display: grid;
 grid-template-rows: 1fr;
 gap: 10px;
-color: slateblue;
-
-
 `;
 export const CardContainer = styled.div`
     display: grid;
@@ -27,7 +24,6 @@ position: relative;
 overflow: hidden;
 background-size: cover;
 background-position: center center;
-
 `;
 
 export const CardText = styled.div`
@@ -36,14 +32,31 @@ flex-direction: column;
 
 
 .prod-name {
-   
     margin-bottom: 220px;
     max-height: 20px;
     font-size: small;
-    
 }
 .price {
     font-weight: bold;
     position: sticky;
+}
+`;
+ export const Button = styled.button`
+ display: grid;
+ align-items: center;
+ justify-content: center;
+ max-width: 260px;
+ min-width: 192px;
+ height: 60px;
+ background: gray;
+ color: white;
+ font-size: 16px;
+ border:none;
+ cursor: pointer;
+ transition: .2s ease all;
+ border-radius: 5px;
+ margin-bottom: 10px;
+:hover{
+    box-shadow:0 0 40px 40px slateblue inset;
 }
 `;
