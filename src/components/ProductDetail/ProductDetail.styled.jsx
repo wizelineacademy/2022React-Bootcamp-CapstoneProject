@@ -2,12 +2,11 @@ import styled from 'styled-components';
 
 export const SingleProduct = styled.div`
     display:flex;
-    justify-content: center;
     width: 90%;
     height: 90%;
     margin: 20px 20px;
     flex-wrap: wrap;
-    align-items:center;
+    justify-content: center;
 
     .row {
         display: flex;
@@ -23,13 +22,17 @@ export const SingleProduct = styled.div`
         height: 100%;
         border-radius: 20px;
     } 
+
 `;
 
 export const Details = styled.div`
 display:flex;
 flex-wrap: wrap;
+justify-content: center;
 width: 500px;
-text-align:center;
+text-align:flex-start;
+backgrouns: #ebebeb;
+border-radius: 5px;
 
 
 .product-card > * {
@@ -46,12 +49,13 @@ text-align:center;
 }
 .product-card .description {
     color: gray;
+    justify-content: flex-start;
 }
 .product-card .slug{
     color: slateblue;
 } 
-.product-card > p{
-    color:slateblue;
+.product-card > p {
+    align-items: flex-start;
 }
 .product-card .add-cart {
     display: flex;
@@ -73,3 +77,38 @@ text-align:center;
 }
 
 `;
+ export const SpecsContainer = styled.div`
+ display:inline-block;
+ width: 90%;
+ padding: 40px;
+
+ h2 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 10px;
+    padding: 10px;
+ }
+ table tr { 
+     width: 100%; 
+ }
+ tr th {
+     color: gray;
+     padding-left: 24px;
+     width: 10%;
+     padding: 10px;
+     background: #f5f5f5;
+     border-radius: 5px;
+ }
+ tr td {
+     color: mediumgray;
+     width: 70%;
+     padding: 10px;
+     padding-left: 24px;
+     background: white;
+     border-radius:0 5px;
+    
+ }
+ table td:nth-child(odd){
+     background: red;
+ }
+ `;

@@ -1,7 +1,8 @@
-import React from 'react'
-import { SingleProduct, Details } from './ProductDetail.styled'
+import React from 'react';
+import { SingleProduct, Details, SpecsContainer } from './ProductDetail.styled'
 import logo from '../../logo-fur.jpg';
 export default function ProductDetail() {
+
     return (
         <SingleProduct>
             <div className="row">
@@ -20,11 +21,30 @@ export default function ProductDetail() {
                         aspernatur dignissimos cumque officiis nisi tempora,
                         llendus sequi ad quisexplicabo 
                         ccusantium asperiores facilis repellendus.</p>
-                <input type="number"placeholder="Cantidad"/>
+                <input type="number"placeholder="Numbers"/>
                     <button className="add-cart"> <span>Add to cart</span></button>
                     <button className="add-cart"><span>Buy now</span></button>
                 </div>
             </Details>
+            <SpecsContainer>
+                <h2>Caracteristics:</h2>
+                <table>
+                    <tr>
+                        <th><span>SpecName</span></th>
+                        <td><span>SpecValue</span></td>
+                    </tr>
+                    <tr>
+                        <th><span>SpecName</span></th>
+                        <td><span>SpecValue</span></td>
+                    </tr>
+                    <tr>
+                        <th><span>SpecName</span></th>
+                        <td><span>SpecValue</span></td>                       
+                    </tr>
+                    
+                </table>
+            </SpecsContainer>
+                
         </SingleProduct>
     )
 }
