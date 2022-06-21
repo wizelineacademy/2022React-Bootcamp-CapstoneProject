@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useState, useEffect }from 'react';
 import {ProductsWrapper, CardContainer,Card, CardText } from './Products.styled';
-import mock3 from '../../assets/mocks/en-us/featured-products.json';
-
+import { useFeaturedProducts } from '../../utils/hooks/useFeaturedProducts';
 export default function Products() {
-    const products = mock3.results;
+    const [products, setProducts] = useState([]);
+    const {data , isLoading} = useFeaturedProducts();
+
+    useEffect(() => {
+        if(data.results) {
+            setProducts(data.results)
+        }
+    }, [data])
+
     return (
             <ProductsWrapper>
+                {!isLoading && (
                 <CardContainer>
                 {products.map((product, index) => {
                     const productDetail = product.data;
@@ -20,6 +28,7 @@ export default function Products() {
                     </Card>
                 })}
                 </CardContainer>
+                )}
             </ProductsWrapper>
     )
 };
