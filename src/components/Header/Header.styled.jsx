@@ -8,6 +8,7 @@ export const HeaderWrapper = styled.div`
     justify-content: space-around;
     align-items: center;
     padding:10px;
+
     .lupa-button {
         max-width: 100px;
         margin-left:-150px;
@@ -32,11 +33,9 @@ export const InputSearcher = styled.input`
 width: 500px;
 height: 39px;
 box-sizing: border-box;
-border: 0;
+border: 5px;
 margin-left: 20px;
-@media (max-width: 768px) {
-    width: 450px;
-}
+
 `;
 
  export const ProfileWrapper = styled.div`

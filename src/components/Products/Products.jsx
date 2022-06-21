@@ -15,7 +15,7 @@ export default function Products() {
             <ProductsWrapper>
                 {!isLoading && (
                 <CardContainer>
-                {products.map((product, index) => {
+                {products.map((product) => {
                     const productDetail = product.data;
                     return <Card 
                         key={productDetail.sku}

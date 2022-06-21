@@ -1,24 +1,25 @@
 import {React, useState, useEffect}  from 'react';
 import {ProductListContainer,SidebarWrapper,ProductCard,PaginationList} from './ProductList.styled';
 import {Loader} from './ProductList.styled';
-import mockProducts from '../../assets/mocks/en-us/product-categories.json';
 import {Card, CardText} from '../../components/Products/Products.styled';
-import mock3 from '../../assets/mocks/en-us/featured-products.json';
+import {useProducts} from '../../utils/hooks/useProducts';
+import {useFeaturedCategories} from '../../utils/hooks/useFeaturedCategories';
 
 export default function ProductList() {
     const [selectedCategories, setSelectedCategories]= useState([]); //Para seleccionar los filtros
-    const [products, setProducts] = useState(mock3.results); //Para traer los productos
-    const [loading, setLoading] = useState(false); //Para el loader 
-
+    const [products, setProducts] = useState([]);
+    const [categories, setCategories] = useState([])
+    const {data, isLoading} = useProducts(selectedCategories);
+    const {data: categoriesData} = useFeaturedCategories();
+    
     useEffect(() => {
-        setLoading(true)
-        let timeOutId = setTimeout(() => {
-            setLoading(false)
-        }, 2000)
-        return () => {
-            clearTimeout(timeOutId)
+        if(data.results) {
+            setProducts(data.results)
         }
-    }, [])
+        if( categoriesData.results) {
+            setCategories(categoriesData.results)
+        }
+    }, [data, categoriesData])
     
     const clickHandler = (categoryName) => {
         const indexToRemove= (selectedCategories.indexOf(categoryName))
@@ -33,21 +34,9 @@ export default function ProductList() {
         }
     }
     
-    
-    
     useEffect(() => {
-        const filterProductsByCategory = product => {
-            let result = false;
-            for(let i = 0; i < selectedCategories.length; i++) {
-                if(selectedCategories[i]=== product.data.category.slug){
-                    result = true;
-                        break;
-                    }
-                }
-                return result;
-            }
         if(selectedCategories.length) {
-        setProducts(mock3.results.filter(filterProductsByCategory))
+        /*setProducts(mock3.results.filter(filterProductsByCategory))*/
         }    
     }, [selectedCategories])
     const sidebarWrapperStyle = (category) => {
@@ -58,7 +47,7 @@ export default function ProductList() {
     return (
         <ProductListContainer>
             <SidebarWrapper>
-                {mockProducts.results.map((category) => {
+                {categories.map((category) => {
                     return <ol 
                     key={category.data.name}
                     className={sidebarWrapperStyle(category)} 
@@ -66,7 +55,7 @@ export default function ProductList() {
                         {category.data.name}</ol>
                 })}; 
             </SidebarWrapper>
-            {loading ? (
+            {isLoading ? (
                 <Loader />
             ) : (
             <ProductCard>

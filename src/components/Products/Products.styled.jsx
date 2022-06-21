@@ -56,6 +56,10 @@ flex-direction: column;
  transition: .2s ease all;
  border-radius: 5px;
  margin-bottom: 10px;
+ 
+  .btn-container a {
+    text-decoration: none;
+  }
 :hover{
     box-shadow:0 0 40px 40px slateblue inset;
 }
