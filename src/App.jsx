@@ -1,25 +1,17 @@
-import React, { useState } from 'react';
+import {Routes, Route} from 'react-router-dom'
 import { Header, Home, Footer } from './components';
-import { Button, ButtonWrapper } from './App.style'
 import ProductList from './components/ProductList';
+import { ROUTES } from './utils/constants';
 
 function App() {
-  const [pageShowed, setPageShowed] = useState('Home');
-  
-  return (
+   return (
     <>
-      <Header handleClick={() => setPageShowed('Home')}/>
-      {pageShowed === 'Home' ? (
-        <>
-          <Home />
-          <ButtonWrapper>
-            <Button onClick={() => setPageShowed('ProductList')} >
-              View all Products
-            </Button>
-          </ButtonWrapper>
-        </>)
-        : <ProductList />
-      }
+      <Header />
+      <Routes>
+        <Route path={ROUTES.base} element={<Home />} />
+        <Route path={ROUTES.home} element={<Home />} />
+        <Route path={ROUTES.productList} element={<ProductList />} />
+      </Routes>
       <Footer text='Ecommerce created during Wizeline’s Academy React Bootcamp' />
     </>
   );
