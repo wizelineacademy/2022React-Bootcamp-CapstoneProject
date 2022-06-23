@@ -1,15 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { ReactComponent as ShoppingCartIcon } from '../../images/shopping-cart.svg';
 import logo from '../../images/logo.png';
 
 import {
   HeaderMain, Image, Name, InputSearch, ButtonCart,
 } from './Header.styled';
+import { ROUTES } from '../../utils/constants';
 
-function Header({ handleClick }) {
+function Header() {
   return (
     <HeaderMain isYellow>
-      <Image src={logo} alt="logo" onClick={handleClick} />
+    <Link to={ROUTES.home}>
+      <Image src={logo} alt="logo" />
+    </Link>
       <Name>
         Furny
       </Name>
