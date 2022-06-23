@@ -5,18 +5,18 @@ import Products from '../Products/Products';
 import { Button } from '../Products/Products.styled';
 import { Link } from 'react-router-dom';
 
-export default function HomePage() {
+export default function Home() {
     return (
         <div>
             <Slideshow/>
             <Categories/>
             <Products/>  
-            <Link to="product-list">
+                <Link to="product-list">
                 <Button 
                 className="btn-container" 
                 >View all products
                 </Button>
-            </Link>
+                </Link>
         </div>
     )
 }

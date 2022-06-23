@@ -1,12 +1,13 @@
 import React from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, useLocation, useSearchParams} from 'react-router-dom';
 import {useProducts} from '../../utils/hooks/useProducts';
 import {ProductsWrapper, CardContainer,Card, CardText} from '../Products/Products.styled';
 export default function SearchResults() {
-    let { product } = useParams();
-    const {data, isLoading} = useProducts(product)
+    let [q] = useSearchParams();
+    const { search } = useLocation();
+    const searchParams = new URLSearchParams(search);
+    const {data, isLoading} = useProducts(q)
     
-    console.log(data)
     
     return (
         <ProductsWrapper>

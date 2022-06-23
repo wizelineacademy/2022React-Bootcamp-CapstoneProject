@@ -1,9 +1,10 @@
-import {React, useState, useEffect}  from 'react';
+import {React, useState, useEffect }  from 'react';
 import {ProductListContainer,SidebarWrapper,ProductCard,PaginationList} from './ProductList.styled';
 import {Loader} from './ProductList.styled';
 import {Card, CardText} from '../../components/Products/Products.styled';
 import {useProducts} from '../../utils/hooks/useProducts';
 import {useFeaturedCategories} from '../../utils/hooks/useFeaturedCategories';
+import { useParams } from 'react-router-dom';
 
 export default function ProductList() {
     const [selectedCategories, setSelectedCategories]= useState([]); //Para seleccionar los filtros
@@ -11,6 +12,8 @@ export default function ProductList() {
     const [categories, setCategories] = useState([])
     const {data, isLoading} = useProducts(selectedCategories);
     const {data: categoriesData} = useFeaturedCategories();
+    let category = useParams();
+    console.log(category)
     
     useEffect(() => {
         if(data.results) {

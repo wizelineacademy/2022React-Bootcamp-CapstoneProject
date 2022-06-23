@@ -1,6 +1,6 @@
 
 import { Routes, Route } from 'react-router-dom';
-import HomePage from '././components/HomePage/HomePage';
+import Home from '././components/Home/Home';
 import Header from "./components/Header/Header";
 import ProductList from "./components/ProductList/ProductList";
 import ProductDetail from './components/ProductDetail/ProductDetail';
@@ -14,10 +14,12 @@ export default function App() {
     <div className="App">
       <Header/>
       <Routes>
-        <Route path="/" element={<HomePage/>}/>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/home" element={<Home/>}/>
         <Route path="product-list" element={<ProductList/>}/>
-        <Route path="product-detail" element={<ProductDetail />}/>
-        <Route path="search-results/:product" element={<SearchResults/>} />
+        <Route path="/product-list/:category" element={<ProductList/>}/>
+        <Route path="/product" element={<ProductDetail />}/>
+        <Route path="/search" element={<SearchResults/>} />
       </Routes> 
       <Footer />
 </div>

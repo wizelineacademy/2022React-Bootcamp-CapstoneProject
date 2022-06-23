@@ -12,7 +12,7 @@ export default function Header() {
     let navigate = useNavigate();
     
     const clickHandler = () => {
-        navigate(`search-results/${userInput}`)
+        navigate(`/search?q=${userInput}`)
     }
     const inputSearch = (e) => {
         setUserInput(()=> e.target.value)
