@@ -7,20 +7,21 @@ export const SingleProduct = styled.div`
     margin: 20px 20px;
     flex-wrap: wrap;
     justify-content: center;
+    border-radius: 10px;
 
     .row {
-        display: flex;
-        width: 550px;
-        height: 100%;
+        width: 500px;
+        height: 500px;
         padding: 0px;
         margin: 10px 20px;
-        border-radius: 20px;
+        
         
     }
     .row > img {
-        width: 100%;
-        height: 100%;
+        width: 500px;
+        height: 300px;
         border-radius: 20px;
+        position: relative;
     } 
 
 `;
@@ -74,11 +75,15 @@ border-radius: 5px;
     margin-bottom: 10px;
     &:hover{
     box-shadow:0 0 40px 40px slateblue inset;
+
+.product-card .tag-container > span{
+        color: slateblue;
+    }
 }
 
 `;
  export const SpecsContainer = styled.div`
- display:inline-block;
+ display:block;
  width: 90%;
  padding: 40px;
 
@@ -111,4 +116,9 @@ border-radius: 5px;
  table td:nth-child(odd){
      background: red;
  }
+ `;
+
+ export const Swiper = styled.nav`
+ width: 100%;
+  height: 100%;
  `;

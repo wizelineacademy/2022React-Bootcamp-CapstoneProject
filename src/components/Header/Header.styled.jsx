@@ -10,12 +10,12 @@ export const HeaderWrapper = styled.div`
     padding:10px;
 
     .lupa-button {
-        max-width: 100px;
+        width: 100px;
         margin-left:-150px;
         height: 39px;
         background: white;
         border: 0;
-        justify-content: flex-start;
+        align-items: center;
         @media (max-width: 768px) {
             margin-left:0px;
         }

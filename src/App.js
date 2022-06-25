@@ -16,9 +16,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/home" element={<Home/>}/>
-        <Route path="product-list" element={<ProductList/>}/>
-        <Route path="/product-list/:category" element={<ProductList/>}/>
-        <Route path="/product" element={<ProductDetail />}/>
+        <Route path="/product-list" element={<ProductList/>}/>
+        <Route path="/product/:productId" element={<ProductDetail />}/>
         <Route path="/search" element={<SearchResults/>} />
       </Routes> 
       <Footer />

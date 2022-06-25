@@ -16,6 +16,9 @@ export function useProducts(searchTerm,selectedCategories) {
     }
 
     const controller = new AbortController();
+    const searchTermQuery = searchTerm 
+                            ?  `&q=${encodeURIComponent(`[[fulltext(document, "${searchTerm}")]]`)}`
+                            :'';
 
     async function getProducts() {
       try {
@@ -24,8 +27,8 @@ export function useProducts(searchTerm,selectedCategories) {
         const response = await fetch(
           `${API_BASE_URL}/documents/search?ref=${apiRef}&
 q=${encodeURIComponent('[[at(document.type, "product")]]')}
-&q=${encodeURIComponent(`[[fulltext(document, "${searchTerm}")]]`)}
-          &lang=en-us&pageSize=15`,
+${searchTermQuery}
+          &lang=en-us&pageSize=24`,
           {
             signal: controller.signal,
           }
