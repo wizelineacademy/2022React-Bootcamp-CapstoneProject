@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { API_BASE_URL } from '../constants';
 import { useLatestAPI } from './useLatestAPI';
 
-export function useProducts(searchTerm,selectedCategories) {
+export function useProducts(searchTerm,page) {
   const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
   const [products, setProducts] = useState(() => ({
     data: {},
@@ -10,7 +10,6 @@ export function useProducts(searchTerm,selectedCategories) {
   }));
 
   useEffect(() => {
-      console.log(selectedCategories)
     if (!apiRef || isApiMetadataLoading) {
       return () => {};
     }
@@ -28,7 +27,7 @@ export function useProducts(searchTerm,selectedCategories) {
           `${API_BASE_URL}/documents/search?ref=${apiRef}&
 q=${encodeURIComponent('[[at(document.type, "product")]]')}
 ${searchTermQuery}
-          &lang=en-us&pageSize=24`,
+          &lang=en-us&pageSize=12&page=${page}`,
           {
             signal: controller.signal,
           }
@@ -47,7 +46,7 @@ ${searchTermQuery}
     return () => {
       controller.abort();
     };
-  }, [apiRef, isApiMetadataLoading, selectedCategories,searchTerm]);
+  }, [apiRef, isApiMetadataLoading,searchTerm, page]);
 
   return products;
 }

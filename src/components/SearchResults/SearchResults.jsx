@@ -3,9 +3,9 @@ import {useParams, useLocation, useSearchParams} from 'react-router-dom';
 import {useProducts} from '../../utils/hooks/useProducts';
 import {ProductsWrapper, CardContainer,Card, CardText} from '../Products/Products.styled';
 export default function SearchResults() {
-    let [q] = useSearchParams();
     const { search } = useLocation();
     const searchParams = new URLSearchParams(search);
+    const q = searchParams.get("q");
     const {data, isLoading} = useProducts(q)
     
     

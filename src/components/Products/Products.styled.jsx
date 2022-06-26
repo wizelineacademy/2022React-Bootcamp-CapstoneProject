@@ -11,7 +11,7 @@ gap: 10px;
 `;
 export const CardContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
     gap: 1rem;
 `;
 export const Card = styled.div`

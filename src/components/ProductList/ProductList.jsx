@@ -3,7 +3,6 @@ import {
   ProductListContainer,
   SidebarWrapper,
   ProductCard,
-  PaginationList,
 } from "./ProductList.styled";
 import { Loader } from "./ProductList.styled";
 import { Card, CardText } from "../../components/Products/Products.styled";
@@ -11,6 +10,7 @@ import { useProducts } from "../../utils/hooks/useProducts";
 import { useFeaturedCategories } from "../../utils/hooks/useFeaturedCategories";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import Paginate from '../../components/Paginate/Paginate';
 
 export default function ProductList() {
   const { search } = useLocation();
@@ -19,8 +19,10 @@ export default function ProductList() {
   const [selectedCategories, setSelectedCategories] = useState([]); //Para seleccionar los filtros
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-  const { data, isLoading } = useProducts(category);
+  const [currentPage, setCurrentPage]= useState(1);
+  const { data, isLoading } = useProducts(category, currentPage);
   const { data: categoriesData } = useFeaturedCategories();
+  
 
   useEffect(() => {
     console.log(category);
@@ -106,14 +108,11 @@ export default function ProductList() {
               </Link>
             );
           })}
-          <PaginationList>
-            <a href=".">0</a>
-            <a href=".">1</a>
-            <a href=".">2</a>
-            <a href=".">3</a>
-          </PaginationList>
+          <Paginate pages={data.total_pages} page={data.page} setCurrentPage={setCurrentPage}/>
         </ProductCard>
       )}
+      
     </ProductListContainer>
+
   );
 }
