@@ -5,36 +5,47 @@ export const HeaderWrapper = styled.div`
     height: 100px;
     background-color: mediumslateblue;
     display:flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     padding:10px;
 
-    .lupa-button {
-        width: 100px;
-        margin-left:-150px;
-        height: 39px;
-        background: white;
-        border: 0;
-        align-items: center;
-        @media (max-width: 768px) {
-            margin-left:0px;
-        }
-    }
     .img-logo {
     width:80px;
     height: 80px;
     border-radius:50px;
     display:block;
     cursor:pointer;
-
     }
+    
 `;
-export const InputSearcher = styled.input`
-width: 500px;
+export const InputSearcherWrapper = styled.div`
+display:flex;
+ input {
+display: inline;
+flex-wrap: wrap;
+width: 350px;
 height: 39px;
 box-sizing: border-box;
 border: 5px;
-margin-left: 20px;
+justify-content: center;
+padding-left: 10px;
+font-size: 1rem;
+
+@media (max-width: 356px){
+    width: 200px;
+}
+ }
+
+span {
+    display: inline;
+    height: 39px;
+    padding: 10px;
+    background-color: white;
+    font-size: small;
+    position:static;
+    background-color: pink;
+    border: 5px;
+}
 
 `;
 

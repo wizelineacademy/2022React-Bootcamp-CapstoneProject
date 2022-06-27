@@ -1,10 +1,10 @@
 import {React, useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { HeaderWrapper, InputSearcher, ProfileWrapper, CartWrapper } from './Header.styled';
+import { HeaderWrapper, InputSearcherWrapper, ProfileWrapper, CartWrapper } from './Header.styled';
 import logo from '../../logo-fur.jpg';
 import icon from '../../shopping-cart.png';
 import log from '../../user.png';
-import lupa from '../../lupa.png';
+//import lupa from '../../lupa.png';
 
 
 export default function Header() {
@@ -25,17 +25,16 @@ export default function Header() {
                     alt="logo" 
                     className="img-logo"/>
                 </Link>
-            <InputSearcher 
-                type="search" 
-                id ="search-box" 
-                className="input-search" 
-                placeholder=" Search..."
-                onChange={inputSearch}/>
+                    <InputSearcherWrapper>
+                        <input 
+                        type="search" 
+                        id ="search-box" 
+                        className="input-search" 
+                        placeholder=" Search..."
+                        onChange={inputSearch}/>
+                        <span onClick={clickHandler}>Search</span>
+                    </InputSearcherWrapper>
                 
-                <button className="lupa-button"onClick={clickHandler}>
-                    <img src={lupa} alt="lupa-icon" className="lupa-icon" />
-                </button>
-            
             <ProfileWrapper>
                 <a href=".">
                     <img src={log} alt="user-icon" className="user-icon"/>
