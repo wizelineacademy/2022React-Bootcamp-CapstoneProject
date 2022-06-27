@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
-import Banners from '../../../mocks/en-us/featured-banners.json';
+import { useFeaturedBanners } from '../../../utils/hooks/useFeaturedBanners';
 import { ReactComponent as LeftArrowIcon } from '../../../images/iconmonstr-angel-left-thin.svg';
 import { ReactComponent as RightArrowIcon } from '../../../images/iconmonstr-angel-right-thin.svg';
 import { MainBox, SlideshowBox, Slide, Controls, Button } from './Slider.styled';
+import { Spiner } from '../../ProductList/ProductList.styles';
 
 function Slider() {
   const slideshow = useRef(null);
@@ -40,7 +41,10 @@ function Slider() {
     }
   };
 
-  const banners = Banners.results.map((item, i) => (
+  const { data, isLoading } = useFeaturedBanners();
+ 
+
+  const banners = data?.results?.map((item, i) => (
     <Slide key={`slide-${i}`}>
       <img src={item.data.main_image.url} alt="" />
     </Slide>
@@ -48,20 +52,25 @@ function Slider() {
 
   return (
     <MainBox>
-      <SlideshowBox ref={slideshow}>
-        {banners}
-      </SlideshowBox>
-      <Controls>
-        <Button onClick={lastPic}>
-          <LeftArrowIcon />
-        </Button>
-        <Button right onClick={nextPic}>
-          <RightArrowIcon />
-        </Button>
-      </Controls>
+    {
+      isLoading 
+        ? <Spiner />
+        : (<>
+            <SlideshowBox ref={slideshow}>
+              {banners}
+            </SlideshowBox>
+            <Controls>
+              <Button onClick={lastPic}>
+                <LeftArrowIcon />
+              </Button>
+              <Button right onClick={nextPic}>
+                <RightArrowIcon />
+              </Button>
+            </Controls>
+          </>)
+    }
     </MainBox>
   );
 }
 
 export default Slider;
-
