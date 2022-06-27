@@ -1,61 +1,101 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation, Link } from "react-router-dom";
 import {
   AsideBar,
   AsideItem,
+  ClearFilters,
+  ClearFiltersWrapper,
   ImageGrid,
   ImageResult,
   ProductListMain, 
   Spiner} from './ProductList.styles';
-import CategoriesData from '../../mocks/en-us/product-categories.json';
-import FeaturedProducts from '../../mocks/en-us/featured-products.json';
+// import FeaturedProducts from '../../mocks/en-us/featured-products.json';
 import { ImageWrap, InfoImage } from '../Home/FeaturedProducts/FeaturedProducts.styled';
-import { PaginationControl } from './PaginationControl/PaginationControl';
+import { useGetSearch } from '../../utils/hooks/useFetch';
+import { ROUTES } from '../../utils/constants';
+import { useAllSearch } from '../../utils/hooks/useAllProducts';
+import Pagination from './PaginationControl/Pagination';
+import './PaginationControl/pagination.styles.css';
+
 
 export const ProductList = () => {
   const [results, setResults] = useState([]);
   const [filters, setFilters] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const location = useLocation();
 
+
+  const { data: FeaturedProducts } = useAllSearch();
+  console.log(FeaturedProducts);
+
+  const categoryParam = new URLSearchParams(location.search).get('category');
+  
   let filtersSet = [];
 
   useEffect(() => {
+    let loadingTimeout;
+    
     setIsLoading(true);
-    const loadingTimeout = setTimeout(() => {
-      const allItems = createCards(FeaturedProducts.results);
+    loadingTimeout = setTimeout(() => {
+      const filtersSet = categoryParam?.split(',') || [];
+      const processed = filtersSet.map(str => str.replaceAll(' & ', '--'));
+      setFilters(processed)
+      const data = categoryParam ? filterProducts(
+        filtersSet, FeaturedProducts) : FeaturedProducts?.results;
+      const allItems = createCards(data);
       setResults(allItems);
       setIsLoading(false);
     }, 2000);
-
-    clearTimeout(loadingTimeout);
-
+    
+    if (!loadingTimeout) {
+      clearTimeout(loadingTimeout);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 
   function handleClick(categoryName) {
-    filtersSet = manageCategories(categoryName, filters);
+    
+    filtersSet = manageCategories(categoryName.replaceAll(' & ', '--'), filters);
     setFilters(filtersSet);
 
     const cardsToFilter = !filtersSet.length 
       ? FeaturedProducts.results
-      : filterProducts(filtersSet);
+      : filterProducts(filtersSet, FeaturedProducts);
 
     const cards = createCards(cardsToFilter);
     
     setResults(cards);
   }
 
-  const allProducts = CategoriesData.results.map((item, i) => {
-    const name = item.data.name;
+  function clearFilterClick() {
+    const data = FeaturedProducts.results;
+    const allItems = createCards(data);
+    setFilters([]);
+    setResults(allItems);
+  }
+
+  const documentType = '"category"';
+  const { data } = useGetSearch({documentType, pageSize: 30});
+
+  const allCategories = data?.results?.map((item, i) => {
+    const name = item.data.name.replaceAll(' & ', '--');
+
+    const param = encodeURI(`category=${filters?.join(',')},${name}`);
     
     return(
-      <AsideItem 
+      <Link 
+        to={`${ROUTES.productList}?${param}`}
         key={`categorieItem-${i}`}
-        onClick={() => handleClick(name)}
-        isActive={filters.includes(name)}
+        style={{textDecoration: 'none'}}  
       >
-        {name}
-      </AsideItem>
-    );
+        <AsideItem
+          onClick={() => handleClick(name)}
+          isActive={filters.includes(name)}
+        >
+          {name}
+        </AsideItem>
+      </Link>)
   })
 
 
@@ -63,16 +103,27 @@ export const ProductList = () => {
     <>
       <ProductListMain>
         <AsideBar>
-          {allProducts}
+          {allCategories}
+          {filters.length
+            ? (<ClearFiltersWrapper to={ROUTES.productList} >
+                <ClearFilters onClick={() => clearFilterClick()} id='Clear'>
+                  Clear Filters
+                </ClearFilters>
+              </ClearFiltersWrapper>)
+            : null
+          }
         </AsideBar>
         {isLoading
           ? <Spiner />
           : (<ImageGrid>
-              {results}
+              {results?.length > 12 
+              ? <Pagination data={results} />
+              : results
+              }
+              
             </ImageGrid>)
         }
       </ProductListMain>
-      <PaginationControl />
     </>
   );
 }
@@ -85,20 +136,20 @@ function manageCategories(categoryName, filtersState) {
     : [...filtersArray, categoryName];
 }
 
-
-function filterProducts(filtersSet) {
+function filterProducts(filtersSet, FeaturedProducts) {
   let res = [];
 
   filtersSet.forEach(category => {
     const selection = FeaturedProducts
-      .results
-      .filter(product => {
+      ?.results
+      ?.filter(product => {
         const productSlug = product.data.category.slug.toLowerCase();
         const catName = category.toLowerCase();
 
         return productSlug === catName;
       });
-      
+    
+    console.log('select', selection);
     res = [...res, ...selection];
   })
 
@@ -106,7 +157,7 @@ function filterProducts(filtersSet) {
 }
 
 function createCards(products) {
-  return products.map((item) => {
+  return products?.map((item) => {
     const imgData = item.data.mainimage;
     const infoData = item.data;
 

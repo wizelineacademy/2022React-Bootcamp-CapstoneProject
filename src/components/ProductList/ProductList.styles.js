@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import {  
+  appleGreenBackground,
   bluePrince,
   white,
   whiteApple,
@@ -27,7 +29,7 @@ export const AsideBar = styled.aside`
   flex-flow: column;
   width: 8.5rem;
   @media screen and (max-width: 660px){
-    flex-flow: row;
+    flex-flow: column wrap;
     margin: auto;
     width: fit-content;
   
@@ -108,5 +110,29 @@ export const Spiner = styled.div`
     100% {
       transform: rotate(360deg);
     } 
+  }
+`;
+
+export const ClearFiltersWrapper = styled(Link)`
+  
+`;
+
+export const ClearFilters = styled.button`
+  cursor: pointer;
+  width: 100%;
+  height: 3rem;
+  margin: 2rem auto;
+  font-size: .8rem;
+  font-weight: 600;
+  border-radius: .5rem;
+  text-transform: uppercase;
+  color: ${white};
+  background: ${bluePrince};
+  border: none;
+  box-shadow: 0 5px 20px ${appleGreenBackground};
+  &:hover {
+    background: ${yellowMain};
+    color: ${bluePrince};
+    transition: all ease .3s;
   }
 `;
