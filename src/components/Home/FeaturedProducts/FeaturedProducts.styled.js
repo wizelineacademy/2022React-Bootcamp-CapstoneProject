@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { 
   appleGreenBackground,
   bluePrince,
-  whiteApple } from "../../../utils/constant.styles";
+  whiteApple} from "../../../utils/constant.styles";
 
 export const ProductGrid = styled.div`
   background: none;
@@ -52,7 +52,7 @@ export const InfoImage = styled.div`
   & h1 {
     font-size: 1rem;
     text-transform: uppercase;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
   }
 
   & h2 {
@@ -66,5 +66,32 @@ export const InfoImage = styled.div`
   & p {
     font-size: 1.2rem;
     color: gray;
+  }
+`;
+
+export const ButtonCart = styled.button`
+  text-align: right;
+  width: 100%;
+  outline: none;
+  background: none;
+  border: none;
+  path {
+      fill: ${bluePrince};
+    }
+  &:hover {
+    
+    cursor: pointer;
+    path {
+      fill: red;
+    }
+  }
+
+  & > svg {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  @media screen and (max-width: 800px) {
+    margin: 2rem auto 0;
   }
 `;
