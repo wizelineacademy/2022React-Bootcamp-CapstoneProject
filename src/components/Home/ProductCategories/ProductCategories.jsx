@@ -9,8 +9,11 @@ const documentType = '"category"';
 const { data } = useGetSearch({documentType, pageSize: 30});
 
 const products = data?.results?.map((item, i) => {
+  const name = item.data.name.replaceAll(' & ', '--');
   return(
-    <ProductItem to={`${ROUTES.productList}?category=${item.data.name}`} key={`product-${i}`}>
+    <ProductItem 
+      to={
+        `${ROUTES.productList}?category=${name}`} key={`product-${i}`}>
       {item.data.name}
     </ProductItem>
   )

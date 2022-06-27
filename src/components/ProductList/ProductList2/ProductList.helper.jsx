@@ -38,11 +38,29 @@ export function filterProducts(filtersSet, products) {
         const catName = category.toLowerCase();
 
         return productSlug === catName;
-      });
+      }) || [];
     
     console.log('select', selection);
     res = [...res, ...selection];
   })
 
   return res;
+}
+
+export function handleFilters(filterName, filters, setIsFiltered, setFilters) {
+  const filtersSet = manageCategories(filterName, filters);
+  setIsFiltered(filtersSet.length ? true : false);
+  setFilters(filtersSet);
+
+  return filtersSet;
+}
+
+export function handleResults(filtersSet, data) {
+  const cardsToFilter = !filtersSet.length
+    ? data.results
+    : filterProducts(filtersSet, data?.results);
+
+  const cards = createCards(cardsToFilter);
+  
+  return cards;
 }

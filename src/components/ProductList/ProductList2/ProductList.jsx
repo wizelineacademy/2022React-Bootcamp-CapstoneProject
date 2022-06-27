@@ -3,31 +3,41 @@ import { useAllSearch } from '../../../utils/hooks/useAllProducts';
 import PaginatedResults from '../PaginationControl/Pagination';
 import { ImageGrid, ProductListMain, Spiner } from '../ProductList.styles';
 import AsideBarComponent from './AsideBar/AsideBar';
-import { createCards, filterProducts, manageCategories } from './ProductList.helper';
+import { createCards, handleFilters, handleResults } from './ProductList.helper';
+import { useLocation } from "react-router-dom";
+
 
 export default function ProductList2() {
 
   const [filters, setFilters] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
   const [results, setResults] = useState([]);
-
+  const location = useLocation();
 
   let { data, isLoading } = useAllSearch();
 
+  const categoryParam = new URLSearchParams(location.search).get('category');
+  
+  console.log('param',categoryParam)
+  useEffect(() => {
+    console.log({categoryParam, results: data?.results});
+    if (categoryParam && data?.results) {
+      const decodedParam = categoryParam.replaceAll(' & ', '--')
+      
+      const filtersSet = handleFilters(decodedParam, filters, setIsFiltered, setFilters);
+      const cards = handleResults(filtersSet, data);
+
+      setResults(cards);
+    }
+  }, [data])
+  
 
   const allProducts = data?.results;
 
   const handleClickAsideBar = (value) => {
     const filterName = value.target.innerText.replaceAll(' & ', '--');
-    const filtersSet = manageCategories(filterName, filters);
-    setIsFiltered(filtersSet.length ? true : false)
-    setFilters(filtersSet);
-
-    const cardsToFilter = !filtersSet.length 
-      ? data.results
-      : filterProducts(filtersSet, data?.results);
-
-    const cards = createCards(cardsToFilter);
+    const filtersSet = handleFilters(filterName, filters, setIsFiltered, setFilters);
+    const cards = handleResults(filtersSet, data);
     
     setResults(cards);
   }
@@ -51,4 +61,3 @@ export default function ProductList2() {
     </ProductListMain>
   );
 }
-

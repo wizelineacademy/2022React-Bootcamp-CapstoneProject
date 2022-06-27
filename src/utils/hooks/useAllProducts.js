@@ -22,7 +22,6 @@ export function useAllSearch() {
 
         const response = await fetch(
           `https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=YZaBvBIAACgAvnOP&q=[[at(document.type,"product")]]&lang=en-us&pageSize=88`,
-          // `https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=YZaBvBIAACgAvnOP&q=[[at(document.type,"product")]]&q=[[at(document.tags,[${[...tags]}])]]&lang=${lang}&pageSize=${pageSize}`,
           {
             signal: controller.signal,
           }
