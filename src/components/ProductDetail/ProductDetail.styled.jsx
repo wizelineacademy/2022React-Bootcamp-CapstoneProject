@@ -43,6 +43,11 @@ border-radius: 5px;
 .product-card > h1 {
     font-size: 20px;
     font-weight: 700;
+    color: dimgray;
+}
+.product-card .sku-code {
+    color: gray;
+    font-size: small;
 }
 .product-card .price {
     font-size: 32px;
@@ -52,7 +57,7 @@ border-radius: 5px;
     color: gray;
     justify-content: flex-start;
 }
-.product-card .slug{
+.product-card .tag-container{
     color: slateblue;
 } 
 .product-card > p {

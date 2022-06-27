@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React  from 'react'
 import {PaginateContainer} from './Paginate.styled';
 
 export default function Paginate({pages, page, setCurrentPage}) {
@@ -19,7 +19,10 @@ export default function Paginate({pages, page, setCurrentPage}) {
                 Array(pages).fill(null).map((ele, index) => 
                 <span  
                     onClick={() => eventHandler(index + 1)} 
-                    className={page === index + 1 ? "isActive" : ''} >{index + 1} 
+                    className={page === index + 1 ? "isActive" : ''}
+                    key={index} 
+                    > 
+                    {index + 1}
                 </span>)
             }
           </PaginateContainer>

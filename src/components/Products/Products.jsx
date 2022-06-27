@@ -33,10 +33,13 @@ export default function Products() {
               >
                 <CardText>
                   <h4 className="prod-name">{productDetail.name}</h4>
-                  <p className="price">${productDetail.price}</p>
-                  <p>
+                  <span 
+                    className="price">${productDetail.price}
+                  </span>
+                  <span>
                     <small>{productDetail.category.slug}</small>
-                  </p>
+                  </span>
+                  <button className="add-to-cart">Add to cart</button>
                 </CardText>
               </Card>
             </Link>

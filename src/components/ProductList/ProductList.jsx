@@ -16,7 +16,7 @@ export default function ProductList() {
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);
   const category = searchParams.get("category");
-  const [selectedCategories, setSelectedCategories] = useState([]); //Para seleccionar los filtros
+  const [selectedCategories, setSelectedCategories] = useState([category]);
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [currentPage, setCurrentPage]= useState(1);
@@ -46,7 +46,7 @@ export default function ProductList() {
       setSelectedCategories((prevValue) => [...prevValue, categoryName]);
     }
   };
-  const filterProductsByCategory = (product) => {
+  /* const filterProductsByCategory = (product) => {
     let result = false;
     for (let i = 0; i < selectedCategories.length; i++) {
       if (selectedCategories[i] === product.data.category.slug) {
@@ -55,11 +55,11 @@ export default function ProductList() {
       }
     }
     return result;
-  };
+  }; */
 
   useEffect(() => {
     if (selectedCategories.length) {
-      setProducts(data.results.filter(filterProductsByCategory));
+      //setProducts(data.results.filter(filterProductsByCategory));
     }
   }, [selectedCategories]);
   const sidebarWrapperStyle = (category) => {
@@ -86,25 +86,29 @@ export default function ProductList() {
       {isLoading ? (
         <Loader />
       ) : (
+        
         <ProductCard>
           {products.map((product) => {
             const productDetail = product.data;
             return (
               <Link to={`/product/${product.id}`}>
                 <Card
-                  key={productDetail.sku}
-                  style={{
-                    backgroundImage: `url(${productDetail.mainimage.url})`,
-                  }}
-                >
-                  <CardText>
-                    <h4 className="prod-name">{productDetail.name}</h4>
-                    <p className="price">${productDetail.price}</p>
-                    <p>
-                      <small>{productDetail.category.slug}</small>
-                    </p>
-                  </CardText>
-                </Card>
+                key={productDetail.sku}
+                style={{
+                  backgroundImage: `url(${productDetail.mainimage.url})`,
+                }}
+              >
+                <CardText>
+                  <h4 className="prod-name">{productDetail.name}</h4>
+                  <span 
+                    className="price">${productDetail.price}
+                  </span>
+                  <span>
+                    <small>{productDetail.category.slug}</small>
+                  </span>
+                  <button className="add-to-cart">Add to cart</button>
+                </CardText>
+              </Card>
               </Link>
             );
           })}

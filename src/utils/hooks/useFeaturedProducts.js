@@ -24,7 +24,7 @@ export function useFeaturedProducts() {
           `${API_BASE_URL}/documents/search?ref=${apiRef}&
 q=${encodeURIComponent('[[at(document.type, "product")]]')}
 &q=${encodeURIComponent('[[at(document.tags, ["Featured"])]]')}
-          &lang=en-us&pageSize=10`,
+          &lang=en-us&pageSize=20`,
           {
             signal: controller.signal,
           }

@@ -24,28 +24,24 @@ ol {
 `;
 export const SidebarWrapper = styled.div`
 flex: 1 1 0;
-max-width: 300px;
+max-width: 280px;
 min-width: 235px;
 padding: 2rem 1rem;
 background: gray;
 `;
 
 export const ProductCard = styled.div`
-width: 80%;
+width: 75%;
+margin: auto;
+padding: 10px;
 display: grid;
-grid-template-columns: repeat(1, 1fr);
-gap: 1rem;
-padding: 1rem;
-margin: 0px 5px 0px 5px;
+gap: 10px;
+min-height: 350px;
 
-@media screen and (min-width: 768px){
-    grid-template-columns: repeat(3, 1fr);    
-}
 @media screen and (min-width: 1100px){
-    grid-template-columns: repeat(4, 1fr);    
+    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));    
 }
 `;
-
 
 export const Loader = styled.div`
 position: absolute;

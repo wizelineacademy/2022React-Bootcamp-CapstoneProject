@@ -37,7 +37,7 @@ export default function ProductDetail() {
               {productDetail.data.images.map((image) => (
                 <SwiperSlide key={image.image.url}>
 
-                  <img src={image.image.url} />
+                  <img src={image.image.url} alt={image.image.alt}/>
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -53,7 +53,7 @@ export default function ProductDetail() {
             >
               {productDetail.data.images.map((image) => (
                 <SwiperSlide key={image.image.url}>
-                  <img src={image.image.url} />
+                  <img src={image.image.url} alt={image.image.alt} />
                 </SwiperSlide>
               ))}
             </Swiper>
