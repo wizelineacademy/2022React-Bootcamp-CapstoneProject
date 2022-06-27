@@ -1,8 +1,8 @@
-import { logDOM } from "@testing-library/react";
 import { useState, useEffect } from "react";
 import ReactPaginate from 'react-paginate';
+import './Pagination.styles.css';
 
-export default function  Pagination(props) {
+export default function Pagination(props) {
   const { data } = props;
 
   const [currentItems, setCurrentItems] = useState([]);
@@ -12,22 +12,21 @@ export default function  Pagination(props) {
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
-    setCurrentItems(data.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(data.length / itemsPerPage));
-    console.log({currentItems});
+    setCurrentItems(data?.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(data?.length / itemsPerPage));
   }, [itemOffset, itemsPerPage, data]);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % data.length;
+    const newOffset = (event.selected * itemsPerPage) % data?.length;
     setItemOffset(newOffset);
   };
 
   return (
     <>
       <div className="images">
-        {currentItems.map(image =>{
+        {currentItems?.map(image => {
           return(
-            <div>
+            <div key={image.key}>
               {image}
             </div>
           )
