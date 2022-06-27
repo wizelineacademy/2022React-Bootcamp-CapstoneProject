@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import { bluePrince } from "../../../utils/constant.styles";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { bluePrince } from '../../../utils/constant.styles';
 
 export const ProductGrid = styled.div`
   display: flex;
@@ -14,7 +15,7 @@ export const ProductGrid = styled.div`
   }
 `;
 
-export const ProductItem = styled.a`
+export const ProductItem = styled(Link)`
   text-align: center;
   display: flex;
   align-items: center;
@@ -24,8 +25,8 @@ export const ProductItem = styled.a`
   height: 2rem;
   font-size: 1.3rem;
   font-weight: 400;
-  text-decoration: none;
   color: ${bluePrince};
+  text-decoration: none;
 
   &:hover {
     color: rgba(66,134,173,1);

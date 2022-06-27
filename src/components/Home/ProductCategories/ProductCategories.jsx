@@ -1,16 +1,21 @@
 import React from 'react';
-import Products from '../../../mocks/en-us/product-categories.json';
-import {ProductGrid, ProductItem} from './Productcategories.styled';
+import { ROUTES } from '../../../utils/constants';
+import { useGetSearch } from '../../../utils/hooks/useFetch';
+import { ProductGrid, ProductItem } from './Productcategories.styled';
 
-const products = Products.results.map((item, i) => {
+function ProductCategories() {
+
+const documentType = '"category"';
+const { data } = useGetSearch({documentType, pageSize: 30});
+
+const products = data?.results?.map((item, i) => {
   return(
-    <ProductItem href='#' key={`product-${i}`}>
+    <ProductItem to={`${ROUTES.productList}?category=${item.data.name}`} key={`product-${i}`}>
       {item.data.name}
     </ProductItem>
   )
 })
-
-function ProductCategories() {
+  
   return(
     <ProductGrid>
       {products}
