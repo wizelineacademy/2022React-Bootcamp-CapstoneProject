@@ -1,23 +1,10 @@
 import React from 'react';
-import { ImageWrap, InfoImage } from '../../Home/FeaturedProducts/FeaturedProducts.styled';
-import { ImageResult } from '../ProductList.styles';
+import { ProductCard } from '../../ProductCard/ProductCard';
 
 export function createCards(products) {
-  return products?.map((item) => {
-    const imgData = item.data.mainimage;
-    const infoData = item.data;
-
-  return (
-    <ImageWrap listPageCard key={`featuredImg${item.id}`} >
-      <ImageResult src={imgData.url} alt={imgData.alt} />
-        <InfoImage>
-          <h1>{infoData.name}</h1>
-          <h2>{infoData.category.slug}</h2>
-          <p>$ {infoData.price}</p>
-      </InfoImage>
-    </ImageWrap>
-  );
-});
+  return products?.map((item) => { 
+    return (<ProductCard item={item} listPageCard key={item.id}/>);
+  });
 }
 
 export function manageCategories(categoryName, filtersState) {
@@ -40,7 +27,6 @@ export function filterProducts(filtersSet, products) {
         return productSlug === catName;
       }) || [];
     
-    console.log('select', selection);
     res = [...res, ...selection];
   })
 
@@ -61,6 +47,6 @@ export function handleResults(filtersSet, data) {
     : filterProducts(filtersSet, data?.results);
 
   const cards = createCards(cardsToFilter);
-  
+
   return cards;
 }

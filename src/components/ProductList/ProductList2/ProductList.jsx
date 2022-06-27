@@ -18,9 +18,7 @@ export default function ProductList2() {
 
   const categoryParam = new URLSearchParams(location.search).get('category');
   
-  console.log('param',categoryParam)
   useEffect(() => {
-    console.log({categoryParam, results: data?.results});
     if (categoryParam && data?.results) {
       const decodedParam = categoryParam.replaceAll(' & ', '--')
       
@@ -29,6 +27,7 @@ export default function ProductList2() {
 
       setResults(cards);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
   
 

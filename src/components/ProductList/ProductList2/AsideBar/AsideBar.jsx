@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../../../utils/constants';
 import { useGetSearch } from '../../../../utils/hooks/useFetch';
