@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { bluePrince } from '../../../utils/constant.styles';
+import { bluePrince, ligthPrinceBlue } from '../../../utils/constant.styles';
 
 export const ProductGrid = styled.div`
   display: flex;
@@ -29,7 +29,7 @@ export const ProductItem = styled(Link)`
   text-decoration: none;
 
   &:hover {
-    color: rgba(66,134,173,1);
+    color: ${ligthPrinceBlue};
     text-decoration: underline;
   }
 

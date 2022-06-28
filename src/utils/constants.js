@@ -4,4 +4,5 @@ export const ROUTES = {
   base: '/',
   home: '/home',
   productList: '/product-list',
+  productDetail: '/product',
 }

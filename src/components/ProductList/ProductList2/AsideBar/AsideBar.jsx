@@ -2,9 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../../../utils/constants';
 import { useGetSearch } from '../../../../utils/hooks/useFetch';
-import { AsideBar, AsideItem, Spiner } from '../../ProductList.styles';
+import {
+  AsideBar,
+  AsideItem,
+  ClearFilters,
+  ClearFiltersWrapper,
+  Spiner } from '../../ProductList.styles';
 
-export default function AsideBarComponent({ handleClickAsideBar, filters }) {
+export default function AsideBarComponent({ 
+  handleClickAsideBar,
+  filters,
+  clearFilterClick,
+}) {
 
   const documentType = '"category"';
   const { data, isLoading } = useGetSearch({documentType, pageSize: 30});
@@ -32,6 +41,14 @@ export default function AsideBarComponent({ handleClickAsideBar, filters }) {
       {isLoading
         ?<Spiner />
         : allCategories
+      }
+      {filters.length
+        ? (<ClearFiltersWrapper to={ROUTES.productList} >
+            <ClearFilters onClick={clearFilterClick}>
+              Clear Filters
+            </ClearFilters>
+          </ClearFiltersWrapper>)
+        : null
       }
     </AsideBar>
   );

@@ -40,6 +40,11 @@ export default function ProductList2() {
     
     setResults(cards);
   }
+
+  function clearFilterClick() {
+    setFilters([]);
+    setIsFiltered(false)
+  }
   
   const myProducts = createCards(allProducts);
 
@@ -48,6 +53,7 @@ export default function ProductList2() {
       <AsideBarComponent 
         filters={filters}
         handleClickAsideBar={item => handleClickAsideBar(item)}
+        clearFilterClick={clearFilterClick}
       />
       <ImageGrid>
         {isLoading

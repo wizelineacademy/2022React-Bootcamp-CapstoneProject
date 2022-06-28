@@ -1,15 +1,20 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { 
   appleGreenBackground,
   bluePrince,
+  ligthPrinceBlue,
   whiteApple } from '../../utils/constant.styles';
 
+export const LinkStyled = styled(Link)`
+  width: 55%;
+`;
+
 export const ProductImage = styled.img`
-  max-height: 15rem;
+  max-height: 90%;
   border-radius: .5rem;
   margin: .7rem;
 `;
-
 export const ImageWrap = styled.div`
   display: flex;
   flex-flow: row nowrap;
@@ -35,7 +40,6 @@ export const ImageWrap = styled.div`
 `;
 
 export const InfoImage = styled.div`
-  color: ${bluePrince};
   display: flex;
   flex-flow: column;
   justify-content: space-between;
@@ -47,27 +51,58 @@ export const InfoImage = styled.div`
     text-transform: uppercase;
     margin-top: 1.5rem;
   }
-
+  
   & h2 {
+    color: ${bluePrince};
     font-size: .5;
     text-transform: capitalize;
     margin-top: -0.8rem;
     flex: 2 1 auto;
     font-weight: 400;
   }
-
+  
   & p {
     font-size: 1.2rem;
     color: gray;
   }
+  `;
+
+export const LinkDetail = styled(Link)`
+  text-decoration: none;
+  color: ${bluePrince};
+  &:hover {
+    color: ${ligthPrinceBlue};
+  }
+
 `;
 
-export const ButtonCart = styled.button`
-  text-align: right;
-  width: 100%;
-  outline: none;
-  background: none;
-  border: none;
+export const ButtonWrapper = styled.div`
+  margin: 0 .6rem 0 .9rem;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
+`;
+
+export const ButtonProduct = styled(Link)`
+  path {
+      fill: ${bluePrince};
+    }
+  &:hover {
+    cursor: pointer;
+    path {
+      fill: ${ligthPrinceBlue};
+    }
+  }
+
+
+  @media screen and (max-width: 800px) {
+    margin: 2rem auto 0;
+  }
+`;
+
+
+
+export const ButtonCart = styled(Link)`
   path {
       fill: ${bluePrince};
     }
@@ -88,3 +123,4 @@ export const ButtonCart = styled.button`
     margin: 2rem auto 0;
   }
 `;
+
