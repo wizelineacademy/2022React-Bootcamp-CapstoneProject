@@ -14,7 +14,9 @@ import {
   Sku,
   SliderWrapper,
   Stock,
+  Table,
   Tags,
+  TBody,
   Title } from './ProductDetail.styles';
 
 
@@ -32,13 +34,25 @@ export function ProductDetail() {
       category: {slug},
       description,
       stock,
+      specs,
     },
       
     tags,
     } = jsonData;
 
   const allImg = imageGetter(images);
-  const allTags = tagsGetter(tags)
+  const allTags = tagsGetter(tags);
+
+  const allSpecs = specs.map((spec, i) => {
+    const name = spec.spec_name;
+    const value = spec.spec_value;
+    return(
+        <tr key={`tableRow-${i}`}>
+          <th>{name}</th>
+          <td>{value}</td>
+        </tr>
+    );
+  })
 
   return (
     <DetailMain>
@@ -47,7 +61,7 @@ export function ProductDetail() {
       </SliderWrapper>
       <InfoWrapper>
         <Title>{name}</Title>
-        <Category>{slug}</Category>
+        <Category>{slug.replaceAll('--', ' & ')}</Category>
         <Description>{description[0].text}</Description>
         <AmountWrapper>
           <Price>$ {price}</Price>
@@ -56,6 +70,7 @@ export function ProductDetail() {
           <AddToCartButton>ADD TO CART</AddToCartButton>
         </AmountWrapper>
         <Tags>{allTags}</Tags>
+        <Table><TBody>{allSpecs}</TBody></Table>
         <Sku><span>SKU: </span>{sku}</Sku>
       </InfoWrapper>
     </DetailMain>

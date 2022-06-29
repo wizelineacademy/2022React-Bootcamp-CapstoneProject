@@ -13,22 +13,23 @@ import {
 
 export function ProductCard({ item }) {
   const itemRoute = `${ROUTES.productDetail}/${item.id}`;
+  const product = item.data;
   return (
     <ImageWrap key={item.id}>
       <LinkStyled to={itemRoute} state={item}>
-        <ProductImage src={item.data.mainimage.url} alt={item.data.mainimage.alt} />
+        <ProductImage src={product.mainimage.url} alt={product.mainimage.alt} />
       </LinkStyled>
       <InfoImage>
         <LinkDetail to={itemRoute} state={item}>
-          <h1>{item.data.name}</h1>
+          <h1>{product.name}</h1>
         </LinkDetail>
-        <h2>{item.data.category.slug}</h2>
+        <h2>{product.category.slug.replaceAll('--', ' & ')}</h2>
         <ButtonWrapper>
           <ButtonCart to={itemRoute} state={item}>
             <ShoppingCart />
           </ButtonCart>
         </ButtonWrapper>
-        <p>${item.data.price}</p>
+        <p>${product.price}</p>
       </InfoImage>
     </ImageWrap>
   );

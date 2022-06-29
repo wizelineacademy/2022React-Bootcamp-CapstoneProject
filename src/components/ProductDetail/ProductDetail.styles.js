@@ -8,7 +8,7 @@ import {
   whiteApple, 
   yellowMain} from '../../utils/constant.styles';
 
-export const DetailMain = styled.div`
+export const DetailMain = styled.main`
   width: 135em;
   height: fit-content;
   margin: 3rem auto;
@@ -65,7 +65,7 @@ export const Price = styled.label`
 `;
 
 export const Sku = styled.label`
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: ${darkRed};
 
   span {
@@ -151,5 +151,17 @@ export const AddToCartButton = styled.button.attrs({
   &:hover {
     background: ${yellowMain};
     color: ${bluePrince};
+  }
+`;
+export const Table = styled.table`
+  margin: .5rem auto;
+`;
+
+export const TBody = styled.tbody`
+  text-align: left;
+  font-size: .8rem;
+  width: 25rem;
+  td {
+    text-indent: 1rem;
   }
 `;
