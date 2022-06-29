@@ -1,0 +1,27 @@
+.alice-carousel {
+  font-size: 2rem !important;
+}
+
+.alice-carousel__dots-item {
+   background-color: #065471 !important;
+   width: 1rem !important;
+   height: 1rem !important;
+}
+
+.alice-carousel__dots-item:hover {
+  background-color:  #FCC444 !important;
+}
+
+
+.alice-carousel__dots-item.__active {
+  background-color:  #FCC444 !important;
+}
+
+.alice-carousel__next-btn-item, .alice-carousel__prev-btn-item {
+  display: none;
+  background-color:  #FCC444 !important;
+}
+
+.alice-carousel__stage-item {
+  width: 100% !important;
+}

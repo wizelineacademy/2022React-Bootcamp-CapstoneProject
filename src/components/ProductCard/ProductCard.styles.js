@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { 
   appleGreenBackground,
   bluePrince,
+  grey,
   ligthPrinceBlue,
   whiteApple } from '../../utils/constant.styles';
 
@@ -63,7 +64,7 @@ export const InfoImage = styled.div`
   
   & p {
     font-size: 1.2rem;
-    color: gray;
+    color: ${grey};
   }
   `;
 
