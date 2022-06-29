@@ -7,12 +7,6 @@ export default function Paginate({pages, page, setCurrentPage}) {
         setCurrentPage(selectedPage)
     }
 
-    /* useEffect(() => {
-        if(currentPage !== page ){
-
-        }
-    }, [currentPage]) */
-
     return (
         <PaginateContainer>
             {

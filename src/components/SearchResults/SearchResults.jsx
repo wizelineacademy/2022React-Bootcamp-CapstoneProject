@@ -9,6 +9,7 @@ import {
   Card,
   CardText,
 } from "../Products/Products.styled";
+import {UiSearch} from './SearchResults.styled';
 export default function SearchResults() {
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);
@@ -20,7 +21,9 @@ export default function SearchResults() {
     <ProductsWrapper>
       {!isLoading && (
         <CardContainer>
-          {data.results.map((product, index) => {
+
+          { data.results.length ?
+          data.results.map((product, index) => {
             const productDetail = product.data;
             return (
               <Link to={`/product/${product.id}`}>
@@ -41,7 +44,18 @@ export default function SearchResults() {
                 </Card>
               </Link>
             );
-          })}
+          }): <UiSearch>
+              <div className="ui-search-rescue">
+                <div className="ui-search-info">
+                  <h3 className="ui-search-title">There are no posts matching your search.</h3>
+                  <ul className="ui-search-list">
+                    <li className="ui-search-item">Check the spelling of the word.</li>
+                    <li className="ui-search-item">Use more generic words or fewer words.</li>
+                  </ul>
+                </div>
+              </div>
+          </UiSearch>  
+          }
         </CardContainer>
       )}
       <Paginate

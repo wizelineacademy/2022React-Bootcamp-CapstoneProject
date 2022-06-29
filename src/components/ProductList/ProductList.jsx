@@ -46,22 +46,7 @@ export default function ProductList() {
       setSelectedCategories((prevValue) => [...prevValue, categoryName]);
     }
   };
-  /* const filterProductsByCategory = (product) => {
-    let result = false;
-    for (let i = 0; i < selectedCategories.length; i++) {
-      if (selectedCategories[i] === product.data.category.slug) {
-        result = true;
-        break;
-      }
-    }
-    return result;
-  }; */
 
-  useEffect(() => {
-    if (selectedCategories.length) {
-      //setProducts(data.results.filter(filterProductsByCategory));
-    }
-  }, [selectedCategories]);
   const sidebarWrapperStyle = (category) => {
     return selectedCategories.some((element) => element === category.slugs[0])
       ? "is-active"

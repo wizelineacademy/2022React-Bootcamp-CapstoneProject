@@ -4,18 +4,17 @@ import { HeaderWrapper, InputSearcherWrapper, ProfileWrapper, CartWrapper } from
 import logo from '../../logo-fur.jpg';
 import icon from '../../shopping-cart.png';
 import log from '../../user.png';
-//import lupa from '../../lupa.png';
 
 
 export default function Header() {
     const [userInput, setUserInput ] = useState();
-    let navigate = useNavigate();
+    const navigate = useNavigate();
     
     const clickHandler = () => {
         navigate(`/search?q=${userInput}`)
     }
     const inputSearch = (e) => {
-        setUserInput(()=> e.target.value)
+        setUserInput(e.target.value)
      }
     return (
         <HeaderWrapper>
