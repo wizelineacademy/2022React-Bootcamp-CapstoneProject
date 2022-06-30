@@ -1,39 +1,23 @@
+import { useState } from "react";
+import { useProducts } from "./../../utils";
 import { Container, ProductsGrid } from "./../../styled-components";
-import { useState, useEffect } from "react";
-import { createProductAdapter } from "./../../adapters/featured-products";
-import Products from "../../mocks/en-us/products.json";
+import { HeadingPage, WrapperContent, Content } from "./styled";
 import {
   ProductSidebarFilter,
   ProductCard,
   PageControlls,
-} from "./../../components/product";
-import { HeadingPage, WrapperContent, Content } from "./styled";
-import { getFilterProducts } from "./../../utils/getFilterProducts";
-import Spinner from "../../components/ui/Spinner/Spinner";
-import { FilterButton } from "./../../components/common";
+  Spinner,
+  FilterButton,
+} from "./../../components";
 
 const ProductList = () => {
+  const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilter] = useState([]);
-  const [productList, setProductList] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const { data: productsList, isLoading } = useProducts(
+    currentPage,
+    filters.toString()
+  );
   const [showFilter, setShowFilter] = useState(false);
-
-  let loadingInterval;
-
-  useEffect(() => {
-    load();
-    return () => clearInterval(loadingInterval);
-    //eslint-disable-next-line
-  }, [filters]);
-
-  const load = () => {
-    setIsLoading(true);
-    const productData = createProductAdapter(Products);
-    setProductList(getFilterProducts(productData, filters));
-    loadingInterval = setInterval(() => {
-      setIsLoading(false);
-    }, 2000);
-  };
 
   const toggleFilter = () => {
     setShowFilter((showFilter) => !showFilter);
@@ -47,7 +31,7 @@ const ProductList = () => {
       <WrapperContent>
         <ProductSidebarFilter
           setFilter={setFilter}
-          display={showFilter}
+          display={showFilter.toString()}
           toggleFilter={toggleFilter}
         />
         <Content>
@@ -55,14 +39,18 @@ const ProductList = () => {
             <Spinner />
           ) : (
             <ProductsGrid>
-              {productList.map((product) => (
-                <ProductCard {...product} />
+              {productsList?.map((product) => (
+                <ProductCard key={product.id} {...product} />
               ))}
             </ProductsGrid>
           )}
         </Content>
       </WrapperContent>
-      <PageControlls />
+      <PageControlls
+        setCurrentPage={setCurrentPage}
+        pages={productsList.totalPages ?? 1}
+        currentPage={currentPage}
+      />
     </Container>
   );
 };

@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import FeaturedBanners from "../../../mocks/en-us/featured-banners.json";
-import { createBannerAdapter } from "./../../../adapters/featured-banners";
 import {
   SliderContainer,
   Prev,
@@ -9,11 +7,13 @@ import {
   ContentTitle,
   ContentDescription,
 } from "./styled";
+import { useFeaturedBanners } from "./../../../utils/hooks/useFeaturedBanners";
+import { SpinnerBounce } from "../SpinnerBounce";
 
 const Slider = ({ autoScroll, intervalTime }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const mock = createBannerAdapter(FeaturedBanners);
-  const slideLength = mock.length;
+  const { data, isLoading } = useFeaturedBanners();
+  const slideLength = data?.length;
   let slideInterval;
 
   const nextSlide = () => {
@@ -44,22 +44,26 @@ const Slider = ({ autoScroll, intervalTime }) => {
     <SliderContainer>
       <Prev onClick={prevSlide} />
       <Next onClick={nextSlide} />
-      {mock.map((slide, index) => (
-        <div
-          className={`${index === currentSlide ? "slide current" : "slide"}`}
-          key={`${slide.id}`}
-        >
-          {index === currentSlide && (
-            <>
-              <img src={slide.urlImage} alt={slide.title} />
-              <Content>
-                <ContentTitle>{slide.title}</ContentTitle>
-                <ContentDescription>{slide.description}</ContentDescription>
-              </Content>
-            </>
-          )}
-        </div>
-      ))}
+      {isLoading ? (
+        <SpinnerBounce />
+      ) : (
+        data?.map((slide, index) => (
+          <div
+            className={`${index === currentSlide ? "slide current" : "slide"}`}
+            key={`${slide.id}`}
+          >
+            {index === currentSlide && (
+              <>
+                <img src={slide.urlImage} alt={slide.title} />
+                <Content>
+                  <ContentTitle>{slide.title}</ContentTitle>
+                  <ContentDescription>{slide.description}</ContentDescription>
+                </Content>
+              </>
+            )}
+          </div>
+        ))
+      )}
     </SliderContainer>
   );
 };

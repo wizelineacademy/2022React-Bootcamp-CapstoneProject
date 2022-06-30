@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { API_BASE_URL } from "../constants";
 import { useLatestAPI } from "./useLatestAPI";
-import { createBannerAdapter } from "./../../adapters/featured-banners";
+import { createProductAdapter } from "./../../adapters";
 
-export function useFeaturedBanners() {
+export function useFeaturedProducts() {
   const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
-  const [featuredBanners, setFeaturedBanners] = useState(() => ({
+  const [featuredProducts, setFeaturedProducts] = useState(() => ({
     data: {},
     isLoading: true,
   }));
@@ -17,35 +17,38 @@ export function useFeaturedBanners() {
 
     const controller = new AbortController();
 
-    async function getFeaturedBanners() {
+    async function getFeaturedProducts() {
       try {
-        setFeaturedBanners({ data: {}, isLoading: true });
+        setFeaturedProducts({ data: {}, isLoading: true });
 
         const response = await fetch(
           `${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(
-            '[[at(document.type, "banner")]]'
-          )}&lang=en-us&pageSize=5`,
+            `[[at(document.type, "product")]]`
+          )}&q=${encodeURIComponent(
+            `[[at(document.tags, ["Featured"])]]`
+          )}&lang=en-us&pageSize=16`,
           {
             signal: controller.signal,
           }
         );
+
         const data = await response.json();
 
-        const dataAdapter = createBannerAdapter(data);
+        const dataAdapted = createProductAdapter(data);
 
-        setFeaturedBanners({ data: dataAdapter, isLoading: false });
+        setFeaturedProducts({ data: dataAdapted, isLoading: false });
       } catch (err) {
-        setFeaturedBanners({ data: {}, isLoading: false });
+        setFeaturedProducts({ data: {}, isLoading: false });
         console.error(err);
       }
     }
 
-    getFeaturedBanners();
+    getFeaturedProducts();
 
     return () => {
       controller.abort();
     };
   }, [apiRef, isApiMetadataLoading]);
 
-  return featuredBanners;
+  return featuredProducts;
 }

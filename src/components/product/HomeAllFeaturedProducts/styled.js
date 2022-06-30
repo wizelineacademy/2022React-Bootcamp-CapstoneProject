@@ -2,10 +2,10 @@ import styled from "@emotion/styled";
 import { Button } from "../../../styled-components";
 
 export const ProductsGrid = styled.div`
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin: 40px auto;
   display: grid;
   grid-gap: 20px;
+  height: 100%;
 
   @media (min-width: 600px) {
     grid-template-columns: repeat(2, 1fr);
@@ -21,7 +21,11 @@ export const ProductsGrid = styled.div`
 `;
 
 export const ViewAllProducts = styled(Button)`
-  color: white;
   margin: 18px auto;
   padding: 12px;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
 `;

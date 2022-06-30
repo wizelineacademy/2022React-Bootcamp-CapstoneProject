@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { API_BASE_URL } from "../constants";
 import { useLatestAPI } from "./useLatestAPI";
-import { createBannerAdapter } from "./../../adapters/featured-banners";
+import { createCategoriesAdapter } from "./../../adapters/product-categories";
 
-export function useFeaturedBanners() {
+export function useProductCategories() {
   const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
   const [featuredBanners, setFeaturedBanners] = useState(() => ({
     data: {},
@@ -20,18 +20,17 @@ export function useFeaturedBanners() {
     async function getFeaturedBanners() {
       try {
         setFeaturedBanners({ data: {}, isLoading: true });
-
         const response = await fetch(
           `${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(
-            '[[at(document.type, "banner")]]'
-          )}&lang=en-us&pageSize=5`,
+            '[[at(document.type, "category")]]'
+          )}&lang=en-us&pageSize=30`,
           {
             signal: controller.signal,
           }
         );
         const data = await response.json();
 
-        const dataAdapter = createBannerAdapter(data);
+        const dataAdapter = createCategoriesAdapter(data);
 
         setFeaturedBanners({ data: dataAdapter, isLoading: false });
       } catch (err) {

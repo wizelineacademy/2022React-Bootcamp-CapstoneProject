@@ -9,7 +9,9 @@ export const Sidebar = styled.div`
   transition: 0.2s;
   background-color: white;
   transform: ${(props) =>
-    props.display ? "translateX(-50%) scale(1)" : "translateX(-50%) scale(0)"};
+    props.display === "true"
+      ? "translateX(-50%) scale(1)"
+      : "translateX(-50%) scale(0)"};
 
   box-shadow: 10px 10px 15px -6px rgba(0, 0, 0, 0.46);
   @media (min-width: 768px) {

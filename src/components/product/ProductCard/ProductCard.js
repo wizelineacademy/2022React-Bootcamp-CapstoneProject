@@ -10,8 +10,9 @@ import {
   CardPrice,
 } from "./styled";
 
-const ProductCard = ({ title, category, price, urlImage, alt }) => {
+const ProductCard = ({ title, category, price, slugs, urlImage, alt }) => {
   const [activeClass, setActiveClass] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleMouseEnter = () => {
     setActiveClass(true);
@@ -21,10 +22,15 @@ const ProductCard = ({ title, category, price, urlImage, alt }) => {
     setActiveClass(false);
   };
 
+  const loadImage = () => {
+    setIsLoading(false);
+  };
+
   return (
     <CardWrapper
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      className={`${isLoading ? "loading" : null}`}
     >
       <CardHeader>
         <CategoryLabel>
@@ -32,7 +38,7 @@ const ProductCard = ({ title, category, price, urlImage, alt }) => {
           {category}
         </CategoryLabel>
         <ProductActions activeClass={activeClass} />
-        <img src={urlImage} alt={alt} />
+        <img src={urlImage} alt={alt} onLoad={loadImage} />
       </CardHeader>
       <CardBody>
         <CardName>{title}</CardName>

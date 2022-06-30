@@ -4,3 +4,5 @@ export * from "./Logo";
 export * from "./MenuButton";
 export * from "./SearchForm";
 export * from "./Slider";
+export * from "./Spinner";
+export * from "./SpinnerBounce";

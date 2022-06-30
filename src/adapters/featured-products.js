@@ -5,6 +5,7 @@ export const createProductAdapter = (object) => {
     title: obj.data.name,
     category: obj.data.category.slug,
     price: obj.data.price,
+    slugs: obj.slugs[0],
     urlImage: obj.data.mainimage.url,
     alt: obj.data.mainimage.alt,
   }));
