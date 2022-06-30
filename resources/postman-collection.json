@@ -1,0 +1,315 @@
+{
+	"info": {
+		"_postman_id": "2b4d2c5f-c007-4fcd-8633-1edc489428d1",
+		"name": "Capstone 4 API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Banners",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=YZaBvBIAACgAvnOP&q=[[at(document.type, \"banner\")]]&lang=en-us&pageSize=5",
+					"protocol": "https",
+					"host": [
+						"wizeline-academy",
+						"cdn",
+						"prismic",
+						"io"
+					],
+					"path": [
+						"api",
+						"v2",
+						"documents",
+						"search"
+					],
+					"query": [
+						{
+							"key": "ref",
+							"value": "YZaBvBIAACgAvnOP"
+						},
+						{
+							"key": "q",
+							"value": "[[at(document.type, \"banner\")]]"
+						},
+						{
+							"key": "lang",
+							"value": "en-us"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=YZaBvBIAACgAvnOP&q=[[at(document.type,\"category\")]]&lang=en-us&pageSize=10",
+					"protocol": "https",
+					"host": [
+						"wizeline-academy",
+						"cdn",
+						"prismic",
+						"io"
+					],
+					"path": [
+						"api",
+						"v2",
+						"documents",
+						"search"
+					],
+					"query": [
+						{
+							"key": "ref",
+							"value": "YZaBvBIAACgAvnOP"
+						},
+						{
+							"key": "q",
+							"value": "[[at(document.type,\"category\")]]"
+						},
+						{
+							"key": "lang",
+							"value": "en-us"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products (featured)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=YZaBvBIAACgAvnOP&q=[[at(document.type, \"product\")][at(document.tags, [\"Featured\"])]]&lang=en-us&pageSize=16",
+					"protocol": "https",
+					"host": [
+						"wizeline-academy",
+						"cdn",
+						"prismic",
+						"io"
+					],
+					"path": [
+						"api",
+						"v2",
+						"documents",
+						"search"
+					],
+					"query": [
+						{
+							"key": "ref",
+							"value": "YZaBvBIAACgAvnOP"
+						},
+						{
+							"key": "q",
+							"value": "[[at(document.type, \"product\")][at(document.tags, [\"Featured\"])]]"
+						},
+						{
+							"key": "lang",
+							"value": "en-us"
+						},
+						{
+							"key": "pageSize",
+							"value": "16"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products (no filters)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=YZaBvBIAACgAvnOP&q=[[at(document.type, \"product\")][any(my.product.category, [])]]&lang=en-us&pageSize=12&page=1\n",
+					"protocol": "https",
+					"host": [
+						"wizeline-academy",
+						"cdn",
+						"prismic",
+						"io"
+					],
+					"path": [
+						"api",
+						"v2",
+						"documents",
+						"search"
+					],
+					"query": [
+						{
+							"key": "ref",
+							"value": "YZaBvBIAACgAvnOP"
+						},
+						{
+							"key": "q",
+							"value": "[[at(document.type, \"product\")][any(my.product.category, [])]]"
+						},
+						{
+							"key": "lang",
+							"value": "en-us"
+						},
+						{
+							"key": "pageSize",
+							"value": "12"
+						},
+						{
+							"key": "page",
+							"value": "1\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products (filtered)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=YZaBvBIAACgAvnOP&q=[[at(document.type, \"product\")][any(my.product.category, [\"YWHyYRIAACgAykCq\",\"YWHy0xIAACoAykKm\"])]]&lang=en-us&pageSize=12&page=1",
+					"protocol": "https",
+					"host": [
+						"wizeline-academy",
+						"cdn",
+						"prismic",
+						"io"
+					],
+					"path": [
+						"api",
+						"v2",
+						"documents",
+						"search"
+					],
+					"query": [
+						{
+							"key": "ref",
+							"value": "YZaBvBIAACgAvnOP"
+						},
+						{
+							"key": "q",
+							"value": "[[at(document.type, \"product\")][any(my.product.category, [\"YWHyYRIAACgAykCq\",\"YWHy0xIAACoAykKm\"])]]"
+						},
+						{
+							"key": "lang",
+							"value": "en-us"
+						},
+						{
+							"key": "pageSize",
+							"value": "12"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=YZaBvBIAACgAvnOP&q=[[at(document.type, \"product\")][fulltext(document, \"sofa\")]]&lang=en-us&pageSize=20",
+					"protocol": "https",
+					"host": [
+						"wizeline-academy",
+						"cdn",
+						"prismic",
+						"io"
+					],
+					"path": [
+						"api",
+						"v2",
+						"documents",
+						"search"
+					],
+					"query": [
+						{
+							"key": "ref",
+							"value": "YZaBvBIAACgAvnOP"
+						},
+						{
+							"key": "q",
+							"value": "[[at(document.type, \"product\")][fulltext(document, \"sofa\")]]"
+						},
+						{
+							"key": "lang",
+							"value": "en-us"
+						},
+						{
+							"key": "pageSize",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search + Filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=YZaBvBIAACgAvnOP&q=[[at(document.type, \"product\")][any(my.product.category, [])][fulltext(my.product.name, \"sofa\")]]&lang=en-us&page=1&pageSize=12",
+					"protocol": "https",
+					"host": [
+						"wizeline-academy",
+						"cdn",
+						"prismic",
+						"io"
+					],
+					"path": [
+						"api",
+						"v2",
+						"documents",
+						"search"
+					],
+					"query": [
+						{
+							"key": "ref",
+							"value": "YZaBvBIAACgAvnOP"
+						},
+						{
+							"key": "q",
+							"value": "[[at(document.type, \"product\")][any(my.product.category, [])][fulltext(my.product.name, \"sofa\")]]"
+						},
+						{
+							"key": "lang",
+							"value": "en-us"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "12"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
