@@ -7,3 +7,8 @@ export const ROUTES = {
   productDetail: '/product',
   searchResults: '/search',
 }
+
+export const URLS = {
+  // eslint-disable-next-line max-len
+  search: '/documents/search?ref=YZaBvBIAACgAvnOP&q=[[at(document.type, "product")]]&q=[[fulltext(document, "{searchQuery}")]]&lang=en-us&pageSize=20',
+}

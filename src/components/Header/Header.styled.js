@@ -50,55 +50,7 @@ export const Name = styled.h1`
   }
 `;
 
-export const SearchWrapper = styled.div`
-  height: 2.3rem;
-  display: flex;
-  flex-flow: row;
-  align-items: center;
-  border-radius: .3rem;
-
-  path {
-    fill: ${white};
-  }
-  
-  @media screen and (max-width: 800px) {
-    margin: 2rem auto 0;
-    width: 50%;
-  }
-  `;
-
-export const SearchButton = styled.button`
-  border-radius: 0 .3rem .3rem 0;
-  margin-left: 2px;
-  height: 2.5rem;
-  border: none;
-  cursor: pointer;
-  
-  background: ${bluePrince};
-  &:hover {
-    background: ${white};
-    path {
-      fill: ${bluePrince};
-    }
-  }
-`;
-
-export const InputSearch = styled.input`
-  width: 20rem;
-  height: 2.3rem;
-  text-indent: .5rem;
-  font-size: 1.1rem;
-  border-radius: .3rem 0 0 .3rem;
-
-  border: none;
-  &:focus {
-    outline-color: ${bluePrince};
-  }
-`;
-
 export const ButtonCart = styled.button`
-  width: 3rem;
-  height: 3rem;
   margin: 0 4% 0;
   outline: none;
   background: none;

@@ -1,29 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { ReactComponent as ShoppingCartIcon } from '../../images/shopping-cart.svg';
-import { ReactComponent as SearchIcon } from '../../images/search.svg';
 import logo from '../../images/logo.png';
-
 import {
-  HeaderMain, Image, Name, InputSearch, ButtonCart, SearchWrapper, SearchButton,
-} from './Header.styled';
+  HeaderMain,
+  Image,
+  Name,
+  ButtonCart } from './Header.styled';
 import { ROUTES } from '../../utils/constants';
+import { InpurtSearch } from './InputSearch/InputSearch';
 
 function Header() {
+
   return (
     <HeaderMain isYellow>
-    <Link to={ROUTES.home}>
-      <Image src={logo} alt="logo" />
-    </Link>
+      <Link to={ROUTES.home}>
+        <Image src={logo} alt="logo" />
+      </Link>
       <Name>
         Furny
       </Name>
-      <SearchWrapper>
-        <InputSearch type="text" placeholder="Search" />
-        <SearchButton>
-          <SearchIcon />
-        </SearchButton>
-      </SearchWrapper>
+      <InpurtSearch />
       <ButtonCart>
         <ShoppingCartIcon />
       </ButtonCart>

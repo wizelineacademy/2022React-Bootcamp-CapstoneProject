@@ -14,7 +14,7 @@ function App() {
         <Route path={ROUTES.home} element={<Home />} />
         <Route path={ROUTES.productList} element={<ProductList2 />} />
         <Route path={`${ROUTES.productDetail}/:id`} element={<ProductDetail />} />
-        <Route path={`${ROUTES.searchResults}?q=`} element={<SearchResults />} />
+        <Route path={`${ROUTES.searchResults}`} element={<SearchResults />} />
       </Routes>
       <Footer text='Ecommerce created during Wizeline’s Academy React Bootcamp' />
     </>
