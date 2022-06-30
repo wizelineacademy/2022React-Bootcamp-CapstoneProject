@@ -58,7 +58,7 @@ export default function ProductList() {
       <ImageGrid>
         {isLoading
           ? <Spiner />
-          : <PaginatedResults data={isFiltered
+          : <PaginatedResults size='12' data={isFiltered
             ? results
             : myProducts} />
         }
