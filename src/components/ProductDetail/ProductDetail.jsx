@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom'
-import { imageGetter, tagsGetter } from './ProductDetail.helper';
+import { imageGetter, specsGetter, tagsGetter } from './ProductDetail.helper';
 import { Slider } from './SliderDetail/SliderDetail';
 import {
   AddToCartButton,
@@ -42,17 +42,7 @@ export function ProductDetail() {
 
   const allImg = imageGetter(images);
   const allTags = tagsGetter(tags);
-
-  const allSpecs = specs.map((spec, i) => {
-    const name = spec.spec_name;
-    const value = spec.spec_value;
-    return(
-        <tr key={`tableRow-${i}`}>
-          <th>{name}</th>
-          <td>{value}</td>
-        </tr>
-    );
-  })
+  const allSpecs = specsGetter(specs);
 
   return (
     <DetailMain>

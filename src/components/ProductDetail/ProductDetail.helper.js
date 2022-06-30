@@ -29,3 +29,16 @@ export function tagsGetter(tags) {
     );
   });
 }
+
+export function specsGetter(specs) {
+  return specs.map((spec, i) => {
+    const name = spec.spec_name;
+    const value = spec.spec_value;
+    return (
+      <tr key={`tableRow-${i}`}>
+        <th>{name}</th>
+        <td>{value}</td>
+      </tr>
+    );
+  });
+}

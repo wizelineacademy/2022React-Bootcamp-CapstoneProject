@@ -45,7 +45,6 @@ export const InfoWrapper = styled.div`
   flex-flow: column;
   text-align: center;
   gap: 1.5rem;
-  /* justify-content: space-between; */
   color: ${bluePrince};
   width: 100%;
   margin: 2rem 4rem;
@@ -87,8 +86,6 @@ export const Tags = styled.div`
   align-items: center;
   gap: 2.5rem;
   margin-top: 2rem;
-  /* line-height: 0; */
-  
   width: 100%;
   path {
       fill: ${bluePrince};
@@ -161,7 +158,4 @@ export const TBody = styled.tbody`
   text-align: left;
   font-size: .8rem;
   width: 25rem;
-  td {
-    text-indent: 1rem;
-  }
 `;
