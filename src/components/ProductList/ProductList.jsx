@@ -1,175 +1,68 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, Link } from "react-router-dom";
-import {
-  AsideBar,
-  AsideItem,
-  ClearFilters,
-  ClearFiltersWrapper,
-  ImageGrid,
-  ImageResult,
-  ProductListMain, 
-  Spiner} from './ProductList.styles';
-// import FeaturedProducts from '../../mocks/en-us/featured-products.json';
-import { ImageWrap, InfoImage } from '../Home/FeaturedProducts/FeaturedProducts.styled';
-import { useGetSearch } from '../../utils/hooks/useFetch';
-import { ROUTES } from '../../utils/constants';
 import { useAllSearch } from '../../utils/hooks/useAllProducts';
-import Pagination from './PaginationControl/Pagination';
-import './PaginationControl/pagination.styles.css';
+import PaginatedResults from './PaginationControl/Pagination';
+import { ImageGrid, ProductListMain, Spiner } from './ProductList.styles';
+import AsideBarComponent from './AsideBar';
+import { createCards, handleFilters, handleResults } from './ProductList.helper';
+import { useLocation } from "react-router-dom";
 
 
-export const ProductList = () => {
-  const [results, setResults] = useState([]);
+export default function ProductList() {
+
   const [filters, setFilters] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isFiltered, setIsFiltered] = useState(false);
+  const [results, setResults] = useState([]);
   const location = useLocation();
 
-
-  const { data: FeaturedProducts } = useAllSearch();
-  console.log(FeaturedProducts);
+  let { data, isLoading } = useAllSearch();
 
   const categoryParam = new URLSearchParams(location.search).get('category');
   
-  let filtersSet = [];
-
   useEffect(() => {
-    let loadingTimeout;
-    
-    setIsLoading(true);
-    loadingTimeout = setTimeout(() => {
-      const filtersSet = categoryParam?.split(',') || [];
-      const processed = filtersSet.map(str => str.replaceAll(' & ', '--'));
-      setFilters(processed)
-      const data = categoryParam ? filterProducts(
-        filtersSet, FeaturedProducts) : FeaturedProducts?.results;
-      const allItems = createCards(data);
-      setResults(allItems);
-      setIsLoading(false);
-    }, 2000);
-    
-    if (!loadingTimeout) {
-      clearTimeout(loadingTimeout);
+    if (categoryParam && data?.results) {
+      const decodedParam = categoryParam.replaceAll(' & ', '--')
+      
+      const filtersSet = handleFilters(decodedParam, filters, setIsFiltered, setFilters);
+      const cards = handleResults(filtersSet, data);
+
+      setResults(cards);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [data])
+  
 
+  const allProducts = data?.results;
 
-  function handleClick(categoryName) {
-    
-    filtersSet = manageCategories(categoryName.replaceAll(' & ', '--'), filters);
-    setFilters(filtersSet);
-
-    const cardsToFilter = !filtersSet.length 
-      ? FeaturedProducts.results
-      : filterProducts(filtersSet, FeaturedProducts);
-
-    const cards = createCards(cardsToFilter);
+  const handleClickAsideBar = (value) => {
+    const filterName = value.target.innerText.replaceAll(' & ', '--');
+    const filtersSet = handleFilters(filterName, filters, setIsFiltered, setFilters);
+    const cards = handleResults(filtersSet, data);
     
     setResults(cards);
   }
 
   function clearFilterClick() {
-    const data = FeaturedProducts.results;
-    const allItems = createCards(data);
     setFilters([]);
-    setResults(allItems);
+    setIsFiltered(false)
   }
+  
+  const myProducts = createCards(allProducts);
 
-  const documentType = '"category"';
-  const { data } = useGetSearch({documentType, pageSize: 30});
-
-  const allCategories = data?.results?.map((item, i) => {
-    const name = item.data.name.replaceAll(' & ', '--');
-
-    const param = encodeURI(`category=${filters?.join(',')},${name}`);
-    
-    return(
-      <Link 
-        to={`${ROUTES.productList}?${param}`}
-        key={`categorieItem-${i}`}
-        style={{textDecoration: 'none'}}  
-      >
-        <AsideItem
-          onClick={() => handleClick(name)}
-          isActive={filters.includes(name)}
-        >
-          {name}
-        </AsideItem>
-      </Link>)
-  })
-
-
-  return(
-    <>
-      <ProductListMain>
-        <AsideBar>
-          {allCategories}
-          {filters.length
-            ? (<ClearFiltersWrapper to={ROUTES.productList} >
-                <ClearFilters onClick={() => clearFilterClick()} id='Clear'>
-                  Clear Filters
-                </ClearFilters>
-              </ClearFiltersWrapper>)
-            : null
-          }
-        </AsideBar>
+  return (
+    <ProductListMain>
+      <AsideBarComponent 
+        filters={filters}
+        handleClickAsideBar={item => handleClickAsideBar(item)}
+        clearFilterClick={clearFilterClick}
+      />
+      <ImageGrid>
         {isLoading
           ? <Spiner />
-          : (<ImageGrid>
-              {results?.length > 12 
-              ? <Pagination data={results} />
-              : results
-              }
-              
-            </ImageGrid>)
+          : <PaginatedResults data={isFiltered
+            ? results
+            : myProducts} />
         }
-      </ProductListMain>
-    </>
+      </ImageGrid>
+    </ProductListMain>
   );
-}
-
-function manageCategories(categoryName, filtersState) {
-  const filtersArray = filtersState;
-
-  return filtersArray.includes(categoryName)
-    ? filtersArray.filter(filterName => filterName !== categoryName)
-    : [...filtersArray, categoryName];
-}
-
-function filterProducts(filtersSet, FeaturedProducts) {
-  let res = [];
-
-  filtersSet.forEach(category => {
-    const selection = FeaturedProducts
-      ?.results
-      ?.filter(product => {
-        const productSlug = product.data.category.slug.toLowerCase();
-        const catName = category.toLowerCase();
-
-        return productSlug === catName;
-      });
-    
-    console.log('select', selection);
-    res = [...res, ...selection];
-  })
-
-  return res;
-}
-
-function createCards(products) {
-  return products?.map((item) => {
-    const imgData = item.data.mainimage;
-    const infoData = item.data;
-
-    return (
-      <ImageWrap listPageCard key={`featuredImg${item.id}`} >
-        <ImageResult src={imgData.url} alt={imgData.alt} />
-          <InfoImage>
-            <h1>{infoData.name}</h1>
-            <h2>{infoData.category.slug}</h2>
-            <p>$ {infoData.price}</p>
-        </InfoImage>
-      </ImageWrap>
-    );
-  });
 }

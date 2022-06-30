@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProductCard } from '../../ProductCard/ProductCard';
+import { ProductCard } from '../ProductCard/ProductCard';
 
 export function createCards(products) {
   return products?.map((item) => { 

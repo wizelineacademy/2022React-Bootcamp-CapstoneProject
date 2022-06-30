@@ -14,7 +14,4 @@ export function SearchResults() {
   console.log(result);
 
   return result?.results?.map(item => <h1>{item.data.name}</h1>) || <h1>hey</h1>;
-
 }
-
-

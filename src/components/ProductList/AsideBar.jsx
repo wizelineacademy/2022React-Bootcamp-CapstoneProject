@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../../../../utils/constants';
-import { useGetSearch } from '../../../../utils/hooks/useFetch';
+import { ROUTES } from '../../utils/constants';
+import { useGetSearch } from '../../utils/hooks/useFetch';
 import {
   AsideBar,
   AsideItem,
   ClearFilters,
   ClearFiltersWrapper,
-  Spiner } from '../../ProductList.styles';
+  Spiner } from './ProductList.styles';
 
 export default function AsideBarComponent({ 
   handleClickAsideBar,
