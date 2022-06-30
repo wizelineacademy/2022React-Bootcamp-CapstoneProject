@@ -37,11 +37,11 @@ export default function AsideBarComponent({
   })
 
   return (
-    <AsideBar>
-      {isLoading
-        ?<Spiner />
-        : allCategories
-      }
+    <>
+    {isLoading
+      ? <Spiner />
+      : <AsideBar>
+         {allCategories}
       {filters.length
         ? (<ClearFiltersWrapper to={ROUTES.productList} >
             <ClearFilters onClick={clearFilterClick}>
@@ -50,7 +50,8 @@ export default function AsideBarComponent({
           </ClearFiltersWrapper>)
         : null
       }
-    </AsideBar>
+      </AsideBar>}
+    </>
   );
 }
 
