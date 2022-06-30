@@ -1,11 +1,8 @@
-import { AllProducts } from '../components'
+import React from 'react';
+import { AllProducts } from '../components';
 
-const ProductListPage = () => {
-	return (
-		<>
-			<AllProducts />
-		</>
-	 );
+function ProductListPage() {
+  return <AllProducts />;
 }
 
 export default ProductListPage;

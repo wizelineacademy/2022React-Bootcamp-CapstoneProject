@@ -1,3 +1,5 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable import/prefer-default-export */
 import { useState, useEffect } from 'react';
 import { API_BASE_URL } from '../constants';
 
@@ -14,7 +16,7 @@ export function useLatestAPI() {
         setApiMetadata(INITIAL_API_METADATA);
 
         const response = await fetch(API_BASE_URL, {
-          signal: controller.signal,
+          signal: controller.signal
         });
         const { refs: [{ ref } = {}] = [] } = await response.json();
 

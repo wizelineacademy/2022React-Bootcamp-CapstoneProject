@@ -1,22 +1,20 @@
-import { Slider, Banners, GridProducts } from '../components'
+import { NavLink } from 'react-router-dom';
+import { Slider, Banners, GridProducts } from '../components';
 
-const Home = ({ switchNavigation }) => {
-
-	return (
-		<section>
-			<Slider/>
-			<hr />
-			<Banners />
-			<hr />
-			<GridProducts />
-			<hr />
-			<button onClick={
-				() => switchNavigation("PLP")
-				}
-				className="btn"
-			>View all products</button>
-		</section>
-	 );
+function Home() {
+  return (
+    <section>
+      <Slider />
+      <hr />
+      <Banners />
+      <hr />
+      <GridProducts />
+      <hr />
+      <NavLink to="/products/all" className="btn">
+        View all products
+      </NavLink>
+    </section>
+  );
 }
 
 export default Home;

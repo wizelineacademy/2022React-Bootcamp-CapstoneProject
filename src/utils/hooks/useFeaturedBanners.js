@@ -1,12 +1,19 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable import/prefer-default-export */
 import { useState, useEffect } from 'react';
 import { API_BASE_URL } from '../constants';
 import { useLatestAPI } from './useLatestAPI';
 
-export function useFeaturedBanners() {
+export function useFeaturedBanners({
+  typeData = 'banner',
+  size = 5,
+  product = null,
+  search = null
+}) {
   const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
   const [featuredBanners, setFeaturedBanners] = useState(() => ({
     data: {},
-    isLoading: true,
+    isLoading: true
   }));
 
   useEffect(() => {
@@ -20,14 +27,30 @@ export function useFeaturedBanners() {
       try {
         setFeaturedBanners({ data: {}, isLoading: true });
 
+        const type =
+          typeData === 'banner'
+            ? '[[at(document.type, "banner")]]'
+            : typeData === 'category'
+            ? '[[at(document.type, "category")]]'
+            : typeData === 'product'
+            ? '[[at(document.type, "product")]]'
+            : typeData === 'single'
+            ? `[[at(document.id, "${product}")]]`
+            : typeData === 'search'
+            ? `[[at(document.type, "product")]]&q=[[fulltext(document, "${search}")]]`
+            : null;
+
         const response = await fetch(
           `${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(
-            '[[at(document.type, "banner")]]'
-          )}&lang=en-us&pageSize=5`,
+            `${(function () {
+              return type;
+            })()}`
+          )}&lang=en-us&pageSize=${size}`,
           {
-            signal: controller.signal,
+            signal: controller.signal
           }
         );
+
         const data = await response.json();
 
         setFeaturedBanners({ data, isLoading: false });

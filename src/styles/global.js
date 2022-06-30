@@ -138,7 +138,7 @@ export const GlobalStyles = createGlobalStyle`
 	}
 	/*  global classes */
 
-	button {
+	a {
 		&.btn {
 			display: block;
 			width: 148px;
@@ -181,4 +181,6 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	/* section */
-`
+`;
+
+export default GlobalStyles;
