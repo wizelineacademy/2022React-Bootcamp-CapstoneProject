@@ -10,6 +10,7 @@ const SearchInput = styled.input`
   height: 4vh;
   margin-top: 6%;
   border-radius: 20px;
+  color: black;
   @media (max-width: 600px) {
     display: none;
   }

@@ -9,26 +9,56 @@ import Search from '../../styles/SearchIcon.styled';
 import NavLink from '../../styles/NavLink.styled';
 import NavLinkIcons from '../../styles/NavLinkIcons.styled';
 import SearchInput from '../../styles/SearchInput.styled';
+import { useNavigate  } from "react-router-dom";
+import { useState } from 'react';
 
+const Header = () => {
+  let navigate = useNavigate ();
+    const [searchTerm, setSearchTerm] = useState('');
+    const handleSearchInput = (e) => {
+      debugger;
+        e.preventDefault();
+        e.stopPropagation();
+        const searchTermInput = e.target.value;
+        setSearchTerm(searchTermInput);
+    };
 
-const Header = () => (
-  <Wrapper>
-    <NavLink id="logoName" to="/">
-      <Logo id="logo" src={logo} alt="logo" />
-      ShopIT
-    </NavLink>
-    <NavLink to="/">Home</NavLink>
-    <NavLink to="/products">Products</NavLink>
-    <RigthWrapper>
-      <SearchInput id="searchInput" type="text" />
-      <NavLinkIcons to="/">
-        <Search id="searchIcon" src={searchIcon} alt="searchIcon" />
-      </NavLinkIcons>
-      <NavLinkIcons to="/">
-        <Cart id="cart" src={shoppingCart} alt="shoppingCart" />
-      </NavLinkIcons>
-    </RigthWrapper>
-  </Wrapper>
-);
+    const handleOnClick = (e) => {
+      debugger;
+        e.preventDefault();
+        e.stopPropagation();
+        setSearchTerm("");
+        navigate('/search?q=' + searchTerm);
+    };
+    return (
+        <Wrapper>
+            <NavLink id="logoName" to="/">
+                <Logo id="logo" src={logo} alt="logo" />
+                ShopIT
+            </NavLink>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/products">Products</NavLink>
+            <RigthWrapper>
+                <SearchInput
+                    id="searchInput"
+                    type="text"
+                    onChange={handleSearchInput}
+                    value={searchTerm}
+                />
+                <NavLinkIcons to="/">
+                    <Search
+                        id="searchIcon"
+                        src={searchIcon}
+                        alt="searchIcon"
+                        onClick={handleOnClick}
+                    />
+                </NavLinkIcons>
+                <NavLinkIcons to="/">
+                    <Cart id="cart" src={shoppingCart} alt="shoppingCart" />
+                </NavLinkIcons>
+            </RigthWrapper>
+        </Wrapper>
+    );
+};
 
 export default Header;

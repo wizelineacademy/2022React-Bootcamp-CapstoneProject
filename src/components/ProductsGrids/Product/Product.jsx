@@ -5,6 +5,9 @@ import PricePill from '../../../styles/PricePill.styled';
 import CategoryPill from '../../../styles/CategoryPill.styled';
 import PillsWrapper from '../../../styles/PillsWrapper.styled';
 import ProductName from '../../../styles/ProductName.styled';
+import { CartCheckFill, FileTextFill } from 'react-bootstrap-icons';
+import CartPill from '../../../styles/CartAddButton.styled';
+import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
   return (
@@ -18,6 +21,14 @@ const Product = ({ product }) => {
           <ProductName>{product.data.name}</ProductName>
           <CategoryPill>{product.data.category.slug}</CategoryPill>
           <PricePill>$ {product.data.price}</PricePill>
+          <CartPill type="button">
+            <CartCheckFill style={{color: "white"}}/>
+          </CartPill>
+          <Link to={`/product/${product.id}`}>
+            <CartPill type="button" style={{backgroundColor:"#2E0249"}}>
+              <FileTextFill style={{color: "white"}}/>
+            </CartPill>
+          </Link>
         </PillsWrapper>
       </Cell>
     )

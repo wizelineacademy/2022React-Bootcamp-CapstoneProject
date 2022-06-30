@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 const CategoryPill = styled.span`
-  background-color: #9beaf9;
+  background-color: #1F4690;
   border: none;
-  color: black;
+  color: white;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const PricePill = styled.span`
-  background-color: #fde4a1;
+  background-color: #FFE5B4;
   border: none;
   color: black;
   padding: 10px 20px;
