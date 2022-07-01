@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import { API_BASE_URL } from '../constants';
-import { useLatestAPI } from './useLatestAPI';
+import { useState, useEffect } from "react";
+import { API_BASE_URL } from "../constants";
+import { useLatestAPI } from "./useLatestAPI";
 
-export function useProducts(searchTerm,page) {
+export function useProducts(searchTerm = '', page, categories) {
   const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
   const [products, setProducts] = useState(() => ({
     data: {},
@@ -15,18 +15,19 @@ export function useProducts(searchTerm,page) {
     }
 
     const controller = new AbortController();
-    const searchTermQuery = searchTerm 
-                            ?  `&q=${encodeURIComponent(`[[fulltext(document, "${searchTerm}")]]`)}`
-                            :'';
-
+    const categoriesQuery = categories ? 
+    `[${categories.map(category => `"${category}"`).toString()}]` : '[]'
     async function getProducts() {
       try {
         setProducts({ data: {}, isLoading: true });
 
         const response = await fetch(
           `${API_BASE_URL}/documents/search?ref=${apiRef}&
-q=${encodeURIComponent('[[at(document.type, "product")]]')}
-${searchTermQuery}
+q=${encodeURIComponent(
+            `[[at(document.type, "product")]
+            [any(my.product.category, ${categoriesQuery})]
+            [fulltext(my.product.name, "${searchTerm}")]]`
+          )}
           &lang=en-us&pageSize=12&page=${page}`,
           {
             signal: controller.signal,
@@ -46,7 +47,7 @@ ${searchTermQuery}
     return () => {
       controller.abort();
     };
-  }, [apiRef, isApiMetadataLoading,searchTerm, page]);
+  }, [apiRef, isApiMetadataLoading, searchTerm, page, categories]);
 
   return products;
 }

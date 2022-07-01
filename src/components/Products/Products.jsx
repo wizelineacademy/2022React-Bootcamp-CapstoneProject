@@ -22,22 +22,22 @@ export default function Products() {
       {!isLoading && (
         <CardContainer>
           {products.map((product) => {
-            const productDetail = product.data;
+            const {name,sku,price, category:{slug}, mainimage:{url}} = product.data;
             return (
-            <Link to={`/product/${product.id}`}>
+            <Link to={`/products/${product.id}`}>
               <Card
-                key={productDetail.sku}
+                key={sku}
                 className="card"
               >
-                <img src={productDetail.mainimage.url} alt="product"/>
+                <img src={url} alt="product"/>
                 <CardText>
-                  <h4 className="prod-name">{productDetail.name}</h4>
+                  <h4 className="prod-name">{name}</h4>
                   <span 
-                    className="price">${productDetail.price}
+                    className="price">${price}
                   </span>
                   <div className="items">
                     <span className="slug">
-                      <small>{productDetail.category.slug}</small>
+                      <small>{slug}</small>
                     </span>
                     <button className="add-to-cart">Add to cart</button>
                   </div>

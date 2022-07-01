@@ -31,18 +31,18 @@ background: gray;
 `;
 
 export const ProductCard = styled.div`
-width: 75%;
-margin: auto;
-padding: 10px;
+width: 70%;  
+margin: auto;  
 display: grid;
-gap: 10px;
-min-height: 350px;
+    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+    gap: 2.5rem;
 
-@media screen and (min-width: 1100px){
-    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));    
-}
+    .card img {
+        width: 100%;
+        max-height: 400px;
+        object-fit: contain;
+    }
 `;
-
 export const Loader = styled.div`
 position: absolute;
 left: 60%;

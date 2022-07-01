@@ -11,7 +11,7 @@ export default function Categories() {
         if(data.results) {
             setCategories(data.results);
         }
-    }, [data])
+    }, [data.results])
 
     return (
         
@@ -19,7 +19,7 @@ export default function Categories() {
             {!isLoading && (  
             <CardContainer>
                 {categories.map((category, index) => (
-                <Link to={`/product-list?category=${category.slugs[0]}` }>
+                <Link to={`/products?category=${category.id}` }>
                 <Card key={index} 
                     style={{ backgroundImage:`url(${category.data.main_image.url})` }}>
                     <div className="card-text" >

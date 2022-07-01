@@ -20,19 +20,27 @@ export default function ProductList() {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [currentPage, setCurrentPage]= useState(1);
-  const { data, isLoading } = useProducts(category, currentPage);
   const { data: categoriesData } = useFeaturedCategories();
+  const { data, isLoading } = useProducts('', currentPage, selectedCategories);
+  
   
 
   useEffect(() => {
-    console.log(category);
     if (data.results) {
       setProducts(data.results);
     }
+  }, [data]);
+
+  useEffect(() => {
+
     if (categoriesData.results) {
       setCategories(categoriesData.results);
+      if (!category) {
+        setSelectedCategories([...categoriesData.results.map(c => c.id)]);
+      }
     }
-  }, [data, categoriesData, category]);
+
+  }, [categoriesData.results, category]);
 
   const clickHandler = (categoryName) => {
     const indexToRemove = selectedCategories.indexOf(categoryName);
@@ -48,7 +56,7 @@ export default function ProductList() {
   };
 
   const sidebarWrapperStyle = (category) => {
-    return selectedCategories.some((element) => element === category.slugs[0])
+    return selectedCategories.some((element) => element === category.id)
       ? "is-active"
       : "";
   };
@@ -60,7 +68,7 @@ export default function ProductList() {
             <ol
               key={category.data.name}
               className={sidebarWrapperStyle(category)}
-              onClick={() => clickHandler(category.slugs[0])}
+              onClick={() => clickHandler(category.id)}
             >
               {category.data.name}
             </ol>
@@ -76,22 +84,23 @@ export default function ProductList() {
           {products.map((product) => {
             const productDetail = product.data;
             return (
-              <Link to={`/product/${product.id}`}>
+              <Link to={`/products/${product.id}`}>
                 <Card
                 key={productDetail.sku}
-                style={{
-                  backgroundImage: `url(${productDetail.mainimage.url})`,
-                }}
+                className="card"
               >
+                <img src={productDetail.mainimage.url} alt="product"/>
                 <CardText>
                   <h4 className="prod-name">{productDetail.name}</h4>
                   <span 
                     className="price">${productDetail.price}
                   </span>
-                  <span>
-                    <small>{productDetail.category.slug}</small>
-                  </span>
-                  <button className="add-to-cart">Add to cart</button>
+                  <div className="items">
+                    <span className="slug">
+                      <small>{productDetail.category.slug}</small>
+                    </span>
+                    <button className="add-to-cart">Add to cart</button>
+                  </div>
                 </CardText>
               </Card>
               </Link>

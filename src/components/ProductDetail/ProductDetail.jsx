@@ -12,9 +12,9 @@ import { useParams } from "react-router-dom";
 SwiperCore.use([FreeMode, Navigation, Thumbs]);
 
 export default function ProductDetail() {
-  const { productId } = useParams();
+  const { id } = useParams();
   const [productDetail, setProductDetail] = useState();
-  const { data, isLoading } = useProductDetailed(productId);
+  const { data, isLoading } = useProductDetailed(id);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   useEffect(() => {
@@ -61,9 +61,9 @@ export default function ProductDetail() {
           <Details>
             <div className="product-card">
               <h1>{productDetail.data.name}</h1>
-              <label className="price">${productDetail.data.price}</label>
-              <label className="sku-code">{productDetail.data.sku}</label>
-              <label className="slug">{productDetail.data.category.slug}</label>
+              <p className="price">${productDetail.data.price}</p>
+              <span className="sku-code">{productDetail.data.sku}</span>
+              <span className="slug">{productDetail.data.category.slug}</span>
               <div className="tag-container">
                 <span>{productDetail.tags.join("/")}</span>
               </div>

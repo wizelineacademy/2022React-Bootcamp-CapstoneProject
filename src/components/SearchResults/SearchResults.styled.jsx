@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const UiSearch = styled.div`
-margin: 0 auto;
-max-width: 1200px;
-padding: 0 10px;
+display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16.75rem, 1fr));
+    gap: 2.5rem;
+    justofy-content: center;
 
 .ui-search-rescue {
     align-items: center;
@@ -44,4 +45,5 @@ padding: 0 10px;
 .ui-search-item li {
     list-style: none;
 }
+
 `; 

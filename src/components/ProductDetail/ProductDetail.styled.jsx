@@ -45,7 +45,7 @@ border-radius: 5px;
     font-weight: 700;
     color: dimgray;
 }
-.product-card .sku-code {
+.product-card .sku-code  {
     color: gray;
     font-size: small;
 }
@@ -57,7 +57,7 @@ border-radius: 5px;
     color: gray;
     justify-content: flex-start;
 }
-.product-card .tag-container{
+.product-card .tag-container span {
     color: slateblue;
 } 
 .product-card > p {

@@ -9,12 +9,13 @@ display: grid;
 gap: 10px;
 
 
+
 `;
 export const CardContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(16.75rem, 1fr));
     gap: 2.5rem;
-
+    justify-items: center;
     .card img {
         width: 100%;
         max-height: 400px;
@@ -25,13 +26,18 @@ export const Card = styled.div`
 width: 100%;
 border-radius: 10px;
 min-height: 400px;
-
 `;
 
 export const CardText = styled.div`
+display: flex;
+justify-content: space-between;
 flex-wrap: wrap;
 flex-direction: column;
 
+.items div {
+    display: grid;
+    grid-template-rows: 50px 50px;
+}
 
 .prod-name {
     display: flex;
@@ -50,13 +56,13 @@ flex-direction: column;
 }
 .slug {
     margin-left: 40px;
-    position: relative;
-    max-width: 20px;
+    position: absolute;
+    display: flex;
 }
  .add-to-cart {
      max-width: 120px;
      max-height: 100px;
-     display: inline;
+     display: flex;
      background-color: slateblue;
      border:0;
      color: white;

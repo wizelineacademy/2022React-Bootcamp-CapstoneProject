@@ -21,27 +21,29 @@ export default function SearchResults() {
     <ProductsWrapper>
       {!isLoading && (
         <CardContainer>
-
           { data.results.length ?
-          data.results.map((product, index) => {
-            const productDetail = product.data;
+          data.results.map((product) => {
+            const {name, sku, mainimage:{url},price, category:{slug}} = product.data;
             return (
-              <Link to={`/product/${product.id}`}>
+              <Link to={`/products${product.id}`}>
                 <Card
-                  key={productDetail.sku}
-                  style={{
-                    backgroundImage: `url(${productDetail.mainimage.url})`,
-                  }}
-                >
-                  <CardText>
-                    <h4 className="prod-name">{productDetail.name}</h4>
-                    <span className="price">${productDetail.price}</span>
-                    <span>
-                      <small>{productDetail.category.slug}</small>
+                key={sku}
+                className="card"
+              >
+                <img src={url} alt="product"/>
+                <CardText>
+                  <h4 className="prod-name">{name}</h4>
+                  <span 
+                    className="price">${price}
+                  </span>
+                  <div className="items">
+                    <span className="slug">
+                      <small>{slug}</small>
                     </span>
                     <button className="add-to-cart">Add to cart</button>
-                  </CardText>
-                </Card>
+                  </div>
+                </CardText>
+              </Card>
               </Link>
             );
           }): <UiSearch>

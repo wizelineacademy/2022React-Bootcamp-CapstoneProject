@@ -11,7 +11,7 @@ export default function Home() {
             <Slideshow/>
             <Categories/>
             <Products/>  
-                <Link to="product-list">
+                <Link to="/products">
                 <Button 
                 className="btn-container" 
                 >View all products
