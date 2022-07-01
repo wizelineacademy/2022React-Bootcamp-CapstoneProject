@@ -27,19 +27,20 @@ export default function Products() {
             <Link to={`/product/${product.id}`}>
               <Card
                 key={productDetail.sku}
-                style={{
-                  backgroundImage: `url(${productDetail.mainimage.url})`,
-                }}
+                className="card"
               >
+                <img src={productDetail.mainimage.url} alt="product"/>
                 <CardText>
                   <h4 className="prod-name">{productDetail.name}</h4>
                   <span 
                     className="price">${productDetail.price}
                   </span>
-                  <span>
-                    <small>{productDetail.category.slug}</small>
-                  </span>
-                  <button className="add-to-cart">Add to cart</button>
+                  <div className="items">
+                    <span className="slug">
+                      <small>{productDetail.category.slug}</small>
+                    </span>
+                    <button className="add-to-cart">Add to cart</button>
+                  </div>
                 </CardText>
               </Card>
             </Link>

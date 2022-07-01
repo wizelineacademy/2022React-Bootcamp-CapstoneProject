@@ -4,63 +4,67 @@ export const ProductsWrapper = styled.div`
 width: 90%;
 max-width: 1200px;
 margin: auto;
-padding: 40px;
+padding: 20px;
 display: grid;
 gap: 10px;
+
+
 `;
 export const CardContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(16.75rem, 1fr));
     gap: 2.5rem;
-    justify-content: center;
+
+    .card img {
+        width: 100%;
+        max-height: 400px;
+        object-fit: contain;
+    }
 `;
 export const Card = styled.div`
-height: 40px;
 width: 100%;
 border-radius: 10px;
 min-height: 400px;
-padding: 10px;
-overflow: hidden;
-justify-content: center;
-background-size: cover;
-background-repeat: no-repeat;
-background-position: center;
 
 `;
 
 export const CardText = styled.div`
 flex-wrap: wrap;
 flex-direction: column;
-align-items: flex-end;
-justify-content: space-around;
 
 
 .prod-name {
-    display: block;
-    margin-bottom: 300px;
-    max-height: 5px;
+    display: flex;
+    max-height: 22px;
     font-size: 1rem;
     color: dimgray;
-    font-weight: 600;
-    padding-bottom: 5px;
+    font-weight: 400;
+    justify-content: center;
 }
 
 .price {
     display: block;
     font-size: 26px;
     color: black;
+    margin:0 40px;
+}
+.slug {
+    margin-left: 40px;
+    position: relative;
+    max-width: 20px;
 }
  .add-to-cart {
-     max-width: 95px;
-     max-height: 30px;
+     max-width: 120px;
+     max-height: 100px;
      display: inline;
      background-color: slateblue;
      border:0;
      color: white;
      border-radius: 10px;
-     margin-left: 192px;
-     position: absolute;
+     margin: 0 150px;
      padding: 2px;
+     position: absolute;
+     cursor: pointer;
      
  }
 `;
