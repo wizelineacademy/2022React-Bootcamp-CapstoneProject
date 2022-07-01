@@ -1,3 +1,4 @@
+import * as React from 'react'
 import PropTypes from 'prop-types';
 import Carousel from 'react-bootstrap/Carousel';
 import { useCategories } from '../../utils/hooks/useCategories';
@@ -8,19 +9,26 @@ import CategoryPill from '../../styles/CategoryPill.styled';
 import PillsWrapper from '../../styles/PillsWrapper.styled';
 import CartPill from '../../styles/CartAddButton.styled';
 import { CartCheckFill } from 'react-bootstrap-icons';
+import { useCart } from '../../contexts/CartContext';
 
 const ProductDetailInfo = ({ product }) => {
     const { data: categoriesData, isLoading: categoriesLoading } =
         useCategories();
     const [categoryInfo, setCategoryInfo] = useState();
     const [numberOfItems, setNumberOfItems] = useState(0);
-
+    const {dispatch} = useCart();
+    
     const handleItemsChange = (e) => {
         e.preventDefault();
         e.stopPropagation();
         const itemsToAdd = e.target.value;
         setNumberOfItems(itemsToAdd);
     };
+
+    const ChangeCart = () => {
+        dispatch({type: 'addItem', payload: {id: product.id, qty: numberOfItems}});
+        debugger;
+      }
 
     useEffect(() => {
         if (!categoriesLoading) {
@@ -92,7 +100,7 @@ const ProductDetailInfo = ({ product }) => {
                         max={product?.data?.stock ?? 1}
                     />
                     <CartPill style={{backgroundColor: "purple"}} type="button">
-                        <CartCheckFill style={{ color: 'white' }} />
+                        <CartCheckFill onClick={ChangeCart} style={{ color: 'white' }} />
                     </CartPill>
                 </div>
             </>
