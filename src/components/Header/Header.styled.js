@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import {
-  bluePrince, yellowMain, white, black,
-} from '../../utils/constant.styles';
+  bluePrince,
+  yellowMain,
+  black } from '../../utils/constant.styles';
 
 export const HeaderMain = styled.header`
   width: 135em;
@@ -47,31 +48,6 @@ export const Name = styled.h1`
     justify-content: center;
     text-indent: 0;
     width: fit-content;
-  }
-`;
-
-export const ButtonCart = styled.button`
-  margin: 0 4% 0;
-  outline: none;
-  background: none;
-  border: none;
-  path {
-      fill: ${bluePrince};
-    }
-  &:hover {
-    cursor: pointer;
-    path {
-      fill: ${white};
-    }
-  }
-
-  & > svg {
-    height: 2.5rem;
-    width: 2.5rem;
-  }
-
-  @media screen and (max-width: 800px) {
-    margin: 2rem auto 0;
   }
 `;
 

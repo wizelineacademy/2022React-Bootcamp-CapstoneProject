@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { ReactComponent as ShoppingCartIcon } from '../../images/shopping-cart.svg';
 import logo from '../../images/logo.png';
 import {
   HeaderMain,
   Image,
-  Name,
-  ButtonCart } from './Header.styled';
+  Name } from './Header.styled';
 import { ROUTES } from '../../utils/constants';
 import { InpurtSearch } from './InputSearch/InputSearch';
+import { ShoppingCart } from './ShoppingCart/ShoppingCart';
 
 function Header() {
 
@@ -21,9 +20,7 @@ function Header() {
         Furny
       </Name>
       <InpurtSearch />
-      <ButtonCart>
-        <ShoppingCartIcon />
-      </ButtonCart>
+      <ShoppingCart />
     </HeaderMain>
   );
 }
