@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { API_BASE_URL } from '../constants';
 import { useLatestAPI } from './useLatestAPI';
 
-export function useGeneralFetch(url, searchInput) {
+export function useGeneralFetch(url, searchInput, reload = false, setReload) {
   const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
   const [response, setResponse] = useState(() => ({
     data: {},
@@ -33,6 +33,7 @@ export function useGeneralFetch(url, searchInput) {
         const data = await response.json();
 
         setResponse({ data, isLoading: false });
+        setReload(false);
       } catch (err) {
         setResponse({ data: {}, isLoading: false });
         console.error(err);
@@ -44,7 +45,8 @@ export function useGeneralFetch(url, searchInput) {
     return () => {
       controller.abort();
     };
-  }, [apiRef, isApiMetadataLoading]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [apiRef, isApiMetadataLoading, reload]);
 
   return response;
 }

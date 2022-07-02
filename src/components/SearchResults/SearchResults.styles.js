@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { bluePrince, grey, whiteApple } from '../../utils/constant.styles';
+import { Link } from 'react-router-dom';
+import { bluePrince, grey, ligthPrinceBlue, whiteApple } from '../../utils/constant.styles';
 
 export const SearchMain = styled.main`
   width: 135em;
@@ -43,12 +44,18 @@ export const Image = styled.img`
   
 `;
 
-export const Title = styled.label`
+export const Title = styled(Link)`
   margin: .8rem auto;
   font-size: 1.3rem;
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: ${bluePrince};
+  &:hover {
+    color: ${ligthPrinceBlue};
+  }
 `;
 
 export const Category = styled.label`

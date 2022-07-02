@@ -1,30 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom";
+import { useGeneralFetch } from '../../utils/hooks/useGenaralFetch';
 import Pagination from '../ProductList/PaginationControl/Pagination';
-import { fetchSearch, searchCardGenerator } from './SearchResults.helper';
+import { searchCardGenerator } from './SearchResults.helper';
 import { NotResults, SearchMain } from './SearchResults.styles';
+import { URLS } from '../../utils/constants'
+import { Spiner } from '../ProductList/ProductList.styles';
 
 export function SearchResults() {
-  const [result, setResult] = useState([]);
-  const location = useLocation();  
+  const [reload, setReload] = useState(false);
+  const location = useLocation();
+  let searchQuery = new URLSearchParams(location.search).get('q');
+  const { data, isLoading } = useGeneralFetch(URLS.search, searchQuery, reload, setReload);
   
   useEffect(() => {
-    let searchQuery = new URLSearchParams(location.search).get('q');
-    fetchSearch(searchQuery, setResult);
+    setReload(true)
   }, [location.search])
   
-  let allResults = searchCardGenerator(result)
+  const cards = data.results_size
+    ? searchCardGenerator(data)
+    : <NotResults>NO RESULTS FOUND</NotResults>;
 
-  if (result.results_size === 0) {
-    allResults = <NotResults>NO RESULTS FOUND</NotResults>;
-  }
-
-  return(
-    <SearchMain>
-      {result.results_size < 20
-        ? allResults
-        : <Pagination size='20' data={allResults} />
-      }
-    </SearchMain>
-  );
+  return isLoading
+    ? <Spiner />
+    : <SearchMain>
+        {data.results_size < 20
+          ? cards
+          : <Pagination size='20' data={cards} />
+        }
+      </SearchMain>
 }

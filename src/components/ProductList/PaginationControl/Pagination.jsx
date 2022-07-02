@@ -8,8 +8,7 @@ export default function Pagination(props) {
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
-  const itemsPerPage = props.size;
-  console.log(itemsPerPage);
+  const itemsPerPage = Math.ceil(Number(props.size));
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
