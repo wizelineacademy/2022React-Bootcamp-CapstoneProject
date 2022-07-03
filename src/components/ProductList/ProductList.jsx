@@ -106,11 +106,14 @@ export default function ProductList() {
               </Link>
             );
           })}
-          <Paginate pages={data.total_pages} page={data.page} setCurrentPage={setCurrentPage}/>
+          <Paginate
+        pages={data.total_pages}
+        page={data.page}
+        setCurrentPage={setCurrentPage}
+      />
         </ProductCard>
       )}
       
     </ProductListContainer>
-
   );
 }
