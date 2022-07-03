@@ -1,7 +1,11 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { PageTemplate } from "../templates";
-import { Home } from "../pages";
-import ProductList from "./../pages/ProductList/index";
+import {
+  Home,
+  ProductList,
+  ProductDetailPage,
+  SearchResultsPage,
+} from "../pages";
 
 export const AppRouter = () => {
   return (
@@ -10,6 +14,8 @@ export const AppRouter = () => {
         <Route path="/" element={<Home />} />
         <Route path="home" element={<Navigate to="/" />} />
         <Route path="products" element={<ProductList />} />
+        <Route path="product/:productId" element={<ProductDetailPage />} />
+        <Route path="search" element={<SearchResultsPage />} />
       </Route>
     </Routes>
   );

@@ -1,15 +1,17 @@
 import { Button } from "./../../../styled-components";
 import { Bag, Search } from "./../../icons";
-import { ActionsContainer } from "./styled";
+import { ActionsContainer, LinkAction } from "./styled";
 
-const ProductActions = ({ activeClass }) => {
+const ProductActions = ({ activeClass, id }) => {
   return (
     <ActionsContainer activeClass={activeClass}>
       <Button>
         <Bag color="#FFF" />
       </Button>
       <Button>
-        <Search fill="#FFF" />
+        <LinkAction to={`product/${id}`}>
+          <Search fill="#FFF" />
+        </LinkAction>
       </Button>
     </ActionsContainer>
   );

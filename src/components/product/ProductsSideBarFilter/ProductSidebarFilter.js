@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Sidebar,
   ImageContainer,
@@ -12,27 +11,24 @@ import { useProductCategories } from "./../../../utils";
 import { SpinnerBounce } from "../../ui";
 import { Button } from "../../../styled-components";
 
-const ProductSidebarFilter = ({ setFilter, display, toggleFilter }) => {
+const ProductSidebarFilter = ({
+  setFilter,
+  display,
+  toggleFilter,
+  filters,
+}) => {
   const { data: categoriesData, isLoading } = useProductCategories();
-  const [isCheck, setIsCheck] = useState([]);
 
   const handleToggle = (e) => {
-    const target = e.target;
-    const value = target.value.toLowerCase().replace(/ /g, "");
-    const { checked, id } = target;
+    const { checked, id } = e.target;
 
-    if (checked) {
-      setFilter((filters) => [...filters, value]);
-      setIsCheck([...isCheck, id]);
-    } else {
-      setFilter((filters) => filters.filter((filter) => filter !== value));
-      setIsCheck(isCheck.filter((item) => item !== id));
-    }
+    checked
+      ? setFilter((filters) => [...filters, id])
+      : setFilter((filters) => filters.filter((filter) => filter !== id));
   };
 
   const clearFilters = () => {
     setFilter([]);
-    setIsCheck([]);
   };
 
   return (
@@ -52,9 +48,9 @@ const ProductSidebarFilter = ({ setFilter, display, toggleFilter }) => {
               type="checkbox"
               key={categorie.id}
               name={categorie.name}
-              value={categorie.name}
+              value={categorie.id}
               onChange={handleToggle}
-              checked={isCheck.includes(categorie.id)}
+              checked={filters.includes(categorie.id)}
             />
             {categorie.name}
             <ImageContainer urlBg={categorie.urlImage} className="checkmark" />
@@ -62,7 +58,7 @@ const ProductSidebarFilter = ({ setFilter, display, toggleFilter }) => {
         ))
       )}
 
-      {isCheck.length > 0 && <Button onClick={clearFilters}>Clear</Button>}
+      {filters.length > 0 && <Button onClick={clearFilters}>Clear</Button>}
     </Sidebar>
   );
 };

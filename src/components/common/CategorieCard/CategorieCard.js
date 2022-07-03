@@ -1,18 +1,18 @@
 import { ArrowRight } from "../../icons";
 import { CardContainer, CategorieLabel, CategorieLink } from "./styled";
 
-const CategorieCard = ({ name, alt, urlImage, slugs }) => {
+const CategorieCard = ({ id, name, alt, urlImage, slugs }) => {
   return (
     <CardContainer>
       <CategorieLabel
         className="__animated-label"
-        to={`products?category=${slugs[0]}`}
+        to={`products?category=${slugs[0]}+${id}`}
       >
         {name}
       </CategorieLabel>
       <CategorieLink
         className="__animated-link"
-        to={`products?category=${slugs[0]}`}
+        to={`products?category=${slugs[0]}+${id}`}
       >
         See all <ArrowRight />
       </CategorieLink>

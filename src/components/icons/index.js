@@ -1,5 +1,6 @@
 export { default as ArrowRight } from "./ArrowRight";
 export { default as Bag } from "./Bag";
+export { default as Cart } from "./Cart";
 export { default as ChevronLeft } from "./ChevronLeft";
 export { default as ChevronRight } from "./ChevronRight";
 export { default as Cross } from "./Cross";

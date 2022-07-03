@@ -10,7 +10,7 @@ import {
   CardPrice,
 } from "./styled";
 
-const ProductCard = ({ title, category, price, slugs, urlImage, alt }) => {
+const ProductCard = ({ id, title, category, price, slugs, urlImage, alt }) => {
   const [activeClass, setActiveClass] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -37,7 +37,7 @@ const ProductCard = ({ title, category, price, slugs, urlImage, alt }) => {
           <Label fill="#a1c5cc" />
           {category}
         </CategoryLabel>
-        <ProductActions activeClass={activeClass} />
+        <ProductActions activeClass={activeClass} id={id} />
         <img src={urlImage} alt={alt} onLoad={loadImage} />
       </CardHeader>
       <CardBody>
