@@ -6,6 +6,7 @@ export const ROUTES = {
   productList: '/product',
   productDetail: '/product',
   searchResults: '/search',
+  shoppingCart: '/cart',
 }
 
 export const URLS = {

@@ -3,7 +3,7 @@ import { ProductCard } from '../ProductCard/ProductCard';
 
 export function createCards(products) {
   return products?.map((item) => { 
-    return (<ProductCard item={item} key={item.id}/>);
+    return (<ProductCard item={item} key={item.id} listPageCard />);
   });
 }
 

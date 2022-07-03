@@ -4,9 +4,7 @@ import {
   bluePrince,
   darkRed,
   grey,
-  white,
-  whiteApple, 
-  yellowMain} from '../../utils/constant.styles';
+  whiteApple } from '../../utils/constant.styles';
 
 export const DetailMain = styled.main`
   width: 135em;
@@ -131,31 +129,12 @@ export const Stock = styled.span`
   font-size: 1.3rem;
 `;
 
-export const AddToCartButton = styled.button.attrs({ 
-  type: 'submit',
-})`
-  cursor: pointer;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: .3rem;
-  width: 10rem;
-  height: 2.6rem;
-  color: ${white};
-  font-weight: 600;
-  background: ${bluePrince};
-  box-shadow:  0 5px 20px ${appleGreenBackground};  
-
-  &:hover {
-    background: ${yellowMain};
-    color: ${bluePrince};
-  }
-`;
-export const Table = styled.table`
-  margin: .5rem auto;
-`;
-
 export const TBody = styled.tbody`
   text-align: left;
   font-size: .8rem;
   width: 25rem;
+`;
+
+export const Table = styled.table`
+  margin: .5rem auto;
 `;

@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import { bluePrince, darkRed, white } from "../../../utils/constant.styles";
+import { Link } from 'react-router-dom';
+
+import { bluePrince, white } from "../../../utils/constant.styles";
 
 export const CartWrapper = styled.div`
   display: flex;
@@ -11,7 +13,7 @@ export const CartWrapper = styled.div`
   }
 `;
 
-export const ButtonCart = styled.button`
+export const ButtonCart = styled(Link)`
   margin: 0 4% 0;
   outline: none;
   background: none;
@@ -33,7 +35,7 @@ export const ButtonCart = styled.button`
 
 export const ItemCounter = styled.span`
   height: fit-content;
-  margin-left: -2.5rem; 
+  margin-left: -2.2rem;
   background-color: red;
   color: ${white};
   font-weight: 600;

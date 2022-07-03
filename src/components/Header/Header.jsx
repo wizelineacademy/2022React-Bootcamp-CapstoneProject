@@ -7,7 +7,7 @@ import {
   Name } from './Header.styled';
 import { ROUTES } from '../../utils/constants';
 import { InpurtSearch } from './InputSearch/InputSearch';
-import { ShoppingCart } from './ShoppingCart/ShoppingCart';
+import { ShoppingCartButton } from './ShoppingCart/ShoppingCart';
 
 function Header() {
 
@@ -20,7 +20,7 @@ function Header() {
         Furny
       </Name>
       <InpurtSearch />
-      <ShoppingCart />
+      <ShoppingCartButton />
     </HeaderMain>
   );
 }

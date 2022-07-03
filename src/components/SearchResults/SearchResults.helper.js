@@ -1,5 +1,5 @@
 import { ROUTES } from '../../utils/constants';
-import { AddToCartButton } from '../ProductDetail/ProductDetail.styles';
+import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
 import {
   Category,
   Description,
@@ -30,7 +30,7 @@ export function searchCardGenerator(result) {
         <Category>{slug.replace('--', ' & ')}</Category>
         <Description>{short_description}</Description>
         <Price>$ {price}</Price>
-        <AddToCartButton>ADD TO CART</AddToCartButton>
+        <AddToCartButton />
       </ResultWrapper>
     );
   });

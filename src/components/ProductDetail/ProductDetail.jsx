@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom'
 import { imageGetter, specsGetter, tagsGetter } from './ProductDetail.helper';
 import { Slider } from './SliderDetail/SliderDetail';
 import {
-  AddToCartButton,
   AmountWrapper,
   Category,
   Description,
@@ -18,6 +17,7 @@ import {
   Tags,
   TBody,
   Title } from './ProductDetail.styles';
+import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
 
 
 export function ProductDetail() {
@@ -57,7 +57,7 @@ export function ProductDetail() {
           <Price>$ {price}</Price>
           <Stock>{stock} in stock</Stock>
           <Input max={stock}/>
-          <AddToCartButton>ADD TO CART</AddToCartButton>
+          <AddToCartButton />
         </AmountWrapper>
         <Tags>{allTags}</Tags>
         <Table><TBody>{allSpecs}</TBody></Table>

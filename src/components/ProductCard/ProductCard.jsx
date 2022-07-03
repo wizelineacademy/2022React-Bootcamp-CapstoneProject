@@ -1,9 +1,8 @@
 import React from 'react';
-import { ReactComponent as ShoppingCart } from '../../images/shopping-cart.svg';
 import { ROUTES } from '../../utils/constants';
+import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
 
 import { 
-  ButtonCart,
   ButtonWrapper,
   ImageWrap,
   InfoImage,
@@ -11,11 +10,11 @@ import {
   LinkStyled,
   ProductImage } from './ProductCard.styles';
 
-export function ProductCard({ item }) {
+export function ProductCard({ item, listPageCard }) {
   const itemRoute = `${ROUTES.productDetail}/${item.id}`;
   const product = item.data;
   return (
-    <ImageWrap key={item.id}>
+    <ImageWrap key={item.id} listPageCard={listPageCard}>
       <LinkStyled to={itemRoute} state={item}>
         <ProductImage src={product.mainimage.url} alt={product.mainimage.alt} />
       </LinkStyled>
@@ -25,9 +24,7 @@ export function ProductCard({ item }) {
         </LinkDetail>
         <h2>{product.category.slug.replaceAll('--', ' & ')}</h2>
         <ButtonWrapper>
-          <ButtonCart to={itemRoute} state={item}>
-            <ShoppingCart />
-          </ButtonCart>
+          <AddToCartButton smaller/>
         </ButtonWrapper>
         <p>${product.price}</p>
       </InfoImage>

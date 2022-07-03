@@ -22,8 +22,8 @@ export const ImageWrap = styled.div`
   justify-content: space-between;
   margin: 1.2rem;
   border-radius: .5rem;
-  width: ${(listPageCard) => listPageCard ? '21.5rem' : '25rem'};
-  max-height: ${(listPageCard) => listPageCard ? '15rem' : 'fit-content'};
+  width: ${({listPageCard}) => listPageCard ? '21.5rem' : '25rem'};
+  max-height: 15rem;
   box-shadow:  0 5px 20px ${appleGreenBackground};  
   background: ${whiteApple};
 
@@ -32,7 +32,7 @@ export const ImageWrap = styled.div`
   }
 
   @media screen and (max-width: 950px){
-    width: ${listPageCard => listPageCard ? '30rem' : '25rem'};
+    width: ${({listPageCard}) => listPageCard ? '30rem' : '25rem'};
   }
 
   @media screen and (max-width: 806px){
