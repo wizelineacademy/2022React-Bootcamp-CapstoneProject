@@ -8,6 +8,7 @@ import {
   GridImage,
   Image,
 } from "./styled";
+import PropTypes from "prop-types";
 
 const Gallery = ({ gallery }) => {
   const images = createGalleryAdapter(gallery);
@@ -50,6 +51,10 @@ const Gallery = ({ gallery }) => {
       </GridImage>
     </GalleryContainer>
   );
+};
+
+Gallery.propTypes = {
+  gallery: PropTypes.array.isRequired,
 };
 
 export default Gallery;

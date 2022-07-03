@@ -1,8 +1,8 @@
+import { useContext } from "react";
+import styled from "@emotion/styled";
 import { Button } from "../../../styled-components/Button";
 import { Menu } from "./../../icons";
-import styled from "@emotion/styled";
-import { useState } from "react";
-import { NavbarSmallScreen } from "../../common";
+import { NavbarContext } from "./../../../context";
 
 const ButtonContainer = styled.div`
   display: block;
@@ -12,23 +12,15 @@ const ButtonContainer = styled.div`
 `;
 
 const MenuButton = () => {
-  const [menuActive, setMenuActive] = useState(false);
-
-  const handleMenuActive = () => {
-    setMenuActive(!menuActive);
-  };
+  const { active, setVisible } = useContext(NavbarContext);
 
   return (
     <>
       <ButtonContainer>
-        <Button onClick={handleMenuActive}>
+        <Button onClick={() => setVisible(!active)}>
           <Menu fill="#FFF" />
         </Button>
       </ButtonContainer>
-      <NavbarSmallScreen
-        menuActive={menuActive}
-        handleMenuActive={setMenuActive}
-      />
     </>
   );
 };

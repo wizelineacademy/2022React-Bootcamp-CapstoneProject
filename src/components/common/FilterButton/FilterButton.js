@@ -1,6 +1,7 @@
 import { Button } from "../../../styled-components";
 import Filter from "./../../icons/Filter";
 import { ActionsContainer } from "./styled";
+import PropTypes from "prop-types";
 
 const FilterButton = ({ toggleFilter }) => {
   return (
@@ -11,6 +12,10 @@ const FilterButton = ({ toggleFilter }) => {
       <span>Filter</span>
     </ActionsContainer>
   );
+};
+
+FilterButton.propTypes = {
+  toggleFilter: PropTypes.func,
 };
 
 export default FilterButton;

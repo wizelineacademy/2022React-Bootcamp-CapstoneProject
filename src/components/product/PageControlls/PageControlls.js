@@ -1,4 +1,5 @@
 import { ControllsContainer, PageLabel, ControllButton } from "./styled";
+import PropTypes from "prop-types";
 
 const PageControlls = ({ setCurrentPage, pages, currentPage }) => {
   const handleCurrentPage = (e) => {
@@ -42,6 +43,12 @@ const PageControlls = ({ setCurrentPage, pages, currentPage }) => {
       </ControllButton>
     </ControllsContainer>
   );
+};
+
+PageControlls.propTypes = {
+  setCurrentPage: PropTypes.func,
+  pages: PropTypes.number,
+  currentPage: PropTypes.number,
 };
 
 export default PageControlls;

@@ -9,8 +9,9 @@ import {
   CardName,
   CardPrice,
 } from "./styled";
+import PropTypes from "prop-types";
 
-const ProductCard = ({ id, title, category, price, slugs, urlImage, alt }) => {
+const ProductCard = ({ id, title, category, price, urlImage, alt }) => {
   const [activeClass, setActiveClass] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -46,6 +47,14 @@ const ProductCard = ({ id, title, category, price, slugs, urlImage, alt }) => {
       </CardBody>
     </CardWrapper>
   );
+};
+
+ProductCard.propTypes = {
+  id: PropTypes.string,
+  title: PropTypes.string,
+  category: PropTypes.string,
+  price: PropTypes.number,
+  urlImage: PropTypes.string,
 };
 
 export default ProductCard;

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 
 const Quantity = styled.select`
   outline: 2px solid var(--extralight-gray);
@@ -22,6 +23,10 @@ const Select = ({ stock }) => {
       ))}
     </Quantity>
   );
+};
+
+Select.propTypes = {
+  stock: PropTypes.number.isRequired,
 };
 
 export default Select;

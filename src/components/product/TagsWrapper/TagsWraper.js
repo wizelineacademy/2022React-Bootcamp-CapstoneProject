@@ -1,5 +1,6 @@
 import { Label } from "../../icons";
 import { Title, Tags, Tag } from "./styled";
+import PropTypes from "prop-types";
 
 const TagsWraper = ({ tags }) => {
   return (
@@ -15,6 +16,10 @@ const TagsWraper = ({ tags }) => {
       </Tags>
     </div>
   );
+};
+
+TagsWraper.propTypes = {
+  tags: PropTypes.array,
 };
 
 export default TagsWraper;

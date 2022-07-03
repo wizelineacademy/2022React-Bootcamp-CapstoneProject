@@ -1,14 +1,8 @@
 import { useState, useEffect } from "react";
-import {
-  SliderContainer,
-  Prev,
-  Next,
-  Content,
-  ContentTitle,
-  ContentDescription,
-} from "./styled";
-import { useFeaturedBanners } from "./../../../utils/hooks/useFeaturedBanners";
-import { SpinnerBounce } from "../SpinnerBounce";
+import { SliderContainer, Prev, Next } from "./styled";
+import { useFeaturedBanners } from "./../../../utils";
+import { SpinnerBounce, Slides } from ".././";
+import PropTypes from "prop-types";
 
 const Slider = ({ autoScroll, intervalTime }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -47,25 +41,15 @@ const Slider = ({ autoScroll, intervalTime }) => {
       {isLoading ? (
         <SpinnerBounce />
       ) : (
-        data?.map((slide, index) => (
-          <div
-            className={`${index === currentSlide ? "slide current" : "slide"}`}
-            key={`${slide.id}`}
-          >
-            {index === currentSlide && (
-              <>
-                <img src={slide.urlImage} alt={slide.title} />
-                <Content>
-                  <ContentTitle>{slide.title}</ContentTitle>
-                  <ContentDescription>{slide.description}</ContentDescription>
-                </Content>
-              </>
-            )}
-          </div>
-        ))
+        <Slides data={data} currentSlide={currentSlide} />
       )}
     </SliderContainer>
   );
+};
+
+Slider.propTypes = {
+  autoScroll: PropTypes.bool.isRequired,
+  intervalTime: PropTypes.number,
 };
 
 export default Slider;

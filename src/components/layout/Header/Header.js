@@ -1,6 +1,7 @@
 import { NavbarDesktop } from "../../common/NavbarDesktop";
 import { Logo, MenuButton, CartSidebarView, SearchForm } from "../../ui";
 import { Heading, ActionsContainer, NavDeskContainer } from "./styled";
+import { NavbarSmallScreen } from "./../../common";
 
 const Header = () => {
   return (
@@ -12,6 +13,7 @@ const Header = () => {
           <SearchForm />
         </NavDeskContainer>
         <MenuButton />
+        <NavbarSmallScreen />
         <CartSidebarView />
       </ActionsContainer>
     </Heading>

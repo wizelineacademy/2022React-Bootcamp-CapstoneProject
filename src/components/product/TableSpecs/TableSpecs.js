@@ -1,4 +1,5 @@
 import { Table } from "./styled";
+import PropTypes from "prop-types";
 
 const TableSpecs = ({ specs }) => {
   return (
@@ -19,6 +20,10 @@ const TableSpecs = ({ specs }) => {
       </tbody>
     </Table>
   );
+};
+
+TableSpecs.propTypes = {
+  specs: PropTypes.array,
 };
 
 export default TableSpecs;

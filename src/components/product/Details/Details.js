@@ -12,6 +12,7 @@ import {
   AddButton,
 } from "./styled";
 import { TableSpecs } from "../TableSpecs";
+import PropTypes from "prop-types";
 
 const Details = ({ product }) => {
   const { category, title, description, sku, tags, price, stock, specs } =
@@ -40,6 +41,10 @@ const Details = ({ product }) => {
       <TableSpecs specs={specs} />
     </div>
   );
+};
+
+Details.propTypes = {
+  product: PropTypes.object,
 };
 
 export default Details;
