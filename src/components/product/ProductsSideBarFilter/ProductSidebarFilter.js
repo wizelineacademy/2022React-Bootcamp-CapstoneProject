@@ -6,22 +6,30 @@ import {
   Heading,
   CloseAction,
 } from "./styled";
-import Categories from "../../../mocks/en-us/product-categories.json";
-import { createCategoriesAdapter } from "../../../adapters";
 import { Cross } from "../../icons";
-const ProductSidebarFilter = ({ setFilter, display, toggleFilter }) => {
-  const categoriesData = createCategoriesAdapter(Categories);
+import { useProductCategories } from "./../../../utils";
+import { SpinnerBounce } from "../../ui";
+import { Button } from "../../../styled-components";
+import PropTypes from "prop-types";
+
+const ProductSidebarFilter = ({
+  setFilter,
+  display,
+  toggleFilter,
+  filters,
+}) => {
+  const { data: categoriesData, isLoading } = useProductCategories();
 
   const handleToggle = (e) => {
-    const target = e.target;
-    const value = target.value.toLowerCase().replace(/ /g, "");
-    const checked = target.checked;
+    const { checked, id } = e.target;
 
-    if (checked) {
-      setFilter((filters) => [...filters, value]);
-    } else {
-      setFilter((filters) => filters.filter((filter) => filter !== value));
-    }
+    checked
+      ? setFilter((filters) => [...filters, id])
+      : setFilter((filters) => filters.filter((filter) => filter !== id));
+  };
+
+  const clearFilters = () => {
+    setFilter([]);
   };
 
   return (
@@ -30,21 +38,37 @@ const ProductSidebarFilter = ({ setFilter, display, toggleFilter }) => {
         <Cross />
       </CloseAction>
       <Heading>Filter by Categorie</Heading>
-      {categoriesData.map((categorie) => (
-        <LabelInput key={categorie.id}>
-          <Input
-            type="checkbox"
-            key={categorie.id}
-            name={categorie.name}
-            value={categorie.name}
-            onChange={handleToggle}
-          />
-          {categorie.name}
-          <ImageContainer urlBg={categorie.urlImage} className="checkmark" />
-        </LabelInput>
-      ))}
+
+      {isLoading ? (
+        <SpinnerBounce />
+      ) : (
+        categoriesData?.map((categorie) => (
+          <LabelInput key={categorie.id}>
+            <Input
+              id={categorie.id}
+              type="checkbox"
+              key={categorie.id}
+              name={categorie.name}
+              value={categorie.id}
+              onChange={handleToggle}
+              checked={filters.includes(categorie.id)}
+            />
+            {categorie.name}
+            <ImageContainer urlBg={categorie.urlImage} className="checkmark" />
+          </LabelInput>
+        ))
+      )}
+
+      {filters.length > 0 && <Button onClick={clearFilters}>Clear</Button>}
     </Sidebar>
   );
+};
+
+ProductSidebarFilter.propTypes = {
+  setFilter: PropTypes.func,
+  display: PropTypes.string,
+  toggleFilter: PropTypes.func,
+  filters: PropTypes.array,
 };
 
 export default ProductSidebarFilter;

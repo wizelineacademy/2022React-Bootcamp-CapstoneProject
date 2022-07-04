@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
+import { Link } from "react-router-dom";
 
 export const FadeEffect = keyframes`
 from{
@@ -19,6 +20,10 @@ export const CardContainer = styled.div`
 
   & * {
     transition: all ease-in-out 0.3s;
+  }
+
+  a {
+    border-radius: 5px;
   }
 
   img {
@@ -59,7 +64,7 @@ export const CardContainer = styled.div`
   }
 `;
 
-export const CategorieLabel = styled.a`
+export const CategorieLabel = styled(Link)`
   position: absolute;
   z-index: 24;
   text-decoration: none;
@@ -71,7 +76,7 @@ export const CategorieLabel = styled.a`
   transform: translateX(-50%);
 `;
 
-export const CategorieLink = styled.a`
+export const CategorieLink = styled(Link)`
   position: absolute;
   text-decoration: none;
   filter: opacity(0);

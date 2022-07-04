@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
-import { API_BASE_URL } from '../constants';
-import { useLatestAPI } from './useLatestAPI';
+import { useState, useEffect } from "react";
+import { API_BASE_URL } from "../constants";
+import { useLatestAPI } from "./useLatestAPI";
+import { createBannerAdapter } from "./../../adapters/featured-banners";
 
 export function useFeaturedBanners() {
   const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
@@ -30,7 +31,9 @@ export function useFeaturedBanners() {
         );
         const data = await response.json();
 
-        setFeaturedBanners({ data, isLoading: false });
+        const dataAdapter = createBannerAdapter(data);
+
+        setFeaturedBanners({ data: dataAdapter, isLoading: false });
       } catch (err) {
         setFeaturedBanners({ data: {}, isLoading: false });
         console.error(err);

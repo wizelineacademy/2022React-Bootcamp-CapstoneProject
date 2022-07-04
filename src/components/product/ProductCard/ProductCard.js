@@ -9,9 +9,11 @@ import {
   CardName,
   CardPrice,
 } from "./styled";
+import PropTypes from "prop-types";
 
-const ProductCard = ({ title, category, price, urlImage, alt }) => {
+const ProductCard = ({ id, title, category, price, urlImage, alt }) => {
   const [activeClass, setActiveClass] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleMouseEnter = () => {
     setActiveClass(true);
@@ -21,18 +23,23 @@ const ProductCard = ({ title, category, price, urlImage, alt }) => {
     setActiveClass(false);
   };
 
+  const loadImage = () => {
+    setIsLoading(false);
+  };
+
   return (
     <CardWrapper
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      className={`${isLoading ? "loading" : null}`}
     >
       <CardHeader>
         <CategoryLabel>
           <Label fill="#a1c5cc" />
           {category}
         </CategoryLabel>
-        <ProductActions activeClass={activeClass} />
-        <img src={urlImage} alt={alt} />
+        <ProductActions activeClass={activeClass} id={id} />
+        <img src={urlImage} alt={alt} onLoad={loadImage} />
       </CardHeader>
       <CardBody>
         <CardName>{title}</CardName>
@@ -40,6 +47,14 @@ const ProductCard = ({ title, category, price, urlImage, alt }) => {
       </CardBody>
     </CardWrapper>
   );
+};
+
+ProductCard.propTypes = {
+  id: PropTypes.string,
+  title: PropTypes.string,
+  category: PropTypes.string,
+  price: PropTypes.number,
+  urlImage: PropTypes.string,
 };
 
 export default ProductCard;

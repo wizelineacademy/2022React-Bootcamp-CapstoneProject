@@ -10,6 +10,7 @@ export const Button = styled.button`
   background-color: var(--primary-green);
   transition: all ease-in-out 0.4s;
   border-radius: 2px;
+  color: white;
 
   &:hover {
     background-color: #000;
@@ -19,5 +20,6 @@ export const Button = styled.button`
     transition-duration: 0.1s;
     background-color: #3a3a3a;
     transform: scale(0.95);
+    color: white;
   }
 `;

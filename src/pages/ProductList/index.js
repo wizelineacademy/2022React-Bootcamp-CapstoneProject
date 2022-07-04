@@ -1,39 +1,26 @@
-import { Container, ProductsGrid } from "./../../styled-components";
-import { useState, useEffect } from "react";
-import { createProductAdapter } from "./../../adapters/featured-products";
-import Products from "../../mocks/en-us/products.json";
+import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useFiltered } from "./../../utils";
+import { Container } from "./../../styled-components";
+import { HeadingPage, WrapperContent, Content } from "./styled";
 import {
   ProductSidebarFilter,
-  ProductCard,
   PageControlls,
-} from "./../../components/product";
-import { HeadingPage, WrapperContent, Content } from "./styled";
-import { getFilterProducts } from "./../../utils/getFilterProducts";
-import Spinner from "../../components/ui/Spinner/Spinner";
-import { FilterButton } from "./../../components/common";
+  Spinner,
+  FilterButton,
+  Grid,
+} from "./../../components";
+import { getSlug } from "./utils/getSlug";
 
 const ProductList = () => {
-  const [filters, setFilter] = useState([]);
-  const [productList, setProductList] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  let [searchParams] = useSearchParams();
+  const category = getSlug(searchParams);
+
+  const [filters, setFilter] = useState(category);
+  const { data: productsList, isLoading } = useFiltered(filters, currentPage);
+
   const [showFilter, setShowFilter] = useState(false);
-
-  let loadingInterval;
-
-  useEffect(() => {
-    load();
-    return () => clearInterval(loadingInterval);
-    //eslint-disable-next-line
-  }, [filters]);
-
-  const load = () => {
-    setIsLoading(true);
-    const productData = createProductAdapter(Products);
-    setProductList(getFilterProducts(productData, filters));
-    loadingInterval = setInterval(() => {
-      setIsLoading(false);
-    }, 2000);
-  };
 
   const toggleFilter = () => {
     setShowFilter((showFilter) => !showFilter);
@@ -46,23 +33,20 @@ const ProductList = () => {
       <FilterButton toggleFilter={toggleFilter} />
       <WrapperContent>
         <ProductSidebarFilter
+          filters={filters}
           setFilter={setFilter}
-          display={showFilter}
+          display={showFilter.toString()}
           toggleFilter={toggleFilter}
         />
         <Content>
-          {isLoading ? (
-            <Spinner />
-          ) : (
-            <ProductsGrid>
-              {productList.map((product) => (
-                <ProductCard {...product} />
-              ))}
-            </ProductsGrid>
-          )}
+          {isLoading ? <Spinner /> : <Grid productsList={productsList} />}
         </Content>
       </WrapperContent>
-      <PageControlls />
+      <PageControlls
+        setCurrentPage={setCurrentPage}
+        pages={productsList.totalPages ?? 1}
+        currentPage={currentPage}
+      />
     </Container>
   );
 };

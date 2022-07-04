@@ -1,22 +1,19 @@
 import { SectionHeading, SectionContainer } from "./../../../styled-components";
-import { ProductCard } from "./../ProductCard";
-import { createProductAdapter } from "./../../../adapters";
-import FeaturedProducts from "../../../mocks/en-us/featured-products.json";
-import { ProductsGrid, ViewAllProducts } from "./styled";
+import { ViewAllProducts } from "./styled";
+import { Link } from "react-router-dom";
+import { useFeaturedProducts } from "./../../../utils";
+import { SpinnerBounce } from "../../ui";
+import { Grid } from "./../Grid";
 
-const HomeAllFeaturedProducts = ({ handleNavigate }) => {
-  const productsData = createProductAdapter(FeaturedProducts);
+const HomeAllFeaturedProducts = () => {
+  const { data: productsData, isLoading } = useFeaturedProducts();
 
   return (
     <SectionContainer>
       <SectionHeading>Featured Products</SectionHeading>
-      <ProductsGrid>
-        {productsData.map((product) => (
-          <ProductCard key={product.id} {...product} />
-        ))}
-      </ProductsGrid>
-      <ViewAllProducts onClick={() => handleNavigate(false)}>
-        View all products
+      {isLoading ? <SpinnerBounce /> : <Grid productsList={productsData} />}
+      <ViewAllProducts>
+        <Link to="products">View all products</Link>
       </ViewAllProducts>
     </SectionContainer>
   );

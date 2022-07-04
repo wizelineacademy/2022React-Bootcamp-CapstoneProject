@@ -1,5 +1,6 @@
 import { Header, Footer } from "../../components/layout";
 import styled from "@emotion/styled";
+import { Outlet } from "react-router-dom";
 
 const MainLayout = styled.div`
   min-height: 100vh;
@@ -8,11 +9,11 @@ const MainLayout = styled.div`
   transition: 0.4s;
 `;
 
-const PageTemplate = ({ children, handleNavigate }) => {
+const PageTemplate = () => {
   return (
     <MainLayout>
-      <Header handleNavigate={handleNavigate} />
-      {children}
+      <Header />
+      <Outlet />
       <Footer />
     </MainLayout>
   );

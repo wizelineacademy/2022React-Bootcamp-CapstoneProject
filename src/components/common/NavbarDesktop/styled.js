@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 export const NavContainer = styled.nav`
   display: flex;
@@ -7,8 +8,10 @@ export const NavContainer = styled.nav`
   gap: 10px;
 `;
 
-export const LinkNav = styled.a`
+export const LinkNav = styled(Link)`
   position: relative;
+  text-decoration: none;
+  color: var(--gray);
   font-size: 18px;
   text-transform: uppercase;
   font-weight: 400;
