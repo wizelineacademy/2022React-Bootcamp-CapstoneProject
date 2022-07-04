@@ -1,6 +1,7 @@
-import {React, useState} from 'react';
+import {React, useState, useContext} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { HeaderWrapper, InputSearcherWrapper, ProfileWrapper, CartWrapper } from './Header.styled';
+import {ShoppingCartContext} from '../../contexts/ShoppingCart';
 import logo from '../../logo-fur.jpg';
 import icon from '../../shopping-cart.png';
 import log from '../../user.png';
@@ -9,6 +10,8 @@ import log from '../../user.png';
 export default function Header() {
     const [userInput, setUserInput ] = useState();
     const navigate = useNavigate();
+
+    const {items} = useContext(ShoppingCartContext);
     
     const clickHandler = () => {
         navigate(`/search?q=${userInput}`)
@@ -41,9 +44,10 @@ export default function Header() {
                 <span className="user-name">Silvia</span> 
             </ProfileWrapper>   
             <CartWrapper>
-                <a href=".">
+                <Link to="/cart">
                     <img src={icon} alt="cart-icon" className="img-icon"/>
-                </a>
+                </Link>
+                {items.length}
             </CartWrapper>
         </HeaderWrapper>
     )

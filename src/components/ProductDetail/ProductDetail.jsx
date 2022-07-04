@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useProductDetailed } from "../../utils/hooks/useProductDetailed";
 import { SingleProduct, Details, SpecsContainer } from "./ProductDetail.styled";
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
@@ -8,6 +8,7 @@ import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import SwiperCore, { FreeMode, Navigation, Thumbs } from "swiper";
 import { useParams } from "react-router-dom";
+import { ShoppingCartContext } from "../../contexts/ShoppingCart";
 // install Swiper modules
 SwiperCore.use([FreeMode, Navigation, Thumbs]);
 
@@ -16,6 +17,12 @@ export default function ProductDetail() {
   const [productDetail, setProductDetail] = useState();
   const { data, isLoading } = useProductDetailed(id);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const {addItem} = useContext(ShoppingCartContext)
+
+
+  const addToCart = () => {
+    addItem(data.results[0])
+  }
 
   useEffect(() => {
     if (data.results) {
@@ -71,12 +78,10 @@ export default function ProductDetail() {
               {productDetail.data.short_description}
               </p>
               <input type="number" placeholder="Numbers" />
-              <button className="add-cart">
+              <button onClick={addToCart} 
+                      className="add-cart">
                 {" "}
                 <span>Add to cart</span>
-              </button>
-              <button className="add-cart">
-                <span>Buy now</span>
               </button>
             </div>
           </Details>
