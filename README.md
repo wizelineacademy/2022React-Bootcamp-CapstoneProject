@@ -173,6 +173,7 @@ The bonus is a plus that helps us know you better and increments your final scor
   - Product Detail Page (with API integration)
   - Search Results Page (with API integration)
 - **Related topics**: Fetching a Real API, React Router, Global State Management
+- **Related Resources**: Postman Collection for this API's endpoints ['here'](/resources/postman-collection.json)
 
 
 ### Before you start
