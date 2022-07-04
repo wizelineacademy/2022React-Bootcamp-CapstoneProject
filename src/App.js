@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import ProductList from "./components/ProductList/ProductList";
 import ProductDetail from './components/ProductDetail/ProductDetail';
 import SearchResults from './components/SearchResults/SearchResults';
+import ShoppingCart from './components/ShoppingCart/ShoppingCart';
 import Footer from "./components/Footer/Footer";
 import "./App.css";
 
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/products" element={<ProductList/>}/>
         <Route path="/products/:id" element={<ProductDetail />}/>
         <Route path="/search" element={<SearchResults/>} />
+        <Route path="/cart" element={<ShoppingCart/>}/>
       </Routes> 
       <Footer />
 </div>
