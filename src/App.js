@@ -1,31 +1,25 @@
-import { useState } from "react";
+
+import { Routes, Route } from 'react-router-dom';
+import Home from '././components/Home/Home';
 import Header from "./components/Header/Header";
-import Slideshow from "./components/Slideshow/Slideshow";
-import Categories from "./components/Categories/Categories";
-import Products from "./components/Products/Products";
-import { Button } from "./components/Products/Products.styled";
 import ProductList from "./components/ProductList/ProductList";
+import ProductDetail from './components/ProductDetail/ProductDetail';
+import SearchResults from './components/SearchResults/SearchResults';
 import Footer from "./components/Footer/Footer";
 import "./App.css";
 
 export default function App() {
-  const [activeProductList, setActiveProductList] = useState(false);
 
   return (
     <div className="App">
-      <Header setActiveProductList={setActiveProductList}/>
-      {activeProductList ? (
-        <ProductList />
-      ) : (
-        <>
-          <Slideshow/>
-          <Categories/>
-          <Products/>
-        </>
-      )}
-      <Button 
-      className="btn-container" 
-      onClick={() => setActiveProductList(!activeProductList)} >View all products</Button>
+      <Header/>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/home" element={<Home/>}/>
+        <Route path="/products" element={<ProductList/>}/>
+        <Route path="/products/:id" element={<ProductDetail />}/>
+        <Route path="/search" element={<SearchResults/>} />
+      </Routes> 
       <Footer />
 </div>
 

@@ -4,42 +4,75 @@ export const ProductsWrapper = styled.div`
 width: 90%;
 max-width: 1200px;
 margin: auto;
-padding: 40px 0;
+padding: 20px;
 display: grid;
-grid-template-rows: 1fr;
 gap: 10px;
+
+
+
 `;
 export const CardContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(16.75rem, 1fr));
+    gap: 2.5rem;
+    justify-items: center;
+    .card img {
+        width: 100%;
+        max-height: 400px;
+        object-fit: contain;
+    }
 `;
 export const Card = styled.div`
-height: 225px;
-width: 225px;
+width: 100%;
 border-radius: 10px;
-min-height: 300px;
-padding: 10px;
-position: relative;
-overflow: hidden;
-background-size: cover;
-background-position: center center;
+min-height: 400px;
 `;
 
 export const CardText = styled.div`
 display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
 flex-direction: column;
 
+.items div {
+    display: grid;
+    grid-template-rows: 50px 50px;
+}
 
 .prod-name {
-    margin-bottom: 220px;
-    max-height: 20px;
-    font-size: small;
+    display: flex;
+    max-height: 22px;
+    font-size: 1rem;
+    color: dimgray;
+    font-weight: 400;
+    justify-content: center;
 }
+
 .price {
-    font-weight: bold;
-    position: sticky;
+    display: block;
+    font-size: 26px;
+    color: black;
+    margin:0 40px;
 }
+.slug {
+    margin-left: 40px;
+    position: absolute;
+    display: flex;
+}
+ .add-to-cart {
+     max-width: 120px;
+     max-height: 100px;
+     display: flex;
+     background-color: slateblue;
+     border:0;
+     color: white;
+     border-radius: 10px;
+     margin: 0 150px;
+     padding: 2px;
+     position: absolute;
+     cursor: pointer;
+     
+ }
 `;
  export const Button = styled.button`
  display: grid;
@@ -56,6 +89,12 @@ flex-direction: column;
  transition: .2s ease all;
  border-radius: 5px;
  margin-bottom: 10px;
+ 
+  .btn-container a {
+    text-decoration: none;
+    color: slateblue;
+    font-size: 20px;
+  }
 :hover{
     box-shadow:0 0 40px 40px slateblue inset;
 }

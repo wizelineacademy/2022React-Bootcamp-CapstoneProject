@@ -1,14 +1,18 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {MainContainer, SlidesContainer, Slide, Controls, BotonSlide } from './Slideshow.styled';
 import {ReactComponent as RightArrow} from '../../assets/right-arrow.svg';
 import {ReactComponent as LeftArrow} from '../../assets/left-arrow.svg';
-import mock1 from '../../assets/mocks/es-mx/featured-banners.json';
+import {useFeaturedBanners} from '../../utils/hooks/useFeaturedBanners';
 
 export default function Slideshow() {
-    const urlBanners = mock1.results.map(result => result.data.main_image.url);
-
+    const {data, isLoading} = useFeaturedBanners();
+    const [urlBanners, setUrlBanners] = useState([]);
     const [currentImg, setNextImage] = useState(0);
-
+    useEffect(() => {
+        if(data.results){
+            setUrlBanners(data.results.map(result => result.data.main_image.url));
+        }
+    }, [data])
     const nextBanner = () => {
         setNextImage( currentImg => currentImg + 1);
         if(currentImg === urlBanners.length - 1) {
@@ -23,21 +27,26 @@ export default function Slideshow() {
     };
     return (
         <MainContainer>
-            <SlidesContainer>
-                <Slide>
-                    <a href=".">
-                        <img src={urlBanners[currentImg]} alt="furniture"/>
-                    </a>
-                </Slide>    
-            </SlidesContainer>
-            <Controls>
-                <BotonSlide right onClick={nextBanner}>
-                    <RightArrow />
-                </BotonSlide>
-                <BotonSlide left onClick={prevBanner}>
-                    <LeftArrow/>
-                </BotonSlide>
-            </Controls>
+            {!isLoading && (
+            <>
+             <SlidesContainer>
+             <Slide>
+                 <a href=".">
+                     <img src={urlBanners[currentImg]} alt="furniture"/>
+                 </a>
+             </Slide>    
+         </SlidesContainer>
+         <Controls>
+             <BotonSlide right onClick={nextBanner}>
+                 <RightArrow />
+             </BotonSlide>
+             <BotonSlide left onClick={prevBanner}>
+                 <LeftArrow/>
+             </BotonSlide>
+         </Controls>
+         </>
+            )}
+            
         </MainContainer>
     )
 };

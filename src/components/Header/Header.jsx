@@ -1,24 +1,39 @@
-import React from 'react';
-import { HeaderWrapper, InputSearcher, ProfileWrapper, CartWrapper } from './Header.styled';
+import {React, useState} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { HeaderWrapper, InputSearcherWrapper, ProfileWrapper, CartWrapper } from './Header.styled';
 import logo from '../../logo-fur.jpg';
 import icon from '../../shopping-cart.png';
 import log from '../../user.png';
 
 
-export default function Header({setActiveProductList}) {
+export default function Header() {
+    const [userInput, setUserInput ] = useState();
+    const navigate = useNavigate();
+    
+    const clickHandler = () => {
+        navigate(`/search?q=${userInput}`)
+    }
+    const inputSearch = (e) => {
+        setUserInput(e.target.value)
+     }
     return (
         <HeaderWrapper>
+                <Link to="/">
                 <img 
                     src={logo} 
                     alt="logo" 
-                    className="img-logo"
-                    onClick={() => setActiveProductList(false)}/>
-            <InputSearcher 
-                type="text" 
-                id ="search-box" 
-                className="input-search" 
-                placeholder=" Search..."/>
-            
+                    className="img-logo"/>
+                </Link>
+                    <InputSearcherWrapper>
+                        <input 
+                        type="search" 
+                        id ="search-box" 
+                        className="input-search" 
+                        placeholder=" Search..."
+                        onChange={inputSearch}/>
+                        <span onClick={clickHandler}>Search</span>
+                    </InputSearcherWrapper>
+                
             <ProfileWrapper>
                 <a href=".">
                     <img src={log} alt="user-icon" className="user-icon"/>

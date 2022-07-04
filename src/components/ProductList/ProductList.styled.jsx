@@ -4,7 +4,6 @@ export const ProductListContainer= styled.div`
 display:flex;
 min-height:100vh;
 
-
 ol {
     display: flex;
     padding: 16px;
@@ -25,43 +24,25 @@ ol {
 `;
 export const SidebarWrapper = styled.div`
 flex: 1 1 0;
-max-width: 300px;
+max-width: 280px;
 min-width: 235px;
 padding: 2rem 1rem;
 background: gray;
 `;
 
 export const ProductCard = styled.div`
-width: 80%;
+width: 70%;  
+margin: auto;  
 display: grid;
-grid-template-columns: repeat(1, 1fr);
-gap: 1rem;
-padding: 1rem;
-margin: 0px 5px 0px 5px;
+    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+    gap: 2.5rem;
 
-@media screen and (min-width: 768px){
-    grid-template-columns: repeat(3, 1fr);    
-}
-@media screen and (min-width: 1100px){
-    grid-template-columns: repeat(4, 1fr);    
-}
+    .card img {
+        width: 100%;
+        max-height: 400px;
+        object-fit: contain;
+    }
 `;
-
-export const PaginationList = styled.div`
-margin-top: 350px;
-padding: 10px;
-display:flex;
-width:100%;
-height: 50px;
-align-items; center;
-justify-content: center;
-
-a {
-    width:40px;
-    cursor: pointer;
-}
-`;
-
 export const Loader = styled.div`
 position: absolute;
 left: 60%;
