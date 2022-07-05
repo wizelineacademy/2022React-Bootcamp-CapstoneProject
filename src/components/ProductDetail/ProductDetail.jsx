@@ -55,7 +55,6 @@ export function ProductDetail() {
   const [inputValue, setInputValue] = useState(1);
 
   function handleClick() {
-    console.log('clicked');
     setActualStock(actualStock - inputValue);
     if (inputValue > 0) {
       setShoppingCart([...shoppingCart,
