@@ -12,10 +12,7 @@ export default function Home() {
             <Categories/>
             <Products/>  
                 <Link to="/products">
-                <Button 
-                className="btn-container" 
-                >View all products
-                </Button>
+                <Button className="btn-container">View all products</Button>
                 </Link>
         </div>
     )

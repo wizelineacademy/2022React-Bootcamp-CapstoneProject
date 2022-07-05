@@ -25,7 +25,7 @@ export default function SearchResults() {
           data.results.map((product) => {
             const {name, sku, mainimage:{url},price, category:{slug}} = product.data;
             return (
-              <Link to={`/products${product.id}`}>
+              <Link to={`/products/${product.id}`}>
                 <Card
                 key={sku}
                 className="card"
@@ -40,7 +40,9 @@ export default function SearchResults() {
                     <span className="slug">
                       <small>{slug}</small>
                     </span>
+                    <Link to={`/products/${product.id}`}>
                     <button className="add-to-cart">Add to cart</button>
+                    </Link>
                   </div>
                 </CardText>
               </Card>

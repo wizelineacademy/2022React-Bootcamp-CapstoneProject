@@ -6,6 +6,7 @@ import ProductList from "./components/ProductList/ProductList";
 import ProductDetail from './components/ProductDetail/ProductDetail';
 import SearchResults from './components/SearchResults/SearchResults';
 import ShoppingCart from './components/ShoppingCart/ShoppingCart';
+import Checkout from './components/Checkout/Checkout';
 import Footer from "./components/Footer/Footer";
 import "./App.css";
 import { ShoppingCartContext } from './contexts/ShoppingCart';
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/products/:id" element={<ProductDetail />}/>
           <Route path="/search" element={<SearchResults/>} />
           <Route path="/cart" element={<ShoppingCart/>}/>
+          <Route path="/checkout" element={<Checkout/>}/>
         </Routes> 
         <Footer />
     </ShoppingCartContext.Provider>

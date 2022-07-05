@@ -1,6 +1,7 @@
 import { React, useState, useEffect, useContext } from "react";
 import { ShoppingCartContext } from "../../contexts/ShoppingCart";
 import { ShoppingCartWrapper, CartItem, UiPannel } from "./ShoppingCart.styled";
+import { Link } from 'react-router-dom';
 
 export default function ShopingCart() {
   const { items } = useContext(ShoppingCartContext);
@@ -25,7 +26,9 @@ export default function ShopingCart() {
             <span className="item-tag-price">${totalPrice}</span>
           </div>
           <div className="actions">
+            <Link to="/checkout">
             <button>Continue</button>
+            </Link>
           </div>
         </div>
       </UiPannel>

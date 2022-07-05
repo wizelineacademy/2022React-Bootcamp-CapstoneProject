@@ -72,9 +72,30 @@ span {
 `;
 
  export const CartWrapper = styled.div`
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ align-content: center;
+ position: relative;
+ 
  .img-icon {
     max-width: 20px;
     height: 20px;
     margin-right: 70px;
+}
+
+.icon-quantity {
+width: 18px;
+height: 18px;
+color: black;
+font-size: 12px;
+text-align: center;
+margin-left: -69px;
+position: absolute;
+bottom:20px;
+right: 55px;
+border-radius: 50px;
+border: 1px solid gray;
+background-color: pink;
 }
  `;

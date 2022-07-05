@@ -21,6 +21,11 @@ export const CardContainer = styled.div`
         max-height: 400px;
         object-fit: contain;
     }
+    a {
+        text-decoration: none;
+        color: slateblue;
+        font-size: 20px;
+      }
 `;
 export const Card = styled.div`
 width: 100%;
@@ -89,12 +94,9 @@ flex-direction: column;
  transition: .2s ease all;
  border-radius: 5px;
  margin-bottom: 10px;
+ margin-top: 30px;
  
-  .btn-container a {
-    text-decoration: none;
-    color: slateblue;
-    font-size: 20px;
-  }
+ 
 :hover{
     box-shadow:0 0 40px 40px slateblue inset;
 }
