@@ -9,7 +9,7 @@ import { ROUTES } from '../../utils/constants';
 import { InpurtSearch } from './InputSearch/InputSearch';
 import { ShoppingCartButton } from './ShoppingCart/ShoppingCart';
 
-function Header( { itemCounter } ) {
+function Header() {
 
   return (
     <HeaderMain isYellow>
@@ -20,7 +20,7 @@ function Header( { itemCounter } ) {
         Furny
       </Name>
       <InpurtSearch />
-      <ShoppingCartButton itemCounter={itemCounter} />
+      <ShoppingCartButton />
     </HeaderMain>
   );
 }

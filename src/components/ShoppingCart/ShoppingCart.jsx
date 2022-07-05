@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from '../../Context/AppContext';
 import { ReactComponent as BinButton } from '../../images/bin.svg';
 import {
   RowItem,
@@ -13,9 +14,11 @@ import {
   UnitPriceWrapper,
   UnitPriceTitle} from './ShoppingCart.styles';
 
-export const ShoppingCart = ( {items }) => {
+export const ShoppingCart = () => {
 
-  const elements = items.map(item => {
+const { shoppingCart, setShoppingCart } = useContext(AppContext);
+
+  const elements = shoppingCart.map(item => {
 
     const {
       name,
@@ -40,14 +43,13 @@ export const ShoppingCart = ( {items }) => {
           <Amount>{amount}</Amount>
           <AmountControllerButton>+</AmountControllerButton>
         </AmountWrapper>
-
         <BinButtonWrapper>
           <BinButton />
         </BinButtonWrapper>
       </RowItem>
     );
-  }
-  )
+  })
+  
   return(
     <MainWrapper>
 

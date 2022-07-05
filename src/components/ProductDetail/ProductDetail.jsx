@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { AppContext } from '../../Context/AppContext';
 import { useLocation } from 'react-router-dom'
 import { imageGetter, specsGetter, tagsGetter } from './ProductDetail.helper';
 import { Slider } from './SliderDetail/SliderDetail';
@@ -20,8 +21,9 @@ import {
   Title } from './ProductDetail.styles';
 import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
 
-
-export function ProductDetail( { setShoppingCart, shoppingCart }) {
+export function ProductDetail() {
+  const { shoppingCart, setShoppingCart } = useContext(AppContext);
+  console.log('shop', shoppingCart);
   const location = useLocation();
   const jsonData = location.state;
   console.log({jsonData});
