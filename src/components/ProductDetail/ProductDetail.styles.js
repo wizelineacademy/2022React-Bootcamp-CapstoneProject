@@ -138,3 +138,7 @@ export const TBody = styled.tbody`
 export const Table = styled.table`
   margin: .5rem auto;
 `;
+
+export const OutOfStock = styled.p`
+  font-size: 3rem;
+`;
