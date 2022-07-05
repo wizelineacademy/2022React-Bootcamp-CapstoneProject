@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AppContext } from '../../Context/AppContext';
 import { ReactComponent as BinButton } from '../../images/bin.svg';
 import {
@@ -16,10 +16,16 @@ import {
 
 export const ShoppingCart = () => {
 
-const { shoppingCart, setShoppingCart } = useContext(AppContext);
+  const { shoppingCart, setShoppingCart } = useContext(AppContext);
+  const [filterdElements, setFilterdElements] = useState([]);
 
-  const elements = shoppingCart.map(item => {
-
+  const handleDelete = (value) => {
+    console.log(value);
+    setFilterdElements( allElements.filter(item =>{
+      return item !== value;
+    }))
+  }
+  const allElements = shoppingCart.map((item, i) => {
     const {
       name,
       alt,
@@ -27,9 +33,9 @@ const { shoppingCart, setShoppingCart } = useContext(AppContext);
       price,
       amount,    
     } = item;
-
+    
     return(
-      <RowItem>
+      <RowItem key={`row-${i}`}>
         <Image src={url} alt={alt} />
         <Name>{name}</Name>
         <UnitPriceWrapper>
@@ -44,16 +50,19 @@ const { shoppingCart, setShoppingCart } = useContext(AppContext);
           <AmountControllerButton>+</AmountControllerButton>
         </AmountWrapper>
         <BinButtonWrapper>
-          <BinButton />
+          <BinButton onClick={({name}) => handleDelete(name)} value={name}/>
         </BinButtonWrapper>
       </RowItem>
     );
   })
+
   
   return(
     <MainWrapper>
-
-      {elements}
+      {filterdElements.length
+        ? filterdElements
+        : allElements
+      }
     </MainWrapper>
   );
 }
