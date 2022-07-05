@@ -13,16 +13,17 @@ import { Button } from "../../../styled-components";
 import PropTypes from "prop-types";
 
 const ProductSidebarFilter = ({
-  setFilter,
   display,
-  toggleFilter,
   filters,
+  toggleFilter,
+  setFilter,
+  setCurrentPage,
 }) => {
   const { data: categoriesData, isLoading } = useProductCategories();
 
   const handleToggle = (e) => {
     const { checked, id } = e.target;
-
+    setCurrentPage(1);
     checked
       ? setFilter((filters) => [...filters, id])
       : setFilter((filters) => filters.filter((filter) => filter !== id));

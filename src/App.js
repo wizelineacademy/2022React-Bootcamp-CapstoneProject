@@ -1,11 +1,13 @@
 import { AppRouter } from "./router";
-import { NavbarState } from "./context";
+import { NavbarState, ShopState } from "./context";
 
 function App() {
   return (
-    <NavbarState>
-      <AppRouter />
-    </NavbarState>
+    <ShopState>
+      <NavbarState>
+        <AppRouter />
+      </NavbarState>
+    </ShopState>
   );
 }
 

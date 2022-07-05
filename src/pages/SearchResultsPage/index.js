@@ -2,7 +2,8 @@ import { Container, SectionHeading } from "../../styled-components";
 import { useSearchParams } from "react-router-dom";
 import { useSearch } from "./../../utils";
 import { useState } from "react";
-import { Grid, SpinnerBounce, PageControlls } from "../../components";
+import { SpinnerBounce, PageControlls } from "../../components";
+import Grid from "./../../components/product/Grid/Grid";
 
 const SearchResultsPage = () => {
   const [serchParams] = useSearchParams();

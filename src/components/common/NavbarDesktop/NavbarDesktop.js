@@ -1,10 +1,8 @@
 import { NavContainer, LinkNav } from "./styled";
-const NavbarDesktop = (props) => {
+const NavbarDesktop = () => {
   return (
     <NavContainer>
-      <LinkNav to="/home" {...props}>
-        home
-      </LinkNav>
+      <LinkNav to="/home">home</LinkNav>
     </NavContainer>
   );
 };

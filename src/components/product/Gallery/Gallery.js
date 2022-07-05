@@ -15,10 +15,6 @@ const Gallery = ({ gallery }) => {
   const [currentImage, setCurrentImage] = useState(0);
   let max = images.length - 1 ?? 0;
 
-  const handleMainImage = (url) => {
-    setCurrentImage(url);
-  };
-
   const handleControll = (e) => {
     const obj = e.target.name;
     obj === "prev"
@@ -40,8 +36,8 @@ const Gallery = ({ gallery }) => {
       <GridImage>
         {images?.map(({ id, url }, i) => (
           <Image
-            onMouseEnter={() => handleMainImage(i)}
-            onClick={() => handleMainImage(i)}
+            onMouseEnter={() => setCurrentImage(i)}
+            onClick={() => setCurrentImage(i)}
             current={currentImage === i ? "true" : "false"}
             key={id}
           >

@@ -8,9 +8,9 @@ import {
   PageControlls,
   Spinner,
   FilterButton,
-  Grid,
 } from "./../../components";
 import { getSlug } from "./utils/getSlug";
+import Grid from "./../../components/product/Grid/Grid";
 
 const ProductList = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -37,6 +37,7 @@ const ProductList = () => {
           setFilter={setFilter}
           display={showFilter.toString()}
           toggleFilter={toggleFilter}
+          setCurrentPage={setCurrentPage}
         />
         <Content>
           {isLoading ? <Spinner /> : <Grid productsList={productsList} />}
@@ -44,7 +45,7 @@ const ProductList = () => {
       </WrapperContent>
       <PageControlls
         setCurrentPage={setCurrentPage}
-        pages={productsList.totalPages ?? 1}
+        pages={productsList.totalPages ?? 0}
         currentPage={currentPage}
       />
     </Container>

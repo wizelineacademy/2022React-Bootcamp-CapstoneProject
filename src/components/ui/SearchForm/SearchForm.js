@@ -15,7 +15,13 @@ const SearchForm = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    navigate(`/search?q=${searchParams.get("q")}`);
+    let text = searchParams.get("q");
+
+    if (text === "" || text === null) {
+      return;
+    }
+
+    navigate(`/search?q=${text}`);
   };
 
   const handleChange = (event) => {
