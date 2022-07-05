@@ -1,0 +1,64 @@
+.frm_order {
+  height: auto;
+  font-family: "Lucida Handwriting", sans-serif;
+  @include flex(flex-start, flex-start);
+
+  @include mobile {
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  &_info {
+    padding: 20px;
+    margin-right: 30px;
+    margin-top: 30px;
+    box-shadow: $box-shadow;
+    position: sticky;
+    top: calc(#{$header-shrink-height} + 20px);
+
+    @include mobile {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 30px;
+      position: unset;
+    }
+
+    &_frm {
+      
+      &_input {
+        margin: 10px 0;
+        font-family: "Lucida Handwriting", sans-serif;
+        input,
+        textarea {
+          font-family: "Lucida Handwriting", sans-serif;
+          width: 100%;
+          padding-left: 0.5rem;
+          font-size: 1rem;
+          border: 1px solid rgb(126, 160, 130);
+          color: $main-color;
+          font-weight: 600;
+          
+          &:focus {
+            outline: 0;
+          }
+        }
+
+        textarea {
+          padding: 0.5rem 0.5rem;
+          resize: none;
+          height: 10rem;
+          color: $main-color;
+          font-weight: 600;
+          font-size: 1rem;
+        }
+
+        input {
+          font-family: "Lucida Handwriting", sans-serif;
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+
+}

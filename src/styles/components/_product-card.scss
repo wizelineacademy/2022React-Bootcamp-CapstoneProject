@@ -1,6 +1,8 @@
 .card-product {
   text-align: center;
   margin-bottom: 30px;
+  box-shadow: $box-shadow;
+  
 
   .card-image {
     position: relative;
@@ -11,53 +13,69 @@
     img {
       position: absolute;
       top: 0;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 20%;
+      transform: translateX(-20%);
       height: 100%;
+      width: 80%;
 
       &:nth-child(1) {
-        transform: translateX(-50%) scale(1);
-        transition: transform 0.5s ease-in-out;
+        transform: translateX(-20%) scale(1);
+        
       }
 
       &:nth-child(2) {
-        transform: translateX(-50%) scale(0);
+        transform: translateX(-20%) scale(0);
       }
     }
 
     &:hover img {
       &:nth-child(1) {
-        transform: translateX(-50%) scale(0);
+        transform: translateX(-20%) scale(0);
       }
 
       &:nth-child(2) {
-        transform: translateX(-50%) scale(1);
-        transition: transform 0.5s ease-in-out;
+        transform: translateX(-20%) scale(1);
+        
       }
     }
   }
 
   .price {
+    text-align: left;
+    top: 0;
     color: $txt-main-color;
     font-weight: 600;
     font-size: 1.5rem;
-    margin-bottom: 10px;
+    
 
     .price-original {
       font-weight: 300;
       color: $txt-offer-color;
       margin-left: 20px;
     }
-  }
 
+    .price-old {
+      color: $txt-second-color;
+      font-weight: 300;
+    }
+  }
   .name {
-    color: $txt-second-color;
+    color: $txt-main-color;
+    font-size: 1.5rem;
+    font-weight: bolder;
+  }
+  .categoryName{
+    text-align: center;
+  }
+  .category{
+    color: black;
     font-size: 1.25rem;
     font-weight: normal;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .btn {
+    text-align: start;
     @include mobile-only {
       display: none;
     }

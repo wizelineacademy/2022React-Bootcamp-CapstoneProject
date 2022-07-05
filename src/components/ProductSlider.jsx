@@ -1,18 +1,27 @@
 import React, { useEffect, useState, useCallback } from "react";
 import PropTypes from "prop-types";
 
-const ProductSlider = ({ controls, auto, timeOut, data }) => {
+import { Loading } from "./common/index";
+
+import { useGeneralRequest } from "../utils/hooks/useGeneralRequest";
+
+const ProductSlider = ({ controls, auto, timeOut }) => {
+  const requestPart = `q=${encodeURIComponent(
+    '[[at(document.type, "banner")]]'
+  )}&lang=en-us&pageSize=5`;
+
+  const { data, isLoading } = useGeneralRequest(requestPart);
   const [activeSlide, setActiveSlide] = useState(0);
-  const totalSlides = data?.results;
 
   const nextSlide = useCallback(() => {
-    const index = activeSlide + 1 === totalSlides.length ? 0 : activeSlide + 1;
+    const index =
+      activeSlide + 1 === data?.results?.length ? 0 : activeSlide + 1;
     setActiveSlide(index);
-  }, [activeSlide, totalSlides]);
+  }, [activeSlide, data]);
 
   const prevSlide = () => {
     const index =
-      activeSlide - 1 < 0 ? totalSlides.length - 1 : activeSlide - 1;
+      activeSlide - 1 < 0 ? data?.results?.length - 1 : activeSlide - 1;
     setActiveSlide(index);
   };
 
@@ -29,28 +38,34 @@ const ProductSlider = ({ controls, auto, timeOut, data }) => {
 
   return (
     <div className="product-slider">
-      {totalSlides?.map((item, index) => (
-        <ProductSliderItem
-          key={index}
-          item={item}
-          active={index === activeSlide}
-        />
-      ))}
-      {controls ? (
+      {!isLoading ? (
+        <div>
+          {data?.results?.map((item, index) => (
+            <ProductSliderItem
+              key={index}
+              item={item}
+              active={index === activeSlide}
+            />
+          ))}
+        </div>
+      ) : (
+        <Loading text="Loading ProductSlider..." styles={{ height: "100%" }} />
+      )}
+      {controls && !isLoading && (
         <div className="control">
           <div className="item" onClick={prevSlide}>
             <i className="bx bx-chevron-left" />
           </div>
           <div className="item">
             <div className="index">
-              {activeSlide + 1}/{totalSlides?.length}
+              {activeSlide + 1}/{data?.results?.length}
             </div>
           </div>
           <div className="item" onClick={nextSlide}>
             <i className="bx bx-chevron-right" />
           </div>
         </div>
-      ) : null}
+      )}
     </div>
   );
 };
@@ -59,7 +74,6 @@ ProductSlider.propTypes = {
   controls: PropTypes.bool,
   auto: PropTypes.bool,
   timeOut: PropTypes.number,
-  data: PropTypes.object.isRequired,
 };
 
 const ProductSliderItem = (props) => (

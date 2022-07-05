@@ -6,8 +6,12 @@ const Button = (props) => {
 
   const size = props.size ? `btn-${props.size}` : "";
 
+  const buttonType = props.buttonType ? props.buttonType : "button";
+  const isDisabled = props.isDisabled ? props.isDisable : "";
   return (
     <button
+      disabled={isDisabled}
+      type={buttonType}
       className={`btn ${bg} ${size} `}
       onClick={props.handler ? () => props.handler() : null}
     >
@@ -19,8 +23,9 @@ const Button = (props) => {
 Button.propTypes = {
   backgroundColor: PropTypes.string,
   size: PropTypes.string,
-  icon: PropTypes.string,
   handler: PropTypes.func,
+  buttonType: PropTypes.string,
+  isDisabled: PropTypes.bool,
 };
 
 export default Button;

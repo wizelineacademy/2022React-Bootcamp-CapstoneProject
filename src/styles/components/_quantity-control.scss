@@ -1,0 +1,62 @@
+
+
+
+.quantity-control {
+  @include flex(flex-start, flex-start);
+
+  @include mobile {
+    flex-direction: column;
+  }
+  
+  &_info {
+    flex-grow: 1;
+    position: sticky;
+    top: $header-shrink-height;
+    padding-top: 4rem;
+
+    @include mobile {
+      position: relative;
+      top: unset;
+    }
+
+    &_item {
+      margin-top: 2rem;
+
+      &_title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      &_quantity {
+        @include flex(flex-start, flex-start);
+
+        &_btn_add {
+          @include flex(center, center);
+          width: 30px;
+          height: 30px;
+          border: 2px solid green;
+          font-size: 1.5rem;
+          cursor: pointer;
+        }
+        &_btn_minus {
+          @include flex(center, center);
+          width: 30px;
+          height: 30px;
+          border: 2px solid red;
+          font-size: 1.5rem;
+          cursor: pointer;
+        }
+        &_input {
+          @include flex(center, center);
+          height: 30px;
+          width: 90px;
+          font-size: 1.5rem;
+          border-top: 2px solid $txt-second-color;
+          border-bottom: 2px solid $txt-second-color;
+        }
+      }
+
+    }
+  }
+}

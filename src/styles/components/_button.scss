@@ -1,31 +1,36 @@
 .btn {
   border: 0;
-  text-transform: uppercase;
-  cursor: pointer;
-  font-size: 1.5rem;
-  font-weight: 600;
-  overflow: hidden;
-  position: relative;
   outline: 0;
   color: $btn-main-color;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
 
   @include mobile {
     font-size: 1rem;
   }
 
-  .txt {
+  .txt,
+  .icon {
     display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .txt {
     padding: 1rem 2rem;
   }
 
   .icon {
     @include flex(center, center);
     font-size: 2rem;
-    height: 100%;
-    width: 100%;
     position: absolute;
     left: 0;
     top: 0;
+    height: 100%;
+    width: 100%;
     transform: translateX(-100%);
   }
 
@@ -33,11 +38,11 @@
     font-size: 1rem;
   }
 
-  &-block {
-    width: 100%;
-  }
-
   &-sm .txt {
     padding: 0.7rem 1.5rem;
+  }
+
+  &-block {
+    width: 100%;
   }
 }

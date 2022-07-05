@@ -5,7 +5,7 @@
     flex-direction: column;
   }
 
-  &-filter {
+  &_filter {
     width: 20%;
 
     @include tablet {
@@ -30,34 +30,32 @@
       transform: translateX(0);
     }
 
-    &-widget {
-      margin-bottom: 2rem;
+    &_widget {
+      margin-bottom: -2rem;
+      border: 2px solid;
+      border-radius: 5%;
+      border-color: black;
 
-      &-title {
+      &_title {
         font-size: 1.25rem;
         font-weight: 600;
         text-transform: capitalize;
         margin-top: 16px;
         margin-bottom: 16px;
       }
-      @include mobile {
-        padding-top: 50px;
-      }
-      &-content {
+
+      &_content {
         padding-top: 4px;
         padding-left: 8px;
-        border: 2px solid;
-        border-radius: 5%;
-        border-color: black;
         color: $txt-filter-color;
-        
-        &-item {
+
+        &_item {
           margin-bottom: 13px;
         }
       }
     }
 
-    &-close {
+    &_close {
       display: none;
 
       @include tablet {
@@ -73,7 +71,7 @@
     }
   }
 
-  &-content {
+  &_content {
     flex-grow: 1;
 
     @include tablet {
@@ -81,7 +79,7 @@
     }
   }
 
-  &-filter-toggle {
+  &_filter_toggle {
     display: none;
 
     @include tablet {

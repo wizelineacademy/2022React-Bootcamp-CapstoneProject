@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import Button from "./Button";
 
@@ -10,28 +11,34 @@ const ProductCard = ({
   secondImage,
   name,
   price,
-  slug,
+  productId,
   alt,
+  categoryName,
 }) => {
   return (
     <div className="card-product">
-      <a href="/">
+      <h3 className="name">{name}</h3>
+      <Link to={`/product/${productId}`}>
         <div className="card-image">
           <img src={pincipalImage} alt={alt} />
           {secondImage ? <img src={secondImage} alt={alt} /> : null}
         </div>
-        <h3 className="name">{name}</h3>
-        <div className="price">
-          ${formatNumber(price)}
-          <span className="price-original">
-            <del>${formatNumber(price * 1.3)}</del>
-          </span>
-        </div>
+      </Link>
+      <div className="price">
+        ${formatNumber(price)}
+        <span className="price-original">
+          <del>${formatNumber(price * 1.3)}</del>
+        </span>
+      </div>
 
+      <Link to={`/product/${productId}`}>
         <div className="btn">
-          <Button size="sm">View</Button>
+          <Button size="sm">
+            Details
+          </Button>
         </div>
-      </a>
+      </Link>
+      <h3 className="categoryName">{categoryName}</h3>
     </div>
   );
 };
@@ -41,8 +48,9 @@ ProductCard.propTypes = {
   secondImage: PropTypes.string,
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  slug: PropTypes.string.isRequired,
+  productId: PropTypes.string.isRequired,
   alt: PropTypes.string,
+  categoryName: PropTypes.string,
 };
 
 export default ProductCard;

@@ -1,55 +1,63 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import {
   ProductSlider,
   PrincipalContainer,
-  Departments,
+  Categories,
   Products,
 } from "../components";
+import { Loading, NotFound } from "../components/common";
 
 import Group, { GroupBody, GroupTitle } from "../components/common/Group";
 
 import Button from "../components/common/Button";
-import { VIEW_PAGE, LIST_TYPE } from "../utils/constants";
+import { LIST_TYPE } from "../utils/constants";
 
-import featuredBannersData from "../utils/mocks/en-us/featured-banners.json";
-import featuredProductsData from "../utils/mocks/en-us/featured-products.json";
-import productCategoriesData from "../utils/mocks/en-us/product-categories.json";
+import { useGeneralRequest } from "../utils/hooks/useGeneralRequest";
 
-const Home = ({ navigate }) => {
-  const handleNavigate = (page) => {
-    navigate(page);
-  };
+const Home = () => {
+  const requestPart = `q=${encodeURIComponent(
+    '[[at(document.type, "product")]]'
+  )}&q=${encodeURIComponent(
+    '[[at(document.tags, ["Featured"])]]'
+  )}&lang=en-us&pageSize=16`;
+  const { data, isLoading } = useGeneralRequest(requestPart);
 
   return (
-    <PrincipalContainer title="Shop">
-      <ProductSlider
-        data={featuredBannersData}
-        controls={true}
-        auto={true}
-        timeOut={5000}
-      />
+    <PrincipalContainer title="Home Page">
+      <ProductSlider controls={true} auto={true} timeOut={5000} />
 
       <Group>
-        <GroupTitle>Departments</GroupTitle>
+        <GroupTitle>Categories</GroupTitle>
         <GroupBody>
-          <Departments data={productCategoriesData} />
+          <Categories />
         </GroupBody>
       </Group>
 
       <Group>
         <GroupTitle>Products</GroupTitle>
         <GroupBody>
-          <Products
-            viewType={LIST_TYPE.FEATURED_PRODUCTS}
-            data={featuredProductsData.results}
-          />
+          {isLoading ? (
+            <Loading text="Loading Featured Products..." />
+          ) : data?.results_size > 0 ? (
+            <div>
+              <Products
+                viewType={LIST_TYPE.FEATURED_PRODUCTS}
+                data={data?.results}
+                pageSize={1}
+              />
+            </div>
+          ) : (
+            <NotFound text="Featured Product Not Found" />
+          )}
         </GroupBody>
       </Group>
-
-      <Button size="block" handler={() => handleNavigate(VIEW_PAGE.PRODUCTS)}>
-        <i className="bx bx-store-alt" /> All products
-      </Button>
+      <Link to="/products">
+        <Button size="block">
+          <i className="bx bx-store" /> View all products
+        </Button>
+      </Link>
     </PrincipalContainer>
   );
 };

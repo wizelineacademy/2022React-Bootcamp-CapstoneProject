@@ -3,7 +3,7 @@
 
   cursor: pointer;
 
-  &.-active {
+  &.active {
     font-weight: 600;
   }
 
@@ -19,7 +19,7 @@
     width: 0;
   }
 
-  &-checkmark {
+  &_checkmark {
     margin-right: 10px;
     height: 15;
     width: 15;
@@ -31,14 +31,14 @@
     }
   }
 
-  input:checked ~ &-checkmark {
+  input:checked ~ &_checkmark {
     background-color: $main-color;
     border: 1px solid $main-color;
     color: $txt-white;
     font-weight: 600;
   }
 
-  input:checked ~ &-checkmark > i {
+  input:checked ~ &_checkmark > i {
     transform: scale(1);
   }
 }

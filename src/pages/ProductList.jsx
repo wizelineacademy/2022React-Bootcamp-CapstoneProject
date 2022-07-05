@@ -1,106 +1,119 @@
-import React, { useRef, useState, useCallback, useEffect } from "react";
+import React, {
+  useRef,
+  useState,
+  useCallback,
+  useEffect,
+  useContext,
+} from "react";
+import { useSearchParams } from "react-router-dom";
 
 import { PrincipalContainer, Products } from "../components";
-
-import CheckBox from "../components/common/CheckBox";
-import Loading from "../components/common/Loading";
-import Button from "../components/common/Button";
+import { Button, CheckBox, Loading } from "../components/common";
 
 import { LIST_TYPE } from "../utils/constants";
 
-import productCategories from "../utils/mocks/en-us/product-categories.json";
-import producst from "../utils/mocks/en-us/products.json";
+import CategoryContext from "../context/Category/CategoryContext";
+
+import { useGeneralRequest } from "../utils/hooks/useGeneralRequest";
 
 const ProductList = () => {
-  const [filters, setFilters] = useState([]);
-  const [listProduct, setProdusctList] = useState(producst.results);
-  const [loading, isLoading] = useState(false);
+  const [params] = useSearchParams();
+  const { categories } = useContext(CategoryContext);
+  const { data, isLoading } = useGeneralRequest(
+    `q=${encodeURIComponent('[[at(document.type, "product")]]')}&lang=en-us`
+  );
+  const [filters, setFilters] = useState(
+    params.get("category") ? [params.get("category")] : []
+  );
+  const [productsList, setProductsList] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const componentMounted = useRef(true);
-
-  const filterSelect = (checked, item) => {
+  const filterSelect = (checked, id) => {
     if (checked) {
-      setFilters([...filters, item.id]);
+      setFilters([...filters, id]);
     } else {
-      const newFilter = filters.filter((x) => x !== item.id);
+      const newFilter = filters.filter((x) => x !== id);
       setFilters(newFilter);
     }
   };
 
-  const updateListProduct = useCallback(() => {
-    let productsTemp = producst.results;
+  const updateProductList = useCallback(() => {
+    let productsTemp = data?.results;
     if (filters.length > 0) {
-      productsTemp = productsTemp.filter((x) =>
+      productsTemp = productsTemp?.filter((x) =>
         filters.includes(x?.data?.category?.id)
       );
+      setProductsList(productsTemp);
     }
-    setProdusctList(productsTemp);
-  }, [filters]);
+  }, [filters, data]);
 
   useEffect(() => {
-    setTimeout(() => {
-      if (componentMounted.current) {
-        isLoading(true);
-      }
-    }, 2000);
-
-    return () => {
-      componentMounted.current = false;
-    };
-  }, []);
+    if (!isLoading) {
+      setProductsList(data?.results);
+      setLoading(isLoading);
+    }
+  }, [data, isLoading]);
 
   useEffect(() => {
-    updateListProduct();
-  }, [updateListProduct]);
+    updateProductList();
+  }, [updateProductList]);
 
   const filterRef = useRef(null);
   const showFilters = () => filterRef.current.classList.toggle("active");
 
   return (
-    <PrincipalContainer title="Wz Products">
-      {loading ? (
-        <div className="product-list">
-          <div className="product-list-filter-toggle">
-            <Button size="sm" handler={() => showFilters()}>
-              Show Filters
-            </Button>
-          </div>
-          <div className="product-list-content">
-            <Products data={listProduct} viewType={LIST_TYPE.PRODUCT_LIST} />
-          </div>
-
-          <div className="product-list-filter" ref={filterRef}>
-            <div
-              className="product-list-filter-close"
-              onClick={() => showFilters()}
-            >
-              <i className="bx bx-message-square-x" />
-            </div>
-            <div className="product-list-filter-widget">
-              <div className="product-list-filter-widget-title">Categories</div>
-              <div className="product-list-filter-widget-content ">
-                {productCategories &&
-                  productCategories?.results?.map((item) => (
-                    <div
-                      key={item.id}
-                      className="product-list-filter-widget-content-item"
-                    >
-                      <CheckBox
-                        label={item?.data?.name}
-                        onChange={(input) => filterSelect(input.checked, item)}
-                        checked={filters.includes(item.id)}
-                      />
-                    </div>
-                  ))}
-              </div>
-            </div>
-          </div>
-
-
+    <PrincipalContainer title="Wz-shop Products">
+      <div className="product-list">
+        <div className="product-list_filter_toggle">
+          <Button size="sm" handler={() => showFilters()}>
+            Show Filters
+          </Button>
         </div>
-      ) : (
-        <Loading text="Loading..." />
-      )}
+        <div className="product-list_content">
+          {!loading ? (
+            <div>
+              <Products
+                data={productsList}
+                viewType={LIST_TYPE.PRODUCT_LIST}
+                pageSize={12}
+              />
+            </div>
+          ) : (
+            <Loading text="Loading Products..." />
+          )}
+        </div>
+        <div className="product-list_filter" ref={filterRef}>
+          <div
+            className="product-list_filter_close"
+            onClick={() => showFilters()}
+          >
+            <i className="bx bx-message-square-x" />
+          </div>
+          <div className="product-list_filter_widget">
+            <div className="product-list_filter_widget_title">Categories</div>
+            <div className="product-list_filter_widget_content">
+              {categories &&
+                categories?.map((item) => (
+                  <div
+                    key={item.id}
+                    className="product-list_filter_widget_content_item"
+                  >
+                    <CheckBox
+                      label={item?.data?.name}
+                      onChange={(input) => filterSelect(input.checked, item.id)}
+                      checked={filters.includes(item.id)}
+                    />
+                  </div>
+                ))}
+            </div>
+            {filters.length > 0 && (
+              <Button size="sm" handler={() => setFilters([])}>
+                Clear Filter
+              </Button>
+            )}
+          </div>
+        </div>
+      </div>
     </PrincipalContainer>
   );
 };

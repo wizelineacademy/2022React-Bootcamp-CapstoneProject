@@ -1,0 +1,163 @@
+.cart {
+  height: auto;
+  @include flex(flex-start, flex-start);
+
+  @include mobile {
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  &_list {
+    width: 100%;
+
+    @include mobile {
+      width: 100%;
+    }
+
+    &_total {
+      text-align: right;
+      span {
+        font-size: 1.5rem;
+        font-weight: bold;
+        strong {
+          text-decoration: underline;
+          color: $main-color;
+        }
+      }
+    }
+  }
+
+  &_info {
+    padding: 20px;
+    margin-right: 30px;
+    margin-top: 30px;
+    box-shadow: $box-shadow;
+    position: sticky;
+    top: calc(#{$header-shrink-height} + 20px);
+
+    @include mobile {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 30px;
+      position: unset;
+    }
+
+    &_txt {
+      & > * {
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 2.25rem;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      &_price {
+        @include flex(center, space-between);
+        padding: 10px 0;
+        font-size: 1.25rem;
+
+        span:nth-child(2) {
+          font-size: 2rem;
+          color: $main-color;
+          font-weight: 600;
+        }
+      }
+    }
+    &_btn {
+      & > * {
+        margin-bottom: 20px;
+      }
+    }
+
+  }
+
+  &_item {
+    @include flex(center, flex-start);
+    margin-bottom: 2px;
+
+    &_image {
+      margin-right: 20px;
+
+      img {
+        height: 80px;
+      }
+    }
+
+    &_info {
+      @include flex(center, space-between);
+      flex-grow: 1;
+
+      @include mobile {
+        @include flex(flex-start, center);
+        flex-direction: column;
+        & > * {
+          margin-bottom: 10px;
+        }
+      }
+
+      &_name {
+       
+
+        @include mobile {
+          width: 100%;
+        }
+      }
+
+      &_name,
+      &_price,
+      &_subtotal {
+        width: 70%;
+        font-size: 1.25rem;
+      }
+
+      &_remove {
+        font-size: 1.5rem;
+
+        i {
+          cursor: pointer;
+          &:hover {
+            color: $main-color;
+          }
+        }
+      }
+
+      &_quantity {
+        @include flex(flex-start, flex-start);
+
+        &_btn {
+          @include flex(center, center);
+          width: 30px;
+          height: 30px;
+          border: 2px solid $txt-second-color;
+          font-size: 1.5rem;
+          cursor: pointer;
+        }
+
+        &_input {
+          @include flex(center, center);
+          height: 30px;
+          width: 90px;
+          font-size: 1.5rem;
+          border-top: 2px solid $txt-second-color;
+          border-bottom: 2px solid $txt-second-color;
+        }
+      }
+
+      button {
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      &_quantity {
+        .product-details_info_item {
+          margin-top: 0;
+          &_quantity_input {
+            width: 50px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,164 @@
+
+
+
+.product-details {
+  @include flex(flex-start, flex-start);
+
+  @include mobile {
+    flex-direction: column;
+  }
+
+  &_box {
+    border: 5px solid darkblue;
+    width: 20%;
+    @include tablet {
+      width: 80%;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+  &_description {
+    border: 5px solid darkblue;
+    width: 50%;
+    @include tablet {
+      width: 80%;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+  &_images {
+    
+    width: 60%;
+    flex-wrap: wrap;
+
+    @include tablet {
+      width: 80%;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+
+    &_main {
+      padding-top: 0%;
+      position: relative;
+      border: 5px solid darkblue;
+      
+    }
+  }
+
+  &_info {
+    flex-grow: 1;
+    position: sticky;
+    top: $header-shrink-height;
+    padding-top: 4rem;
+
+    @include mobile {
+      position: relative;
+      top: unset;
+    }
+
+    &_title {
+      font-size: 2.5rem;
+      font-weight: normal;
+    }
+
+    &_item {
+      margin-top: 2rem;
+
+      &_title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+      &_specs {
+        width: 100%;
+        border-collapse: collapse;
+        tr {
+          td:nth-child(1) {
+            width: 35%;
+          }
+          td {
+            font-size: 1.5rem;
+            padding: 5px 2px;
+            border-bottom: 1px solid $txt-second-color;
+          }
+        }
+      }
+
+      &_quantity {
+        @include flex(flex-start, flex-start);
+
+        &_btn {
+          @include flex(center, center);
+          width: 30px;
+          height: 30px;
+          border: 2px solid $txt-second-color;
+          font-size: 1.5rem;
+          cursor: pointer;
+        }
+
+        &_btn_add {
+          @include flex(center, center);
+          width: 30px;
+          height: 30px;
+          border: 2px solid green;
+          font-size: 1.5rem;
+          cursor: pointer;
+        }
+        &_btn_minus {
+          @include flex(center, center);
+          width: 30px;
+          height: 30px;
+          border: 2px solid red;
+          font-size: 1.5rem;
+          cursor: pointer;
+        }
+        &_input {
+          @include flex(center, center);
+          height: 30px;
+          width: 90px;
+          font-size: 1.5rem;
+          border-top: 2px solid $txt-second-color;
+          border-bottom: 2px solid $txt-second-color;
+        }
+      }
+
+      button {
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+.product-description {
+  width: 100%;
+  padding: 2rem 2rem 3rem;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+
+  @include mobile {
+    display: none;
+  }
+
+  &.mobile {
+    display: none;
+
+    @include mobile {
+      display: block;
+    }
+  }
+
+  &_toggle {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

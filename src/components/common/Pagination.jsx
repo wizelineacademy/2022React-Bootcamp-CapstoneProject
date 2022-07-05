@@ -1,34 +1,52 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-import Button from "./Button";
-import Grid from "./Grid";
+import { Button, Grid } from "./";
 
-const Pagination = () => {
-  const prev = () => {
-    console.log("previo");
+import { TYPE_PAGINATION } from "../../utils/constants";
+
+const Pagination = ({ activePagination, totalPages, currentPage }) => {
+  const handlePagination = (type) => {
+    activePagination(type);
   };
-
-  const next = () => {
-    console.log("next");
-  };
-
   return (
     <section className="pagination">
-      <Grid col={5} mdCol={5} smCol={5} gap={20}>
-        <div>.</div>
-        <Button handler={() => prev()} size="sm" icon="bx bx-left-arrow-alt">
+      <Grid col={3} mdCol={3} smCol={3} gap={5}>
+        <Button
+          isDisabled={currentPage > 1}
+          handler={
+            currentPage > 1
+              ? () => handlePagination(TYPE_PAGINATION.PREV)
+              : null
+          }
+          size="sm"
+        >
           Prev
         </Button>
 
-        <div className="pagination-counter">1/10</div>
+        <div className="pagination_counter">
+          {currentPage} / {totalPages}
+        </div>
 
-        <Button handler={() => next()} size="sm" icon="bx bx-right-arrow-alt">
+        <Button
+          handler={
+            currentPage < totalPages
+              ? () => handlePagination(TYPE_PAGINATION.NEXT)
+              : null
+          }
+          size="sm"
+        >
           Next
         </Button>
-        <div>.</div>
       </Grid>
     </section>
   );
+};
+
+Pagination.propTypes = {
+  activePagination: PropTypes.func,
+  totalPages: PropTypes.number,
+  currentPage: PropTypes.number,
 };
 
 export default Pagination;

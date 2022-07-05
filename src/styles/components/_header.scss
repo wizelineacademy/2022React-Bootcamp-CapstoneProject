@@ -78,13 +78,29 @@
       }
     }
 
-    label {
+    button {
       font-size: 2rem;
       color: $light-color;
       cursor: pointer;
+      border: none;
+      background: transparent;
 
       &:hover {
         color: $txt-main-color;
+        border-radius: 99%;
+        background-color: #e2e6eb;
+      }
+
+      @include tablet {
+        color: $txt-main-color;
+        border-radius: 99%;
+        background-color: #e2e6eb;
+      }
+
+      @include mobile {
+        color: $txt-main-color;
+        border-radius: 99%;
+        background-color: #e2e6eb;
       }
     }
   }
@@ -106,6 +122,10 @@
 
     @include desktop-up {
       margin-top: 0;
+    }
+
+    &:hover {
+      color: $gold-color;
     }
 
     span {

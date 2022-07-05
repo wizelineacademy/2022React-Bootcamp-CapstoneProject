@@ -1,39 +1,62 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import { VIEW_PAGE } from "../utils/constants";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import logo from "../assets/images/6192875.png";
 
-const Header = ({ changePage }) => {
+import CartContext from "../context/Cart/CartContext";
+const Header = () => {
+  const cartContext = useContext(CartContext);
+  const navigate = useNavigate();
+
   return (
     <header className="header">
-      <div
-        className="logo"
-        onClick={changePage ? () => changePage(VIEW_PAGE.HOME) : null}
-      >
-        <img src={logo} alt="logo" data-testid="company-logo" />
-        <span data-testid="company-name">WZ-shop</span>
-      </div>
+      <Link to="/">
+        <div className="logo">
+          <img src={logo} alt="logo" />
+          <span>Wz shop</span>
+        </div>
+      </Link>
 
-      <form className="search-form">
-        <input type="search" id="search-box" placeholder="search product..." />
-        <label htmlFor="search-box" className="bx bx-search">
-          {}
-        </label>
-      </form>
+      <Formik
+        initialValues={{ searchTerm: "" }}
+        validate={(values) => {
+          const errors = {};
+          if (!values.searchTerm) {
+            errors.searchTerm = "Required";
+          }
+          return errors;
+        }}
+        onSubmit={(values, { setSubmitting }) => {
+          navigate(`/search?q=${values.searchTerm}`);
+        }}
+      >
+        <Form className="search-form">
+          <Field
+            type="search"
+            name="searchTerm"
+            component="input"
+            placeholder="search here..."
+          />
+          <ErrorMessage name="email" component="div" />
+          <button type="submit" className="bx bx-search" />
+        </Form>
+      </Formik>
 
       <div className="icons">
-        <a href="/">
+        <Link to="/cart" title="Go To Shopping Cart">
           <i className="bx bx-shopping-bag" />
-        </a>
+          {cartContext.state.items.length > 0 && (
+            <span>
+              {cartContext.state.items.length >= 10
+                ? "+9"
+                : cartContext.state.items.length}{" "}
+            </span>
+          )}
+        </Link>
       </div>
     </header>
   );
-};
-
-Header.propTypes = {
-  changePage: PropTypes.func,
 };
 
 export default Header;
