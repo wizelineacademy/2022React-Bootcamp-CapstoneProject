@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const SectionHeading = styled.h2`
   width: 150px;
-  margin: 0 auto;
+  margin: 40px auto;
   font-size: 25px;
   font-weight: 400;
   text-transform: uppercase;

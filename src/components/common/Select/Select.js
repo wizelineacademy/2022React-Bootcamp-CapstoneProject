@@ -1,15 +1,5 @@
-import styled from "@emotion/styled";
 import PropTypes from "prop-types";
-
-const Quantity = styled.select`
-  outline: 2px solid var(--extralight-gray);
-  font-size: 20px;
-  border: none;
-  border-radius: 8px;
-  width: 100%;
-  color: var(--gray);
-  margin: 20px auto;
-`;
+import { Quantity } from "./styled";
 
 const Select = ({ stock, setQuantity, quantity }) => {
   return (

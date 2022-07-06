@@ -1,4 +1,4 @@
-import { useProductCategories } from "./../../../utils";
+import { useProductCategories } from "../../../utils";
 import { SectionHeading, SectionContainer } from "./../../../styled-components";
 import { CategorieCard } from "../";
 import { GridContainer } from "./styled";

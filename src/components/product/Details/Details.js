@@ -24,7 +24,6 @@ const Details = ({ product }) => {
     product;
 
   const handleAddProduct = () => {
-    console.log(quantity);
     if (stock <= 0) {
       return;
     }

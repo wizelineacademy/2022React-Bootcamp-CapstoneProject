@@ -13,7 +13,7 @@ const PageControlls = ({ setCurrentPage, pages, currentPage }) => {
     if (currentPage >= pages) {
       setCurrentPage(1);
       return;
-    } else if (currentPage <= 0) {
+    } else if (currentPage <= 1) {
       setCurrentPage(pages);
       return;
     }

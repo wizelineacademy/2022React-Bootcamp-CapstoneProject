@@ -12,6 +12,11 @@ export const CurrentImage = styled.div`
   user-select: none;
   position: relative;
   margin-bottom: 0;
+
+  @media (min-width: 768px) {
+    width: 500px;
+  }
+
   img {
     width: 100%;
   }
@@ -19,8 +24,9 @@ export const CurrentImage = styled.div`
 
 export const GridImage = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 100px);
-  width: auto;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 100px);
+  width: 100%;
   grid-gap: 10px;
   cursor: pointer;
   img {

@@ -58,6 +58,6 @@ export const Title = styled(Link)`
 
 export const Price = styled.div`
   color: var(--gray);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 23px;
 `;

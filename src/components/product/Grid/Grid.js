@@ -1,7 +1,7 @@
 import { ProductCard } from "..";
 import { ProductsGrid } from "../../../styled-components";
-import PropTypes from "prop-types";
-const Grid = ({ productsList }) => {
+
+const Grid = ({ productsList = [] }) => {
   return (
     <ProductsGrid>
       {productsList.length > 0 ? (
@@ -13,10 +13,6 @@ const Grid = ({ productsList }) => {
       )}
     </ProductsGrid>
   );
-};
-
-Grid.propTypes = {
-  productsList: PropTypes.array.isRequired,
 };
 
 export default Grid;

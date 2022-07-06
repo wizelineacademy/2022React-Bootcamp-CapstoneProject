@@ -1,3 +1,7 @@
+import { Cross } from "../../icons";
+import { useProductCategories } from "../../../utils";
+import { SpinnerBounce } from "../../ui";
+import { Button } from "../../../styled-components";
 import {
   Sidebar,
   ImageContainer,
@@ -6,11 +10,7 @@ import {
   Heading,
   CloseAction,
 } from "./styled";
-import { Cross } from "../../icons";
-import { useProductCategories } from "./../../../utils";
-import { SpinnerBounce } from "../../ui";
-import { Button } from "../../../styled-components";
-import PropTypes from "prop-types";
+import { types } from "./proptypes";
 
 const ProductSidebarFilter = ({
   display,
@@ -65,11 +65,6 @@ const ProductSidebarFilter = ({
   );
 };
 
-ProductSidebarFilter.propTypes = {
-  setFilter: PropTypes.func,
-  display: PropTypes.string,
-  toggleFilter: PropTypes.func,
-  filters: PropTypes.array,
-};
+ProductSidebarFilter.propTypes = types;
 
 export default ProductSidebarFilter;

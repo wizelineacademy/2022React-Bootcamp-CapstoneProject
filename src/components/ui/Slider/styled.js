@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 export const SliderContainer = styled.div`
   position: relative;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 84px auto 0;
   width: 100%;
   height: 240px;
 

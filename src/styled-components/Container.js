@@ -18,7 +18,7 @@ const FadeIn = keyframes`
 
 export const Container = styled.div`
   width: 95%;
-  margin: 0 auto;
+  margin: 80px auto 10px;
   animation: ${FadeIn} 1s 1;
 
   @media (min-width: 1439px) {

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { ArrowRight } from "../../icons";
 import { WrapperPrice, Block, LabelPrice, CheckoutLink } from "./styled";
 
@@ -12,6 +13,10 @@ const CartSubtotal = ({ subtotal }) => {
       </CheckoutLink>
     </WrapperPrice>
   );
+};
+
+CartSubtotal.propTypes = {
+  subtotal: PropTypes.number.isRequired,
 };
 
 export default CartSubtotal;

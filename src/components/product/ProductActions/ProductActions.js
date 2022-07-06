@@ -10,17 +10,27 @@ const ProductActions = ({ activeClass, product }) => {
 
   const { addToCart } = useContext(ShopContext);
 
+  const addProductToCart = () => {
+    try {
+      addToCart({ ...product, quantity: 1 });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
-    <ActionsContainer activeClass={activeClass}>
-      <Button onClick={() => addToCart({ ...product, quantity: 1 })}>
-        <Bag color="#FFF" />
-      </Button>
-      <Button>
-        <LinkAction to={`/product/${id}`}>
-          <Search fill="#FFF" />
-        </LinkAction>
-      </Button>
-    </ActionsContainer>
+    <>
+      <ActionsContainer activeClass={activeClass}>
+        <Button onClick={() => addProductToCart()}>
+          <Bag color="#FFF" />
+        </Button>
+        <Button>
+          <LinkAction to={`/product/${id}`}>
+            <Search fill="#FFF" />
+          </LinkAction>
+        </Button>
+      </ActionsContainer>
+    </>
   );
 };
 

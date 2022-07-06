@@ -5,6 +5,7 @@ import {
   ADD_PRODUCT,
   UPDATE_QUANTITY,
   DELETE_ITEM,
+  CLEAR_CART,
 } from "./../../types/shop/index";
 
 const ShopState = (props) => {
@@ -35,9 +36,22 @@ const ShopState = (props) => {
     });
   };
 
+  const clearShoppingCart = () => {
+    dispatch({
+      type: CLEAR_CART,
+      payload: null,
+    });
+  };
+
   return (
     <ShopContext.Provider
-      value={{ cart: state.cart, addToCart, updateQuantity, deleteItem }}
+      value={{
+        cart: state.cart,
+        addToCart,
+        updateQuantity,
+        deleteItem,
+        clearShoppingCart,
+      }}
     >
       {props.children}
     </ShopContext.Provider>

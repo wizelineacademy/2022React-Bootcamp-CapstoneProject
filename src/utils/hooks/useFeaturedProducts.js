@@ -16,11 +16,9 @@ export function useFeaturedProducts() {
     }
 
     const controller = new AbortController();
-
     async function getFeaturedProducts() {
       try {
         setFeaturedProducts({ data: {}, isLoading: true });
-
         const response = await fetch(
           `${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(
             `[[at(document.type, "product")]]`
@@ -31,7 +29,6 @@ export function useFeaturedProducts() {
             signal: controller.signal,
           }
         );
-
         const data = await response.json();
 
         const dataAdapted = createProductAdapter(data);

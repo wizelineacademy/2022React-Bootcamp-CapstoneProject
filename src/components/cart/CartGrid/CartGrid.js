@@ -1,4 +1,4 @@
-import ProTypes from "prop-types";
+import PropTypes from "prop-types";
 import { CartItem } from "../CartItem";
 
 const CartGrid = ({ cart }) => {
@@ -12,7 +12,7 @@ const CartGrid = ({ cart }) => {
 };
 
 CartGrid.propTypes = {
-  cart: ProTypes.array.isRequired,
+  cart: PropTypes.array.isRequired,
 };
 
 export default CartGrid;

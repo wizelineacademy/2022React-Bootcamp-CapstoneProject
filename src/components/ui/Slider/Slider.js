@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { SliderContainer, Prev, Next } from "./styled";
-import { useFeaturedBanners } from "./../../../utils";
+import { useFeaturedBanners } from "../../../utils";
 import { SpinnerBounce, Slides } from ".././";
 import PropTypes from "prop-types";
 

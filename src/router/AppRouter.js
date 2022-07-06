@@ -8,6 +8,7 @@ import {
   CartPage,
   CheckoutPage,
 } from "../pages";
+import ErrorBoundary from "./../error/ErrorBoundary/ErrorBoundary";
 
 export const AppRouter = () => {
   return (
@@ -16,7 +17,14 @@ export const AppRouter = () => {
         <Route path="/" element={<Home />} />
         <Route path="home" element={<Navigate to="/" />} />
         <Route path="products" element={<ProductList />} />
-        <Route path="product/:productId" element={<ProductDetailPage />} />
+        <Route
+          path="product/:productId"
+          element={
+            <ErrorBoundary>
+              <ProductDetailPage />
+            </ErrorBoundary>
+          }
+        />
         <Route path="search" element={<SearchResultsPage />} />
         <Route path="cart" element={<CartPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />

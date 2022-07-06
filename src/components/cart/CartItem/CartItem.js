@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react";
+import PropTypes from "prop-types";
 import ShopContext from "./../../../context/shop/shopContext";
 import { Button } from "../../../styled-components";
 import { Select } from "../../common";
@@ -44,6 +45,10 @@ const CartItem = ({ item }) => {
       <Button onClick={() => deleteItem(id)}>x</Button>
     </CardContainer>
   );
+};
+
+CartItem.propTypes = {
+  item: PropTypes.object.isRequired,
 };
 
 export default CartItem;

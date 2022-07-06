@@ -1,7 +1,7 @@
 import { SectionHeading, SectionContainer } from "./../../../styled-components";
 import { ViewAllProducts } from "./styled";
 import { Link } from "react-router-dom";
-import { useFeaturedProducts } from "./../../../utils";
+import { useFeaturedProducts } from "../../../utils";
 import { SpinnerBounce } from "../../ui";
 import Grid from "./../Grid/Grid";
 
