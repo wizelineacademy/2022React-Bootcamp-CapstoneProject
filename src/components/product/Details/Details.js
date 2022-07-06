@@ -1,6 +1,10 @@
+import { useContext, useState } from "react";
+import { ShopContext } from "../../../context";
 import { Cart } from "../../icons";
 import { Select } from "../../common";
 import { TagsWraper } from "../TagsWrapper";
+import { TableSpecs } from "../TableSpecs";
+import PropTypes from "prop-types";
 import {
   Category,
   Title,
@@ -11,12 +15,25 @@ import {
   Stock,
   AddButton,
 } from "./styled";
-import { TableSpecs } from "../TableSpecs";
-import PropTypes from "prop-types";
 
 const Details = ({ product }) => {
+  const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useContext(ShopContext);
+
   const { category, title, description, sku, tags, price, stock, specs } =
     product;
+
+  const handleAddProduct = () => {
+    console.log(quantity);
+    if (stock <= 0) {
+      return;
+    }
+    addToCart({
+      ...product,
+      quantity: parseInt(quantity),
+    });
+  };
+
   return (
     <div>
       <Category>{category}</Category>
@@ -33,8 +50,8 @@ const Details = ({ product }) => {
         <State>{stock > 0 ? "Available" : "Sold out"}</State>
         <Stock>({stock} available)</Stock>
       </StockDetail>
-      <Select stock={stock} />
-      <AddButton>
+      <Select stock={stock} setQuantity={setQuantity} quantity={quantity} />
+      <AddButton onClick={handleAddProduct}>
         <Cart />
         Add cart
       </AddButton>

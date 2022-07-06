@@ -1,7 +1,11 @@
 import { useReducer } from "react";
 import ShopContext from "./shopContext";
 import ShopReducer from "./shopReducer";
-import { ADD_PRODUCT } from "./../../types/shop/index";
+import {
+  ADD_PRODUCT,
+  UPDATE_QUANTITY,
+  DELETE_ITEM,
+} from "./../../types/shop/index";
 
 const ShopState = (props) => {
   const initialState = {
@@ -17,8 +21,24 @@ const ShopState = (props) => {
     });
   };
 
+  const updateQuantity = (product) => {
+    dispatch({
+      type: UPDATE_QUANTITY,
+      payload: product,
+    });
+  };
+
+  const deleteItem = (id) => {
+    dispatch({
+      type: DELETE_ITEM,
+      payload: id,
+    });
+  };
+
   return (
-    <ShopContext.Provider value={{ cart: state.cart, addToCart }}>
+    <ShopContext.Provider
+      value={{ cart: state.cart, addToCart, updateQuantity, deleteItem }}
+    >
       {props.children}
     </ShopContext.Provider>
   );

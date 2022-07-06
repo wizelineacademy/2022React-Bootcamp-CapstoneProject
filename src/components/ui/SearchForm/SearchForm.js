@@ -12,12 +12,12 @@ const FormContainer = styled.form`
 const SearchForm = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+  let text = searchParams.get("q") ?? "";
 
   const handleSearch = (e) => {
     e.preventDefault();
-    let text = searchParams.get("q");
 
-    if (text === "" || text === null) {
+    if (text === "") {
       return;
     }
 
@@ -35,6 +35,7 @@ const SearchForm = () => {
         placeholder="Search"
         id="search"
         onChange={handleChange}
+        value={text}
       />
       <Button type="submit">
         <Search fill="#FFF" width="25px" height="25px" />

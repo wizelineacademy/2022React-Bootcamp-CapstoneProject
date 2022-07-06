@@ -11,7 +11,8 @@ import {
 } from "./styled";
 import PropTypes from "prop-types";
 
-const ProductCard = ({ id, title, category, price, urlImage, alt }) => {
+const ProductCard = ({ product }) => {
+  const { title, category, price, urlImage, alt } = product;
   const [activeClass, setActiveClass] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -38,7 +39,7 @@ const ProductCard = ({ id, title, category, price, urlImage, alt }) => {
           <Label fill="#a1c5cc" />
           {category}
         </CategoryLabel>
-        <ProductActions activeClass={activeClass} id={id} />
+        <ProductActions activeClass={activeClass} product={product} />
         <img src={urlImage} alt={alt} onLoad={loadImage} />
       </CardHeader>
       <CardBody>

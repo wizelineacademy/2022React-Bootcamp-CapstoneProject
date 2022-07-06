@@ -6,7 +6,7 @@ const Grid = ({ productsList }) => {
     <ProductsGrid>
       {productsList.length > 0 ? (
         productsList?.map((product) => (
-          <ProductCard key={product.id} {...product} />
+          <ProductCard key={product.id} product={product} />
         ))
       ) : (
         <h1 style={{ textAlign: "center" }}>No results</h1>

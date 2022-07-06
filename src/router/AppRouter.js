@@ -5,6 +5,8 @@ import {
   ProductList,
   ProductDetailPage,
   SearchResultsPage,
+  CartPage,
+  CheckoutPage,
 } from "../pages";
 
 export const AppRouter = () => {
@@ -16,6 +18,8 @@ export const AppRouter = () => {
         <Route path="products" element={<ProductList />} />
         <Route path="product/:productId" element={<ProductDetailPage />} />
         <Route path="search" element={<SearchResultsPage />} />
+        <Route path="cart" element={<CartPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Route>
     </Routes>
   );
