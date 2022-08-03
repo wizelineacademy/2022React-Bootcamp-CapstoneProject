@@ -1,143 +1,142 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
+import { useFormik } from "formik";
+import { useDispatch, useSelector } from "react-redux";
+// components
+import Page from "../../components/Page";
 import {
   Container,
   Row,
   Grid,
   GridItem,
-  ProductsContainer,
   GridItemProducts,
-  PaginationContainer,
-  PaginationInfo,
-  Pagination,
-  PaginationList,
-  PaginationButton,
-  PaginationSVG,
 } from "./styled-components/products.styled.component";
 import SidebarCategories from "./components/SidebarCategories";
-import ProductCard from "./components/ProductCard";
 import { SpinerLoader } from "../../styled-components/global.styled.component";
+import ProductList from "./components/ProductList";
+import PaginationSection from "./components/PaginationSection";
+//
+import { useListProducts } from "../../utils/hooks";
+import { useProductCategories } from "../../utils/hooks";
+import { useQueryParam } from "../../utils/hooks";
+import { startGetList } from "../../redux/actions/products";
 
-import products from "../../mocks/featured-products.json";
+// ----------------------------------------------------------------------
 
 const Products = () => {
-  const [categoriesFilter, setCategoriesFilter] = useState([]);
-  const [productsFilter, setProductsFilter] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+  const { data: categories, isLoading: isLoadingCategories } =
+    useProductCategories();
+  const { data, isLoading } = useListProducts();
+  let [filter, setFilter] = useQueryParam("filter");
+
+  if (!filter) {
+    filter = { categories: [] };
+  }
+
+  useEffect(() => {
+    if (!isLoading) {
+      dispatch(startGetList(data));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading]);
+
+  const { list } = useSelector((state) => state.products);
 
   function checkCategoryOn(product) {
-    return categoriesFilter[product.data.category.id] === true;
+    return filter.categories.includes(product.data.category.slug.toLowerCase());
   }
 
   const isActiveFilter = () => {
-    let active = false;
-
-    Object.keys(categoriesFilter).forEach((key) => {
-      // console.log(key, categoriesFilter[key])
-      if (categoriesFilter[key] === true) {
-        active = true;
-      }
-    });
-
-    return active;
+    return filter.categories.length > 0 ? true : false;
   };
 
+  // Function to get filtered list
+  function getFilteredList() {
+    // Avoid filter when isActiveFilter is false
+    if (!isActiveFilter()) {
+      return list.results;
+    }
+    return list.results.filter(checkCategoryOn);
+  }
+
+  // Avoid duplicate function calls with useMemo
+  // eslint-disable-next-line
+  let filteredList = useMemo(getFilteredList, [list.results, filter]);
+
+  const [filterFormik, setFilterFormik] = useState([]);
   useEffect(() => {
-    if (isActiveFilter) {
-      setProductsFilter(() => products.results.filter(checkCategoryOn));
+    if (filter.categories.length > 0) {
+      setFilterFormik(filter);
+    } else {
+      if (filterFormik.length === 0 || filterFormik.categories?.length > 0) {
+        setFilterFormik({ categories: [] });
+      }
     }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [categoriesFilter]);
+    // eslint-disable-next-line
+  }, [filter]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, []);
+  const formik = useFormik({
+    initialValues: {
+      categories: filterFormik?.categories,
+    },
+    enableReinitialize: true,
+    onSubmit: () => {
+      setFilterFormik({ categories: [] });
+    },
+  });
+
+  const { resetForm, handleSubmit } = formik;
+
+  const handleResetFilter = () => {
+    let filter = { categories: [] };
+    setFilter(filter, { replace: true });
+
+    handleSubmit();
+    resetForm();
+  };
 
   return (
-    <Container>
-      <Row>
-        <Grid>
-          <GridItem>
-            <SidebarCategories
-              categoriesFilter={categoriesFilter}
-              setCategoriesFilter={setCategoriesFilter}
-            />
-          </GridItem>
+    <Page title="Products | Ecommerce">
+      <Container>
+        {/* <pre>{JSON.stringify(filter || {}, null, 2)}</pre> */}
+        <Row>
+          <Grid>
+            <GridItem>
+              <SidebarCategories
+                isLoading={isLoadingCategories}
+                categories={categories}
+                filter={filter}
+                setFilter={setFilter}
+                formik={formik}
+                onResetFilter={handleResetFilter}
+              />
+            </GridItem>
 
-          <GridItemProducts>
-            {loading ? (
-              <SpinerLoader />
-            ) : (
-              <>
-                <ProductsContainer>
-                  {isActiveFilter()
-                    ? productsFilter.map((product) => (
-                        <ProductCard
-                          key={product.id}
-                          image={product.data.mainimage.url}
-                          alt={product.data.mainimage.alt}
-                          name={product.data.name}
-                          price={product.data.price}
-                          category={product.data.category.slug}
-                        />
-                      ))
-                    : products.results.map((product, index) => (
-                        <ProductCard
-                          key={product.id}
-                          image={product.data.mainimage.url}
-                          alt={product.data.mainimage.alt}
-                          name={product.data.name}
-                          price={product.data.price}
-                          category={product.data.category.slug}
-                        />
-                      ))}
-                </ProductsContainer>
-                <PaginationContainer>
-                  <PaginationInfo>
-                    Showing{" "}
-                    {isActiveFilter()
-                      ? productsFilter.length
-                      : products.results.length}
-                    {"\u00A0"}results
-                  </PaginationInfo>
-                  <Pagination>
-                    <PaginationList>
-                      <li>
-                        <PaginationButton className="deactivate">
-                          <PaginationSVG>
-                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-                          </PaginationSVG>
-                        </PaginationButton>
-                      </li>
-                      <li>
-                        <PaginationButton className="active">
-                          1
-                        </PaginationButton>
-                      </li>
-                      <li>
-                        <PaginationButton>2</PaginationButton>
-                      </li>
-                      <li>
-                        <PaginationButton>3</PaginationButton>
-                      </li>
-                      <li>
-                        <PaginationButton>
-                          <PaginationSVG>
-                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-                          </PaginationSVG>
-                        </PaginationButton>
-                      </li>
-                    </PaginationList>
-                  </Pagination>
-                </PaginationContainer>
-              </>
-            )}
-          </GridItemProducts>
-        </Grid>
-      </Row>
-    </Container>
+            <GridItemProducts>
+              {list.loading ? (
+                <SpinerLoader />
+              ) : (
+                <>
+                  <ProductList
+                    products={
+                      isActiveFilter()
+                        ? filteredList.slice(list.page * 12 - 12, list.page * 12)
+                        : filteredList.slice((list.page * 12) - 12, list.page * 12)
+                    }
+                  />
+                  <PaginationSection
+                    length={filteredList.length}
+                    count={Math.ceil(filteredList.length / 12)}
+                    page={list.page}
+                  />
+                </>
+              )}
+            </GridItemProducts>
+          </Grid>
+        </Row>
+      </Container>
+    </Page>
   );
 };
 

@@ -1,16 +1,25 @@
-// import logo from './logo.svg';
+// route
+import Router from './routes';
+import { Provider } from 'react-redux';
+// theme
 import './App.css';
+// components
+import ScrollToTop from './components/ScrollToTop';
 import CartWidget from './components/CartWidget';
 import Footer from './layouts/Footer/Footer';
-import MainLayout from './layouts/MainLayout';
+//
+import { store } from './redux/store';
 
 function App() {
   return (
-    <div className="App">
-      <CartWidget />
-      <MainLayout />
-      <Footer />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <ScrollToTop />
+        <CartWidget />
+        <Router />
+        <Footer />
+      </div>
+    </Provider>
   );
 }
 

@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -43,4 +43,5 @@
 
 body {
   font-family: "Roboto";
+  color: rgb(33, 43, 54);
 }

@@ -116,7 +116,7 @@ export const LabelText = styled.span`
     background-color: white;
     color: rgb(33, 43, 54);
     ${Input}:checked + && {
-    color: #0c0c0c;
+        color: #0c0c0c;
     }
 `;
 
@@ -226,7 +226,6 @@ export const PaginationList = styled.ul`
 `;
 
 export const PaginationButton = styled.button`
-    pointer-events: none;
     display: -webkit-inline-box;
     display: -webkit-inline-flex;
     display: -ms-inline-flexbox;
@@ -244,7 +243,7 @@ export const PaginationButton = styled.button`
     -webkit-tap-highlight-color: transparent;
     background-color: transparent;
     outline: 0;
-    border: 0;
+    border: 0px none;
     margin: 0;
     border-radius: 0;
     padding: 0;
@@ -261,7 +260,7 @@ export const PaginationButton = styled.button`
     color: inherit;
     font-size: 14px;
     font-weight: 400;
-    line-height: 1.43;
+    line-height: 1.57143;
     border-radius: 16px;
     text-align: center;
     box-sizing: border-box;
@@ -274,31 +273,54 @@ export const PaginationButton = styled.button`
         background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
         background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    border: 1px solid rgba(0, 0, 0, 0.23);
+    &:hover {
+        background-color: rgba(145, 158, 171, 0.08);
+    }
     &.active {
-        color: #D23F57;
-        border: 1px solid rgba(210, 63, 87, 0.5);
-        background-color: rgba(210, 63, 87, 0.12);
+        color: rgb(0, 171, 85);
+        background-color: rgba(0, 171, 85, 0.08);
+        font-weight: 700;
+        &:hover {
+            background-color: rgba(0, 171, 85, 0.24) !important;
+        }
     }
     &.deactivate {
         opacity: 0.38;
+        pointer-events: none;
     }
 `;
 
-export const PaginationSVG = styled.svg`
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+export const ButtonClearFilter = styled.button`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    background-color: transparent;
+    outline: currentcolor none 0px;
+    margin: 0px;
+    cursor: pointer;
     user-select: none;
-    width: 1em;
-    height: 1em;
-    display: inline-block;
-    fill: currentColor;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    font-size: 1.5rem;
-    margin: 0 -8px;
+    vertical-align: middle;
+    appearance: none;
+    text-decoration: none;
+    font-weight: 700;
+    line-height: 1.71429;
+    font-size: 0.9375rem;
+    text-transform: capitalize;
+    font-family: Public Sans, sans-serif;
+    min-width: 64px;
+    padding: 7px 21px;
+    border-radius: 8px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, 
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, 
+        border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, 
+        color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    color: inherit;
+    width: 100%;
+    border: 1px solid rgba(145, 158, 171, 0.32);
+    height: 48px;
+    &:hover {
+        box-shadow: none;
+    }
 `;

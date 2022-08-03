@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useSwipeable } from 'react-swipeable';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
+// components
 import {
     CarouselContainer,
     CarouselInner,
     Item,
     Indicators,
-    ButtonPaginator,
-} from "../styled-components/carousel.styled.component";
-import PropTypes from 'prop-types';
+    DotItem,
+    BoxDot,
+    Dot,
+    ButtonCtrl,
+} from "../styled-components";
 
 export const CarouselItem = ({ children, width, image }) => {
     return (
@@ -68,26 +73,27 @@ const Carousel = ({ children }) => {
                 })}
             </CarouselInner>
             <Indicators>
-                <button
+                <ButtonCtrl
                     onClick={() => { updateIndex(activeIndex - 1) }}
                 >
-                    {`<`}
-                </button>
+                    <MdKeyboardArrowLeft />
+                </ButtonCtrl>
                 {React.Children.map(children, (child, index) => {
                     return (
-                        <ButtonPaginator
-                            className={`${index === activeIndex ? "active" : ""}`}
-                            onClick={() => updateIndex(index)}
-                        >
-                            {index + 1}
-                        </ButtonPaginator>
+                        <DotItem className={`${index === activeIndex ? "active" : ""}`}>
+                            <BoxDot>
+                                <Dot
+                                    onClick={() => updateIndex(index)}
+                                />
+                            </BoxDot>
+                        </DotItem>
                     );
                 })}
-                <button
+                <ButtonCtrl
                     onClick={() => { updateIndex(activeIndex + 1) }}
                 >
-                    {`>`}
-                </button>
+                    <MdKeyboardArrowRight />
+                </ButtonCtrl>
             </Indicators>
         </CarouselContainer>
     );

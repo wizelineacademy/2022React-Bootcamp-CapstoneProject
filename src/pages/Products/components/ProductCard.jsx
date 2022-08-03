@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { fCurrency } from "../../../utils/formatNumber";
+// components
 import {
   CategoryProduct,
-  LinkName,
   PriceProduct,
   PriceProductBox,
   Product,
@@ -18,28 +17,35 @@ import {
   SpanContainer,
   SpanTop,
 } from "../styled-components/product.styled.component.js";
+import { LinkStyle } from "../../../styled-components/global.styled.component.js";
+//
+import { fCurrency } from "../../../utils";
+import { createCardProductAdapter } from "../../../adapters/product.adapter";
 
-const ProductCard = ({ image, alt, name, price, category }) => {
+// ----------------------------------------------------------------------
+
+const ProductCard = ({ product }) => {
+  const productAdapter = createCardProductAdapter(product);
   return (
     <Product>
       <ProductPaper>
         <ProductTop>
-          <a href="/" style={{ textDecoration: "none" }}>
+          <LinkStyle to={`/product/${product.id}`}>
             <SpanContainer>
               <SpanTop />
-              <ProductImage src={image} alt={alt} width={50} />
+              <ProductImage src={productAdapter.cover} alt={productAdapter.alt} width={50} />
             </SpanContainer>
-          </a>
+          </LinkStyle>
         </ProductTop>
         <div style={{ padding: "1rem" }}>
           <ProductBottom>
             <ProductInfo>
-              <LinkName href="/">
-                <ProductTitle>{name.trim()}</ProductTitle>
-              </LinkName>
+              <LinkStyle to={`/product/${product.id}`} style={{ margin: "0px", textAlign: "left" }}>
+                <ProductTitle>{productAdapter.name.trim()}</ProductTitle>
+              </LinkStyle>
               <PriceProductBox>
-                <CategoryProduct>{category}</CategoryProduct>
-                <PriceProduct>{fCurrency(price)}</PriceProduct>
+                <CategoryProduct>{productAdapter.category}</CategoryProduct>
+                <PriceProduct>{fCurrency(productAdapter.price)}</PriceProduct>
               </PriceProductBox>
             </ProductInfo>
             <ProductAction>
@@ -53,11 +59,7 @@ const ProductCard = ({ image, alt, name, price, category }) => {
 };
 
 ProductCard.propTypes = {
-  image: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  category: PropTypes.string.isRequired,
+  product: PropTypes.object.isRequired,
 };
 
 export default ProductCard;

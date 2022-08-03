@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import {
   CategoryCard,
   CategoryCardContent,
@@ -8,20 +8,27 @@ import {
   CategoryGrid,
   CategoryName,
   CoverImg,
-} from "../styled-components/category.styled.component";
+} from "../styled-components";
+import { LinkStyle } from "../../../styled-components/global.styled.component";
 
 const CategoryBanner = ({ image, title }) => {
   return (
     <CategoryGrid>
-      <CategoryCard>
-        <CategoryCardMedia>
-          <CategoryCardSvgIcon src="/static/icons/shape-avatar.svg" />
-          <CoverImg alt={title} src={image} />
-        </CategoryCardMedia>
-        <CategoryCardContent>
-          <CategoryName>{title}</CategoryName>
-        </CategoryCardContent>
-      </CategoryCard>
+      <LinkStyle
+        to={`/products?filter=~(categories~(~'${title
+          .toLowerCase()
+          .replace(" & ", "--")}))`}
+      >
+        <CategoryCard>
+          <CategoryCardMedia>
+            <CategoryCardSvgIcon src="/static/icons/shape-avatar.svg" />
+            <CoverImg alt={title} src={image} />
+          </CategoryCardMedia>
+          <CategoryCardContent>
+            <CategoryName>{title}</CategoryName>
+          </CategoryCardContent>
+        </CategoryCard>
+      </LinkStyle>
     </CategoryGrid>
   );
 };
@@ -29,6 +36,6 @@ const CategoryBanner = ({ image, title }) => {
 CategoryBanner.propTypes = {
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-}
+};
 
 export default CategoryBanner;

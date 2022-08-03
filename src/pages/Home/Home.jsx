@@ -1,28 +1,25 @@
 import React from "react";
+import Page from "../../components/Page";
 import Categories from "./Categories";
-import ContentTop from "./ContentTop";
+import BannerSlider from "./BannerSlider";
 import ProductsGrid from "./ProductsGrid";
 import {
   ButtonViewAll,
   ContainerButtons,
 } from "./styled-components/product.styled.component";
 
-const Home = ({ setNavigation }) => {
-  const handleClickNav = () => {
-    setNavigation(1);
-  };
-
+const Home = () => {
   return (
-    <>
-      <ContentTop />
+    <Page title="Home | Eccomerce">
+      <BannerSlider />
       <Categories />
       <ProductsGrid />
       <ContainerButtons>
-        <ButtonViewAll onClick={handleClickNav}>
+        <ButtonViewAll to="/products">
           View all products
         </ButtonViewAll>
       </ContainerButtons>
-    </>
+    </Page>
   );
 };
 

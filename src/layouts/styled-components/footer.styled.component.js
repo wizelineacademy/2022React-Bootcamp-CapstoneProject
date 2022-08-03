@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { breakpoints } from '../../styled-components/styled-breakpoints';
 
-export const Container = styled.div`
+export const FooterContainer = styled.div`
     width: 100%;
     margin-left: auto;
     box-sizing: border-box;
@@ -24,7 +24,7 @@ export const Container = styled.div`
     ], "min-width")};
 `;
 
-export const Wrapper = styled.div`
+export const FooterWrapper = styled.div`
     padding-top: 80px;
     padding-bottom: 80px;
     overflow: hidden;

@@ -1,26 +1,43 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+// components
 import Carousel, { CarouselItem } from "./components/Carousel";
-import { useFeaturedBanners } from "../../utils/hooks/useFeaturedBanners";
 import { SpinerLoader } from "../../styled-components/global.styled.component";
 import {
   BannerInfo,
   ItemContainer,
 } from "./styled-components/carousel.styled.component";
+//
+import { useFeaturedBanners } from "../../utils/hooks";
+import { startGetInfo } from "../../redux/actions/bannerSlider";
 
-const ContentTop = () => {
+// ----------------------------------------------------------------------
+
+const BannerSlider = () => {
+  const dispatch = useDispatch();
   const { data, isLoading } = useFeaturedBanners();
   // console.log(data, isLoading);
 
+  useEffect(() => {
+    if (!isLoading) {
+      dispatch(startGetInfo(data));
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading]);
+
+  const featuredBanners = useSelector((state) => state.banners);
+
   return (
     <div>
-      {isLoading ? (
+      {featuredBanners.loading ? (
         <div style={{ marginTop: "1rem" }}>
           <SpinerLoader />
         </div>
       ) : (
         <Carousel>
-          {data.results &&
-            data.results.map((item) => (
+          {featuredBanners.results &&
+            featuredBanners.results.map((item) => (
               <CarouselItem key={item.id} image={item.data.main_image.url}>
                 <ItemContainer>
                   <BannerInfo>
@@ -35,4 +52,4 @@ const ContentTop = () => {
   );
 };
 
-export default ContentTop;
+export default BannerSlider;

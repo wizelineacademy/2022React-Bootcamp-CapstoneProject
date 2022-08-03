@@ -36,22 +36,79 @@ export const Item = styled.div`
     }
 `;
 
-export const Indicators = styled.div`
+export const Indicators = styled.ul`
+    margin-top: 18px;
     display: flex;
+    list-style: none;
+    align-items: center;
     justify-content: center;
-    > button {
-        margin: 5px;
-        border: none;
-        cursor: pointer;
-        border-radius: 3px;
+    > .active span {
+        width: 16px;
+        border-radius: 6px;
     }
-    > button.active {
-        background-color: #7afc49;
+    > .active {
+        opacity: 1;
+    }
+`;
+
+export const ButtonCtrl = styled.button`
+    margin: 0 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+    margin: 0;
+    border-radius: 0;
+    padding: 0;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    flex: 0 0 auto;
+    font-size: 1.5rem;
+    padding: 8px;
+    border-radius: 50%;
+    overflow: visible;
+    color: #637381;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    padding: 5px;
+    padding: 6px;
+    &:hover {
+        background-color: #00AB55;
         color: #fff;
     }
 `;
 
-export const ButtonPaginator = styled.button`
+export const DotItem = styled.li`
+    width: 18px;
+    height: 18px;
+    opacity: 0.32;
+    cursor: pointer;
+`;
+
+export const BoxDot = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const Dot = styled.span`
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    transition: width 250ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+    background-color: #00AB55;
 `;
 
 export const ItemContainer = styled.div`

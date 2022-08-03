@@ -62,7 +62,7 @@ export const ProductPaper = styled.div`
     flex-direction: column;
     -moz-box-pack: justify;
     justify-content: space-between;
-    height: 100%;
+    /* height: 100%; */
     margin: auto;
     overflow: hidden;
     transition: all 250ms ease-in-out 0s;
@@ -133,16 +133,6 @@ export const ProductInfo = styled.div`
     flex: 1 1 0px;
     min-width: 0px;
     margin-right: 8px;
-`;
-
-export const LinkName = styled.a`
-    margin: 0px;
-    text-decoration: none;
-    color: inherit;
-    text-align: left;
-    &:hover {
-        text-decoration: underline;
-    }
 `;
 
 export const ProductTitle = styled.h6`

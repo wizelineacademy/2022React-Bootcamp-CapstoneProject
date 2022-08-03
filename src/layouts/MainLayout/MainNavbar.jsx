@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+// components
 import Logo from "../../components/Logo";
 import {
   MainHeader,
@@ -9,11 +11,15 @@ import {
   Input,
   RightBox,
   Icon,
-} from "../styled-components/header.styled.component";
+  ButtonGo,
+  WrapperSearch,
+} from "../styled-components";
 
-const MainNavbar = ({ setNavigation }) => {
-  const handleClickNav = () => {
-    setNavigation(0);
+const MainNavbar = () => {
+  const txtSearch = useRef();
+  let navigate = useNavigate();
+  const handleSearch = () => {
+    navigate(`/search?q=${txtSearch.current.value}`, { replace: true });
   };
 
   return (
@@ -21,11 +27,14 @@ const MainNavbar = ({ setNavigation }) => {
       <LayoutNavbar>
         <Toolbar>
           <Wrapper>
-            <LogoLink onClick={handleClickNav}>
+            <LogoLink to="/">
               {/* <img src="/static/logo.svg" width="40" height="40" alt="logo/name" /> */}
               <Logo image="/static/logo.svg" />
             </LogoLink>
-            <Input type="text" placeholder="Search" />
+            <WrapperSearch>
+              <Input type="search" placeholder="Search" ref={txtSearch} />
+              <ButtonGo onClick={handleSearch}>Go</ButtonGo>
+            </WrapperSearch>
             <RightBox>
               <Icon viewBox="0 0 20 20" />
             </RightBox>

@@ -6,10 +6,10 @@ import {
   LabelText,
 } from "../styled-components/products.styled.component";
 
-const CategoryInput = ({ label, checked, onChange, name }) => {
+const CategoryInput = ({ label, checked, name, value, onChange, ...props }) => {
   return (
     <Label>
-      <Input name={name} checked={checked !== undefined ? checked : false} onChange={onChange} />
+      <Input name={name} checked={checked} value={value} onChange={onChange} {...props} />
       <LabelText>{label}</LabelText>
     </Label>
   );
@@ -18,8 +18,8 @@ const CategoryInput = ({ label, checked, onChange, name }) => {
 CategoryInput.propTypes = {
   label: PropTypes.string.isRequired,
   checked: PropTypes.bool,
-  onChange: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default CategoryInput;

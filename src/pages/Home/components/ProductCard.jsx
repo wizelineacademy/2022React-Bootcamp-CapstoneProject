@@ -16,7 +16,7 @@ import {
   ProductTop,
   SpanContainer,
   SpanTop,
-} from "../styled-components/product.styled.component";
+} from "../styled-components";
 
 const ProductCard = ({ image, alt, name, price }) => {
   return (

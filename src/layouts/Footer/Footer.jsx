@@ -1,24 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Logo from "../../components/Logo";
 import {
-  Container,
+  FooterContainer,
   FooterGridContainer,
   FooterGridItem,
   FooterGridItemDescription,
-  Wrapper,
-} from "../styled-components/footer.styled.component";
+  FooterWrapper,
+} from "../styled-components";
 
 const Footer = () => {
   return (
     <footer>
       <div style={{ backgroundColor: "#0c0e30" }}>
-        <Container>
-          <Wrapper>
+        <FooterContainer>
+          <FooterWrapper>
             <FooterGridContainer>
               <FooterGridItem>
-                <a href="/">
+                <Link to="/">
                   <Logo image="/static/logo-light.svg" />
-                </a>
+                </Link>
                 <FooterGridItemDescription>
                   Ecommerce created during Wizeline’s Academy React Bootcamp.
                 </FooterGridItemDescription>
@@ -27,8 +28,8 @@ const Footer = () => {
               <FooterGridItem />
               <FooterGridItem />
             </FooterGridContainer>
-          </Wrapper>
-        </Container>
+          </FooterWrapper>
+        </FooterContainer>
       </div>
     </footer>
   );

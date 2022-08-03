@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { breakpoints } from '../../../styled-components/styled-breakpoints';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
     box-sizing: border-box;
@@ -234,7 +235,7 @@ export const ContainerButtons = styled.div`
     flex-grow: 0;
 `;
 
-export const ButtonViewAll = styled.button`
+export const ButtonViewAll = styled(Link)`
     margin: 0px 0px 0px 12px;
     display: inline-flex;
     align-items: center;
