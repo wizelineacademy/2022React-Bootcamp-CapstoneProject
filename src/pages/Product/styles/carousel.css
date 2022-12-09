@@ -1,0 +1,11 @@
+.wrapper > img {
+    width: 100%;
+    display: inline-block;
+    height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+.slick-current .box-cover {
+    border: 3px solid rgb(0, 171, 85) !important;
+}
