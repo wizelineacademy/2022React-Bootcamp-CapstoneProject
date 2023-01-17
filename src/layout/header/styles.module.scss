@@ -16,11 +16,14 @@
 }
 
 .searchBar {
-	background-color: transparent;
+	background-color: var(--pink);
 	padding: 0.5rem;
 	border: 0;
-	font-family: "Bodoni Moda";
-	font-weight: 400;
+	font-family: "Outfit";
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	color: var(--black);
+	text-transform: lowercase;
 }
 
 .cart {
