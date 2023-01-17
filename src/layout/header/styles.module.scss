@@ -8,7 +8,7 @@
 }
 
 .logo {
-	font-family: "Bodoni Moda";
+	font-family: 'Bodoni Moda';
 	font-weight: 800;
 	cursor: pointer;
 	font-size: 24px;
@@ -19,7 +19,7 @@
 	background-color: var(--pink);
 	padding: 0.5rem;
 	border: 0;
-	font-family: "Outfit";
+	font-family: 'Outfit';
 	font-weight: 600;
 	letter-spacing: 0.5px;
 	color: var(--black);
@@ -27,6 +27,15 @@
 }
 
 .cart {
-	font-size: 24px;
 	cursor: pointer;
+	width: 24px;
+	height: 24px;
+	padding: 4px;
+	transition: all 0.3s ease-in-out;
+	box-shadow: 4px 4px transparent;
+
+	&:hover {
+		box-shadow: 4px 4px var(--pink);
+		background-color: var(--green);
+	}
 }
