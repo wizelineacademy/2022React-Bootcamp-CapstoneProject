@@ -70,7 +70,7 @@ const Carousel = ({ data }) => {
 							<div className={styles.info}>
 								<h3>{formatTitle[0]}</h3>
 								<h2>{formatTitle[1]}</h2>
-								<p>{description[0].text}</p>
+								<p className={styles.description}>{description[0].text}</p>
 								<div className={styles.indicator}>{indicator}</div>
 							</div>
 							<div
