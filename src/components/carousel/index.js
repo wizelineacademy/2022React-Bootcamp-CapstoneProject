@@ -53,7 +53,7 @@ const Carousel = ({ data }) => {
 				const formatTitle = title.split("-");
 
 				const imgStyle = {
-					backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.20)), url(${mainImg.url})`,
+					backgroundImage: `url(${mainImg.url})`,
 					height: mainImg.height,
 					width: mainImg.width,
 				};
@@ -66,17 +66,19 @@ const Carousel = ({ data }) => {
 								? styles.bannerWrapperVisible
 								: styles.bannerWrapperHidden
 						}`}>
-						<div
-							className={styles.bannerInfoContainer}
-							style={imgStyle}>
-							<div className={styles.bannerInfo}>
-								<h2>{formatTitle[1]}</h2>
+						<div className={`${styles.container}`}>
+							<div className={styles.info}>
 								<h3>{formatTitle[0]}</h3>
+								<h2>{formatTitle[1]}</h2>
 								<p>{description[0].text}</p>
+								<div className={styles.indicator}>{indicator}</div>
 							</div>
-							{chevrons}
-							<div className={styles.indicator}>{indicator}</div>
+							<div
+								className={styles.bgImg}
+								style={imgStyle}
+							/>
 						</div>
+						{chevrons}
 					</div>
 				);
 			})}

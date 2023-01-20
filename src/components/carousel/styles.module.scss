@@ -1,8 +1,7 @@
 %header {
 	font-family: "Bodoni Moda";
-	font-weight: 600;
+	font-weight: 100;
 	text-transform: lowercase;
-	font-style: italic;
 }
 
 /* Fading animation */
@@ -24,10 +23,15 @@
 }
 
 .bannerWrapper {
-	&Visible {
-		display: block;
+	&Visible,
+	&Hidden {
+		width: 100%;
+		height: 100%;
 		-webkit-animation: fadeIn 2s;
 		animation: fadeIn 2s;
+	}
+	&Visible {
+		display: flex;
 	}
 	&Hidden {
 		display: none;
@@ -38,81 +42,88 @@
 
 .carouselContainer {
 	width: 100%;
-	height: 500px;
+	height: 520px;
 	overflow: hidden;
 	position: relative;
+	display: flex;
 }
 
-.bannerInfo {
+.container {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 100%;
+}
+
+.bgImg {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	height: 100%;
+
+	// background details
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center top;
+	-webkit-animation: fadeIn 2s;
+	animation: fadeIn 2s;
+}
+
+h2 {
+	@extend %header;
+	font-size: 80px;
+	letter-spacing: -5px;
+	font-style: italic;
+	color: var(--black);
+	border-bottom: 3px solid var(--blue);
+	line-height: 80%;
+}
+
+h3 {
+	font-size: 16px;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding: 0;
+	color: var(--beige);
+}
+
+p {
+	color: var(--blue);
+	font-size: 16px;
+	mix-blend-mode: hard-light;
+	padding-top: 32px;
+	text-justify: distribute-all-lines;
+}
+
+.chevron {
 	position: absolute;
-	margin: 16px 72px;
-	max-width: 500px;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	justify-content: space-between;
 
-	&Container {
-		position: absolute;
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-		height: 100%;
-		z-index: 1;
-		padding: 24px;
-		text-align: center;
-		align-items: center;
-
-		// background details
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center top;
-		-webkit-animation: fadeIn 2s;
-		animation: fadeIn 2s;
-
-		h2 {
-			@extend %header;
-			font-size: 100px;
-			letter-spacing: -5px;
-			line-height: 80px;
-			padding: 0;
-			margin: 0;
-			color: var(--white);
+	button {
+		&:hover {
+			box-shadow: 4px 4px transparent;
+			background-color: darken($color: #e1e9d1, $amount: 20);
 		}
 
-		h3 {
-			@extend %header;
-			font-size: 40px;
-			font-style: normal;
-			padding: 0;
-			margin: 0;
-			z-index: 1;
-			color: var(--pink);
-		}
-
-		p {
-			color: var(--green);
-			font-size: 16px;
-			text-align: center;
-			mix-blend-mode: hard-light;
-			margin-top: 16px;
-			text-justify: distribute-all-lines;
-		}
-
-		.chevron {
-			display: flex;
-			width: 100%;
-			height: 100%;
-			align-items: center;
-			justify-content: space-between;
-
-			button {
-				&:hover {
-					box-shadow: 4px 4px transparent;
-					background-color: darken($color: #e1e9d1, $amount: 20);
-				}
-				background-color: var(--green);
-				width: 36px;
-				height: 36px;
-			}
-		}
+		background-color: var(--green);
+		width: 36px;
+		height: 36px;
 	}
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end;
+	text-align: end;
+	margin: 0 2rem 0 4rem;
+	flex: 0.5;
+	max-width: 400px;
 }
 
 .indicator {
