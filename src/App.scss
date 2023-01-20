@@ -2,8 +2,15 @@
 	--white: #f1f1f1;
 	--black: #25242b;
 	--gray: #c4c4c4;
-	--green: rgb(206 231 203 / 59%);
+	--green: #e1e9d1;
 	--pink: #ffe4e9;
+	--blue: #94a8bb;
+	--beige: #ac9988;
+	--dark-green: #64806b;
+}
+
+* {
+	box-sizing: border-box;
 }
 
 html,
@@ -14,4 +21,21 @@ body,
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+	box-sizing: border-box;
+}
+
+button {
+	border: none;
+	min-width: 16px;
+	min-height: 16px;
+	cursor: pointer;
+	padding: 4px;
+	transition: all 0.3s ease-in-out;
+	box-shadow: 4px 4px transparent;
+	background-color: transparent;
+
+	&:hover {
+		box-shadow: 4px 4px var(--pink);
+		background-color: var(--green);
+	}
 }

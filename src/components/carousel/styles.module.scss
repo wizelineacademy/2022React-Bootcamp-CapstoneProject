@@ -1,0 +1,158 @@
+%header {
+	font-family: "Bodoni Moda";
+	font-weight: 600;
+	text-transform: lowercase;
+	font-style: italic;
+}
+
+/* Fading animation */
+@-webkit-keyframes fadeIn {
+	from {
+		opacity: 0.9;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0.9;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.bannerWrapper {
+	&Visible {
+		display: block;
+		-webkit-animation: fadeIn 2s;
+		animation: fadeIn 2s;
+	}
+	&Hidden {
+		display: none;
+		-webkit-animation: fadeIn 2s;
+		animation: fadeIn 2s;
+	}
+}
+
+.carouselContainer {
+	width: 100%;
+	height: 500px;
+	overflow: hidden;
+	position: relative;
+}
+
+.bannerInfo {
+	position: absolute;
+	margin: 16px 72px;
+	max-width: 500px;
+
+	&Container {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		padding: 24px;
+		text-align: center;
+		align-items: center;
+
+		// background details
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center top;
+		-webkit-animation: fadeIn 2s;
+		animation: fadeIn 2s;
+
+		h2 {
+			@extend %header;
+			font-size: 100px;
+			letter-spacing: -5px;
+			line-height: 80px;
+			padding: 0;
+			margin: 0;
+			color: var(--white);
+		}
+
+		h3 {
+			@extend %header;
+			font-size: 40px;
+			font-style: normal;
+			padding: 0;
+			margin: 0;
+			z-index: 1;
+			color: var(--pink);
+		}
+
+		p {
+			color: var(--green);
+			font-size: 16px;
+			text-align: center;
+			mix-blend-mode: hard-light;
+			margin-top: 16px;
+			text-justify: distribute-all-lines;
+		}
+
+		.chevron {
+			display: flex;
+			width: 100%;
+			height: 100%;
+			align-items: center;
+			justify-content: space-between;
+
+			button {
+				&:hover {
+					box-shadow: 4px 4px transparent;
+					background-color: darken($color: #e1e9d1, $amount: 20);
+				}
+				background-color: var(--green);
+				width: 36px;
+				height: 36px;
+			}
+		}
+	}
+}
+
+.indicator {
+	position: absolute;
+	padding: 4px;
+	z-index: 1;
+	background: var(--blue);
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	text-align: center;
+
+	button {
+		margin: 0 16px;
+		width: 20px;
+		height: 20px;
+		&:hover {
+			background-color: transparent;
+			box-shadow: none;
+		}
+	}
+
+	.fill {
+		svg {
+			fill: var(--white);
+		}
+	}
+
+	svg {
+		color: var(--white);
+		width: 20px;
+		height: 20px;
+		fill: transparent;
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			transition: all 0.3s ease-in-out;
+			fill: var(--white);
+			box-shadow: none;
+		}
+	}
+}

@@ -1,6 +1,11 @@
+// @vendors
 import React from "react";
-import styles from "./styles.module.scss";
+
+// @icons
 import ShoppingCart from "../../assets/icons/shopping-cart";
+
+// @styles
+import styles from "./styles.module.scss";
 
 const Header = () => {
 	return (
@@ -12,9 +17,9 @@ const Header = () => {
 					placeholder='Search'
 				/>
 			</div>
-			<div className={styles.cart}>
+			<button className={styles.cart}>
 				<ShoppingCart />
-			</div>
+			</button>
 		</div>
 	);
 };

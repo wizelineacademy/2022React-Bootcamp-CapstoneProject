@@ -1,10 +1,22 @@
+// @vendors
 import React from "react";
+
+// @constants
+import data from "../../mocks/en-us/featured-banners.json";
+import categories from "../../mocks/en-us/product-categories.json";
+
+// @components
+import Carousel from "../../components/carousel";
+import InlineGrid from "../../components/inline-grid";
+
+// @styles
 import styles from "./styles.module.scss";
 
-const Home = () => {
+const Home = ({ bannersData }) => {
 	return (
 		<div className={styles.container}>
-			<h1 className='text-3xl font-bold underline'>Hello world!</h1>
+			<Carousel data={data.results} />
+			<InlineGrid data={categories.results} />
 		</div>
 	);
 };
