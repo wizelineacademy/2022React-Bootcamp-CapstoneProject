@@ -1,7 +1,10 @@
-import styles from "./styles.module.scss";
+// @vendors
+import { object, string } from 'prop-types';
+
+// @styles
+import styles from './styles.module.scss';
 
 const GridITem = ({ data }) => {
-	console.log("🚀 ~ file: index.js:4 ~ GridITem ~ data", data);
 	const { name, category, price, mainimage: mainImg } = data;
 	const imgStyle = {
 		backgroundImage: `url(${mainImg.url})`,
@@ -10,9 +13,7 @@ const GridITem = ({ data }) => {
 	};
 
 	return (
-		<div
-			className={styles.item}
-			style={imgStyle}>
+		<div key={category.id} className={styles.item} style={imgStyle}>
 			<div className={styles.itemInfo}>
 				<p className={styles.name}>{name}</p>
 				<p className={styles.category}>{category.slug}</p>
@@ -20,6 +21,14 @@ const GridITem = ({ data }) => {
 			</div>
 		</div>
 	);
+};
+
+GridITem.propTypes = {
+	data: object,
+};
+
+GridITem.defaultProps = {
+	data: {},
 };
 
 export default GridITem;

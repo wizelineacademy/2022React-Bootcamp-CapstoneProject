@@ -1,6 +1,11 @@
+// @vendors
+import { array, string } from 'prop-types';
+
+// @components
+import GridITem from './grid-item';
+
 // @styles
-import GridITem from "./item";
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss';
 
 const MainGrid = ({ data, title }) => {
 	return (
@@ -8,11 +13,23 @@ const MainGrid = ({ data, title }) => {
 			<h3>{title}</h3>
 			<div className={styles.container}>
 				{data?.map((item) => (
-					<GridITem data={item.data} />
+					<div key={item.id}>
+						<GridITem data={item.data} />
+					</div>
 				))}
 			</div>
 		</div>
 	);
+};
+
+MainGrid.propTypes = {
+	data: array.isRequired,
+	title: string,
+};
+
+MainGrid.defaultProps = {
+	data: [],
+	title: 'Our Products',
 };
 
 export default MainGrid;

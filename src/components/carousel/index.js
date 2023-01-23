@@ -1,35 +1,37 @@
 // @vendors
-import { useEffect, useState } from "react";
-import PropTypes, { array } from "prop-types";
+import { useState } from 'react';
+import { array } from 'prop-types';
+
+// @icons
+import { ChevronLeft, ChevronRight } from '../../assets/icons/chevrons';
+import { Heart } from '../../assets/icons/heart';
 
 // @styles
-import styles from "./styles.module.scss";
-import { ChevronLeft, ChevronRight } from "../../assets/icons/chevrons";
-import { Heart } from "../../assets/icons/heart";
+import styles from './styles.module.scss';
 
 const Carousel = ({ data }) => {
 	const [activeBanner, setActiveBanner] = useState(0);
 
 	const handleChevronClick = (position) => {
-		if (position === "right") {
+		if (position === 'right') {
 			setActiveBanner((prevActive) => {
 				let next = (prevActive += 1);
-				return next > data.length - 1 ? 0 : next;
+				return next > data?.length - 1 ? 0 : next;
 			});
 		} else {
 			setActiveBanner((prevActive) => {
 				let previous = (prevActive -= 1);
-				return previous < 0 ? data.length - 1 : previous;
+				return previous < 0 ? data?.length - 1 : previous;
 			});
 		}
 	};
 
 	const chevrons = (
 		<div className={styles.chevron}>
-			<button onClick={() => handleChevronClick("left")}>
+			<button onClick={() => handleChevronClick('left')}>
 				<ChevronLeft />
 			</button>
-			<button onClick={() => handleChevronClick("right")}>
+			<button onClick={() => handleChevronClick('right')}>
 				<ChevronRight />
 			</button>
 		</div>
@@ -39,7 +41,7 @@ const Carousel = ({ data }) => {
 		return (
 			<button
 				key={`${banner.id}-indicator`}
-				className={i === activeBanner ? styles.fill : ""}
+				className={i === activeBanner ? styles.fill : ''}
 				onClick={() => setActiveBanner(i)}>
 				<Heart />
 			</button>
@@ -50,7 +52,7 @@ const Carousel = ({ data }) => {
 		<header className={styles.carouselContainer}>
 			{data?.map((banner, i) => {
 				let { title, description, main_image: mainImg } = banner.data;
-				const formatTitle = title.split("-");
+				const formatTitle = title.split('-');
 
 				const imgStyle = {
 					backgroundImage: `url(${mainImg.url})`,
@@ -62,9 +64,7 @@ const Carousel = ({ data }) => {
 					<div
 						key={banner.id}
 						className={`${
-							i === activeBanner
-								? styles.bannerWrapperVisible
-								: styles.bannerWrapperHidden
+							i === activeBanner ? styles.bannerWrapperVisible : styles.bannerWrapperHidden
 						}`}>
 						<div className={`${styles.container}`}>
 							<div className={styles.info}>
@@ -72,10 +72,7 @@ const Carousel = ({ data }) => {
 								<h2>{formatTitle[1]}</h2>
 								<p className={styles.description}>{description[0].text}</p>
 							</div>
-							<div
-								className={styles.bgImg}
-								style={imgStyle}
-							/>
+							<div className={styles.bgImg} style={imgStyle} />
 						</div>
 					</div>
 				);
@@ -87,7 +84,11 @@ const Carousel = ({ data }) => {
 };
 
 Carousel.propTypes = {
-	data: array,
+	data: array.isRequired,
+};
+
+Carousel.defaultProps = {
+	data: [],
 };
 
 export default Carousel;

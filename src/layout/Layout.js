@@ -1,7 +1,12 @@
-import React from "react";
-import Header from "./header";
-import Footer from "./footer";
-import styles from "./styles.module.scss";
+// @vendors
+import React from 'react';
+
+// @components
+import Header from './header';
+import Footer from './footer';
+
+// @styles
+import styles from './styles.module.scss';
 
 const Layout = ({ children }) => {
 	return (

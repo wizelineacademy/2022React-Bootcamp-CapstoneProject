@@ -5,12 +5,12 @@
 	padding: 16px 40px;
 	position: sticky;
 	top: 0;
-	background-color: white;
+	background-color: var(--white);
 	z-index: 11;
 }
 
 .logo {
-	font-family: "Bodoni Moda";
+	font-family: 'Bodoni Moda';
 	font-weight: 800;
 	cursor: pointer;
 	font-size: 24px;
@@ -21,7 +21,7 @@
 	background-color: var(--pink);
 	padding: 0.5rem;
 	border: 0;
-	font-family: "Outfit";
+	font-family: 'Outfit';
 	font-weight: 600;
 	letter-spacing: 0.5px;
 	color: var(--black);

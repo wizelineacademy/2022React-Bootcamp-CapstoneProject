@@ -1,5 +1,5 @@
 %header {
-	font-family: "Bodoni Moda";
+	font-family: 'Bodoni Moda';
 	font-weight: 100;
 	text-transform: lowercase;
 }
@@ -114,7 +114,7 @@ h3 {
 		}
 
 		svg path {
-			color: white;
+			color: var(--white);
 		}
 	}
 }
