@@ -61,7 +61,7 @@ const Carousel = ({ data }) => {
 				return (
 					<div
 						key={banner.id}
-						className={`fade ${
+						className={`${
 							i === activeBanner
 								? styles.bannerWrapperVisible
 								: styles.bannerWrapperHidden
@@ -71,17 +71,17 @@ const Carousel = ({ data }) => {
 								<h3>{formatTitle[0]}</h3>
 								<h2>{formatTitle[1]}</h2>
 								<p className={styles.description}>{description[0].text}</p>
-								<div className={styles.indicator}>{indicator}</div>
 							</div>
 							<div
 								className={styles.bgImg}
 								style={imgStyle}
 							/>
 						</div>
-						{chevrons}
 					</div>
 				);
 			})}
+			{chevrons}
+			<div className={styles.indicator}>{indicator}</div>
 		</header>
 	);
 };

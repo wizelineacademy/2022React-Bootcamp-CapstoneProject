@@ -18,12 +18,6 @@ const InlineGrid = ({ data }) => {
 						className={styles.item}
 						style={imgStyle}>
 						<span>{name}</span>
-						{/* <img
-							src={mainImg.url}
-							height={mainImg.height}
-							width={mainImg.width}
-							alt={mainImg.alt}
-						/> */}
 					</button>
 				);
 			})}
