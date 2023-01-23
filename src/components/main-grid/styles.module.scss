@@ -1,3 +1,13 @@
+.mainContainer {
+	display: flex;
+	flex-direction: column;
+	h3 {
+		text-align: center;
+		padding: 16px;
+		margin: 8px 0;
+	}
+}
+
 .container {
 	display: grid;
 	grid-template-rows: auto;

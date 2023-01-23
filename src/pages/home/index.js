@@ -19,7 +19,10 @@ const Home = ({ bannersData }) => {
 		<div className={styles.container}>
 			<Carousel data={banners.results} />
 			<InlineGrid data={categories.results} />
-			<MainGrid data={products.results} />
+			<MainGrid
+				data={products.results}
+				title='Our Products'
+			/>
 		</div>
 	);
 };
