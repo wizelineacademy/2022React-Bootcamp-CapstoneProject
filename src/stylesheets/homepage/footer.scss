@@ -1,0 +1,17 @@
+.footer{
+    height: 10vh;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    
+    background-color: black;
+
+    h3{
+        width: 80%;
+        font-size: 0.7rem;
+        color: white;
+        padding: 10px;
+    }
+}
